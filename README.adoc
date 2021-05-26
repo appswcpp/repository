@@ -1,8 +1,8 @@
 = README
 
 == Introduction
-This is the repository for the Coffee Maker iTC. 
+This is the repository for the Appliciation Software iTC. 
 
-Provide a simple message about what the iTC is doing here (i.e. if you have multiple repositories, state what you are doing in each one of them). 
+More info to follow.
 
-Check out the main page for the iTC at <GITHUB.IO site here>.
+Check out the main page for the iTC at <https://appswcpp.github.io/>.
