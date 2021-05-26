@@ -1,0 +1,29 @@
+= Files README
+
+There are several templates and files provided within this repository, each with its own purpose. This focuses on the template files and will describe their purpose.
+
+All the templates are written in Asciidoctor syntax. You should take a look at the Templates_README.adoc file as it provides some direct information about general contents of the templates.
+
+[cols=".^1,.^3",options="header"]
+|===
+|File
+|Description
+
+|SPD-template.adoc
+|This is a template for completing the Security Problem Definition for the product type. This will be used as the scoping document for the cPP.
+
+This is the first template that will be used from this repository.
+
+|cPP-template.adoc
+|This is the template for a cPP. It has been created based on earlier templates as well as several cPPs current in use or in the process of being created.
+
+|cPP-MOD-template.adoc
+|This is a template for a PP-Module if the iTC needs to create on instead of a cPP (or in parallel). This is based on the cPP template but with some portions adjusted based on the differences between the two types of files.
+
+|SD-Template.adoc
+|This is the template for the Supporting Document. The Supporting Document is good for a cPP or a PP-Module. It has been created based on earlier templates as well as the supporting documents for several cPPs currently in use or in the process of being created.
+
+|PP-config-template.adoc
+|This is a template for creating a PP-Configuration with the cPP and another cPP/PP-Module/Package.
+
+|===

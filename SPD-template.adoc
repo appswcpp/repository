@@ -1,0 +1,103 @@
+= Security Problem Definition for _Coffee Maker_
+:showtitle:
+:toc: macro
+:imagesdir: images
+:icons: font
+:revnumber: 0.1
+:revdate: 2019-09-06
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm-itc-mailing-list@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+
+:sectnums!:
+
+== Revision History
+
+.Revision history
+[%header,cols="1,2,4"]
+|===
+|Version 
+|Date 
+|Description
+
+|0.1
+|<DATE>
+|Initial Release for iTC Review
+
+|
+|
+|
+
+
+|===
+
+toc::[]
+:sectnums:
+
+== Compliant Targets of Evaluation
+[GUIDANCE]
+====
+The purpose of this section would be to describe the types of products the iTC expects to be covered. For the coffee maker example, this could be something like different kinds of single-cup (pod) brewers, but not traditional pots.
+
+The point is that you will describe the categories of products that would be covered, as well as mention what would be out of scope if this is not clear from what is covered as in scope.
+
+The following section was taken from the Software Application SPD as an example.
+====
+
+Software applications to be considered for evaluation under this PP can be categorized under the following broad categories:
+
+. Enterprise Server Applications
+. Enterprise Desktop Applications
+. Enterprise-grade Mobile Applications
+
+In addition to the above categories there are large number of applications (Desktop and Mobile) that fall under "Consumer-grade" category. While such applications could be evaluated under the Software Application cPP, it is not the intention of this iTC to specifically address this category. The iTC doesn’t believe the consumer grade app ecosystem would support the cost and timelines associated with a typical Common Criteria evaluation.
+
+One more way (and perhaps a more useful way in the context of creating SFRs) to categorize apps is based on type of installation/deployment. The following categories are in scope of the first iteration of the cPP:
+
+. Traditional software running on an execution environment, e.g: Enterprise agent applications/sensors
+. Software appliance type of applications. E.g.:
+.. Enterprise management application
+. Distributed applications (e.g. enterprise resource planning systems)
+
+The following categories are out of scope of the first iteration of the cPP:
+
+. Software appliance type of applications. E.g.:
+.. Software defined network appliances
+. Web apps
+. Virtualized applications (e.g. running stand-alone on a VM or in container, as opposed to applications running on an execution environment that has itself been virtualized)
+. Applications running on bare metal i.e. directly on hardware without an execution environment such as operating system.
+
+Software defined network appliances are being covered by the Network iTC. Web apps are very different in terms of how they are built and operate. Their threat model is also quite different, and is not addressed in this cPP at this point. At the time of writing the SPD, it was also decided to not cover virtualized applications and bare metal apps due to the slightly different threat model.
+
+== Security Problem Definition
+[GUIDANCE]
+====
+At this stage, specific CC language is not required, the threats, assumptions and security policies can be written in "plain" language.
+
+Each one should get a title, like T.LOCAL_ATTACK or A.PROPER_ADMIN
+
+If there is nothing to be placed into a specific category, then it should be stated: There are no XXX for Coffee Makers.
+====
+
+=== Threats
+T.LOCAL_ATTACK:: An attacker can act through unprivileged access on the same computing platform on which the application executes. For example, attackers may provide maliciously formatted input to the application in the form of files or other local communications thus providing unauthorized access to plaintext sensitive data.
+
+
+=== Assumptions
+A.PROPER_ADMIN:: The administrator of the application is trusted to administer the software within compliance of the applied enterprise security policy.
+
+ 
+=== Organizational Security Policies
+There are no OSPs for coffee makers.
+
+
+== Security Objectives 
+
+=== Security Objectives for the TOE
+O.INTEGRITY:: The TOE will provide a means to verify the integrity and authenticity of downloaded updates.
+
+=== Security Objectives for the Operational Environment
+OE.PROPER_ADMIN:: The administrator of the application software is trusted to administer the software within compliance of the applied enterprise security policy.

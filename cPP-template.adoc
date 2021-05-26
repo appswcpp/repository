@@ -1,0 +1,769 @@
+= collaborative Protection Profile for _Coffee Maker_
+:showtitle:
+:toc: macro
+:toclevels: 7
+:sectnums:
+:sectnumlevels: 7
+:imagesdir: images
+:icons: font
+:revnumber: 0.2
+:revdate: 2019-08-23
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm-itc-mailing-list@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+
+:sectnums!:
+
+== Acknowledgements
+This collaborative Protection Profile (cPP) was developed by the {iTC-longname} international Technical Community (iTC) also known as {iTC-shortname} with representatives from industry, Government agencies, Common Criteria Test Laboratories, and members of academia.
+
+*INDUSTRY*
+
+_Vendors_
+
+*COMMON CRITERIA TESTING LABORATORIES*
+
+_ITSEF Name_
+
+*GOVERNMENT AGENCIES*
+
+_Government Agency Names_
+
+=== Revision History
+
+.Revision history
+[%header,cols="1,2,4"]
+|===
+|Version 
+|Date 
+|Description
+
+|0.1
+|<DATE>
+|Initial Release for iTC Review
+
+|
+|
+|
+
+
+|===
+
+toc::[]
+
+== Preface
+
+[REVIEW]
+====
+The technology type needs to be specified here, but the rest is boilerplate.
+====
+
+=== Objectives of Document
+This document presents the Common Criteria (CC) collaborative Protection Profile (cPP) to express the security functional requirements (SFRs) and security assurance requirements (SARs) for _some technology type_. The Evaluation activities that specify the actions the evaluator performs to determine if a product satisfies the SFRs captured within this cPP, are described in <<SD>>.
+
+[BOILERPLATE]
+====
+The rest of this section is boilerplate and should not need edits.
+====
+
+=== Scope of Document
+The scope of the cPP within the development and evaluation process is described in the Common Criteria for Information Technology Security Evaluation. In particular, a cPP defines the IT security requirements of a generic type of TOE and specifies the functional security measures to be offered by that TOE to meet stated requirements [<<CC1>>, Section B.14].
+
+=== Intended Readership
+The target audiences of this cPP are developers, CC consumers, system integrators, evaluators and schemes. 
+
+Although the cPP and SD may contain minor editorial errors, the cPP is recognized as living document and the iTC is dedicated to ongoing updates and revisions. Please report any issues to the {iTC-shortname}. 
+
+=== Related Documents
+[REVIEW]
+====
+Edit the Supporting Document in the list.
+====
+
+[bibliography]
+* [#CC1]#[CC1]# Common Criteria for Information Technology Security Evaluation, Part 1: Introduction and General Model, CCMB-2017-04-001, Version 3.1 Revision 5, April 2017.
+* [#CC2]#[CC2]# Common Criteria for Information Technology Security Evaluation, Part 2: Security Functional Components, CCMB-2017-04-002, Version 3.1 Revision 5, April 2017.
+* [#CC3]#[CC3]# Common Criteria for Information Technology Security Evaluation, Part 3: Security Assurance Components, CCMB-2017-04-003, Version 3.1 Revision 5, April 2017.
+* [#CEM]#[CEM]# Common Methodology for Information Technology Security Evaluation, Evaluation Methodology, CCMB-2017-04-004, Version 3.1 Revision 5, April 2017.
+* [#SD]#[SD]# Supporting Document
+
+For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
+
+
+:sectnums:
+
+== PP Introduction
+
+=== PP Reference Identification
+- PP Reference: {doctitle}
+- PP Version: {revnumber}
+- PP Date: {revdate}
+
+=== TOE Overview
+[GUIDANCE]
+====
+This may be short, but is likely to be 1-2 pages. This should provide a good description of what the products being evaluated should do. For example, in a biometric, this could talk about things like enrolling your biometric, verifying it, and then checking that it can't be faked. For a mobile device, this could talk about the scope of the eval, and high level expectations like protecting DIT/DAR.
+====
+
+=== TOE Design
+[GUIDANCE]
+====
+This may not be necessary depending on the technology type. It may already be clear what the design is, or it is covered in the Overview. For example in the Network cPP there is an entire section dedicated to use case/design selections to deal with distributed TOEs.
+====
+
+=== TOE Use Case
+If you are defining use cases (such as specific use scenarios that may have unique requirement selections), put that here.
+
+[GUIDANCE]
+====
+It is possible that you don't have individual use cases and a single description may suffice. If you have multiple separate use cases though, they should be described here separately.
+====
+
+==== USE CASE 1: first use case
+
+
+==== USE CASE 2: second use case
+
+
+
+== CC Conformance Claims
+As defined by the references <<CC1>>, <<CC2>> and <<CC3>>, this cPP:
+
+* conforms to the requirements of Common Criteria v3.1, Revision 5,
+* is Part 2 extended,
+* is Part 3 conformant,
+* does not claim conformance to any other security functional requirement packages.
+
+[REVIEW]
+====
+The following paragraph may not be applicable for all cPPs and should be added or edited as appropriate.
+====
+
+In order to be conformant to this cPP, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <<Security Functional Requirements>> (these are the mandatory SFRs) of this cPP, and potentially SFRs from <<Consistency Rationale>> (these are selection-based SFRs) and <<Selection-Based Requirements>> (these are optional SFRs) of this cPP. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this cPP) are allowed to be included in the ST. Further, no SFRs in <<Security Functional Requirements>> of this cPP are allowed to be omitted.
+
+
+[GUIDANCE]
+====
+This section may not be applicable, especially early in the development of a cPP but may come back later. The site location here is a recommendation and all sections would be added to this page.
+====
+
+=== Components allowed with this cPP in a PP-Configuration
+
+The list of packages, PP-Modules and cPPs that may be used in conjunction with this cPP can be found at: {iTC-website}PP-config.html
+
+The packages to which exact conformance can be claimed in conjunction with this PP are specified in the Allowed Packages list.
+
+PP-Modules that are allowed to specify this cPP as a base PP are specified in the Base PP list. 
+
+Other cPPs that are allowed to be included in a PP-Configuration along with this cPP are specified in the Other cPP list.
+
+== Security Problem Definition
+[REVIEW]
+====
+The sections here are boilerplate, but the content needs to be filled in.
+====
+
+The security problem is described in terms of the threats that the TOE is expected to address, assumptions about its operational environment, and any organizational security policies that the TOE is expected to enforce.
+
+=== Threats
+
+
+
+=== Assumptions
+
+
+ 
+=== Organizational Security Policies
+
+
+
+== Security Objectives 
+[REVIEW]
+====
+The sections here are boilerplate, but the content needs to be filled in.
+====
+
+=== Security Objectives for the TOE
+
+
+
+=== Security Objectives for the Operational Environment
+
+
+
+=== Security Objectives Rationale
+The following table describes how the assumptions, threats, and organizational security policies map to the security objectives.
+
+.Mapping between Security Problem Defintion and Security Objectives
+[%header,cols="1,1,1"]
+|===
+|Threat, Assumption, or OSP 
+|Security Objectives 
+|Rationale
+
+|
+|
+|
+
+|===
+
+== Security Functional Requirements
+
+=== Conventions
+[BOILERPLATE]
+====
+This section is boilerplate and should be left alone. Attention should be paid though as this is supposed to be followed in the SFRs.
+====
+
+The individual security functional requirements are specified in the sections below.
+The following conventions are used for the completion of operations:
+
+* [_Italicized text within square brackets_] indicates an operation to be completed by the ST author.
+
+* *Bold text* indicates additional text provided as a refinement.
+
+* [*Bold text within square brackets*] indicates the completion of an assignment.
+
+* [text within square brackets] indicates the completion of a selection.
+
+* Number in parentheses after SFR name, e.g. (1) indicates the completion of an iteration.
+
+* Extended SFRs are identified by having a label “EXT” at the end of the SFR name.
+
+[GUIDANCE]
+====
+The following sections have been included from CC Part 2 just as reference. Include only those classes in 5.2 - 5.12 for which the TOE will need to comply with one or more SFRs from that class. Any sections that do not have applicable SFRs can be removed.
+====
+
+=== Security Audit (FAU)
+
+
+=== Communication (FCO)
+
+
+=== Cryptograhic Support (FCS)
+
+
+=== User Data Protection (FDP)
+
+
+=== Identification and Authentication (FIA)
+
+
+=== Security Management (FMT)
+
+
+=== Privacy (FPR)
+
+
+=== Protection of the TSF (FPT)
+
+
+=== Resource Utilization (FRU)
+
+
+=== TOE Access (FTA)
+
+
+=== Trusted Channels (FTP)
+
+
+
+== Security Assurance Requirements
+[BOILERPLATE]
+====
+This section is boilerplate
+====
+
+The <<Security Objectives>> for the TOE were constructed to address <<threats>> identified in the <<Security Problem Definition>>. The <<Security Functional Requirements>> are a formal instantiation of the <<Security Objectives>>. This cPP identifies the Security Assurance Requirements to frame the extent to which the evaluator assesses the documentation applicable for the evaluation and performs independent testing. 
+
+This section lists the set of SARs from CC part 3 that are required in evaluations against this cPP. Individual Evaluation Activities to be performed are specified in <<SD>>. 
+
+The general model for evaluation of TOEs against STs written to conform to this cPP is as follows: 
+
+After the ST has been approved for evaluation, the ITSEF (IT Security Evaluation Facility) will obtain the TOE, supporting environmental IT (if required), and the administrative/user guides for the TOE. The ITSEF is expected to perform actions mandated by the Common Evaluation Methodology (CEM) for the ASE and ALC SARs. The ITSEF also performs the Evaluation Activities contained within the SD, which are intended to be an interpretation of the other CEM assurance requirements as they apply to the specific technology instantiated in the TOE. The Evaluation Activities that are captured in the SD also provide clarification as to what the developer needs to provide to demonstrate the TOE is compliant with the cPP. 
+
+[REVIEW]
+====
+If the iTC decides to go above EAL1 requirements then this table (and the associated SARs) will need to be modified. If not, then this is boilerplate and can be left alone.
+====
+
+.Security Assurance Requirements
+[Header,cols="1,2"]
+|===
+|Assurance Class
+|Assurance Components
+
+.7+.^|Security Target (ASE)
+|Conformance Claims (ASE_CCL.1)
+
+|Extended components definition (ASE_ECD.1)
+
+|ST introduction (ASE_INT.1)
+
+|Security objectives for the operational environment (ASE_OBJ.1)
+
+|Stated security requirements (ASE_REQ.1)
+
+|Security Problem Definition (ASE_SPD.1)
+
+|TOE summary specification (ASE_TSS.1)
+
+|Development (ADV)
+|Basic functional specification (ADV_FSP.1)
+
+.2+.^|Guidance documents (AGD)
+|Operational user guidance (AGD_OPE.1)
+
+|Preparative procedures (AGD_PRE.1)
+
+.2+.^|Life cycle support (ALC)
+|Labeling of the TOE (ALC_CMC.1)
+
+|TOE CM coverage (ALC_CMS.1)
+
+|Tests (ATE)
+|Independent testing – sample (ATE_IND.1)
+
+|Vulnerability assessment (AVA)
+|Vulnerability survey (AVA_VAN.1)
+
+|===
+
+=== ASE: Security Target
+[BOILERPLATE]
+====
+This section is boilerplate except for the guidance noted here
+====
+
+The ST is evaluated as per ASE activities defined in the <<CEM>>. In addition, there may be Evaluation Activities specified within the <<SD>> that call for necessary descriptions to be included in the TSS that are specific to the TOE technology type.
+
+[GUIDANCE]
+====
+As an option, the cPP may express a need for a more detailed description of how a TOE satisfies one or more SFRs. The level of detail required by the SD may include proprietary information, or simply information that should not be made public (i.e., provides attackers insight into the operation of the TOE that may increase the likelihood of a successful attack against the product). This information could be submitted as an appendix to the ST or as a separate document. The required information may take the form of a refinement as shown below, and the associated Evaluation Activity would be specified in the SD.
+====
+
+[BOILERPLATE]
+====
+As long as you are doing EAL1, none of these sections until you get to AVA_VAN.1 will need to be modified.
+====
+
+=== ADV: Development
+The design information about the TOE is contained in the guidance documentation available to the end user as well as the TSS portion of the ST, and any additional information required by this cPP that is not to be made public (e.g., Entropy Report).
+
+==== Basic Functional Specification (ADV_FSP.1)
+The functional specification describes the TOE Security Functions Interfaces (TSFIs). It is not necessary to have a formal or complete specification of these interfaces. Additionally, because TOEs conforming to this cPP will necessarily have interfaces to the Operational Environment that are not directly invokable by TOE users, there is little point specifying that such interfaces be described in and of themselves since only indirect testing of such interfaces may be possible. For this cPP, the Evaluation Activities for this family focus on understanding the interfaces presented in the TSS in response to the functional requirements and the interfaces presented in the AGD documentation. No additional “functional specification” documentation is necessary to satisfy the Evaluation Activities specified in <<SD>>.
+
+The Evaluation Activities in <<SD>> are associated with the applicable SFRs; since these are directly associated with the SFRs, the tracing in element ADV_FSP.1.2D is implicitly already done and no additional documentation is necessary.
+
+=== AGD: Guidance Documentation
+The guidance documents will be provided with the ST. Guidance must include a description of how the IT personnel verifies that the Operational Environment can fulfill its role for the security functionality. The documentation should be in an informal style and readable by the IT personnel.
+
+Guidance must be provided for every operational environment that the product supports as claimed in the ST. This guidance includes:
+
+* instructions to successfully install the TSF in that environment; and
+* instructions to manage the security of the TSF as a product and as a component of the larger operational environment; and
+* instructions to provide a protected administrative capability.
+
+Guidance pertaining to particular security functionality must also be provided; requirements on such guidance are contained in the Evaluation Activities specified in the <<SD>>.
+
+==== Operational User Guidance (AGD_OPE.1)
+The operational user guidance does not have to be contained in a single document. Guidance to users, administrators and application developers can be spread among documents or web pages.
+
+The developer should review the Evaluation Activities contained in the <<SD>> to ascertain the specifics of the guidance that the evaluator will be checking for. This will provide the necessary information for the preparation of acceptable guidance. 
+
+==== Preparative Procedures (AGD_PRE.1)
+As with the operational guidance, the developer should look to the Evaluation Activities to determine the required content with respect to preparative procedures.
+
+=== Class ALC: Life-cycle Support
+At the assurance level provided for TOEs conformant to this cPP, life-cycle support is limited to end-user-visible aspects of the life-cycle, rather than an examination of the TOE vendor’s development and configuration management process. This is not meant to diminish the critical role that a developer’s practices play in contributing to the overall trustworthiness of a product; rather, it is a reflection on the information to be made available for evaluation at this assurance level.
+
+==== Labelling of the TOE (ALC_CMC.1)
+This component is targeted at identifying the TOE such that it can be distinguished from other products or versions from the same vendor and can be easily specified when being procured by an end user.
+
+==== TOE CM Coverage (ALC_CMS.1)
+Given the scope of the TOE and its associated evaluation evidence requirements, the evaluator performs the CEM work units associated with ALC_CMC.1. 
+
+=== Class ATE: Tests
+Testing is specified for functional aspects of the system as well as aspects that take advantage of design or implementation weaknesses. The former is done through the ATE_IND family, while the latter is through the AVA_VAN family. For this cPP, testing is based on advertised functionality and interfaces with dependency on the availability of design information. One of the primary outputs of the evaluation process is the test report as specified in the following requirements.
+
+==== Independent Testing – Conformance (ATE_IND.1)
+Testing is performed to confirm the functionality described in the TSS as well as the operational guidance (includes “evaluated configuration” instructions). The focus of the testing is to confirm that the requirements specified in Section 5 are being met. The Evaluation Activities in the SD identify the specific testing activities necessary to verify compliance with the SFRs. The evaluator produces a test report documenting the plan for and results of testing, as well as coverage arguments focused on the platform/TOE combinations that are claiming conformance to this cPP.
+
+=== Class AVA: Vulnerability Assessment
+
+[REVIEW]
+====
+AVA is a difficult subject. This is taken from the NDcPP v2.1 as an example, but will need to be determined by the iTC.
+====
+
+For the first generation of this cPP, the iTC is expected to survey open sources to discover what vulnerabilities have been discovered in these types of products and provide that content into the AVA_VAN discussion. In most cases, these vulnerabilities will require sophistication beyond that of a basic attacker. This information will be used in the development of future protection profiles.
+
+==== Vulnerability Survey (AVA_VAN.1)
+<<SD>> provides a guide to the evaluator in performing a vulnerability analysis.
+
+[appendix]
+== Selection-Based Requirements
+[BOILERPLATE]
+====
+If there are selection-based requirements, the following paragraphs should be left
+====
+
+As indicated in the introduction to this cPP, the baseline requirements (those that shall be performed by the TOE) are contained in <<Security Functional Requirements>>. Additionally, there are two other types of requirements specified in <<Consistency Rationale>>.
+
+The first type (in this Appendix) comprises requirements based on selections in other SFRs from the cPP: if certain selections are made, then additional requirements in this chapter will need to be included in the body of the ST.
+
+The second type (in the next Appendix) comprises requirements that can be included in the ST, but are not mandatory for a TOE to claim conformance to this cPP.
+
+[REVIEW]
+====
+It is likely (though not guaranteed) there will be selection-based requirements. If there are, then they should be placed here. If there are none, then that should be explicitly stated in this section.
+====
+
+[appendix]
+== Optional Requirements
+[BOILERPLATE]
+====
+This should remain if there are any optional requirements
+====
+
+ST authors are free to choose none, some or all SFRs defined in this chapter. Just the fact that a product supports a certain functionality does not mandate to add any SFR defined in this chapter.
+
+[REVIEW]
+====
+This section should contain any SFRs considered "optional" by the iTC. If there are none, then that should be stated (that there are no optional requirements in the cPP). The section should not be removed, but it should be explicitly stated there are no optional requirements.
+====
+
+[appendix]
+== Extended Component Definitions
+This appendix contains the definitions for the extended requirements that are used in the cPP, including those used in <<Consistency Rationale>> and <<Selection-Based Requirements>> . 
+
+(Note: formatting conventions for selections and assignments in this chapter are those in <<CC2>>.)
+
+[GUIDANCE]
+====
+If Extended SFRs are created they must be defined here. An example is copied here from the Biometrics Security PP-Module (because it is short).
+====
+
+[REVIEW]
+====
+The entire FIA_MBE_EXT section here is a complete example of an Extended Component Definition. Note the ditaa diagram showing the component levelling. This is a required feature of the ECD and needs to be included for all components.
+
+If extended components are being defined, all sections within the example must be filled out for each requirement.
+====
+
+=== Identification and Authentication (FIA)
+
+==== Mobile biometric enrolment (FIA_MBE_EXT)
+
+===== Family Behaviour
+
+This component defines the requirements for the TSF to be able to enrol a user, create templates of sufficient quality and prevent presentation attacks.
+
+===== Component levelling
+[#img-FIA-MBE-EXT] 
+.Component levelling 
+[ditaa]
+....
+                                                     +---+
+                                                  +->| 1 |
+                                                  |  +---+
+    +------------------------------------------+  |
+    |                                          |  |  +---+
+    | FIA_MBE_EXT  Mobile biometric enrollment +--+->| 2 |
+    |                                          |  |  +---+
+    +------------------------------------------+  |
+                                                  |  +---+
+                                                  +->| 3 |
+                                                     +---+
+       
+....
+
+FIA_MBE_EXT.1 Mobile biometric enrolment requires the TSF to enrol a user.
+
+FIA_MBE_EXT.2 Quality of biometric templates for mobile biometric enrolment requires the TSF to create templates of sufficient quality.
+
+FIA_MBE_EXT.3 Presentation attack detection for mobile biometric enrolment requires the TSF to prevent presentation attacks during the mobile biometric enrolment.
+
+===== Management: FIA_MBE_EXT.1
+
+There are no management activities foreseen.
+
+===== Management: FIA_MBE_EXT.2
+
+The following actions could be considered for the management functions in FMT:
+
+a)	the management of the TSF data (setting threshold values for quality scores to generate templates) by an administrator.
+
+===== Management: FIA_MBE_EXT.3
+The following actions could be considered for the management functions in FMT:
+
+a)	the management of the TSF data (setting values for detecting artificial presentation attack instruments) by an administrator.
+
+===== Audit: FIA_MBE_EXT.1, FIA_MBE_EXT.2
+The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+
+a)	Basic: Success or failure of the mobile biometric enrollment
+
+===== Audit: FIA_MBE_EXT.3
+The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+
+a)	Basic: Detection of presentation attacks
+
+===== FIA_MBE_EXT.1 Mobile biometric enrolment
+Hierarchical to: No other components
+
+Dependencies: No dependencies
+
+*FIA_MBE_EXT.1.1* The TSF shall provide a mechanism to enrol an authenticated user.
+
+*Application Note {counter:appnote_count}*:: User shall be authenticated by the mobile device using the Password Authentication Factor before beginning biometric enrolment.
+
+===== FIA_MBE_EXT.2 Quality of biometric templates for mobile biometric enrolment
+Hierarchical to: No other components
+Dependencies: 	FIA_MBE_EXT.1 Mobile biometric enrolment
+
+*FIA_MBE_EXT.2.1* The TSF shall create templates of sufficient quality.
+
+*Application Note {counter:appnote_count}*:: ST author may refine “sufficient quality” to specify quality standards if the TOE follows such standard.
+
+===== FIA_MBE_EXT.3 Presentation attack detection for mobile biometric enrolment
+
+Hierarchical to: No other components
+Dependencies: FIA_MBE_EXT.1 Mobile biometric enrolment
+
+*FIA_MBE_EXT.3.1* The TSF shall prevent use of artificial presentation attack instruments from being successfully enrolled.
+
+[appendix]
+== Entropy Documentation and Assessment
+
+[REVIEW]
+====
+This section may not always be applicable when talking about PP-Modules (which may rely on entropy from a base PP). This particular section is copied from the NDcPP. If you need an entropy review, it would be simplest to probably leave this intact.
+====
+
+This appendix describes the required supplementary information for each entropy source used by the TOE.
+
+The documentation of the entropy source(s) should be detailed enough that, after reading, the evaluator will thoroughly understand the entropy source and why it can be relied upon to provide sufficient entropy. This documentation should include multiple detailed sections: design description, entropy justification, operating conditions, and health testing. This documentation is not required to be part of the TSS.
+
+=== Design Description
+Documentation shall include the design of each entropy source as a whole, including the interaction of all entropy source components. Any information that can be shared regarding the design should also be included for any third-party entropy sources that are included in the product.
+
+The documentation will describe the operation of the entropy source to include how entropy is produced, and how unprocessed (raw) data can be obtained from within the entropy source for testing purposes. The documentation should walk through the entropy source design indicating
+where the entropy comes from, where the entropy output is passed next, any post-processing of the raw outputs (hash, XOR, etc.), if/where it is stored, and finally, how it is output from the entropy source. Any conditions placed on the process (e.g., blocking) should also be described
+in the entropy source design. Diagrams and examples are encouraged.
+
+This design must also include a description of the content of the security boundary of the entropy source and a description of how the security boundary ensures that an adversary outside the boundary cannot affect the entropy rate.
+
+If implemented, the design description shall include a description of how third-party applications can add entropy to the RBG. A description of any RBG state saving between power-off and power-on shall be included.
+
+=== Entropy Justification
+There should be a technical argument for where the unpredictability in the source comes from and why there is confidence in the entropy source delivering sufficient entropy for the uses made of the RBG output (by this particular TOE). This argument will include a description of the expected min-entropy rate (i.e. the minimum entropy (in bits) per bit or byte of source data) and explain that sufficient entropy is going into the TOE randomizer seeding process. This discussion will be part of a justification for why the entropy source can be relied upon to produce bits with entropy.
+
+The amount of information necessary to justify the expected min-entropy rate depends on the type of entropy source included in the product.
+
+For developer-provided entropy sources, in order to justify the min-entropy rate, it is expected that a large number of raw source bits will be collected, statistical tests will be performed, and the min-entropy rate determined from the statistical tests. While no particular statistical tests are required at this time, it is expected that some testing is necessary in order to determine the amount of min-entropy in each output.
+
+For third-party provided entropy sources, in which the TOE vendor has limited access to the design and raw entropy data of the source, the documentation will indicate an estimate of the amount of min-entropy obtained from this third-party source. It is acceptable for the vendor to
+“assume” an amount of min-entropy, however, this assumption must be clearly stated in the documentation provided. In particular, the min-entropy estimate must be specified and the assumption included in the ST.
+
+Regardless of the type of entropy source, the justification will also include how the DRBG is initialized with the entropy stated in the ST, for example by verifying that the min-entropy rate is multiplied by the amount of source data used to seed the DRBG or that the rate of entropy expected based on the amount of source data is explicitly stated and compared to the statistical rate. If the amount of source data used to seed the DRBG is not clear or the calculated rate is not explicitly related to the seed, the documentation will not be considered complete.
+
+The entropy justification shall not include any data added from any third-party application or from any state saving between restarts.
+
+=== Operating Conditions
+The entropy rate may be affected by conditions outside the control of the entropy source itself. For example, voltage, frequency, temperature, and elapsed time after power-on are just a few of the factors that may affect the operation of the entropy source. As such, documentation will also include the range of operating conditions under which the entropy source is expected to generate random data. Similarly, documentation shall describe the conditions under which the entropy source is no longer guaranteed to provide sufficient entropy. Methods used to detect failure or degradation of the source shall be included.
+
+=== Health Testing
+More specifically, all entropy source health tests and their rationale will be documented. This will include a description of the health tests, the rate and conditions under which each health test is performed (e.g., at start up, continuously, or on-demand), the expected results for each health test, TOE behaviour upon entropy source failure, and rationale indicating why each test is believed to be appropriate for detecting one or more failures in the entropy source.
+
+
+[appendix]
+== Key Management Document
+[GUIDANCE]
+====
+This section can be included to cover information that should not be publically released but which needs to be included in the documentation that is evaluated. In some cases this has been handled by public and proprietary versions of the ST (specifically the TSS), but this information can also be covered in a separate document.
+
+This is not always necessary and depends on the product type. The name of the document can be edited to be appropriate for the iTC, but the purpose is to cover information that would normally be marked as proprietary by a vendor.
+
+The following section has been copied from the current File Encryption PP-Module by NIAP.
+====
+
+The documentation of the product’s encryption key management should be detailed enough that, after reading, the evaluator will thoroughly understand the product’s key management and how it meets the requirements to ensure the keys are adequately protected. This documentation should include an essay and diagram(s). This documentation is not required to be part of the TSS - it can be submitted as a separate document and marked as developer proprietary. 
+
+=== Key Management Description
+
+The description will provide the following information for all keys in the key chain: 
+
+* The purpose of the key
+* If the key is stored in non-volatile memory
+* How and when the key is protected
+* How and when the key is derived
+* The strength of the key
+* When or if the key would be no longer needed, along with a justification
+* How and when the key may be shared
+
+The description will also describe the following topics: 
+
+* A description of all authorization factors that are supported by the product and how each factor is handled, including any conditioning and combining performed.
+* If validation is implemented, the process for validation shall be described, noting what value is used for validation and the process used to perform the validation. It shall describe how this process ensures no keys in the key chain are weakened or exposed by this process.
+* The authorization process that leads to the decryption of the FEK(s). This section shall detail the key chain used by the product. It shall describe which keys are used in the protection of the FEK(s) and how they meet the encryption or derivation requirements including the direct chain from the initial authorization to the FEK(s). It shall also include any values that add into that key chain or interact with the key chain and the protections that ensure those values do not weaken or expose the overall strength of the key chain.
+* The diagram and essay will clearly illustrate the key hierarchy to ensure that at no point the chain could be broken without a cryptographic exhaust or all of the initial authorization values and the effective strength of the FEK(s) is maintained throughout the key chain.
+* A description of the data encryption engine, its components, and details about its implementation (e.g. initialization of the product, drivers, libraries (if applicable), logical interfaces for encryption/decryption, and how resources to be encrypted are identified. The description should also include the data flow from the device’s host interface to the device’s persistent media storing the data, information on those conditions in which the data bypasses the data encryption engine. The description should be detailed enough to verify all platforms ensure that when the user enables encryption, the product encrypts all selected resources.
+* The process for destroying keys when they are no longer needed by describing the storage location of all keys and the protection of all keys stored in non-volatile memory.
+
+
+=== Key Management Diagram:
+
+* The diagram will include all keys from the initial authorization factor(s) to the FEK(s) and any keys or values that contribute into the chain. It must list the cryptographic strength of each key and indicate how each key along the chain is protected with either options from key chaining requirement. The diagram should indicate the input used to derive or decrypt each key in the chain.
+* A functional (block) diagram showing the main components (such as memories and processors) the initial steps needed for the activities the TOE performs to ensure it encrypts the targeted resources when a user or administrator first provisions the product.
+
+[appendix]
+== Consistency Rationale
+[REVIEW]
+====
+These tables need to be completed to show mapping and justification that the threats and assumptions map to the requirements.
+====
+
+.Consistency Rationale for threats and OSPs
+|===
+|Threats/OSPs	|Consistency Rationale
+
+|
+|
+
+|===
+
+.Consistency Rationale for Assumptions
+|===
+|Assumptions	    |Consistency Rationale
+
+|
+|
+
+
+|===
+
+=== Consistency of Objectives
+
+The objectives for the biometric system and its operational environment are consistent with the <<MDFPP>> based on the following rationale:
+
+.Consistency Rationale for TOE Objectives
+|===
+|TOE Objectives	|Consistency Rationale
+
+|
+|
+
+
+|===
+
+.Consistency Rationale for Environmental Objectives
+|===
+|Environmental Objectives	|Consistency Rationale
+
+|
+|
+
+|===
+
+=== Consistency of Requirements
+
+
+[appendix]
+== SFR List
+[GUIDANCE]
+====
+This section is to provide a full list of all SFRs and their inclusion status (mandatory, optional or selection-based) within the cPP.
+====
+
+This table is provided as a reference of all SFRs included in this cPP.
+
+The Type column has the following definitions:
+
+Mandatory:: The requirement is mandatory for inclusion in the ST.
+Optional:: The requirement is optional for inclusion in the ST.
+Selection:: The requirement inclusion is determined by selections in other requirements in the ST.
+
+.Security Functional Requirements
+[Header,cols="4,8,2"]
+|===
+|Requirement Class
+|Requirement Components
+|Type
+
+|Security Audit (FAU)
+|
+|
+
+|Communication (FCO)
+|
+|
+
+|Cryptograhic Support (FCS)
+|
+|
+
+|User Data Protection (FDP)
+|
+|
+
+|Identification and Authentication (FIA)
+|
+|
+
+|Security Management (FMT)
+|
+|
+
+|Privacy (FPR)
+|
+|
+
+|Protection of the TSF (FPT)
+|
+|
+
+|Resource Utilization (FRU)
+|
+|
+
+|TOE Access (FTA)
+|
+|
+
+|Trusted Channels (FTP)
+|
+|
+|===
+
+[appendix]
+== Glossary
+[REVIEW]
+====
+This should be completed to define all the terms needed to fully understand the content of the cPP.
+====
+For the purpose of this cPP, the following terms and definitions given in _some specific references_ apply. If the same terms and definitions are given in those references, terms and definitions that fit the context of this cPP take precedence.
+
+[glossary]
+Data Encryption Key (DEK)::
+A key used to encrypt data at rest.
+
+[appendix]
+== Acronyms
+.Acronyms
+[%header,cols="1,4"]
+
+|===
+|Acronym |Meaning
+
+|AES
+|Advanced Encryption Standard
+
+|ITSEF
+|IT Security Evaluation Facility
+
+|===

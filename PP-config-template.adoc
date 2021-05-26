@@ -1,0 +1,177 @@
+= PP-Configuration for _Protection Profile 1_ and _PP-Module 1_
+:showtitle:
+:toc:
+:table-caption: Table
+:icons: font
+:revnumber: 0.9
+:revdate: 2019-08-23
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm-itc-mailing-list@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+
+:sectnums!:
+== Acknowledgements
+
+This PP-Configuration was developed by the {iTC-longname} international Technical Community (iTC) also known as {iTC-shortname} with representatives from Industry, Government agencies, Common Criteria Test Laboratories, and members of academia.
+
+=== Revision History
+
+.Revision history
+[%header,cols="1,2,4"]
+|===
+|Version 
+|Date 
+|Description
+
+|0.1
+|<DATE>
+|Initial Release for iTC Review
+
+|
+|
+|
+
+
+|===
+
+:sectnums:
+== Introduction
+
+=== PP-Configuration Overview
+The purpose of a PP-Configuration is to combine Protection Profiles (PPs) and PP-Modules for various technology types into a single configuration that can be evaluated as a whole. 
+
+This PP-Configuration _Define the scope of the combined system that would be covered by the PP(s)/PP-Module(s) in this configuration._
+
+
+=== PP-Configuration Reference
+
+[GUIDANCE]
+====
+PP-Configuration identifiers should be unique within the CCRA catalogues. An example of a shorthand name is "PPC-MDF-0000X" where PPC indicates that it is a PP-Configuration, and "MDF" indicates the base PP.
+====
+
+This PP-Configuration is identified as follows:
+
+* A long name
+* A shorthand reference
+
+=== PP-Configuration Components
+[GUIDANCE]
+====
+If the configuration covers multiple cPPs/PP-Modules they must all be listed here. 
+
+However it should be recognised that in some cases the PP-Configuration components may be in transition. For example, combinations with the MDFPP to date have not included the WLAN EP (since it is not yet a PP-Module), even though that is required for the MDFPP. Since the WLAN requirements do not interact in any way with the combinations being proposed (to date), some schemes have allowed this combination during transition.
+====
+
+This PP-Configuration includes the following components:
+
+.PP-Configuration Components
+[cols="1,3"]
+|===
+|[base PP] 
+|One base PP with all version/identification info
+
+|[PP-Module 1] 
+|At least one PP-Module with all version/identification info
+
+|[PP-Module 2] 
+|Some PP-Module with all version/identification info
+
+|[Other PP] 
+|Optionally other PPs with all version/identification info
+
+|===
+
+=== PP-Configuration Components Statements
+[GUIDANCE]
+====
+Provide statements that explain the rationale for including each of the PP-Configuration components
+====
+
+==== Base PP Statements
+[GUIDANCE] 
+====
+The below is an example from an MDF configuration:
+====
+
+The [MDF_BASE-PP] allows it’s use for evaluation of wireless connectivity which is included on the Mobile Devices with the Extended Package for WLAN Client an MDM agent. [MOD_WLAN] is the currently NIAP approved version of that PP-Module.
+
+[MDF_BASE-PP] also allows that the Extended Package for Mobile Device Management Agents, should be used for evaluation of an MDM Agent component. [MOD_MDM-AGENT] is the currently NIAP approved version of the MDM Agent PP-Module.
+
+[MDF_BASE-PP] also allows that the Extended Package for IPsec VPN Client, should be used for evaluation of an IPsec VPN client component. [MOD_VPN] is the currently NIAP approved version of the VPN client PP-Module.
+
+==== PP-Module Statements
+[REVIEW] 
+====
+The below is an example from an MDF configuration.
+====
+
+[MOD_MDM-AGENT] states, in its section 1.4, that the document can be used to can extend the extends the MDF PP and the TOE is a native part of a mobile operating system. The TOE for this EP combined with the MDF PP is the Mobile Device itself plus the MDM Agent.
+
+[MOD_WLAN] states, in its section 1.1, that the document can be used to extend the Mobile Device Fundamentals PP v3.x. when the WLAN client is installed on a self-contained Mobile Device evaluated against that PP.
+
+[MOD_VPN] states in its section 1.1 that this PP-Module is intended for use with Protection Profile for Mobile Device Fundamentals (MDF PP).
+
+== Conformance Claims
+
+=== CC Conformance
+This PP-Configuration, and its components specified in section 1.3, are conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version 3.1, Release 5 [CC].
+
+[GUIDANCE]
+====
+In some cases some components may conform to different versions of [CC]. In this case a conformance claim would have to be deduced that allowed for that.
+====
+
+=== Technical Decisions
+[REVIEW]
+====
+Provide a list of any applicable technical decisions that should be included in the PP-Configuration. If there are none, that should be explicitly stated.
+====
+
+The following technical decisions were found to be applicable to the PP-Configuration:
+
+
+* _List any applicable technical decisions_
+
+=== Conformance Statement
+[REVIEW]
+====
+This example is from a NIAP-generated PP-Configuration for Exact Conformance. If the PP has other requirements, different conformance statements would be required. Other conformance types are "Strict" and "Demonstrable".
+====
+
+To be conformant to this PP-Configuration, an ST must demonstrate Exact Conformance, as defined by the CC and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated May 2017).
+
+== SAR Statement
+[REVIEW]
+====
+Normally this statement is likely to be sufficient for a PP-Configuration. Where there may be some differences (such as merging different PPs), then a table with how the claims are combined and managed will be necessary.
+====
+
+The set of SARs specified for this PP-Configuration are taken from, and identical to, those specified in the base PP.
+
+=== Related Documents
+
+**Common Criteria**footnote:[For details see http://www.commoncriteriaportal.org/]
+
+.Common Criteria References
+[cols="1,3",]
+|===
+|[#CC1]#[CC1]# |Common Criteria for Information Technology Security Evaluation, +
+Part 1: Introduction and General Model, +
+CCMB-2017-04-001, Version 3.1 Revision 5, April 2017.
+|[#CC2]#[CC2]# |Common Criteria for Information Technology Security Evaluation, +
+Part 2: Security Functional Components, +
+CCMB-2017-04-002, Version 3.1 Revision 5, April 2017.
+|[#CC3]#[CC3]# |Common Criteria for Information Technology Security Evaluation, +
+Part 3: Security Assurance Components, +
+CCMB-2017-04-003, Version 3.1 Revision 5, April 2017.
+|[#CEM]#[CEM]# |Common Methodology for Information Technology Security Evaluation, +
+Evaluation Methodology, +
+CCMB-2017-04-004, Version 3.1 Revision 5, April 2017.
+|[#addenda]#[addenda]# |CC and CEM addenda, +
+Exact Conformance, Selection-Based SFRs, Optional SFRs, +
+Version 0.5, May 2017.
+|===

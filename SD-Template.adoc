@@ -1,0 +1,867 @@
+= Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Coffee Maker
+:showtitle:
+:toc: macro
+:toclevels: 7
+:sectnumlevels: 7
+:table-caption: Table
+:imagesdir: images
+:icons: font
+:revnumber: 0.2
+:revdate: 2019-08-23
+:xrefstyle: full
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm-itc-mailing-list@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+:pp-name: collaborative Protection Profile for Coffee Maker
+:pp-version: Version 1.0
+:pp-date: January 1, 2020
+
+== Foreword
+[BOILERPLATE]
+====
+This section is boilerplate and should not need to be edited.
+====
+
+This is a Supporting Document, intended to complement the Common Criteria (CC) version 3 and the associated Common Evaluation Methodology for Information Technology Security Evaluation.
+
+Supporting Documents may be "Guidance Documents", that highlight specific approaches and application of the standard to areas where no mutual recognition of its application is required, and as such, are not of normative nature, or "Mandatory Technical Documents", whose application is mandatory for evaluations whose scope is covered by that of the Supporting Document. The usage of the latter class is not only mandatory, but certificates issued as a result of their application are recognized under the CCRA.
+
+This Supporting Document has been developed by the {iTC-longname} iTC and is designed to be used to support the evaluations of TOEs against the cPP identified in <<Technology Area and Scope of Supporting Document>>.
+
+== Acknowledgements
+
+This Supporting Document was developed by the {iTC-longname} international Technical Community with representatives from industry, Government agencies, Common Criteria Test Laboratories, and members of academia.
+
+=== Technical Editor
+
+_List iTC and Common Criteria Portal page_
+
+=== Revision History
+
+.Revision history
+|===
+|Version |Date |Description
+
+|0.1
+|<DATE>
+|Initial release for internal review
+
+|
+|
+|
+
+
+|===
+
+=== General Purpose
+
+See <<Technology Area and Scope of Supporting Document>>.
+
+=== Field of special use
+
+This Supporting Document applies to the evaluation of TOEs claiming conformance with the {pp-name}.
+
+toc::[]
+
+:sectnums:
+
+== Introduction
+
+=== Technology Area and Scope of Supporting Document
+
+This Supporting Document (SD) is mandatory for evaluations of products that claim conformance to any of the following cPP(s):
+
+[REVIEW]
+====
+Verify version and date information for the PP
+====
+
+* {pp-name}, {pp-version}, {pp-date}
+
+[GUIDANCE]
+====
+You need to provide a high level description of the product type being evaluated with this cPP/SD. 
+====
+
+
+[BOILERPLATE]
+====
+This next paragraph is boilerplate.
+====
+
+Although EAs are defined mainly for the evaluator to follow, the definitions in this SD aim to provide a common understanding for developers, evaluators and users as to what aspects of the TOE are tested in an evaluation against {pp-name}, and to what depth the testing is carried out. This common understanding in turn contributes to the goal of ensuring that evaluations against {pp-name} achieve comparable, transparent and repeatable results. In general, the definition of EAs will also help developers to prepare for evaluation by identifying specific requirements for their TOE. The specific requirements in EAs may in some cases clarify the meaning of SFRs, and may identify particular requirements for the content of Security Targets (STs) (especially the TOE Summary Specification (TSS)), AGD guidance, and possibly required supplementary information (e.g. _any examples, such as for entropy analysis or cryptographic key architecture_).
+
+=== Structure of the Document
+
+EAs can be defined for both SFRs and SARs. These are defined in separate sections of this SD.
+
+If any EA cannot be successfully completed in an evaluation then the overall verdict for the evaluation is a 'fail'. In rare cases there may be acceptable reasons why an EA may be modified or deemed not applicable for a particular TOE, but this must be agreed with the Certification Body for the evaluation.
+
+In general, if all EAs (for both SFRs and SARs) are successfully completed in an evaluation then it would be expected that the overall verdict for the evaluation is a 'pass'. To reach a 'fail' verdict when the EAs have been successfully completed would require a specific justification from the evaluator as to why the EAs were not sufficient for that TOE.
+
+Similarly, at the more granular level of Assurance Components, if the Evaluation Activities for an Assurance Component and all of its related SFR Evaluation Activities are successfully completed in an evaluation then it would be expected that the verdict for the Assurance Component is a 'pass'. To reach a 'fail' verdict for the Assurance Component when these Evaluation Activities have been successfully completed would require a specific justification from the evaluator as to why the Evaluation Activities were not sufficient for that TOE.
+
+== Evaluation Activities for SFRs
+
+=== Structure of EAs
+
+[BOILERPLATE]
+====
+Generally this section should be considered boilerplate.
+====
+
+All EAs for SFRs defined in this Section include the following items to keep consistency among EAs.
+
+. Objective of the EA
++
+Objective defines the goal of the EA. Assessment Strategy describes how the evaluator can achieve this goal in more detail and Pass/Fail criteria defines how the evaluator can determine whether the goal is achieved or not.
+
+. Dependency
++
+Where the EA depends on completion of another EA then the dependency and the other EA is also identified here.
+
+. Tool types required to perform the EA
++
+If performing the EA requires any tool types in order to complete the EA then these tool types are defined here.
+
+. Required input from the developer or other entities
++
+Additional detail is specified here regarding the required format and content of the inputs to the EA.
+
+. Assessment Strategy
++
+Assessment Strategy provides guidance and details on how to perform the EA. It includes, as appropriate to the content of the EA; 
+
+.. How to assess the input from the developer or other entities for completeness with respect to the EA
+.. How to make use of any tool types required (potentially including guidance for the calibration or setup of the tools)
+.. Guidance on the steps for performing the EA
+
+. Pass/Fail criteria
++
+The evaluator uses these criteria to determine whether the EA has demonstrated that the TOE has met the relevant requirement or that it has failed to meet the relevant requirement.
+
+. Requirements for reporting
++
+Specific reporting requirements that support transparency and reproducibility of the Pass/Fail judgement are defined here.
+
+=== Justification for EAs for SFRs
+[BOILERPLATE]
+====
+Generally this section should be considered boilerplate
+====
+
+EAs in this SD provide specific or more detailed guidance to evaluate the _type of_ system, however, it is the CEM work units based on which the evaluator shall perform evaluations.
+
+This Section explains how EAs for SFRs are derived from the particular CEM work units identified in Assessment Strategy to show the consistency and compatibility between the CEM work units and EAs in this SD.
+
+Assessment Strategy for ASE_TSS requires the evaluator to examine that the TSS provides sufficient design descriptions and its verdicts will be associated with the CEM work unit ASE_TSS.1-1. Evaluator verdicts associated with the supplementary information will also be associated with ASE_TSS.1-1, since the requirement to provide such evidence is specified in ASE in the cPP.
+
+Assessment Strategy for AGD_OPE/ADV_FSP requires the evaluator to examine that the AGD guidance provides sufficient information for the administrators/users as it pertains to SFRs, its verdicts will be associated with CEM work units ADV_FSP.1-7, AGD_OPE.1-4, and AGD_OPE.1-5.
+
+Assessment Strategy for ATE_IND requires the evaluator to conduct testing that the iTC has determined that those testing of the TOE in the context of the associated SFR is necessary. While the evaluator is expected to develop tests, there may be instances where it is more practical for the developer to construct tests, or where the developer may have existing tests. Therefore, it is acceptable for the evaluator to witness developer-generated tests in lieu of executing the tests. In this case, the evaluator must ensure the developer's tests are executing both in the manner declared by the developer and as mandated by the EA. The CEM work units that derive those EAs are: ATE_IND.1-3, ATE_IND.1-4, ATE_IND.1-5, ATE_IND.1-6, and ATE_IND.1-7.
+
+[GUIDANCE]
+====
+The following sections have been included from CC Part 2 just as reference. Each section will have to be filled out. If the class isn't needed it can be removed.
+
+An example of headings is provided under FAU.
+====
+
+=== Security Audit (FAU)
+
+==== EA for _SFR_
+
+===== Objective of the EA
+
+
+===== Dependency
+
+
+===== Tool types required to perform the EA
+
+
+===== Required input from the developer or other entities
+
+
+===== Assessment Strategy
+
+====== Strategy for ASE_TSS and AGD_OPE/ADV_FSP
+
+
+====== Strategy for ATE_IND
+
+
+===== Pass/Fail criteria
+
+
+===== Requirements for reporting
+
+
+=== Communication (FCO)
+
+
+=== Cryptograhic Support (FCS)
+
+
+=== User Data Protection (FDP)
+
+
+=== Identification and Authentication (FIA)
+
+
+=== Security Management (FMT)
+
+
+=== Privacy (FPR)
+
+
+=== Protection of the TSF (FPT)
+
+
+=== Resource Utilization (FRU)
+
+
+=== TOE Access (FTA)
+
+
+=== Trusted Channels (FTP)
+
+
+== Evaluation Activities for Optional Requirements 
+[GUIDANCE]
+====
+This is the same as the above section, but is specifically for the Optional requirements
+====
+
+=== Security Audit (FAU)
+
+
+=== Communication (FCO)
+
+
+=== Cryptograhic Support (FCS)
+
+
+=== User Data Protection (FDP)
+
+
+=== Identification and Authentication (FIA)
+
+
+=== Security Management (FMT)
+
+
+=== Privacy (FPR)
+
+
+=== Protection of the TSF (FPT)
+
+
+=== Resource Utilization (FRU)
+
+
+=== TOE Access (FTA)
+
+
+=== Trusted Channels (FTP)
+
+
+== Evaluation Activities for Selection-Based Requirements 
+[GUIDANCE]
+====
+This is the same as the above section, but is specifically for the Selection-based requirements
+====
+
+=== Security Audit (FAU)
+
+
+=== Communication (FCO)
+
+
+=== Cryptograhic Support (FCS)
+
+
+=== User Data Protection (FDP)
+
+
+=== Identification and Authentication (FIA)
+
+
+=== Security Management (FMT)
+
+
+=== Privacy (FPR)
+
+
+=== Protection of the TSF (FPT)
+
+
+=== Resource Utilization (FRU)
+
+
+=== TOE Access (FTA)
+
+
+=== Trusted Channels (FTP)
+
+== Evaluation Activities for SARs
+[BOILERPLATE]
+====
+Generally this entire section (except ATE_IND and AVA_VAN) is boilerplate and taken directly from CC. 
+====
+
+The sections below specify EAs for the Security Assurance Requirements (SARs) included in the related cPPs. The EAs in <<Evaluation Activities for SFRs>>, <<Evaluation Activities for Selection-Based Requirements>>, and <<Evaluation Activities for Optional Requirements>> are an interpretation of the more general CEM assurance requirements as they apply to the specific technology area of the TOE.
+
+In this section, each SAR that is contained in the cPP is listed, and the EAs that are not associated with an SFR are captured here, or a reference is made to the CEM, and the evaluator is expected to perform the CEM work units.
+
+
+=== Class ASE: Security Target
+
+32	When evaluating a Security Target, the evaluator performs the work units as presented in the CEM. In addition, the evaluator ensures the content of the TSS in the ST satisfies the EAs specified in <<Evaluation Activities for SFRs>>.
+
+=== Class ADV: Development
+==== 5.2.1	Basic Functional Specification (ADV_FSP.1)
+The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in Section 2 (Evaluation Activities for SFRs), and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.
+
+The EAs presented in this section address the CEM work units ADV_FSP.1-1, ADV_FSP.1-2, ADV_FSP.1-3, and ADV_FSP.1-5.
+
+The EAs are reworded for clarity and interpret the CEM work units such that they will result in more objective and repeatable actions by the evaluator. The EAs in this SD are intended to ensure the evaluators are consistently performing equivalent actions.
+
+The documents to be examined for this assurance component in an evaluation are therefore the Security Target, AGD documentation, and any required supplementary information required by the cPP: no additional "functional specification" documentation is necessary to satisfy the EAs. The interfaces that need to be evaluated are also identified by reference to the EAs listed for each SFR, and are expected to be identified in the context of the Security Target, AGD documentation, and any required supplementary information defined in the cPP rather than as a separate list specifically for the purposes of CC evaluation. The direct identification of documentation requirements and their assessment as part of the EAs for each SFR also means that the tracing required in ADV_FSP.1.2D (work units ADV_FSP.1-4, ADV_FSP.1-6 and ADV_FSP.1-7 is treated as implicit and no separate mapping information is required for this element.
+
+.Mapping of ADV_FSP.1 CEM Work Units to Evaluation Activities
+[cols=".^1,.^2",options="header",]
+|===
+|CEM ADV_FSP.1 Work Units
+|Evaluator Activities
+
+|ADV_FSP.1-1 The evaluator *__shall examine__* the functional specification to determine that it states the purpose of each SFR-supporting and SFR-enforcing TSFI.	
+|<<ADV_FSP.1-1 Evaluation Activity>>: __The evaluator shall examine the interface documentation to ensure it describes the purpose and method of use for each TSFI that is identified as being security relevant.__
+
+|ADV_FSP.1-2 The evaluator *__shall examine__* the functional specification to determine that the method of use for each SFR-supporting and SFR-enforcing TSFI is given.
+|<<ADV_FSP.1-2 Evaluation Activity>>: __The evaluator shall examine the interface documentation to ensure it describes the purpose and method of use for each TSFI that is identified as being security relevant.__
+
+|ADV_FSP.1-3 The evaluator *__shall examine__* the presentation of the TSFI to determine that it identifies all parameters associated with each SFR-enforcing and SFR supporting
+TSFI.
+|<<ADV_FSP.1-3 Evaluation Activity>>: __The evaluator shall check the interface documentation to ensure it identifies and describes the parameters for each TSFI that is identified as being security relevant.__
+
+|ADV_FSP.1-4 The evaluator shall examine the rationale provided by the developer for the implicit categorisation of interfaces as SFR-non-interfering to determine that it is accurate.	
+|Paragraph 561 from the CEM: "In the case where the developer has provided adequate documentation to perform the analysis called for by the rest of the work units for this component without explicitly identifying SFR-enforcing and SFR-supporting interfaces, this work unit should be considered satisfied."
+Since the rest of the ADV_FSP.1 work units will have been satisfied upon completion of the EAs, it follows that this work unit is satisfied as well.
+
+|ADV_FSP.1-5 The evaluator *__shall check__* that the tracing links the SFRs to the corresponding TSFIs.
+|<<ADV_FSP.1-5 Evaluation Activity>>: _The evaluator shall examine the interface documentation to develop a mapping of the interfaces to SFRs._
+
+|ADV_FSP.1-6 The evaluator *__shall examine__* the functional specification to determine that it is a complete instantiation of the SFRs.	
+|EAs that are associated with the SFRs in <<Evaluation Activities for SFRs>>, and, if applicable, <<Evaluation Activities for Selection-Based Requirements>> and <<Evaluation Activities for Optional Requirements>>, are performed to ensure that all the SFRs where the security functionality is externally visible (i.e., at the TSFI) are covered. Therefore, the intent of this work unit is covered.
+
+|ADV_FSP.1-7 The evaluator *__shall examine__* the functional specification to determine that it is an accurate instantiation of the SFRs.	
+|EAs that are associated with the SFRs in <<Evaluation Activities for SFRs>>, and, if applicable, <<Evaluation Activities for Selection-Based Requirements>> and <<Evaluation Activities for Optional Requirements>>, are performed to ensure that all the SFRs where the security functionality is externally visible (i.e., at the TSFI) are addressed, and that the description of the interfaces is accurate with respect to the specification captured in the SFRs. Therefore, the intent of this work unit is covered.
+
+|===
+
+==== ADV_FSP.1-1 Evaluation Activity
+_The evaluator shall examine the interface documentation to ensure it describes the purpose and method of use for each TSFI that is identified as being security relevant._
+
+In this context, TSFI are deemed security relevant if they are used by the administrator to configure the TOE, or to perform other administrative functions (e.g., audit review or performing updates). Additionally, those interfaces that are identified in the ST, or guidance documentation, as adhering to the security policies (as presented in the SFRs), are also considered security relevant. The intent, is that these interfaces will be adequately tested, and having an understanding of how these interfaces are used in the TOE is necessary to ensure proper test coverage is applied.
+
+The set of TSFI that are provided as evaluation evidence are contained in the Administrative Guidance and User Guidance. 
+
+==== ADV_FSP.1-2 Evaluation Activity
+_The evaluator shall check the interface documentation to ensure it identifies and describes the parameters for each TSFI that is identified as being security relevant._
+
+==== ADV_FSP.1-3 Evaluation Activity
+_The evaluator shall examine the interface documentation to develop a mapping of the interfaces to SFRs._
+
+The evaluator uses the provided documentation and first identifies, and then examines a representative set of interfaces to perform the EAs presented in <<Evaluation Activities for SFRs>>, including the EAs associated with testing of the interfaces.
+
+It should be noted that there may be some SFRs that do not have an interface that is explicitly "mapped" to invoke the desired functionality. For example, generating a random bit string, destroying a cryptographic key that is no longer needed, or the TSF failing to a secure state, are capabilities that may be specified in SFRs, but are not invoked by an interface. 
+
+However, if the evaluator is unable to perform some other required EA because there is insufficient design and interface information, then the evaluator is entitled to conclude that an adequate functional specification has not been provided, and hence that the verdict for the ADV_FSP.1 assurance component is a 'fail'.
+
+=== Class AGD: Guidance Documentation
+
+It is not necessary for a TOE to provide separate documentation to meet the individual requirements of AGD_OPE and AGD_PRE. Although the EAs in this section are described under the traditionally separate AGD families, the mapping between the documentation provided by the developer and the AGD_OPE and AGD_PRE requirements may be many-to-many, as long as all requirements are met in documentation that is delivered to administrators and users (as appropriate) as part of the TOE.
+
+==== Operational User Guidance (AGD_OPE.1)
+The evaluator performs the CEM work units associated with the AGD_OPE.1 SAR. Specific requirements and EAs on the guidance documentation are identified (where relevant) in the individual EAs for each SFR. 
+
+In addition, the evaluator performs the EAs specified below.
+
+===== Evaluation Activity
+_The evaluator shall ensure the Operational guidance documentation is distributed to administrators and users (as appropriate) as part of the TOE, so that there is a reasonable guarantee that administrators and users are aware of the existence and role of the documentation in establishing and maintaining the evaluated configuration._
+
+===== Evaluation Activity
+_The evaluator shall ensure that the Operational guidance is provided for every Operational Environment that the product supports as claimed in the Security Target and shall adequately address all platforms claimed for the TOE in the Security Target._
+
+===== Evaluation Activity
+_The evaluator shall ensure that the Operational guidance contains instructions for configuring any cryptographic engine associated with the evaluated configuration of the TOE. It shall provide a warning to the administrator that use of other cryptographic engines was not evaluated nor tested during the CC evaluation of the TOE._
+
+===== Evaluation Activity
+_The evaluator shall ensure the Operational guidance makes it clear to an administrator which security functionality and interfaces have been assessed and tested by the EAs._
+
+===== Evaluation Activity
+In addition the evaluator shall ensure that the following requirements are also met.
+
+. The guidance documentation shall contain instructions for configuring
+any cryptographic engine associated with the evaluated configuration
+of the TOE. It shall provide a warning to the administrator that use of other cryptographic engines was not evaluated nor tested during the
+CC evaluation of the TOE.
+. The documentation must describe the process for verifying updates to
+the TOE by verifying a digital signature. The evaluator shall verify that
+this process includes the following steps:
+.. Instructions for obtaining the update itself. This should include
+instructions for making the update accessible to the TOE (e.g.,
+placement in a specific directory).
+.. Instructions for initiating the update process, as well as
+discerning whether the process was successful or unsuccessful.
+This includes instructions that describe at least one method of
+validating the hash/digital signature.
+. The TOE will likely contain security functionality that does not fall in
+the scope of evaluation under this cPP. The guidance documentation
+shall make it clear to an administrator which security functionality is
+covered by the Evaluation Activities.
+
+==== Preparative Procedures (AGD_PRE.1)
+_The evaluator performs the CEM work units associated with the AGD_PRE.1 SAR. Specific requirements and EAs on the preparative documentation are identified (and where relevant are captured in the Guidance Documentation portions of the EAs) in the individual EAs for each SFR._
+
+Preparative procedures are distributed to administrators and users (as appropriate) as part of the TOE, so that there is a reasonable guarantee that administrators and users are aware of the existence and role of the documentation in establishing and maintaining the evaluated configuration.
+
+In addition, the evaluator performs the EAs specified below.
+
+===== Evaluation Activity
+_The evaluator shall examine the Preparative procedures to ensure they include a description of how the administrator verifies that the operational environment can fulfil its role to support the security functionality (including the requirements of the Security Objectives for the Operational Environment specified in the Security Target)._
+
+The documentation should be in an informal style and should be written with sufficient detail and explanation that they can be understood and used by the target audience (which will typically include IT staff who have general IT experience but not necessarily experience with the TOE product itself).
+
+===== Evaluation Activity
+_The evaluator shall examine the Preparative procedures to ensure they are provided for every Operational Environment that the product supports as claimed in the Security Target and shall adequately address all platforms claimed for the TOE in the Security Target._
+
+===== Evaluation Activity
+_The evaluator shall examine the preparative procedures to ensure they include instructions to successfully install the TSF in each Operational Environment._
+
+===== Evaluation Activity
+_The evaluator shall examine the preparative procedures to ensure they include instructions to manage the security of the TSF as a product and as a component of the larger operational environment._
+
+===== Evaluation Activity
+In addition the evaluator shall ensure that the following requirements are also met.
+
+The preparative procedures must
+
+. Include instructions to provide a protected administrative capability; and
+. Identify TOE passwords that have default values associated with them and
+instructions shall be provided for how these can be changed.
+
+=== Class ALC: Life-cycle Support
+
+==== Labelling of the TOE (ALC_CMC.1)
+When evaluating that the TOE has been provided and is labelled with a unique reference, the evaluator performs the work units as presented in the CEM.
+
+==== TOE CM coverage (ALC_CMS.1)
+When evaluating the developer's coverage of the TOE in their CM system, the evaluator performs the work units as presented in the CEM.
+
+=== Class ATE: Tests
+
+==== Independent Testing - Conformance (ATE_IND.1)
+
+The focus of the testing is to confirm that the requirements specified in the SFRs are being met. Additionally, testing is performed to confirm the
+functionality described in the TSS, as well as the dependencies on the
+Operational guidance documentation is accurate.
+
+The evaluator performs the CEM work units associated with the ATE_IND.1
+SAR. Specific testing requirements and EAs are captured for each SFR in
+<<Evaluation Activities for SFRs>>, <<Evaluation Activities for Selection-Based Requirements>> and <<Evaluation Activities for Optional Requirements>>.
+
+[REVIEW]
+====
+Equivalency arguments may be made here (pointing to documentation about how to handle multiple versions of the TOE and what needs to be tested).
+
+An example of this can be found in <<Equivalency Considerations>>.
+====
+
+=== Class AVA: Vulnerability Assessment
+
+[GUIDANCE]
+====
+The iTC plays a key role in determining the scope of the vulnerability analysis with respect to what is publicly reported. The iTC must perform several activities to complete sections of this Supporting Document in order to ensure the flaws investigated by the evaluation team are meaningful in the context of the cPP and cover the areas of concern by the iTC for this technology.
+
+There are four activities (and associated outputs) that need to be performed by the iTC:
+
+. Identification of public sources of vulnerability information and actions to be taken on that information (this will be used for Type 1 flaw hypotheses as defined in Appendix A);
+. Identification of specific vulnerabilities particular to the technology (perhaps from previous evaluations, or from flaw reports to vendors that are part of the iTC) (this will be used for Type 2 flaw hypotheses as defined in Appendix A);
+. Identification of additional documentation to be used in the vulnerability analysis activity (this will be used for Type 3 flaw hypotheses as defined in Appendix A); and
+. Identification of any tools - and actions to be performed with those tools - to support flaw identification (this will be used for Type 4 flaw hypotheses as defined in Appendix A).
+
+Each of these activities is discussed in more detail below, with pointers to where the output of each activity should go in this Supporting Document.
+
+====
+
+==== Vulnerability Survey (AVA_VAN.1)
+[BOILERPLATE]
+====
+This section is actually taken from CC and is likely to be left alone. Most of the details will be make in the Appendix that are specific to the evaluation.
+====
+
+
+While vulnerability analysis is inherently a subjective activity, a minimum level of analysis can be defined and some measure of objectivity and repeatability (or at least comparability) can be imposed on the vulnerability analysis process. In order to achieve such objectivity and repeatability it is important that the evaluator follows a set of well-defined activities, and documents their findings so others can follow their arguments and come to the same conclusions as the evaluator. While this does not guarantee that different evaluation facilities will identify exactly the same type of vulnerabilities or come to exactly the same conclusions, the approach defines the minimum level of analysis and the scope of that analysis, and provides Certification Bodies a measure of assurance that the minimum level of analysis is being performed by the evaluation facilities.
+
+In order to meet these goals some refinement of the AVA_VAN.1 CEM work units is needed. The following table indicates, for each work unit in AVA_VAN.1, whether the CEM work unit is to be performed as written, or if it has been clarified by an Evaluation Activity. If clarification has been provided, a reference to this clarification is provided in the table. 
+
+.Mapping of AVA_VAN.1 CEM Work Units to Evaluation Activities
+[cols="1,.^2",options="header",]
+|===
+|CEM AVA_VAN.1 Work Units
+|Evaluator Activities
+
+|AVA_VAN.1-1 The evaluator *__shall examine__* the TOE to determine that the test configuration is consistent with the configuration under evaluation as specified in the ST.	
+|The evaluator shall perform the CEM activity as specified.
+
+_If the iTC specifies any tools to be used in performing this analysis in section A.3.4, the following text is also included in this cell: "The calibration of test resources specified in paragraph 1418 of the CEM applies to the tools listed in Appendix A, Section A.1.4."_
+
+|AVA_VAN.1-2 The evaluator *__shall examine__* the TOE to determine that it has been installed properly and is in a known state	The evaluator shall perform the CEM activity as specified.
+|The evaluator shall perform the CEM activity as specified.
+
+|AVA_VAN.1-3 The evaluator *__shall examine__* sources of information publicly available to identify potential vulnerabilities in the TOE.	Replace CEM work unit with activities outlined in Appendix A, Section A.1
+|Replace CEM work unit with activities outlined in Appendix A, Section A.1
+
+|AVA_VAN.1-4 The evaluator *__shall record__* in the ETR the identified potential vulnerabilities that are candidates for testing and applicable to the TOE in its operational environment.	
+|Replace the CEM work unit with the analysis activities on the list of potential vulnerabilities in Appendix A, section A.1, and documentation as specified in Appendix A, Section A.3.
+
+|AVA_VAN.1-5 The evaluator *__shall devise__* penetration tests, based on the independent search for potential vulnerabilities.	
+|Replace the CEM work unit with the activities specified in Appendix A, section A.2.
+
+a|AVA_VAN.1-6 The evaluator *__shall produce__* penetration test documentation for the tests based on the list of potential vulnerabilities in sufficient detail to enable the tests to be repeatable. The test documentation shall include:
+
+[loweralpha]
+. Identification of the potential vulnerability the TOE is being tested for;
+
+. Instructions to connect and setup all required test equipment as required to conduct the penetration test;
+
+. Instructions to establish all penetration test prerequisite initial
+conditions;
+
+. Instructions to stimulate the TSF;
+
+. Instructions for observing the behaviour of the TSF;
+
+. Descriptions of all expected results and the necessary analysis to be performed on the observed behaviour for comparison against
+expected results;
+
+. Instructions to conclude the test and establish the necessary post-test state for the TOE.	
+|The CEM work unit is captured in Appendix A, Section A.3; there are no substantive differences.
+
+|AVA_VAN.1-7 The evaluator shall conduct penetration testing.
+|The evaluator shall perform the CEM activity as specified. See Appendix A, Section A.3, paragraph 110 for guidance related to attack potential for confirmed flaws.
+
+|AVA_VAN.1-8 The evaluator shall record the actual results of the penetration tests.
+|The evaluator shall perform the CEM activity as specified.
+
+|AVA_VAN.1-9 The evaluator shall report in the ETR the evaluator penetration testing effort, outlining the testing approach, configuration, depth and results.
+|Replace the CEM work unit with the reporting called for in Appendix A, Section A.3.
+
+|AVA_VAN.1-10 The evaluator shall examine the results of all penetration testing to determine that the TOE, in its operational environment, is resistant to an attacker possessing a Basic attack potential.
+|This work unit is not applicable for Type 1 and Type 2 flaws (as defined in Appendix A, Section A.1), as inclusion in this Supporting Document by the iTC makes any confirmed vulnerabilities stemming from these flaws subject to an attacker possessing a Basic attack potential. This work unit is replaced for Type 3 and Type 4 flaws by the activities defined in Appendix A, Section A.2, paragraph 110.
+
+a|AVA_VAN.1-11 The evaluator shall report in the ETR all exploitable vulnerabilities and residual vulnerabilities, detailing for each:
+
+[loweralpha]
+. Its source (e.g. CEM activity being undertaken when it was conceived, known to the evaluator, read in a publication);
+. The SFR(s) not met;
+. A description;
+. Whether it is exploitable in its operational environment or not (i.e. exploitable or residual).
+. The amount of time, level of  expertise, level of knowledge of the
+TOE, level of opportunity and the equipment required to perform the identified vulnerabilities, and the corresponding values using the tables 3 and 4 of Annex B.4.
+|Replace the CEM work unit with the reporting called for in Appendix A, Section A.3.
+
+|===
+
+Because of the level of detail required for the evaluation activities, the bulk of the instructions are contained in Appendix A, while an "outline" of the assurance activity is provided below.
+
+===== Evaluation Activity (Documentation)
+[GUIDANCE]
+====
+If the iTC determines that no additional documentation beyond that specified below is required, it is acceptable to remove this Evaluation Activity in the Supporting Document.
+
+If the iTC determines that additional documentation is appropriate, they will insert a description of that documentation in this paragraph. The iTC must specify the required documentation in as much detail as possible to eliminate issues associated with the evaluators evaluating the suitability of the documentation rather than using the documentation to evaluate the product. Therefore, documentation statements such as "Supply a high-level and low-level design" are discouraged. An example of a better statement is:
+
+"The developer shall provide documentation identifying the list of software and hardware components that compose the TOE. Hardware components apply to all systems claimed in the ST, and should identify at a minimum the processors used by the TOE. Software components include any libraries used by the TOE, such as cryptographic libraries. This additional documentation is merely a list of the name and version number of the components, and will be used by the evaluators in formulating hypotheses during their analysis."
+
+The evaluator shall examine the documentation outlined below provided by the vendor to confirm that it contains all required information. This documentation is in addition to the documentation already required to be supplied in response to the EAs listed previously.
+====
+
+In addition to the activities specified by the CEM in accordance with Table 2 above, the evaluator shall perform the following activities.
+
+===== Evaluation Activity
+[GUIDANCE]
+====
+The evaluator formulates hypotheses in accordance with process defined in Appendix A.1. The evaluator documents the flaw hypotheses generated for the TOE in the report in accordance with the guidelines in Appendix A.3. The evaluator shall perform vulnerability analysis in accordance with Appendix A.2. The results of the analysis shall be documented in the report according to Appendix A.3.
+====
+
+== Required Supplementary Information
+This Supporting Document refers in various places to the possibility that 'required supplementary information' may need to be supplied as part of the deliverables for an evaluation. This term is intended to describe information that is not necessarily included in the Security Target or operational guidance, and that may not necessarily be public. Examples of such information could be entropy analysis, or description of a cryptographic key management architecture used in (or in support of) the TOE. The requirement for any such supplementary information will be identified in the relevant cPP. 
+
+[GUIDANCE]
+====
+Add the EAs for Required Supplementary Information, such as a Key Management Description, as defined in the cPP.
+====
+
+== References
+[REVIEW]
+====
+Update the references below. If there is anything needed beyond the cPP then it should be added here.
+====
+
+
+* [#CC1]#[CC1]#	Common Criteria for Information Technology Security Evaluation, Part 1: Introduction and General Model, CCMB-2017-04-001, Version 3.1 Revision 5, April 2017.
+* [#CC2]#[CC2]# Common Criteria for Information Technology Security Evaluation, Part 2: Security Functional Components, CCMB-2017-04-002, Version 3.1 Revision 5, April 2017.
+* [#CC3]#[CC3]#	Common Criteria for Information Technology Security Evaluation, Part 3: Security Assurance Components, CCMB-2017-04-003, Version 3.1 Revision 5, April 2017.
+* [#CEM]#[CEM]#	Common Methodology for Information Technology Security Evaluation, Evaluation Methodology, CCMB-2017-04-004, Version 3.1 Revision 5, April 2017.
+* [#addenda]#[addenda]# CC and CEM addenda, Exact Conformance, Selection-Based SFRs, Optional SFRs, Version 0.5, May 2017
+* [#cPP]#[cPP]# {pp-name}, {pp-version}, {pp-date}
+
+[appendix]
+== Vulnerability Analysis
+
+=== Sources of Vulnerability Information
+CEM Work Unit AVA_VAN.1-3 has been supplemented in this Supporting Document to provide a better-defined set of flaws to investigate and procedures to follow based on this particular technology. Terminology used is based on the flaw hypothesis methodology, where the evaluation team hypothesizes flaws and then either proves or disproves those flaws (a flaw is equivalent to a "potential vulnerability" as used in the CEM). Flaws are categorized into four "types" depending on how they are formulated:
+
+. A list of flaw hypotheses applicable to the technology described by the cPP derived from public sources as documented in <<Type1Hypotheses>>-this fixed set has been agreed to by the iTC. Additionally, this will be supplemented with entries for a set of public sources (as indicated below) that are directly applicable to the TOE or its identified components (as defined by the process in <<Type1Hypotheses>> below); this is to ensure that the evaluators include in their assessment applicable entries that have been discovered since the cPP was published;
+. A list of flaw hypotheses contained in this document that are derived from lessons learned specific to that technology and other iTC input (that might be derived from other open sources and vulnerability databases, for example) as documented in <<Type2Hypotheses>>; 
+. A list of flaw hypotheses derived from information available to the evaluators; this includes  the baseline evidence provided by the vendor described in this Supporting Document (documentation associated with EAs, documentation described in <<Evaluation Activity (Documentation)>>, <the iTC can remove the reference to <<Evaluation Activity (Documentation)>> if no additional documentation is defined> documentation described in <<Required Supplementary Information>>), as well as other information (public and/or based on evaluator experience) as documented in <<Type3Hypotheses>>; and
+. A list of flaw hypotheses that are generated through the use of iTC-defined tools (e.g., nmap, protocol testers) and their application is specified in <<Type4Hypotheses>>.
+
+[GUIDANCE]
+====
+It should be noted that it is not mandatory for the Supporting Document to contain all types of flaw hypotheses listed above; that determination is left to the iTC. Should the iTC determine there are no applicable flaws for a given type, they should adjust the text of the Supporting Document accordingly to remove spurious sections and references.
+====
+
+[#Type1Hypotheses]
+==== Type 1 Hypotheses - Public-Vulnerability-based
+[GUIDANCE]
+====
+The iTC must determine what public vulnerability databases are to be used as the basis for Type 1 hypotheses, and what entries in these databases apply. A sample list of resources is contained in Appendix D, but the iTC is not bound by that list.
+
+In performing this activity, the iTC first agrees upon the sources to be used. The list of sources should be searched by the iTC with an agreed-upon set of terms such that the iTC feels a representative set of vulnerabilities with respect to the technology type is returned.
+
+Having identified the sources, for each source the iTC defines criteria for selecting entries in the list. The lists and criteria should be identified in this section of the Supporting Document so that evaluators can use the same sources and criteria at evaluation time to select entries that were made after the cPP was published. For each entry that meets the criteria, the iTC determines whether or not to include it in the list of flaw hypotheses defined in this Supporting Document. This will likely necessitate the creation of some criteria by which to judge an entry that is agreed to by the iTC. For instance, CVEs that would generate flaw hypotheses related to buffer overflows would probably be rejected as a generic flaw hypothesis. The output of this activity is a list of specific entries from the selected sources that will be used as flaw hypotheses.
+====
+
+The following list of public sources of vulnerability information was selected by the iTC:
+
+[REVIEW]
+====
+list of sources; can be an appendix (for example, see Appendix D) or it can be an in-line bulleted list. The references should be specific enough so there is no ambiguity identifying a specific location/database.
+====
+
+The list of sources above was searched with the following search terms:
+
+[REVIEW]
+====
+list of search terms used by the iTC; if search terms/criteria are specific to specific sources, the association between the terms used and the source should be made here as well.
+====
+
+In order to supplement this list, the evaluators shall also perform a search on the sources listed above to determine a list of potential flaw hypotheses that are more recent that the publication date of the cPP, and those that are specific to the TOE and its components as specified by the additional documentation mentioned above. Any duplicates - either in a specific entry, or in the flaw hypothesis that is generated from an entry from the same or a different source - can be noted and removed from consideration by the evaluation team. 
+
+As part of type 1 flaw hypothesis generation for the specific components of the TOE, the evaluator shall also search the component manufacturer's websites to determine if flaw hypotheses can be generated on this basis (for instance, if security patches have been released for the version of the component being evaluated, the subject of those patches may form the basis for a flaw hypothesis).
+
+[GUIDANCE]
+====
+The iTC should insert any additional instructions to the evaluators for performing searches of public sources of vulnerability information applicable to the technology that is not covered above.
+====
+
+[#Type2Hypotheses]
+==== Type 2 Hypotheses - iTC-sourced
+[GUIDANCE]
+====
+The iTC must consider if there are any technology-specific vulnerabilities or types of vulnerabilities that the evaluators should consider that are not contained in the previous section. This could be based on previous evaluations against the cPP, experience of the iTC members, or other factors. These vulnerabilities should be limited to those exploitable with a Basic Attack Potential-as characterized by the time, technical expertise, knowledge of the TOE, equipment, and access needed for exploitation. Section B.4.2.2. of the CEM provides detailed guidance on how these factors should be considered in determining attack potential relative to vulnerabilities.
+
+This set of vulnerabilities (Type 2) is listed below and would then need to be considered by the evaluation team. It is likely that there will be few or no entries identified for this type until more experience is gained with the cPP.
+====
+
+The following list of flaw hypothesis generated by the iTC for this technology must be considered by the evaluation team as flaw hypotheses in performing the vulnerability assessment. 
+
+[REVIEW]
+====
+List of flaw hypotheses generated by the iTC as indicated above.
+====
+
+If the evaluators discover a Type 3 or Type 4 flaw that they believe should be considered as a Type 2 flaw in future versions of this cPP, they should work with their Certification Body to determine the appropriate means of submitting the flaw for consideration by the iTC.
+
+[#Type3Hypotheses]
+==== Type 3 Hypotheses - Evaluation-Team-Generated
+Type 3 flaws are formulated by the evaluator based on information presented by the product (through on-line help, product documentation and user guides, etc.) and product behaviour during the (functional) testing activities. The evaluator is also free to formulate flaws that are based on material that is not part of the baseline evidence (e.g., information gleaned from an Internet mailing list, or reading interface documentation on interfaces not included in the set provided by the developer), although such activities have the potential to vary significantly based upon the product and evaluation facility performing the analysis.
+
+If the evaluators discover a Type 3 flaw that they believe should be considered as a Type 2 flaw in future versions of this cPP, they should work with their Certification Body to determine the appropriate means of submitting the flaw for consideration by the iTC.
+
+[GUIDANCE]
+====
+It may be the case that no activities of this type are appropriate for this technology; in that case, this section can be removed and references in other areas of this Supporting Document adjusted accordingly.
+====
+
+[#Type4Hypotheses]
+==== Type 4 Hypotheses - Tool-Generated
+[GUIDANCE]
+====
+The iTC identifies any tools to be used or testing to be performed by the evaluators resulting in the creation of flaw hypotheses. The iTC can choose to merely outline the testing that needs to be formed, or they can identify specific tools and testing to be done with those tools. In this definition, the iTC also indicates test results that indicate that a flaw hypothesis should be created (the goal of this section is not to perform or re-do functional testing; it is to test in a way that might produce anomalies that are to be candidate flaw hypotheses). The iTC documents and specifies tools; the procedures, settings, and testing to be performed; and criteria for creating flaw hypotheses from these results in this section.
+
+It may be the case that no activities of these type are appropriate for this technology; in that case, this section can be removed and references in other areas of this Supporting Document adjusted accordingly.
+====
+
+If the evaluators discover a Type 4 flaw that they believe should be considered as a Type 2 flaw in future versions of this cPP, they should work with their Certification Body to determine the appropriate means of submitting the flaw for consideration by the iTC.
+
+=== Process for Evaluator Vulnerability Analysis 
+As flaw hypotheses are generated from the activities described above, the evaluation team will disposition them; that is, attempt to prove, disprove, or determine the non-applicability of the hypotheses. This process is as follows.
+
+The evaluator will refine each flaw hypothesis for the TOE and attempt to disprove it using the information provided by the developer or through penetration testing. During this process, the evaluator is free to interact directly with the developer to determine if the flaw exists, including requests to the developer for additional evidence (e.g., detailed design information, consultation with engineering staff); however, the CB should be included in these discussions. Should the developer object to the information being requested as being not compatible with the overall level of the evaluation activity/cPP and cannot provide evidence otherwise that the flaw is disproved, the evaluator prepares an appropriate set of materials as follows: 
+
+. The source documents used in formulating the hypothesis, and why it represents a potential compromise against a specific TOE function; 
+. An argument why the flaw hypothesis could not be proven or disproved by the evidence provided so far; and
+. The type of information required to investigate the flaw hypothesis further.
+
+The Certification Body (CB) will then either approve or disapprove the request for additional information. If approved, the developer provides the requested evidence to disprove the flaw hypothesis (or, of course, acknowledge the flaw). 
+
+For each hypothesis, the evaluator will note whether the flaw hypothesis has been successfully disproved, successfully proven to have identified a flaw, or requires further investigation. It is important to have the results documented as outlined in Section A.3 below.
+
+If the evaluator finds a flaw, the evaluator must report these flaws to the developer. All reported flaws must be addressed as follows:
+
+If the developer confirms that the flaw exists and that it is exploitable at Basic Attack Potential, then a change is made by the developer, and the resulting resolution is agreed by the evaluator and noted as part of the evaluation report. 
+
+If the developer, the evaluator, and the CB agree that the flaw is exploitable only above Basic Attack Potential and does not require resolution for any other reason, then no change is made and the flaw is noted as a residual vulnerability in the CB-internal report (ETR). 
+
+If the developer and evaluator agree that the flaw is exploitable only above Basic Attack Potential, but it is deemed critical to fix because of technology-specific or cPP-specific aspects such as typical use cases or operational environments, then a change is made by the developer, and the resulting resolution is agreed by the evaluator and noted as part of the evaluation report.
+
+Disagreements between evaluator and vendor regarding questions of the existence of a flaw, its attack potential, or whether it should be deemed critical to fix are resolved by the CB.
+
+Any testing performed by the evaluator shall be documented in the test report as outlined in <<Reporting>> below. 
+
+As indicated in <<Reporting>>, Reporting, the public statement with respect to vulnerability analysis that is performed on TOEs conformant to the cPP is constrained to coverage of flaws associated with Types 1 and 2 (defined in <<Sources of Vulnerability Information>>) flaw hypotheses only. The fact that the iTC generates these candidate hypotheses indicates these must be addressed.
+
+For flaws of Types 3 and 4, each CB is responsible for determining what constitutes Basic Attack Potential for the purposes of determining whether a flaw is exploitable in the TOE's environment. The determination criteria shall be documented in the CB-internal report as specified in <<Reporting>>. As this is a per-CB activity, no public claims are made with respect to the resistance of a particular TOE against flaws of Types 3 and 4; rather, the claim is that the activities outlined in this appendix were carried out, and the evaluation team and CB agreed that any residual vulnerabilities are not exploitable by an attacker with Basic Attack Potential.
+
+=== Reporting
+The evaluators shall produce two reports on the testing effort; one that is public-facing (that is, included in the non-proprietary evaluation report, which is a subset of the Evaluation Technical Report (ETR)), and the complete ETR that is delivered to the overseeing CB.
+
+The public-facing report contains:
+
+* The flaw identifiers returned when the procedures for searching public sources were followed according to instructions in the Supporting Document per <<Type1Hypotheses>>;
+
+* A statement that the evaluators have examined the Type 1 flaw hypotheses specified in this Supporting Document in <<Type1Hypotheses>> (i.e. the flaws listed in the previous bullet) and the Type 2 flaw hypotheses specified in this Supporting Document by the iTC in <<Type2Hypotheses>>.
+
+[GUIDANCE]
+====
+The above two bullets encompass all flaw hypotheses of Type 1 and Type 2.
+====
+
+* A statement that the evaluation team developed Types 3 and 4 flaw hypotheses in accordance with Sections <<Type3Hypotheses>>, <<Type4Hypotheses>>, and <<Process for Evaluator Vulnerability Analysis>>, and that no residual vulnerabilities exist that are exploitable by attackers with Basic Attack Potential as defined by the CB in accordance with the guidance in the CEM. It should be noted that this is just a statement about the "fact of" Types 3 and 4 flaw hypotheses being developed, and that no specifics about the number of flaws, the flaws themselves, or the analysis pertaining to those flaws will be included in the public-facing report. 
+
+No other information is provided in the public-facing report.
+
+The internal CB report contains, in addition to the information in the public-facing report:
+
+* A list of all of the flaw hypotheses generated (cf. AVA_VAN.1-4); 
+* The evaluator penetration testing effort, outlining the testing approach, configuration, depth and results (cf. AVA_VAN.1-9);
+* All documentation used to generate the flaw hypotheses (in identifying the documentation used in coming up with the flaw hypotheses, the evaluation team must characterize the documentation so that a reader can determine whether it is strictly required by this Supporting Document, and the nature of the documentation (design information, developer engineering notebooks, etc.));
+* The evaluator shall report all exploitable vulnerabilities and residual vulnerabilities, detailing for each:
+** Its source (e.g. CEM activity being undertaken when it was conceived, known to the evaluator, read in a publication);
+** The SFR(s) not met;
+** A description;
+** Whether it is exploitable in its operational environment or not (i.e. exploitable or residual).
+** The amount of time, level of expertise, level of knowledge of the TOE, level of opportunity and the equipment required to perform the identified vulnerabilities (cf. AVA_VAN.1-11);
+* How each flaw hypothesis was resolved (this includes whether the original flaw hypothesis was confirmed or disproved, and any analysis relating to whether a residual vulnerability is exploitable by an attacker with Basic Attack Potential) (cf. AVA_VAN1-10); and 
+* In the case that actual testing was performed in the investigation (either as part of flaw hypothesis generation using tools specified by the iTC in Section A.1.4, or in proving/disproving a particular flaw) the steps followed in setting up the TOE (and any required test equipment); executing the test; post-test procedures; and the actual results (to a level of detail that allow repetition of the test, including the following:
+** Identification of the potential vulnerability the TOE is being tested for;
+** Instructions to connect and setup all required test equipment as required to conduct the penetration test;
+** Instructions to establish all penetration test prerequisite initial conditions;
+** Instructions to stimulate the TSF;
+** Instructions for observing the behaviour of the TSF;
+** Descriptions of all expected results and the necessary analysis to be performed on the observed behaviour for comparison against expected results;
+** Instructions to conclude the test and establish the necessary post-test state for the TOE. (cf. AVA_VAN.1-6, AVA_VAN.1-8).
+
+[appendix]
+== Equivalency Considerations
+[GUIDANCE]
+====
+If the cPP does not require definitions of equivalency, then this section can be removed. Otherwise this section should be updated based on the iTC considerations for how a vendor can define equivalent products and how a lab should treat the definitions.
+====
+
+=== Introduction
+This appendix provides a foundation for evaluators to determine whether a vendor's request for equivalency of products is allowed. 
+
+For the purpose of this evaluation, equivalency can be broken into two categories:
+
+* **Variations in models**: Separate TOE models/variations may include differences that could necessitate separate testing across each model. If there are no variations in any of the categories listed below, the models may be considered equivalent.
+* **Variations in TOE dependencies on the environment (e.g., OS/platform the product is tested on)**: The method a TOE provides functionality (or the functionality itself) may vary depending upon the environment on which it is installed. If there is no difference in the TOE-provided functionality or in the manner in which the TOE provides the functionality, the models may be considered equivalent.
+
+Determination of equivalency for each of the above specified categories can result in several different testing outcomes. 
+
+If a set of TOE are determined to be equivalent, testing may be performed on a single variation of the TOE. However, if the TOE variations have security-relevant functional differences, each of the TOE models that exhibits either functional or structural differences must be separately tested. Generally speaking, only the difference between each variation of TOE must be separately tested. Other equivalent functionality may be tested on a representative model and not across multiple platforms.
+
+If it is determined that a TOE operates the same regardless of the environment, testing may be performed on a single instance for all equivalent configurations. However, if the TOE is determined to provide environment-specific functionality, testing must take place in each environment for which a difference in functionality exists. Similar to the above scenario, only the functionality affected by environment differences must be retested.
+
+If a vendor disagrees with the evaluator's assessment of equivalency, the Scheme arbitrates between the two parties whether equivalency exists.
+
+=== Evaluator guidance for determining equivalence
+==== Strategy
+When performing the equivalency analysis, the evaluator should consider each factor independently. A factor may be any number of things at various levels of abstraction, ranging from the processor a device uses, to the underlying operating system and hardware platform a software application relies upon. Examples may be the various chip sets employed by the product, the type of network interface (different device drivers), storage media (solid state drive, spinning disk, EEPROM). It is important to consider how the difference in these factors may influence the TOE's ability to enforce the SFRs. Each analysis of an individual factor will result in one of two outcomes: 
+
+* For the particular factor, all variations of the TOE on all supported platforms are equivalent. In this case, testing may be performed on a single model in a single test environment and cover all supported models and environments.
+* For the particular factor, a subset of the product has been identified to require separate testing to ensure that it operates identically to all other equivalent TOEs. The analysis would identify the specific combinations of models/testing environments that needed to be tested.
+
+Complete CC testing of the product would encompass the totality of each individual analysis performed for each of the identified factors.
+
+==== Test presentation/Truth in advertising
+In addition to determining what to test, the evaluation results and resulting validation report must identify the actual module and testing environment combinations that have been tested. The analysis used to determine the testing subset may be considered proprietary and will only optionally be publicly included.
+
+[appendix]
+== Public Vulnerability Sources
+[REVIEW]
+====
+This appendix may be included (if referenced from Appendix A above) or excluded from the final Supporting Document at the discretion of the iTC. The iTC should also consider supplementing it (if retained) as necessary to reflect the appropriate technology-specific aspects.
+====
+
+The following sources of public vulnerabilities are sources for the iTC to consider in both formulating the specific list of flaws to be investigated by the evaluators, as well as to reference in directing the evaluators to perform key-word searches during the evaluation of a specific TOE.
+
+. Search Common Vulnerabilities and Exposures: http://cve.mitre.org/cve/
+. Search Core Security Technologies: http://www.coresecurity.com 
+. Search eEye Digital Security: http://blog.beyondtrust.com/zd_threat?status=zeroday 
+. Search Exploit / Vulnerability Search Engine: www.exploitsearch.net 
+. Conduct SecurITeam Exploit Search: www.securiteam.com 
+. Search SecurityTracker: www.securitytracker.com 
+. Search VUPEN Security, formerly FrSIRT: www.vupen.com 
+. Conduct Google search: www.google.com
+. Search McAfee Threat Intelligence http://www.mcafee.com/us/mcafee-labs/threat-intelligence.aspx 
+. Search Open Source Vulnerability Database http://osvdb.org/ 
+. Search Secwatch Advisories & Exploits https://securitynewsportal.com/index.shtml 
+. Search Symantec http://www.symantec.com/security_response/ 
+. Search Tenable Network Security http://nessus.org/plugins/index.php?view=search 
+. Tipping Point Zero Day Initiative http://www.zerodayinitiative.com/advisories 
+. Search US-CERT http://www.kb.cert.org/vuls/html/search 
+. Search Vigil@nce http://vigilance.fr/
+
+[appendix]
+== Glossary
+====
+This should be completed to define all the terms needed to fully understand the content of the SD.
+====
+
+For definitions of standard CC terminology see [CC1]. 
+
+[glossary]
+Data Encryption Key (DEK)::
+A key used to encrypt data at rest.
+
+[appendix]
+== Acronyms
+
+.Acronyms
+[cols="1,4",options="header",]
+|===
+|Acronym
+|Meaning
+
+|
+|
+|===

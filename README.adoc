@@ -1,0 +1,8 @@
+= README
+
+== Introduction
+This is the repository for the Coffee Maker iTC. 
+
+Provide a simple message about what the iTC is doing here (i.e. if you have multiple repositories, state what you are doing in each one of them). 
+
+Check out the main page for the iTC at <GITHUB.IO site here>.
