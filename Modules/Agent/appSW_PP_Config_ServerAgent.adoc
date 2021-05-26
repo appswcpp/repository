@@ -1,0 +1,105 @@
+= PP-Configuration for Enterprise Server Applications and Client Agent(s)
+:showtitle:
+:toc:
+:table-caption: Table
+:icons: font
+:revnumber: 0.1
+:revdate: 2021-05-26
+
+:iTC-longname: iTC for Application Software
+:iTC-shortname: AppSW-iTC
+:iTC-email: cm-itc-mailing-list@gmail.com
+:iTC-website: https://appswcpp.github.io/
+:iTC-GitHub: https://github.com/appswcpp/repository/
+
+:sectnums!:
+== Acknowledgements
+
+This PP-Configuration was developed by the {iTC-longname} international Technical Community (iTC) also known as {iTC-shortname} with representatives from Industry, Government agencies, Common Criteria Test Laboratories, and members of academia.
+
+=== Revision History
+
+.Revision history
+[%header,cols="1,2,4"]
+|===
+|Version 
+|Date 
+|Description
+
+|0.1
+|2021-05-26
+|Initial Draft
+
+
+|===
+
+:sectnums:
+== Introduction
+
+=== PP-Configuration Overview
+The purpose of a PP-Configuration is to combine Protection Profiles (PPs) and PP-Modules for various technology types into a single configuration that can be evaluated as a whole. 
+
+This PP-Configuration is for enterprise server applications and their client agent(s).
+
+=== PP-Configuration Reference
+
+This PP-Configuration is identified as follows:
+
+* PP-Configuration for Enterprise Server Applications and Client Agent(s), Version {revnumber}, {revdate}
+* As a shorthand reference, it can be identified as "CFG_APP-Server-Agent_V{revnumber}""
+
+=== PP-Configuration Components
+
+This PP-Configuration includes the following components:
+
+.PP-Configuration Components
+[cols="1,3"]
+|===
+|[base PP] 
+|cPP_APP_SW_V1.0
+
+|[PP-Module 1] 
+|MOD_Server_v1.0
+
+|[PP-Module 2] 
+|MOD_Agent_v1.0
+
+|===
+
+== Conformance Claims
+
+=== CC Statement
+
+To be conformant to this PP-Configuration, an ST must demonstrate Exact Conformance, as defined by the CC and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs.
+
+=== CC Conformance Claims
+
+This PP-Configuration, and its components specified in section 1.3, are conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version 3.1, Release 5 [CC].
+
+== SAR Statement
+
+The set of SARs specified for this PP-Configuration are taken from, and identical to, those specified in the base PP.
+
+=== Related Documents
+
+**Common Criteria**footnote:[For details see http://www.commoncriteriaportal.org/]
+
+.Common Criteria References
+[cols="1,3",]
+|===
+|[#CC1]#[CC1]# |Common Criteria for Information Technology Security Evaluation, +
+Part 1: Introduction and General Model, +
+CCMB-2017-04-001, Version 3.1 Revision 5, April 2017.
+|[#CC2]#[CC2]# |Common Criteria for Information Technology Security Evaluation, +
+Part 2: Security Functional Components, +
+CCMB-2017-04-002, Version 3.1 Revision 5, April 2017.
+|[#CC3]#[CC3]# |Common Criteria for Information Technology Security Evaluation, +
+Part 3: Security Assurance Components, +
+CCMB-2017-04-003, Version 3.1 Revision 5, April 2017.
+|[#CEM]#[CEM]# |Common Methodology for Information Technology Security Evaluation, +
+Evaluation Methodology, +
+CCMB-2017-04-004, Version 3.1 Revision 5, April 2017.
+|[#addenda]#[addenda]# |CC and CEM addenda, +
+Exact Conformance, Selection-Based SFRs, Optional SFRs, +
+Version 0.5, May 2017.
+|===
