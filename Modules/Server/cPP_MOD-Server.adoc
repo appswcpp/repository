@@ -327,7 +327,12 @@ Components in this family address requirements for secure configuration. This is
 
 ==== Component Levelling
 
-image::tbd.jpg[]
+[ditaa]
+....
+            +---------------------------------------+     +-----+
+            |    FPT_MEC_EXT Security Management    |-----|  1  |
+            +---------------------------------------+     +-----+
+....
 
 FPT_MEC_EXT.1/Server ensures that the TOE is not vulnerable to malicous configuration changes by unauthorized access or an escalation of privledge attack.
 
@@ -375,7 +380,12 @@ This is a new component within the FPT class which addresses requirements to ens
 
 ==== Component Levelling
 
-image::fpt_aex_ext_componentlevel.jpg[]
+[ditaa]
+....
+            +---------------------------------------+     +-----+
+            |    FPT_AEX_EXT Anti-Exploitation      |-----|  1  |
+            +---------------------------------------+     +-----+
+....
 
 FPT_AEX_EXT.2 ensures the TOE is not susceptible to commonly used exploitation methods and that it doesn’t circumvent security functionality provided by the platform. 
 
@@ -406,7 +416,12 @@ This is a new component within the FCO class used to define high-level constrain
 
 ==== Component Levelling
 
-image::fpt_aex_ext_componentlevel.jpg[]
+[ditaa]
+....
+            +---------------------------------------+     +-----+
+            |   FCO_CPC_EXT Component Registration  |-----|  1  |
+            +---------------------------------------+     +-----+
+....
 
 FCO_CPC_EXT.1/Server Component Registration Channel Definition, requires the TSF to support a registration channel for joining together server and agent TOE parts, and to ensure that the availability of this channel is under the control of an Administrator. It also requires statement of the type of channel used (allowing specification of further lower-level security requirements by reference to other SFRs). 
 

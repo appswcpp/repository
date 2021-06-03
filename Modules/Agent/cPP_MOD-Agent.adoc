@@ -252,7 +252,12 @@ This is a new component within the FCO class used to define high-level constrain
 
 ==== Component Levelling
 
-image::fpt_aex_ext_componentlevel.jpg[]
+[ditaa]
+....
+            +---------------------------------------+     +-----+
+            |   FCO_CPC_EXT Component Registration  |-----|  1  |
+            +---------------------------------------+     +-----+
+....
 
 FCO_CPC_EXT.1/Agent Component Registration Channel Definition, requires the TSF to support a registration channel for joining together server and agent TOE parts, and to ensure that the availability of this channel is under the control of an Administrator. It also requires statement of the type of channel used (allowing specification of further lower-level security requirements by reference to other SFRs). 
 
