@@ -252,7 +252,9 @@ This is a new component within the FCO class used to define high-level constrain
 
 ==== Component Levelling
 
-[ditaa]
+[#img-FCO-CPC-EXT]
+.Component leveling
+[ditaa, FCO_CPC_EXT, png]
 ....
             +---------------------------------------+     +-----+
             |   FCO_CPC_EXT Component Registration  |-----|  1  |

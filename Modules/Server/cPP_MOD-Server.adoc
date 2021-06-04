@@ -327,7 +327,9 @@ Components in this family address requirements for secure configuration. This is
 
 ==== Component Levelling
 
-[ditaa]
+[#img-FMT-MEC-EXT]
+.Component leveling
+[ditaa, FMT_MEC_EXT, png]
 ....
             +---------------------------------------+     +-----+
             |    FPT_MEC_EXT Security Management    |-----|  1  |
@@ -380,7 +382,9 @@ This is a new component within the FPT class which addresses requirements to ens
 
 ==== Component Levelling
 
-[ditaa]
+[#img-FPT-AEX-EXT]
+.Component leveling
+[ditaa, FPT_AEX_EXT, png]
 ....
             +---------------------------------------+     +-----+
             |    FPT_AEX_EXT Anti-Exploitation      |-----|  1  |
@@ -416,7 +420,9 @@ This is a new component within the FCO class used to define high-level constrain
 
 ==== Component Levelling
 
-[ditaa]
+[#img-FCO-CPC-EXT]
+.Component leveling
+[ditaa, FCO_CPC_EXT, png]
 ....
             +---------------------------------------+     +-----+
             |   FCO_CPC_EXT Component Registration  |-----|  1  |
