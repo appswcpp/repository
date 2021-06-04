@@ -1,8 +1,5 @@
-= README
 
 == Introduction
 This is the repository for the Appliciation Software iTC. 
 
-More info to follow.
-
-Check out the main page for the iTC at <https://appswcpp.github.io/>.
+Please use the Issues feature to provide any comments.
