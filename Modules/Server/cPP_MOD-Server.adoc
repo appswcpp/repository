@@ -248,9 +248,8 @@ The TSF shall require a Security Administrator to enable communications between 
 ===== FCO_CPC_EXT.1.2/Server
 The TSF shall implement a registration process in which TOE parts establish and use a communications channel that uses _[selection:_
 
-** _A channel that meets the secure channel requirements in  FPT_ITT.1,_
-
-** _No channel_
+* _A channel that meets the secure channel requirements in  FPT_ITT.1,_
+* _No channel_
 
 _]._
 
