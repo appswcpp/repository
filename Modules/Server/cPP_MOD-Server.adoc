@@ -206,7 +206,7 @@ The TSF shall be capable of performing the following management functions:
 
 * [_selection:_ 
 
-** _configuration of communication with Agent_
+** _configuration of communication with Agent according to FCO_CPC_EXT.1/Server and FPT_ITT.1/Server_
 ** _allow/disallow the enrollment of a TOE agent by administative function or policy,_
 ** _query agent version,_
 ** _provide update functionality to agent,_
@@ -220,7 +220,6 @@ The TSF shall be capable of performing the following management functions:
 
 Application Note {counter:appnote}: Functions that relate to management of agents is intended to be used in conjuction with the Agent module, however, it can be used with third party agents that aren't necessarily within the TOE boundary.
 
-If "communication with Agent" is selected then the FCO_CPC_EXT.1/Server and FPT_ITT.1/Server SFRs will be selected. 
 
 
 === Protection of the TSF (FPT)
