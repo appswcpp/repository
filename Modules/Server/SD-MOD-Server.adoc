@@ -305,11 +305,11 @@ The evaluator shall confirm that the guidance documentation contains instruction
 ====== Test
 The evaluator shall perform the following tests:
 
-Test 1: The evaluator shall ensure that communications using each protocol between each pair of authorized TOE parts is tested during the course of the evaluation, setting up the connections as described in the guidance documentation and ensuring that communication is successful.
+* Test 1: The evaluator shall ensure that communications using each protocol between each pair of authorized TOE parts is tested during the course of the evaluation, setting up the connections as described in the guidance documentation and ensuring that communication is successful.
 
-Test 2: The evaluator shall ensure, for each communication channel with an authorized IT entity, the channel data is not sent in plaintext.
+* Test 2: The evaluator shall ensure, for each communication channel with an authorized IT entity, the channel data is not sent in plaintext.
 
-Test 3: The evaluator shall, for each protocol associated with each authorized IT entity tested during test a), the connection is physically interrupted. The evaluator shall ensure that when physical connectivity is restored, communications are appropriately protected.
+* Test 3: The evaluator shall, for each protocol associated with each authorized IT entity tested during test a), the connection is physically interrupted. The evaluator shall ensure that when physical connectivity is restored, communications are appropriately protected.
 
 Further assurance activities are associated with the specific protocols.
 
