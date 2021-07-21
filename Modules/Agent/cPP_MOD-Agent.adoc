@@ -50,7 +50,7 @@ This module is part of a Collaborative Protection Profile (cPP) whose Target of 
 
 1.	Enterprise Agent Applications
 
-This cPP module is to be used against which all of the above categories of software applications may be evaluated. In addition there are PP modules that may be applicable based on the category of application.
+This cPP-Module is to be used against which all of the above categories of software applications may be evaluated. In addition there are PP-Modules that may be applicable based on the category of application.
 
 In addition to the above categories there are large number of applications (Desktop and Mobile) that fall under “Consumer-grade” category. While such applications could be evaluated under the Application Software cPP, it is not the intention of this iTC to specifically address this category. The iTC doesn’t believe the consumer grade app ecosystem would support the historical cost and timelines associated with a Common Criteria evaluation.
 
@@ -90,10 +90,10 @@ For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
 
 ==== Compliant Targets of Evaluation
 
-This is a Collaborative Protection Profile (cPP) Module whose Target of Evaluation (TOE) is Enterprise Agent Applications. This PP module is compatible with the cPP for Application Software and collaborative PP-Module for Server Applications. 
+This is a Collaborative Protection Profile (cPP) Module whose Target of Evaluation (TOE) is Enterprise Agent Applications. This PP-Module is compatible with the cPP for Application Software and collaborative PP-Module for Server Applications. 
 
 === TOE Use Cases
-All use cases of Enterprise Agent applications defined in the Base cPP are applicable to this PP Module.
+All use cases of Enterprise Agent applications defined in the Base cPP are applicable to this PP-Module.
 
 == CC Conformance Claims
 As defined by the references <<CC1>>, <<CC2>> and <<CC3>>, this PP-Module:
