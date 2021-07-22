@@ -7,7 +7,7 @@
 :imagesdir: images
 :icons: font
 :revnumber: 0.1
-:revdate: 2021-07-21
+:revdate: 2021-07-22
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -30,7 +30,7 @@ This collaborative Protection Profile (cPP) was developed by the {iTC-longname} 
 |Description
 
 |0.01
-|2021-06-29
+|2021-07-22
 |Initial Migration to adoc format.
 
 |
@@ -998,15 +998,17 @@ Components in this family address the requirements for random bit/number generat
 .Component levelling 
 [ditaa]
 ....
-                                                     +---+
-                                                  +->| 1 |
-                                                  |  +---+
-    +------------------------------------------+  |
-    |                                          |  |  +---+
-    |     FCS_RBT_EXT Random Bit Generation    +--+->| 2 |
-    |                                          |    +---+
-    +------------------------------------------+  
-
+                                                      +---+
+                                                   +->| 1 |
+                                                   |  +---+
+    +-------------------------------------------+  |
+    |                                           |  |  
+    |     FCS_RBT_EXT Random Bit Generation     +--+
+    |                                           |  |  
+    +-------------------------------------------+  |
+                                                   |  +---+ 
+                                                   +->| 2 |
+                                                      +---+
 ....
 
 FCS_RBG_EXT.1 Random Bit Generation requires random bit generation to be performed in accordance with selected standards and seeded by an entropy source.
@@ -1046,7 +1048,7 @@ Dependencies: No dependencies
 Components in this family address the requirements for storage of credentials such as secret keys, PKI private keys, or passwords. This is a new family defined for the FCS class.
 
 ===== Component levelling
-[#img-FCS_HTTPS_EXT] 
+[#img-FCS_STO_EXT] 
 .Component levelling 
 [ditaa]
 ....
@@ -1084,7 +1086,7 @@ Dependencies: No dependencies
 Components in this family address restrictions to network communications. This is a new family defined for the FDP class.
 
 ===== Component levelling
-[#img-FCS_HTTPS_EXT] 
+[#img-FDP_NET_EXT] 
 .Component levelling 
 [ditaa]
 ....
@@ -1122,7 +1124,7 @@ Dependencies:		No other components
 This family defines the behaviour, management, and use of X.509 certificates for functions to be performed by the TSF. Components in this family require validation of certificates according to a specified set of rules, use of certificates for authentication for protocols and integrity verification, and the generation of certificate requests.
 
 ===== Component levelling
-[#img-FCS_RBG_EXT] 
+[#img-FIA_X509_EXT] 
 .Component levelling 
 [ditaa]
 ....
@@ -1200,7 +1202,7 @@ Dependencies:		FIA_X509_EXT.1 X.509 Certificate Authentication
 Components in this family address requirements for secure default configuration. This is a new family defined for the FMT class.
 
 ===== Component levelling
-[#img-FCS_HTTPS_EXT] 
+[#img-FMT_CFG_EXT] 
 .Component levelling 
 [ditaa]
 ....
@@ -1240,7 +1242,7 @@ Dependencies:		No other components
 Components in this family address requirements to ensure the TOE is not susceptible to commonly used exploitation methods. Additionally, it ensures that the application doesn’t circumvent security functionality provided by the platform. This is a new family defined for the FPT class.
 
 ===== Component levelling
-[#img-FCS_HTTPS_EXT] 
+[#img-FPT_AEX_EXT] 
 .Component levelling 
 [ditaa]
 ....
@@ -1290,7 +1292,7 @@ Dependencies:		No other components
 Components in this family address requirements to ensure the TOE uses platform services and APIs that are supported by the platform vendor. 
 
 ===== Component levelling
-[#img-FCS_HTTPS_EXT] 
+[#img-FPT_AEX_EXT2] 
 .Component levelling 
 [ditaa]
 ....
@@ -1378,7 +1380,7 @@ Dependencies:		No other components
 Components in this family address requirements to ensure the TOE either doesn’t transmit data or if it does transmit sensitive data such data is transmitted in a secure tunnel. 
 
 ===== Component levelling
-[#img-FPT_TUD_EXT] 
+[#img-FTP_DIT_EXT] 
 .Component levelling 
 [ditaa]
 ....
@@ -1495,90 +1497,323 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 === Specific Guidance for Determining Product Model Equivalence
 Product Model equivalence attempts to determine whether different feature levels of the same product across a product line are equivalent for purposes of cPP testing. For example, if a product has a “basic” edition and an “enterprise” edition, is it necessary to test both models? Or does testing one model provide sufficient assurance that both models are compliant?
 
-Product models are considered equivalent if there are no differences that affect PP-specified security functionality—as indicated in Table 3.
+Product models are considered equivalent if there are no differences that affect PP-specified security functionality—as indicated in Table 4.
 
-////
-Start table 3 here next time
-////
+.Determining Product Model Equivalence
+[Header,cols="4,4,4"]
+|===
+|Factor
+|Same/Different
+|Guidance
+
+.2+|PP-Specified Functionality
+|Same
+|If the differences between Models affect only non-cPP-specified functionality, then the Models are equivalent.
+
+|Different
+|If cPP-specified security functionality is affected by the differences between Models, then the Models are not equivalent and must be tested separately. It is necessary only to test the functionality affected by the software differences. If only differences are tested, then the differences must be enumerated, and for each difference the Vendor must provide an explanation of why each difference does or does not affect cPP-specified functionality. If the Product Models are separately tested fully, then there is no need to document the differences.
+
+|===
+
+=== Specific Guidance for Determining Product Version Equivalence
+
+In cases of version equivalence, differences are expressed in terms of changes implemented in revisions of an evaluated Product. In general, versions are equivalent if the changes have no effect on any security-relevant claims about the TOE or assurance evidence. Non-security-relevant changes to TOE functionality or the addition of non-security-relevant functionality does not affect equivalence.
+
+
+.Factors for Determining Product Version Equivalence
+[Header,cols="4,4,4"]
+|===
+|Factor
+|Same/Different
+|Guidance
+
+|Product Models
+|Different
+|Versions of different Product Models are not equivalent unless the Models are equivalent as defined in previous section.
+
+.2+|PP-Specified Functionality
+|Same
+|If the differences affect only non-cPP-specified functionality, then the Versions are equivalent.
+
+|Different
+|If cPP-specified security functionality is affected by the differences, then the Versions are not considered equivalent and must be tested separately. It is necessary only to test the functionality affected by the changes. If only the differences are tested, then for each difference the Vendor must provide an explanation of why the difference does or does not affect cPP-specified functionality. If the Product Versions are separately tested fully, then there is no need to document the differences.
+
+|===
+
+=== Specific Guidance for Determining Platform Equivalence
+
+Platform equivalence is used to determine the platforms that equivalent versions of a Product must be tested on. Platform equivalence analysis done for one software application cannot be applied to another software application. Platform equivalence is not general—it is with respect to a particular application.
+
+Product Equivalency analysis must already have been done and Products have been determined to be equivalent.
+
+The platform can be hardware or virtual hardware, an operating system or similar entity, or a software execution environment such as a container. For purposes of determining equivalence for software applications, we address each type of platform separately. In general, platform equivalence is based on differences in the interfaces between the TOE and Platform that are relevant to the implementation of cPP-specified security functionality.
+
+=== Platform Equivalence—Hardware/Virtual Hardware Platforms
+
+If an Application runs directly on hardware without an operating system—or directly on virtualized hardware without an operating system—then platform equivalence is based on processor architecture and instruction sets. In the case of virtualized hardware, it is the virtualized processor and architecture that are presented to the application that matters—not the physical hardware.
+
+Platforms with different processor architectures and instruction sets are not equivalent. This is not likely to be an issue for equivalency analysis for applications since there is likely to be a different version of the application for different hardware environments. Equivalency analysis becomes important when comparing processors with the same architecture. Processors with the same architecture that have instruction sets that are subsets or supersets of each other are not disqualified from being equivalent for purposes of an App evaluation. If the application takes the same code paths when executing cPP-specified security functionality on different processors of the same family, then the processors can be considered equivalent with respect to that application. For example, if an application follows one code path on platforms that support the AES-NI instruction and another on platforms that do not, then those two platforms are not equivalent with respect to that application functionality. But if the application follows the same code path whether or not the platform supports AES-NI, then the platforms are equivalent with respect to that functionality.
+
+The platforms are equivalent with respect to the application if the platforms are equivalent with respect to all cPP-specified security functionality.
+
+.Factors for Determining Hardware/Virtual Hardware Platform Equivalence
+[Header,cols="4,4,4"]
+|===
+|Factor
+|Same/Different
+|Guidance
+
+|Platform Architectures
+|Different
+|Platforms that present different processor architectures and instruction sets to the application are not equivalent.
+
+|PP-Specified Functionality
+|Same
+|For platforms with the same processor architecture, the platforms are equivalent with respect to the application if execution of all cPP-specified security functionality follows the same code path on both platforms.
+
+|===
+
+=== Platform Equivalence—OS Platforms
+
+For traditional applications that are built for and run on operating systems, platform equivalence is determined by the interfaces between the application and the operating system that are relevant to cPP-specified security functionality. Generally, these are the processor interface, device interfaces, and OS APIs. The following factors applied in order:
+
+.Factors for Determining OS/VS Platform Equivalence
+[Header,cols="4,4,4"]
+|===
+|Factor
+|Same/Different
+|Guidance
+
+|Platform Architectures
+|Different
+|Platforms that present different processor architectures and instruction sets to the application are not equivalent.
+
+|Platform Vendors
+|Different
+|Platforms from different vendors are not equivalent.
+
+|Platform Versions
+|Different
+|Platforms from the same vendor with different major version numbers are not equivalent.
+
+|Platform Interfaces
+|Different
+|Platforms from the same vendor and major version are not equivalent if there are differences in device interfaces and OS APIs that are relevant to the way the platform provides cPP-specified security functionality to the application.
+
+|Platform Interfaces
+|Same
+|Platforms from the same vendor and major version are equivalent if there are no differences in device interfaces and OS APIs that are relevant to the way the platform provides cPP-specified security functionality to the application, or if the Platform does not provide such functionality to the application.
+
+|===
+
+=== Software-based Execution Environment Platform Equivalence
+If an Application is built for and runs in a non-OS software-based execution environment, such as a Container or Java Runtime, then the below criteria must be used to determine platform equivalence. The key point is that the underlying hardware (virtual or physical) and OS is not relevant to platform equivalence. This allows applications to be tested and run on software-based execution environments on any hardware.
+
+.Factors for Software-based Execution Environment Platform Equivalence
+[Header,cols="4,4,4"]
+|===
+
+|Platform Type/Vendor
+|Different
+|Software-based execution environments that are substantially different or come from different vendors are not equivalent. For example, a java virtual machine is not the same as a container. A Docker container is not the same as a CoreOS container.
+
+|Platform Versions
+|Different
+|Execution environments that are otherwise equivalent are not equivalent if they have different major version numbers.
+
+|cPP-Specified Security Functionality
+|Same
+|All other things being equal, execution environments are equivalent if there is no significant difference in the interfaces through which the environments provide cPP-specified security functionality to applications.
+
+|===
+
+=== Level of Specificity for Tested Configurations and Claimed Equivalent Configurations
+In order to make equivalency determinations, the vendor and evaluator must agree on the equivalency claims. They must then provide the scheme with sufficient information about the TOE instances and platforms that were evaluated, and the TOE instances and platforms that are claimed to be equivalent.
+
+The ST must describe all configurations evaluated down to processor manufacturer, model number, and microarchitecture version.
+
+The information regarding claimed equivalent configurations depends on the platform that the application was developed for and runs on.
+
+==== Traditional Applications
+For applications that run with an operating system as their immediate platform, the claimed configuration must describe the platform down to the specific operating system version. If the platform is a virtualization system, then the claimed configuration must describe the platform down to the specific virtualization system version. The Vendor must describe the differences in the TOE with respect to cPP-specified security functionality and how the TOE functions differently to leverage platform differences in the tested configuration versus the claimed equivalent configuration. Relevant platform differences could include instruction sets, device interfaces, and OS APIs invoked by the TOE to implement cPP-specified security 
+
+==== Software Based Execution Environments
+For applications that run in a software-based execution environment such as a Java virtual machine or a Container, then the claimed configuration must describe the platform down to the specific version of the software execution environment. The Vendor must describe the differences in the TOE with respect to cPP-specified security functionality and how the TOE functions differently to leverage platform differences in the tested configuration versus the claimed equivalent configuration.
+
 
 [appendix]
-== SFR List
-[GUIDANCE]
-====
-This section is to provide a full list of all SFRs and their inclusion status (mandatory, optional or selection-based) within the cPP.
-====
+== Rationales
 
-This table is provided as a reference of all SFRs included in this cPP.
+=== SFR Dependencies Analysis
+The dependencies between SFRs implemented by the TOE are addressed as follows. 
 
-The Type column has the following definitions:
-
-Mandatory:: The requirement is mandatory for inclusion in the ST.
-Optional:: The requirement is optional for inclusion in the ST.
-Selection:: The requirement inclusion is determined by selections in other requirements in the ST.
-
-.Security Functional Requirements
-[Header,cols="4,8,2"]
+.SFR Dependencies Rationale for Mandatory SFRs
+[Header,cols="4,4,4"]
 |===
-|Requirement Class
-|Requirement Components
-|Type
+|SFR
+|Dependencies
+|Rationale Statement
 
-|Security Audit (FAU)
-|
-|
-
-|Communication (FCO)
-|
+|FCS_RBG_EXT.2.1
+|None
 |
 
-|Cryptograhic Support (FCS)
-|
-|
-
-|User Data Protection (FDP)
-|
+|FCS_STO_EXT.1
+|None
 |
 
-|Identification and Authentication (FIA)
-|
-|
-
-|Security Management (FMT)
-|
+|FDP_NET_EXT.1
+|None
 |
 
-|Privacy (FPR)
-|
-|
-
-|Protection of the TSF (FPT)
-|
+|FMT_CFG_EXT.1
+|None
 |
 
-|Resource Utilization (FRU)
-|
-|
-
-|TOE Access (FTA)
-|
+|FMT_SMF.1
+|None
 |
 
-|Trusted Channels (FTP)
+|FPT_AEX_EXT.1
+|None
 |
+
+|FPT_TUD_EXT.1
+|None
 |
+
+|FTP_DIT_EXT.1
+|None
+|
+
+|===
+
+.SFR Dependencies Rationale for Selection-Based SFRs
+[Header,cols="2,2,4"]
+|===
+|SFR
+|Dependencies
+|Rationale Statement
+
+|FCS_CKM.1/Symmetric
+|[FCS_CKM.2 or FCS_COP.1] FCS_CKM.4
+|FCS_CKM.2 is met
+
+FCS_COP.1 is met
+
+FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management
+
+|FCS_API_EXT.2
+|None
+|
+
+|FCS_RBG_EXT.2.1
+|None
+|
+
+|FCS_CKM_EXT.1
+|None
+|
+
+|FCS_CKM.1
+|[FCS_CKM.2 or FCS_COP.1] 
+
+FCS_CKM.4 
+|FCS_CKM.2 is met
+
+FCS_COP.1 is met
+
+FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management
+
+
+|FCS_CKM.2
+|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1] 
+
+FCS_CKM.4 
+|FCS_CKM.1 met
+
+FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management
+
+
+|FCS_COP.1/DataEncryption
+.4+|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1] 
+
+FCS_CKM.4 
+.4+|FCS_CKM.1 met
+
+FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management
+
+|FCS_COP.1/SigGen
+
+|FCS_COP.1/Hash
+
+|FCS_COP.1/KeyedHash
+
+|FCS_HTTPS_EXT.1
+|None
+|
+
+|FCS_SSH_EXT.1
+|None
+|
+
+|FCS_SSHS_EXT.1
+|None
+|
+
+|FCS_SSHC_EXT.1
+|None
+|
+
+|FIA_X509_EXT.1/Rev
+|FIA_X509_EXT.2
+|Met
+
+|FIA_X509_EXT.2
+|FIA_X509_EXT.1
+|Met
+
 |===
 
 [appendix]
 == Glossary
-[REVIEW]
-====
-This should be completed to define all the terms needed to fully understand the content of the cPP.
-====
+
 For the purpose of this cPP, the following terms and definitions given in _some specific references_ apply. If the same terms and definitions are given in those references, terms and definitions that fit the context of this cPP take precedence.
 
 [glossary]
-Data Encryption Key (DEK)::
-A key used to encrypt data at rest.
+
+Address Space Layout Randomization (ASLR)::
+An anti-exploitation feature which loads memory mappings into unpredictable locations. ASLR makes it more difficult for an attacker to redirect control to code that they have introduced into the address space of an application process.
+
+Application::
+Software that runs on a platform and performs tasks on behalf of the user or owner of the platform, as well as its supporting documentation. The terms TOE and application are interchangeable in this document.
+
+Component::
+Component is a discreet executable. A software application can be composed of a single or multiple components. 
+
+Connection:: 
+The SSH transport layer between a client and a server.  Within a connection there can be multiple sessions.
+
+Credential:: 
+Data that establishes the identity of a user, e.g. a cryptographic key or password.
+
+Operating System:: 
+Software that manages hardware resources and provides services for applications.
+
+Personally Identifiable Information (PII):: 
+Any information about an individual maintained by an agency, including, but not limited to, education, financial transactions, medical history, and criminal or employment history and information which can be used to distinguish or trace an individual's identity, such as their name, social security number, date and place of birth, mother’s maiden name, biometric records, etc., including any other personal information which is linked or linkable to an individual.
+
+Platform:: 
+The environment in which application software runs. The platform can be an operating system, an execution environment which runs atop an operating system, or some combination of these.
+
+Rekey::  
+Where the connection renegotiates the shared secret and each session subsequently derives a new encryption key.
+
+Sensitive Data::   
+Sensitive data may include all user or enterprise data or may be specific application data such as emails, messaging, documents, calendar items, and contacts. Sensitive data must minimally include PII, credentials, and keys. Sensitive data shall be identified in the application’s TSS by the ST author.
+
+Session:: 
+A discrete stream of data within a connection.
 
 [appendix]
 == Acronyms
@@ -1591,7 +1826,130 @@ A key used to encrypt data at rest.
 |AES
 |Advanced Encryption Standard
 
+|ANSI
+|American National Standards Institute
+
+|API
+|Application Programming Interface
+
+|ASLR
+|Address Space Layout Randomization
+
+|CMC
+|Certificate Management over CMS
+
+|CN
+|Common Names
+
+|CRL
+|Certificate Revocation List
+
+|DHE
+|Diffie-Hellman Ephemeral
+
+|DRBG
+|Deterministic Random Bit Generator
+
+|DSS
+|Digital Signature Standard
+
+|DTLS
+|Datagram Transport Layer Security
+
+|ECDHE
+|Elliptic Curve Diffie-Hellman Ephemeral
+
+|ECDSA
+|Elliptic Curve Digital Signature Algorithm
+
+|EST
+|Enrollment over Secure Transport
+
+|FIPS
+|Federal Information Processing Standards
+
+|HMAC
+|Hash-based Message Authentication Code
+
+|HTTP
+|Hypertext Transfer Protocol
+
+|HTTPs
+|Hypertext Transfer Protocol Secure
+
+|IANA
+|Internet Assigned Number Authority
+
+|IEC
+|International Electrotechnical Commission
+
+|IP
+|Internet Protocol
+
+|ISO
+|International Organization for Standardization
+
+|IT
+|Information Technology
+
 |ITSEF
 |IT Security Evaluation Facility
+
+|MIME
+|Multi-purpose Internet Mail Extensions
+
+|NIST
+|National Institute of Standards and Technology
+
+|OCSP
+|Online Certificate Status Protocol
+
+|OID
+|Object Identifier
+
+|OS
+|Operating System
+
+|PII
+|Personally Identifiable Information
+
+|PP
+|Protection Profile
+
+|RBG
+|Random Bit Generator
+
+|RFC
+|Request for Comment
+
+|RNG
+|Random Number Generator
+
+|SAN
+|Subject Alternative Name
+
+|SAR
+|Security Assurance Requirment
+
+|SFR
+|Security Functional Requirement
+
+|SHA
+|Secure Hash Algorithm
+
+|S/MIME
+|Secure/Multi-purpose Internet Mail Extensions
+
+|SP
+|Special Publication
+
+|SSH
+|Secure Shell
+
+|TLS
+|Transport Layer Security
+
+|XOR
+|Exclusive Or
 
 |===
