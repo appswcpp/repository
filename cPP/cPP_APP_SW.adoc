@@ -104,7 +104,7 @@ The following categories are out of scope of the first iteration of the cPP:
 Software defined network appliances are being covered by the Network iTC. Web applications are significantly different in terms of their construction, operation, and threat model and are not addressed in this cPP at this time.
 
 === TOE Boundary
-The application, which consists of the software provided by its vendor, is installed onto the platform(s) it operates on. It executes on the platform, which may be an operating system (Figure 1), hardware environment, a software based execution environment, or some combination of these (Figure 2). Those platforms may themselves run within other environments, such as virtual machines or operating systems, that completely abstract away the underlying hardware from the application. The TOE is not accountable for security functionality that is implemented by platform layers that are abstracted away. Some evaluation activities are specific to the particular platform on which the application runs, in order to provide precision and repeatability. The only platforms currently recognized by the cPP are those specified in the [SD]. To test on a platform for which there are no EAs, a Vendor should contact the iTC with recommended EAs. The iTC will determine if the proposed platform is appropriate for the PP and accept, reject, or develop EAs as necessary in coordination with the technical community.
+The application, which consists of the software provided by its vendor, is installed onto the platform(s) it operates on. It executes on the platform, which may be an operating system (Figure 1), hardware environment, a software based execution environment, or some combination of these (Figure 2). Those platforms may themselves run within other environments, such as virtual machines or operating systems, that completely abstract away the underlying hardware from the application. The TOE is not accountable for security functionality that is implemented by platform layers that are abstracted away. Some evaluation activities are specific to the particular platform on which the application runs, in order to provide precision and repeatability. The only platforms currently recognized by the cPP are those specified in the [SD]. To test on a platform for which there are no EAs, an interested party may contact the iTC with proposed EAs. The iTC will determine if the proposed platform is appropriate for the PP and accept, reject, or develop EAs as necessary in coordination with the technical community.
 
 The TOE includes all application binaries, libraries and other dependencies specifically for the application required to execute the application that are not provided by the TOE platform.  
 
@@ -304,15 +304,15 @@ This section defines cryptographic requirements that underlie other security pro
 
 ==== Random Bit Generation Services (FCS_RBG)
 ===== FCS_RBG_EXT.2 Random Bit Generation Services
-*FCS_RBG_EXT.2.1* The application shall [_selection: use no DRBG functionality, invoke platform-provided DRBG functionality, implement DRBG functionality_] for its cryptographic operations.
+*FCS_RBG_EXT.2.1* The application shall [_selection: use no DRBG functionality, invoke platform-provided DRBG functionality, implement DRBG functionality according to FCS_RBG_EXT.1_] for its cryptographic operations.
 
-*Application Note {counter:appnote}:* If implement DRBG functionality is chosen, then FCS_RBG_EXT.1 shall be included in the ST. In this requirement, cryptographic operations include all cryptographic key generation/derivation/agreement, IVs (for certain modes), as well as protocol-specific random values.
+*Application Note {counter:appnote}:* In this requirement, cryptographic operations include all cryptographic key generation/derivation/agreement, IVs (for certain modes), as well as protocol-specific random values.
 
 ==== Storage of Credentials (FCS_STO)
 ===== FCS_STO_EXT.1 Storage of Credentials
-*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials_]] to non-volatile memory.
+*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash_] to non-volatile memory.
 
-*Application Note {counter:appnote}:* This requirement ensures that persistent credentials (secret keys, PKI private keys, or passwords) are stored securely. If implement functionality to securely store credentials is selected, then the following components must be included in the ST: FCS_COP.1/DataEncryption. If other cryptographic operations are used to implement the secure storage of credentials, the corresponding requirements must be included in the ST.
+*Application Note {counter:appnote}:* This requirement ensures that persistent credentials (secret keys, PKI private keys, or passwords) are stored securely.
 
 === User Data Protection (FDP)
 This section defines requirements pertaining to protection of user data.
@@ -321,7 +321,7 @@ This section defines requirements pertaining to protection of user data.
 ===== FDP_NET_EXT.1 (Network Communications)
 *FDP_NET_EXT.1.1* The TSF shall restrict network communication to: [_selection: no network communication, outbound connections, in-bound connections_].
 
-*Application Note {counter:appnote}:* This requirement is intended to restrict both inbound and outbound network communications to only those required. It does not apply to network communications in which the application may generically access the filesystem which may result in the platform accessing remotely mounted drives/shares.
+*Application Note {counter:appnote}:* This requirement is intended to restrict both inbound and outbound network communications to only those required. It does not apply to network communications handled by the platform that may support access to remote filesystems mounted locally by the platform.
 
 === Security Management (FMT)
 Management functions required in this section describe required capabilities to support a Security Administrator role and basic set of security management functions dealing with management of configurable aspects included in other SFRs, Default Configuration (FMT_CFG_EXT.1) and Specification of Management Functions (FMT_SMF.1).
