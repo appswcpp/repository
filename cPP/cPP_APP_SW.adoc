@@ -170,6 +170,8 @@ SFR Rationale:
 
 * FCS_STO_EXT.1 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.
 
+* FTP_DIT_EXT.1 specifies the use of secure communication channels to protect data in transit.
+
 ==== T.WEAK_CRYPTOGRAPHY
 Attackers may exploit weak cryptographic algorithms or perform a cryptographic exhaust against the key space. Poorly chosen encryption algorithms, modes, and key sizes will allow attackers to compromise the algorithms, or brute force exhaust the key space and give them unauthorized access allowing them to read, manipulate and/or control the traffic with minimal effort. 
 
@@ -324,13 +326,13 @@ This section defines requirements pertaining to protection of user data.
 *Application Note {counter:appnote}:* This requirement is intended to restrict both inbound and outbound network communications to only those required. It does not apply to network communications handled by the platform that may support access to remote filesystems mounted locally by the platform.
 
 === Security Management (FMT)
-Management functions required in this section describe required capabilities to support a Security Administrator role and basic set of security management functions dealing with management of configurable aspects included in other SFRs, Default Configuration (FMT_CFG_EXT.1) and Specification of Management Functions (FMT_SMF.1).
+Management functions in this section describe required capabilities to support a Security Administrator role and basic set of security management functions dealing with management of configurable aspects included in other SFRs, Default Configuration (FMT_CFG_EXT.1) and Specification of Management Functions (FMT_SMF.1).
 
 ==== Default Configuration (FMT_CFG)
 ===== FMT_CFG_EXT.1 (Default Configuration)
 *FMT_CFG_EXT.1.1* Any default credentials supported by the TSF shall be changed [_selection: during installation, before application is operational_].
 
-*Application Note {counter:appnote}:* Manufacturer default credentials are credentials (e.g., passwords, keys) that are automatically (without user interaction) loaded onto the platform during application installation. Credentials that are generated during installation using requirements laid out in FCS_RBG_EXT.1 are not by definition default credentials.
+*Application Note {counter:appnote}:* Manufacturer default credentials are credentials (e.g., passwords, keys) that are automatically (without user interaction) loaded onto the platform during application installation. Credentials generated during or after the installation using requirements laid out in FCS_RBG_EXT.1 are not by definition default credentials.
 An application is considered operational once initial set-up is complete or at first use.
 
 The changing of default credentials has to be enforced by the application.
@@ -372,9 +374,9 @@ This section defines requirements for the TOE to provide trusted methods for upd
 
 *Application Note {counter:appnote}:* Requesting a memory mapping with both write and execute permissions subverts the platform protection provided by DEP. If the application performs no just-in-time compiling, then the first selection must be chosen.
 
-*FPT _AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [assignment: list of explicit exceptions]_.
+*FPT _AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [_selection: [assignment: list of explicit exceptions], no exceptions_].
 
-*Application Note {counter:appnote}:* This requirement is designed to ensure that platform security features do not need to be disabled in order for the application to run. The ability to provide exception in in recognition that for certain applications disabling specific security features might be necessary e.g. an anti-virus application disabling platform provided virus detection features.
+*Application Note {counter:appnote}:* This requirement is designed to ensure that platform security features do not need to be disabled in order for the application to run. The ability to provide exception in in recognition that for certain applications disabling specific security features might be necessary (e.g. an anti-virus application disabling platform provided virus detection features).
 
 *FPT _AEX_EXT.1.4* The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.
 
@@ -404,21 +406,12 @@ This section defines requirements for a trusted communication path between the T
 *FTP_DIT_EXT.1.1* The application shall [selection:_
 
 * _not transmit any data,_ 
-* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS, TLS, DTLS, SSH],_ 
-* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS, TLS, DTLS, SSH]_
+* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in FCS_SSH_EXT.1],_ 
+* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS, DTLS, SSH as specified in FCS_SSH_EXT.1]]_
 ]
 between itself and another trusted IT product.
 
-*Application Note {counter:appnote}:* If encrypt all transmitted is selected:
-
-* If TLS is selected, then evaluation of elements from [TLS Package] is required.
-
-* If HTTPS is selected, then evaluation of elements from FCS_HTTPS_EXT.1 is required.
-
-* If DTLS is selected, then evaluation of elements from [TLS Package]  is required.
-
-* If SSH is selected, then evaluation of elements from FCS_SSH_EXT.1 is required.
-
+*Application Note {counter:appnote}:* 
 The selection ‘not transmit any data’ cannot be selected for TOEs being evaluated against the Server or Agent modules. 
 
 == Security Assurance Requirements
@@ -533,6 +526,7 @@ For the first generation of this cPP, the iTC is expected to survey open sources
 [appendix]
 == Optional Requirements
 As indicated in the introduction to this cPP, the baseline requirements (those that must be performed by the TOE) are contained in the body of this cPP. Additionally, there are two other types of requirements specified in Appendices A and B. 
+
 The first type (in this Appendix) comprises requirements that can be included in the ST, but are not mandatory for a TOE to claim conformance to this cPP. The second type (in Appendix B) comprises requirements based on selections in other SFRs from the cPP: if certain selections are made, then additional requirements in that appendix will need to be included in the body of the ST (e.g., cryptographic protocols selected in a trusted channel requirement).
 
 If a TOE fulfils any of the optional requirements, the vendor is encouraged to add the related functionality to the ST. Therefore, in the application notes of this chapter the wording "This option should be chosen..." is repeatedly used. But it also is used to emphasize that this option should only be chosen if the TOE provides the related functionality and that it is not necessary to implement the related functionality to be compliant to the cPP. ST authors are free to choose none, some or all SFRs defined in this chapter. Just the fact that a product supports a certain functionality does not mandate to add any SFR defined in this chapter. 
@@ -567,7 +561,7 @@ This section defines selection based cryptographic requirements that underlie ot
 === Random Bit Generation (Extended – FCS_RBG_EXT)
 ==== FCS_RBG_EXT.1 Random Bit Generation
 *FCS_RBG_EXT.1.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [_selection: Hash_DRBG (any), HMAC_DRBG (any), CTR_DRBG (AES)]_.
-*FCS_RBG_EXT.1.2* The deterministic RBG shall be seeded by at least one entropy source that accumulates entropy from [_selection: [assignment: number of software-based sources] software-based noise source, [assignment: number of hardware-based sources] hardware-based noise source_] with a minimum of [_selection: 128 bits, 192 bits, 256 bits_] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.
+*FCS_RBG_EXT.1.2* The deterministic RBG shall be seeded by at least one entropy sources that accumulates entropy from [_selection: [assignment: number of software-based sources] software-based noise source(s), [assignment: number of hardware-based sources] hardware-based noise source(s_] with a minimum of [_selection: 128 bits, 192 bits, 256 bits_] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.
 
 *Application Note {counter:appnote}:* This requirement shall be included in STs in which implement DRBG functionality is chosen in FCS_RBG_EXT.2.1.
 
@@ -581,11 +575,9 @@ If the key length for the AES implementation used here is different than that us
 
 ==== FCS_CKM_EXT.1 Cryptographic Key Generation Services
 
-*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation_].
+*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1_].
 
 *Application Note {counter:appnote}:* This requirement depends upon selection in [TLS Package], FCS_SSH_EXT.1, FCS_SSHS_EXT.1 and FCS_SSHC_EXT.1.
-
-If implement asymmetric key generation or invoke platform-provided functionality for asymmetric key generation is chosen, then FCS_CKM.1 shall be included in the ST.
 
 ==== FCS_CKM.1 Cryptographic Key Generation (Refinement)
 
@@ -657,7 +649,7 @@ The hash selection should be consistent with the overall strength of the algorit
 === Cryptographic Protocols (Extended – FCS_HTTPS_EXT, FCS_SSHC_EXT, FCS_SSHS_EXT, FCS_TLSC_EXT, FCS_TLSS_EXT)
 
 ==== FCS_HTTPS_EXT HTTPS Protocol
-HTTPS is not a required component of this cPP. If a TOE implements HTTPS, a corresponding selection in FTP_DIT.1 should have been made that defines what the HTTPS protocol is implemented to protect.
+HTTPS is not a required component of this cPP. If a TOE implements HTTPS, a corresponding selection in FTP_DIT_EXT.1 should have been made that defines what the HTTPS protocol is implemented to protect.
 
 ===== FCS_HTTPS_EXT.1 HTTPS Protocol
 
@@ -669,19 +661,19 @@ HTTPS is not a required component of this cPP. If a TOE implements HTTPS, a corr
 
 *FCS_HTTPS_EXT.1.3* If a peer certificate is presented, the TSF shall [_selection: not require client authentication, not establish the connection, request authorization to establish the connection, [assignment: other action]] if the peer certificate is deemed invalid._
 
-*Application Note {counter:appnote}:* If HTTPS is selected FTP_DIT.1 then validity is determined by the identifier verification, certification path, the expiration date, and the revocation status in accordance with RFC 5280. Certificate validity is tested in accordance with testing performed for FIA_X509_EXT.1/Rev. 
+*Application Note {counter:appnote}:* If HTTPS is selected FTP_DIT_EXT.1 then validity is determined by the identifier verification, certification path, the expiration date, and the revocation status in accordance with RFC 5280. Certificate validity is tested in accordance with testing performed for FIA_X509_EXT.1/Rev. 
 
 ==== TLS Protocol
-TLS is not a required component of this cPP. If a TOE implements TLS, a corresponding selection in FTP_DIT.1 should be made to define what the TLS protocol is implemented to protect. 
+TLS is not a required component of this cPP. If a TOE implements TLS, a corresponding selection in FTP_DIT_EXT.1 should be made to define what the TLS protocol is implemented to protect. 
 If the TOE implements the TLS protocol, the ST author shall include the requirements from [TLS Package]
 
 ==== SSH Protocol
-SSH is not a required component of this cPP. If a TOE implements SSH, a corresponding selection in FTP_DIT.1 should have been made that defines what the SSH protocol is implemented to protect.
+SSH is not a required component of this cPP. If a TOE implements SSH, a corresponding selection in FTP_DIT_EXT.1 should have been made that defines what the SSH protocol is implemented to protect.
 If the TOE acts as both a client and server and the selections are different, the ST author should iterate using the identifiers FCS_SSH_EXT.1/Server and FCS_SSH_EXT.1/Client.
 
 ===== FCS_SSH_EXT.1 SSH Protocol
 
-*FCS_SSH_EXT.1.1* The TSF shall implement SSH acting as [_selection: client, server_] in accordance with: RFCs 4251, 4252, 4253, 4254, [_selection: 4256, 4344, 5647, 5656, 6187, 6668, 8268, 8308, 8332, no other RFCs_], and no other standard.
+*FCS_SSH_EXT.1.1* The TSF shall implement SSH acting as [_selection: client according to FCS_SSHC_EXT.1, server according to FCS_SSHS_EXT.1_] in accordance with: RFCs 4251, 4252, 4253, 4254, [_selection: 4256, 4344, 5647, 5656, 6187, 6668, 8268, 8308, 8332, no other RFCs_], and no other standard.
 
 *Application Note {counter:appnote}:* The following mapping is provided as a guide to ST authors to ensure the appropriate RFC selections are made based on applicable selections in subsequent SFRs:
 RFC 4256 – Select for keyboard-interactive authentication
@@ -698,10 +690,6 @@ RFC 8332 – Select if SHA-2 is available with ssh-rsa
 The ST author selects which of the additional RFCs to which conformance is being claimed. An SSH product can implement additional RFCs, but only those listed in the selection can be claimed as conformant under common criteria. The RFC selections for this requirement need to be consistent with selections in later elements of this Package (e.g., cryptographic algorithms permitted). 
 
 For the purposes of this package (and subsequent integration into cPPs) only the claimed algorithms listed in the package must be enabled for use. 
-
-If server is selected, then the ST must include the requirements from FCS_SSHS_EXT.1.
-
-If client is selected, then the ST must include the requirements from FCS_SSHC_EXT.1.
 
 *FCS_SSH_EXT.1.2* The TSF shall ensure that the SSH protocol implementation supports the following session authentication methods: [_selection:
 
@@ -940,7 +928,7 @@ Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_CKM_EXT.1.1* The application shall [selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation].
+*FCS_CKM_EXT.1.1* The application shall [selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1].
 
 ==== Cryptographic Protocols (FCS_HTTPS_EXT)
 
@@ -1415,11 +1403,10 @@ Hierarchical to:	No other components
 Dependencies:		No other components
 
 *FTP_DIT_EXT.1.1* The application shall [_selection:_ 
-* _not transmit any data,_
-* _not transmit any sensitive data,_
-* _encrypt all transmitted sensitive data with [selection: HTTPS, TLS, DTLS, SSH],_ 
-* _encrypt all transmitted data with [selection: HTTPS, TLS, DTLS, SSH]_ 
-].
+* _not transmit any data,_ 
+* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in FCS_SSH_EXT.1],_ 
+* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS, DTLS, SSH as specified in FCS_SSH_EXT.1]]_
+]
 between itself and another trusted IT product.
 
 [appendix]
