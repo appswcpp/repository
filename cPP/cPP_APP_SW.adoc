@@ -177,8 +177,9 @@ Attackers may exploit weak cryptographic algorithms or perform a cryptographic e
 
 SFR Rationale:
 
-* FCS_CKM.1 and FCS_CKM.2 defines the requirements for key generation and key distribution respectively.
-FCS_COP.1 defines the requirements for use of cryptographic schemes.
+* FCS_CKM.1/Asymmetric and FCS_CKM.2 defines the requirements for key generation and key distribution respectively.
+
+* FCS_COP.1 defines the requirements for use of cryptographic schemes.
 
 * FCS_RBG_EXT.1 and FCS_RBG_EXT.2 defines the requirements for random bit generation to support key generation and secure protocols (see SFRs resulting from T.UNTRUSTED_COMMUNICATION_CHANNELS).
 
@@ -560,7 +561,8 @@ This section defines selection based cryptographic requirements that underlie ot
 
 === Random Bit Generation (Extended – FCS_RBG_EXT)
 ==== FCS_RBG_EXT.1 Random Bit Generation
-*FCS_RBG_EXT.1.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [_selection: Hash_DRBG (any), HMAC_DRBG (any), CTR_DRBG (AES)]_.
+*FCS_RBG_EXT.1.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [_selection: Hash_DRBG (any) in accordance with FCS_COP.1/Hash, HMAC_DRBG (any) in accordance with FCS_COP.1/KeyedHash, CTR_DRBG (AES) in accordance with FCS_COP.1/DataEncryption]_.
+
 *FCS_RBG_EXT.1.2* The deterministic RBG shall be seeded by at least one entropy sources that accumulates entropy from [_selection: [assignment: number of software-based sources] software-based noise source(s), [assignment: number of hardware-based sources] hardware-based noise source(s_] with a minimum of [_selection: 128 bits, 192 bits, 256 bits_] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.
 
 *Application Note {counter:appnote}:* This requirement shall be included in STs in which implement DRBG functionality is chosen in FCS_RBG_EXT.2.1.
@@ -575,13 +577,13 @@ If the key length for the AES implementation used here is different than that us
 
 ==== FCS_CKM_EXT.1 Cryptographic Key Generation Services
 
-*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1_].
+*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric_].
 
 *Application Note {counter:appnote}:* This requirement depends upon selection in [TLS Package], FCS_SSH_EXT.1, FCS_SSHS_EXT.1 and FCS_SSHC_EXT.1.
 
-==== FCS_CKM.1 Cryptographic Key Generation (Refinement)
+==== FCS_CKM.1/Asymmetric Cryptographic Key Generation (Refinement)
 
-*FCS_CKM.1.1* The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [selection:
+*FCS_CKM.1.1/Asymmetric* The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [selection:
 
 * _RSA schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.3;_
 * _ECC schemes using “NIST curves” [selection: P-256, P-384, P-521] that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;_
@@ -605,8 +607,8 @@ If the TOE acts as a receiver in the key establishment schemes and is not config
 
 The ST author selects all key establishment schemes used for the selected cryptographic protocols. 
 
-The elliptic curves used for the key establishment scheme correlate with the curves specified in FCS_CKM.1.1.
-The domain parameters used for the finite field-based key establishment scheme are specified by the key generation according to FCS_CKM.1.1.
+The elliptic curves used for the key establishment scheme correlate with the curves specified in FCS_CKM.1.1/Asymmetric
+The domain parameters used for the finite field-based key establishment scheme are specified by the key generation according to FCS_CKM.1.1/Asymmetric.
 
 Safe-prime groups are covered in Appendix D of SP 800-56A Revision 3, “Appendix D: Approved ECC Curves and FFC Safe-prime Groups”.
 
@@ -856,7 +858,7 @@ as described in RFC 4251 section 4.1.
 * The application shall validate the revocation status of the certificate using [_selection:_
 ** _the Online Certificate Status Protocol (OCSP) as specified in RFC 6960,_
 ** _a Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3,_
-** _Certificate Revocation List (CRL) as specified in RFC 5759 Section 5,_
+** _a Certificate Revocation List (CRL) as specified in RFC 5759 Section 5,_
 ** _an OCSP TLS Status Request Extension (i.e., OCSP stapling) as specified in RFC 6066_
 ** _no revocation method_
 ]
@@ -874,7 +876,7 @@ as described in RFC 4251 section 4.1.
 
 ==== FIA_X509_EXT.2 X.509 Certificate Authentication
 
-*FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS, code signing for system software updates, code signing for integrity verification, [assignment: other uses], no additional uses]_.  
+*FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS, code signing for system software updates, code signing for integrity verification, [assignment: other uses]_].
 
 *FIA_X509_EXT.2.2* When the TSF cannot establish a connection to determine the validity of a certificate, the TSF shall [selection: allow the Administrator to choose whether to accept the certificate in these cases, accept the certificate, not accept the certificate]. 
 
@@ -928,7 +930,7 @@ Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_CKM_EXT.1.1* The application shall [selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1].
+*FCS_CKM_EXT.1.1/Asymmetric* The application shall [selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric].
 
 ==== Cryptographic Protocols (FCS_HTTPS_EXT)
 
@@ -1675,7 +1677,7 @@ The dependencies between SFRs implemented by the TOE are addressed as follows.
 
 |===
 
-.SFR Dependencies Rationale for Selection-Based SFRs
+.SFR Dependencies Rationale for Optional SFRs
 [Header,cols="2,2,4"]
 |===
 |SFR
@@ -1694,6 +1696,11 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 |None
 |
 
+|===
+
+.SFR Dependencies Rationale for Selection-Based SFRs
+[Header,cols="2,2,4"]
+|===
 |FCS_RBG_EXT.2.1
 |None
 |
@@ -1702,7 +1709,7 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 |None
 |
 
-|FCS_CKM.1
+|FCS_CKM.1/Asymmetric
 |[FCS_CKM.2 or FCS_COP.1] 
 
 FCS_CKM.4 
@@ -1714,19 +1721,19 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 
 
 |FCS_CKM.2
-|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1] 
+|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1/Asymmetric] 
 
 FCS_CKM.4 
-|FCS_CKM.1 met
+|FCS_CKM.1/Asymmetric met
 
 FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management
 
 
 |FCS_COP.1/DataEncryption
-.4+|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1] 
+.4+|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1/Asymmetric] 
 
 FCS_CKM.4 
-.4+|FCS_CKM.1 met
+.4+|FCS_CKM.1/Asymmetric met
 
 FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management
 
