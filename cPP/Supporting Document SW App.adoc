@@ -428,7 +428,7 @@ Test 1: [conditional] If the TOE verifies the digital signature of the installat
 
 ====== TSS
 
-The evaluator shall verify that the TSS identifies if sensitive data is transmitted by the application. It must also identify types of sensitive data transmitted.
+The evaluator shall verify that the TSS describes whether the application transmits any data over a network. If data is transmitted, the TSS shall identify whether all data or only sensitive data is transmitted. It must also identify types of sensitive data transmitted.
 
 ====== Operational Guidance
 
@@ -436,9 +436,9 @@ No activities specified
 
 ====== Test
 
-Test 1: The evaluator shall exercise the application (attempting to transmit data; for example by connecting to remote systems or websites) while capturing packets from the application. Based on the selection in the ST, the evaluator shall verify from the packet capture that the traffic is encrypted with HTTPS, TLS, DTLS or SSH.
+Test 1: [conditional] The evaluator shall exercise the application (attempting to transmit data; for example by connecting to remote systems or websites) while capturing packets from the application. Based on the selection in the ST, the evaluator shall verify from the packet capture that the traffic is encrypted with HTTPS, TLS, DTLS or SSH.
 
-Test 2: The evaluator shall exercise the application (attempting to transmit data; for example by connecting to remote systems or websites) while capturing packets from the application. The evaluator shall review the packet capture and verify that no sensitive data is transmitted in the clear.
+Test 2: [conditional] The evaluator shall exercise the application (attempting to transmit data; for example by connecting to remote systems or websites) while capturing packets from the application. The evaluator shall review the packet capture and verify that no sensitive data is transmitted in the clear.
 
 Test 3: [conditional] If credentials are transmitted the evaluator shall set the credential to a known value. The evaluator shall capture packets from the application while causing credentials to be transmitted as described in the TSS. The evaluator shall perform a string search of the captured network packets and verify that the plaintext credential previously set by the evaluator is not found.
 
@@ -1661,13 +1661,11 @@ the evaluator penetration testing effort, outlining the testing approach, config
 
 == Public Vulnerability Sources
 
-The following sources of public vulnerabilities are sources for the iTC to consider in both formulating the specific list of flaws to be investigated by the evaluators, as well as to reference in directing the evaluators to perform key-word searches during the evaluation of a specific TOE.
-NIST National Vulnerabilities Database (can be used to access CVE and US-CERT databases identified below):
+// pending ITC review / start here //
+
+At a minimum, evaluators shall utilize NVD [https://web.nvd.nist.gov/view/vuln/search] or MITRE [https://cve.mitre.org/cve/] and any relevant TOE vendor vulnerability publications. The following additional sources of public vulnerabilities are sources for the evaluator to consider in both formulating the specific list of flaws to be investigated by the evaluators. 
 
 [loweralpha]
-. https://web.nvd.nist.gov/view/vuln/search  
-. Common Vulnerabilities and Exposures: http://cve.mitre.org/cve/
-https://www.cvedetails.com/vulnerability-search.php
 . US-CERT: http://www.kb.cert.org/vuls/html/search 
 . Exploit / Vulnerability Search Engine: https://www.exploitsearch.net 
 . SecurITeam Exploit Search: https://www.securiteam.com 
@@ -1679,218 +1677,6 @@ https://www.cvedetails.com/vulnerability-search.php
 == Additional Flaw Hypothese
 
 No entries are currently defined for this list.
-
-[appendix]
-== Equivalency Considerations
-
-=== Introduction
-
-The purpose of equivalence in cPP-based evaluations is to find a balance between evaluation rigor and commercial practicability—to ensure that evaluations meet customer expectations while recognizing that there is little to be gained from requiring that every variation in a product or platform be fully tested. If a product is found to be compliant with a cPP on one platform, then all equivalent products on equivalent platforms are also considered to be compliant with the cPP.
-
-A Vendor can make a claim of equivalence if the Vendor believes that a particular instance of their Product implements cPP-specified security functionality in a way equivalent to the implementation of the same functionality on another instance of their Product on which the functionality was tested. The Product instances can differ in version number or feature level (model), or the instances may run on different platforms. Equivalency can be used to reduce the testing required across claimed evaluated configurations. It can also be used during Assurance Continuity to reduce testing needed to add more evaluated configurations to a certification.
-
-These equivalency guidelines do not replace Assurance Continuity requirements or per scheme equivalency guidelines. Nor may equivalency be used to leverage evaluations with expired certifications.
-
-These Equivalency Guidelines represent a shift from complete testing of all product instances to more of a risk-based approach. Rather than require that every combination of product and platform be tested, these guidelines support an approach that recognizes that products are being used in a variety of environments—and often in cloud environments over where the vendor (and sometimes the customer) have little or no control over the underlying hardware. Developers should be responsible for the security functionality of their applications on the platforms they are developed for—whether that is an operating system, a virtual machine, or a software-based execution environment such as a container. But those platforms may themselves run within other environments—virtual machines or operating systems—that completely abstract away the underlying hardware from the application. The developer should not be held accountable for security functionality that is implemented by platform layers that are abstracted away. The implication is that not all security functionality will necessarily be tested for all platform layers down to the hardware for all evaluated configurations—especially for applications developed for software-based execution environments such as containers. For these cases, the balancing of evaluation rigor and commercial practicability tips in favor of practicability. 
-
-Equivalency has two aspects:
-
-* Product Equivalence: Products may be considered equivalent if there are no differences between Product Models and Product Versions with respect to cPP-specified security functionality.
-* *Platform Equivalence: Platforms may be considered equivalent if there are no significant differences in the services they provide to the Product—or in the way the platforms provide those services—with respect to cPP-specified security functionality.
-
-The equivalency determination is made in accordance with these guidelines by the Certifier and Scheme using information provided by the Evaluator/Vendor.
-
-=== Approach to Equivalency Analysis
-
-There are two scenarios for performing equivalency analysis. One is when a product has been certified and the vendor wants to show that a later product should be considered certified due to equivalence with the earlier product. The other is when multiple product variants are going though evaluation together and the vendor would like to reduce the amount of testing that must be done. The basic rules for determining equivalence are the same in both cases. But there is one additional consideration that applies to equivalence with previously certified products. That is, the product with which equivalence is being claimed must have a valid certification in accordance with scheme rules and the Assurance Continuity process must be followed. If a product’s certification has expired, then equivalence cannot be claimed with that product.
-
-When performing equivalency analysis, the Evaluator/Vendor should first use the factors and guidelines for Product Model equivalence to determine the set of Product Models to be evaluated. In general, Product Models that do not differ in cPP-specified security functionality are considered equivalent for purposes of evaluation against the cPP.
-
-If multiple revision levels of Product Models are to be evaluated—or to determine whether a revision of an evaluated product needs re-evaluation—the Evaluator/Vendor and Certifier should use the factors and guidelines for Product Version equivalence to analyze whether Product Versions are equivalent.
-
-Having determined the set of Product Models and Versions to be evaluated, the next step is to determine the set of Platforms that the Products must be tested on.
-
-Each non-equivalent Product for which compliance is claimed must be fully tested on each non-equivalent platform for which compliance is claimed. For non-equivalent Products on equivalent platforms, only the differences that affect cPP-specified security functionality must be tested for each product.
-
-*“Differences in PP-Specified Security Functionality” Defined*
-
-If cPP-specified security functionality is implemented by the TOE, then differences in the actual implementation between versions or product models break equivalence for that feature. Likewise, if the TOE implements the functionality in one version or model and the functionality is implemented by the platform in another version or model, then equivalence is broken. If the functionality is implemented by the platform in multiple models or versions on equivalent platforms, then the functionality is considered different if the product invokes the platform differently to perform the function.
-
-=== Specific Guidance for Determining Product Model Equivalence
-
-Product Model equivalence attempts to determine whether different feature levels of the same product across a product line are equivalent for purposes of cPP testing. For example, if a product has a “basic” edition and an “enterprise” edition, is it necessary to test both models? Or does testing one model provide sufficient assurance that both models are compliant?
-
-Product models are considered equivalent if there are no differences that affect PP-specified security functionality—as indicated in Table 4.
-
-.Determining Product Model Equivalence
-[Header,cols="4,4,4"]
-|===
-|Factor
-|Same/Different
-|Guidance
-
-.2+|PP-Specified Functionality
-|Same
-|If the differences between Models affect only non-cPP-specified functionality, then the Models are equivalent.
-
-|Different
-|If cPP-specified security functionality is affected by the differences between Models, then the Models are not equivalent and must be tested separately. It is necessary only to test the functionality affected by the software differences. If only differences are tested, then the differences must be enumerated, and for each difference the Vendor must provide an explanation of why each difference does or does not affect cPP-specified functionality. If the Product Models are separately tested fully, then there is no need to document the differences.
-
-|===
-
-=== Specific Guidance for Determining Product Version Equivalence
-
-In cases of version equivalence, differences are expressed in terms of changes implemented in revisions of an evaluated Product. In general, versions are equivalent if the changes have no effect on any security-relevant claims about the TOE or assurance evidence. Non-security-relevant changes to TOE functionality or the addition of non-security-relevant functionality does not affect equivalence.
-
-.Factors for Determining Product Version Equivalence
-[Header,cols="4,4,4"]
-|===
-|Factor
-|Same/Different
-|Guidance
-
-|Product Models
-|Different
-|Versions of different Product Models are not equivalent unless the Models are equivalent as defined in previous section.
-
-.2+|PP-Specified Functionality
-|Same
-|If the differences affect only non-cPP-specified functionality, then the Versions are equivalent.
-
-|Different
-|If cPP-specified security functionality is affected by the differences, then the Versions are not considered equivalent and must be tested separately. It is necessary only to test the functionality affected by the changes. If only the differences are tested, then for each difference the Vendor must provide an explanation of why the difference does or does not affect cPP-specified functionality. If the Product Versions are separately tested fully, then there is no need to document the differences.
-
-|===
-
-=== Specific Guidance for Determining Platform Equivalence
-
-Platform equivalence is used to determine the platforms that equivalent versions of a Product must be tested on. Platform equivalence analysis done for one software application cannot be applied to another software application. Platform equivalence is not general—it is with respect to a particular application.
-
-Product Equivalency analysis must already have been done and Products have been determined to be equivalent.
-
-The platform can be hardware or virtual hardware, an operating system or similar entity, or a software execution environment such as a container. For purposes of determining equivalence for software applications, we address each type of platform separately. In general, platform equivalence is based on differences in the interfaces between the TOE and Platform that are relevant to the implementation of cPP-specified security functionality.
-
-=== Platform Equivalence—Hardware/Virtual Hardware Platforms
-
-If an Application runs directly on hardware without an operating system—or directly on virtualized hardware without an operating system—then platform equivalence is based on processor architecture and instruction sets. In the case of virtualized hardware, it is the virtualized processor and architecture that are presented to the application that matters—not the physical hardware.
-
-Platforms with different processor architectures and instruction sets are not equivalent. This is not likely to be an issue for equivalency analysis for applications since there is likely to be a different version of the application for different hardware environments. Equivalency analysis becomes important when comparing processors with the same architecture. Processors with the same architecture that have instruction sets that are subsets or supersets of each other are not disqualified from being equivalent for purposes of an App evaluation. If the application takes the same code paths when executing cPP-specified security functionality on different processors of the same family, then the processors can be considered equivalent with respect to that application. For example, if an application follows one code path on platforms that support the AES-NI instruction and another on platforms that do not, then those two platforms are not equivalent with respect to that application functionality. But if the application follows the same code path whether or not the platform supports AES-NI, then the platforms are equivalent with respect to that functionality.
-
-The platforms are equivalent with respect to the application if the platforms are equivalent with respect to all cPP-specified security functionality.
-
-.Factors for Determining Hardware/Virtual Hardware Platform Equivalence
-[Header,cols="4,4,4"]
-|===
-|Factor
-|Same/Different
-|Guidance
-
-|Platform Architectures
-|Different
-|Platforms that present different processor architectures and instruction sets to the application are not equivalent.
-
-|PP-Specified Functionality
-|Same
-|For platforms with the same processor architecture, the platforms are equivalent with respect to the application if execution of all cPP-specified security functionality follows the same code path on both platforms.
-
-|===
-
-=== Platform Equivalence—OS Platforms
-
-For traditional applications that are built for and run on operating systems, platform equivalence is determined by the interfaces between the application and the operating system that are relevant to cPP-specified security functionality. Generally, these are the processor interface, device interfaces, and OS APIs. The following factors applied in order:
-
-.Factors for Determining OS/VS Platform Equivalence
-[Header,cols="4,4,4"]
-|===
-|Factor
-|Same/Different
-|Guidance
-
-|Platform Architectures
-|Different
-|Platforms that present different processor architectures and instruction sets to the application are not equivalent.
-
-|Platform Vendors
-|Different
-|Platforms from different vendors are not equivalent.
-
-|Platform Versions
-|Different
-|Platforms from the same vendor with different major version numbers are not equivalent.
-
-|Platform Interfaces
-|Different
-|Platforms from the same vendor and major version are not equivalent if there are differences in device interfaces and OS APIs that are relevant to the way the platform provides cPP-specified security functionality to the application.
-
-|Platform Interfaces
-|Same
-|Platforms from the same vendor and major version are equivalent if there are no differences in device interfaces and OS APIs that are relevant to the way the platform provides cPP-specified security functionality to the application, or if the Platform does not provide such functionality to the application.
-
-|===
-
-=== Software-based Execution Environment Platform Equivalence
-
-If an Application is built for and runs in a non-OS software-based execution environment, such as a Container or Java Runtime, then the below criteria must be used to determine platform equivalence. The key point is that the underlying hardware (virtual or physical) and OS is not relevant to platform equivalence. This allows applications to be tested and run on software-based execution environments on any hardware.
-
-.Factors for Software-based Execution Environment Platform Equivalence
-[Header,cols="4,4,4"]
-|===
-
-|Platform Type/Vendor
-|Different
-|Software-based execution environments that are substantially different or come from different vendors are not equivalent. For example, a java virtual machine is not the same as a container. A Docker container is not the same as a CoreOS container.
-
-|Platform Versions
-|Different
-|Execution environments that are otherwise equivalent are not equivalent if they have different major version numbers.
-
-|cPP-Specified Security Functionality
-|Same
-|All other things being equal, execution environments are equivalent if there is no significant difference in the interfaces through which the environments provide cPP-specified security functionality to applications.
-
-|===
-
-=== Level of Specificity for Tested Configurations and Claimed Equivalent Configurations
-
-In order to make equivalency determinations, the vendor and evaluator must agree on the equivalency claims. They must then provide the scheme with sufficient information about the TOE instances and platforms that were evaluated, and the TOE instances and platforms that are claimed to be equivalent.
-
-The ST must describe all configurations evaluated down to processor manufacturer, model number, and microarchitecture version.
-
-The information regarding claimed equivalent configurations depends on the platform that the application was developed for and runs on.
-
-==== Traditional Applications
-
-For applications that run with an operating system as their immediate platform, the claimed configuration must describe the platform down to the specific operating system version. If the platform is a virtualization system, then the claimed configuration must describe the platform down to the specific virtualization system version. The Vendor must describe the differences in the TOE with respect to cPP-specified security functionality and how the TOE functions differently to leverage platform differences in the tested configuration versus the claimed equivalent configuration. Relevant platform differences could include instruction sets, device interfaces, and OS APIs invoked by the TOE to implement cPP-specified security 
-
-==== Software Based Execution Environments
-
-For applications that run in a software-based execution environment such as a Java virtual machine or a Container, then the claimed configuration must describe the platform down to the specific version of the software execution environment. The Vendor must describe the differences in the TOE with respect to cPP-specified security functionality and how the TOE functions differently to leverage platform differences in the tested configuration versus the claimed equivalent configuration.
-
-[appendix]
-== Public Vulnerability Sources
-[REVIEW]
-====
-This appendix may be included (if referenced from Appendix A above) or excluded from the final Supporting Document at the discretion of the iTC. The iTC should also consider supplementing it (if retained) as necessary to reflect the appropriate technology-specific aspects.
-====
-
-The following sources of public vulnerabilities are sources for the iTC to consider in both formulating the specific list of flaws to be investigated by the evaluators, as well as to reference in directing the evaluators to perform key-word searches during the evaluation of a specific TOE.
-
-. Search Common Vulnerabilities and Exposures: http://cve.mitre.org/cve/
-. Search Core Security Technologies: http://www.coresecurity.com 
-. Search eEye Digital Security: http://blog.beyondtrust.com/zd_threat?status=zeroday 
-. Search Exploit / Vulnerability Search Engine: www.exploitsearch.net 
-. Conduct SecurITeam Exploit Search: www.securiteam.com 
-. Search SecurityTracker: www.securitytracker.com 
-. Search VUPEN Security, formerly FrSIRT: www.vupen.com 
-. Conduct Google search: www.google.com
-. Search McAfee Threat Intelligence http://www.mcafee.com/us/mcafee-labs/threat-intelligence.aspx 
-. Search Open Source Vulnerability Database http://osvdb.org/ 
-. Search Secwatch Advisories & Exploits https://securitynewsportal.com/index.shtml 
-. Search Symantec http://www.symantec.com/security_response/ 
-. Search Tenable Network Security http://nessus.org/plugins/index.php?view=search 
-. Tipping Point Zero Day Initiative http://www.zerodayinitiative.com/advisories 
-. Search US-CERT http://www.kb.cert.org/vuls/html/search 
-. Search Vigil@nce http://vigilance.fr/
 
 [appendix]
 == Glossary
