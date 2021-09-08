@@ -152,10 +152,10 @@ The evaluator shall run the following tests:
 
 * Test 1: The evaluator shall verify that the access rules for the configuration files align with the read and write access identified in the TSS.  
 
-* Test 2: The evaluator shall run the application while monitoring it with the following platform specific tools and make changes to its configuration. The evaluator shall verify that the tool logs show corresponding changes to the locations identified in the TSS for storage of configuration data. The following platform specific tools and proceedures must be used:
+* Test 2: The evaluator shall run the application while monitoring it with the following platform specific tools and make changes to its configuration. The evaluator shall verify that the tool logs show corresponding changes to the locations identified in the TSS for storage of configuration data. The following platform specific tools and procedures must be used:
 ** Windows: SystInternal tool ProcMon
 *** The evaluator shall run the application while monitoring it with the SysInternal tool ProcMon and make changes to its configuration. The evaluator shall verify that ProcMon logs show corresponding changes to the locations identified in the TSS for storage of configuration data.
-** Linux: strace
+** Linux or macOS: strace (or equivalent utility)
 *** The evaluator shall run the application while monitoring it with the utility strace. The evaluator shall make security-related changes to its configuration. The evaluator shall verify that strace logs corresponding changes to configuration files that reside in /etc (for system-specific configuration) or in the user's home directory (for user-specific configuration).
 
 
@@ -194,6 +194,7 @@ The evaluator shall configure the platform in the ascribed manner and carry out 
 
 * Test 1: [conditional] If the application is being tested on Windows, the evaluator shall ensure that the application can run successfully with Windows Defender Exploit Guard Exploit Protection configured with the following minimum mitigations enabled; Control Flow Guard (CFG), Randomize memory allocations (Bottom-Up ASLR), Export address filtering (EAF), Import address filtering (IAF), and Data Execution Prevention (DEP). The following link describes how to enable Exploit Protection, https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/enable-exploit-protection. 
 * Test 2: [conditional] If the application is being tested on Linux, the evaluator shall ensure that the application can successfully run on a system with SELinux (or equivalent platform vendor recommended security features) enabled and enforcing.
+* Test 3: [conditional] If the application is being tested on macOS, the evaluator shall ensure that the application can successfully run on a system without disabling System Integrity Protection (SIP).
 
 == Evaluation Activities for Selection-Based Requirements 
 

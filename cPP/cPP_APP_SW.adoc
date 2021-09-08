@@ -6,7 +6,7 @@
 :sectnumlevels: 7
 :imagesdir: images
 :icons: font
-:revnumber: 0.1
+:revnumber: 0.60
 :revdate: 2021-07-22
 
 :iTC-longname: iTC for Application Software
@@ -29,7 +29,7 @@ This collaborative Protection Profile (cPP) was developed by the {iTC-longname} 
 |Date 
 |Description
 
-|0.01
+|0.60
 |2021-07-22
 |Initial Migration to adoc format.
 
@@ -104,13 +104,15 @@ The following categories are out of scope of the first iteration of the cPP:
 Software defined network appliances are being covered by the Network iTC. Web applications are significantly different in terms of their construction, operation, and threat model and are not addressed in this cPP at this time.
 
 === TOE Boundary
-The application, which consists of the software provided by its vendor, is installed onto the platform(s) it operates on. It executes on the platform, which may be an operating system (Figure 1), hardware environment, a software based execution environment, or some combination of these (Figure 2). Those platforms may themselves run within other environments, such as virtual machines or operating systems, that completely abstract away the underlying hardware from the application. The TOE is not accountable for security functionality that is implemented by platform layers that are abstracted away. Some evaluation activities are specific to the particular platform on which the application runs, in order to provide precision and repeatability. The only platforms currently recognized by the cPP are those specified in the [SD]. To test on a platform for which there are no EAs, an interested party may contact the iTC with proposed EAs. The iTC will determine if the proposed platform is appropriate for the PP and accept, reject, or develop EAs as necessary in coordination with the technical community.
+The application, which consists of the software provided by its vendor, is installed onto the platform(s) it operates on. It executes on the platform, which may be an operating system (Figure 1), hardware environment, a software based execution environment such as a container, or some combination of these (Figure 2). Those platforms may themselves run within other environments, such as virtual machines or operating systems, that completely abstract away the underlying hardware from the application. The TOE is not accountable for security functionality that is implemented by platform layers that are abstracted away. Some evaluation activities are specific to the particular platform on which the application runs, in order to provide precision and repeatability. The only platforms currently recognized by the cPP are those specified in the [SD]. To test on a platform for which there are no EAs, an interested party may contact the iTC with proposed EAs. The iTC will determine if the proposed platform is appropriate for the PP and accept, reject, or develop EAs as necessary in coordination with the technical community.
 
 The TOE includes all application binaries, libraries and other dependencies specifically for the application required to execute the application that are not provided by the TOE platform.  
 
 BIOS and other firmware, the operating system kernel, OS bundled as part of a container image and other system software (and drivers) provided as part of the platform are outside the scope of this document.
 
-Containerized applications are particularly challenging since their installation packages contain all the support software needed to execute the application. For the purposes of this cPP this support software is considered to be not within the TOE boundary. 
+//// start here next meeting  ////
+
+For containerized applications the container is treated as the platform and as such should be described in the TSS. Any assets that are not inherited from the Guest OS namespace that are packaged with the container definition are within the TOE Boundary.
 
 .TOE as an Application and Kernel Module Running on an Operating System
 image::images/toe.png[TOE as an Application and Kernel Module Running on an Operating System]
