@@ -108,11 +108,11 @@ The application, which consists of the software provided by its vendor, is insta
 
 The TOE includes all application binaries, libraries and other dependencies specifically for the application required to execute the application that are not provided by the TOE platform.  
 
-BIOS and other firmware, the operating system kernel, OS bundled as part of a container image and other system software (and drivers) provided as part of the platform are outside the scope of this document.
+BIOS and other firmware, the operating system kernel, and other system software (such as drivers) provided as part of the platform are outside the scope of this document.
 
-//// start here next meeting  ////
+For containerized applications, the container is treated as the TOE. Services, libraries, or run-times that exist within the host OS are to be considered part of the TOE platform. At the time of this cPP publication, all containerized applications are implemented using linux-type operating systems. When a containerized application claims conformance to this cPP, all EAs applicable to linux platforms are to be satisfied.
 
-For containerized applications the container is treated as the platform and as such should be described in the TSS. Any assets that are not inherited from the Guest OS namespace that are packaged with the container definition are within the TOE Boundary.
+As far as virtualized applications are concerned, this version of the cPP covers a very narrow type; applications that are installed on a virtualized instance of an OS/Platform are the only type of applications covered. An application that is bundled together with a general purpose operating system via a virtual machine is not considered substantially different than an application that is installed traditionally. In either case the underlying OS is to be considered the TOE platform. 
 
 .TOE as an Application and Kernel Module Running on an Operating System
 image::images/toe.png[TOE as an Application and Kernel Module Running on an Operating System]
