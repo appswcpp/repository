@@ -243,7 +243,7 @@ The evaluator shall verify that every management function specified in the SFR i
 
 The evaluator shall perform the following test:
 
-Test 1: For each option for transmitting sensitive data/PII, the evaluator shall configure the TOE for that option.  The evaluator shall then verify that the TOE does or does not transmit sensitive information/PII, as appropriate for the configuration specified.  Each function should be tested on each management interface on which the functionality is supported.
+Test 1: For each selection in FMT_SMF.1, the evaluator shall configure the TOE for that option.  The evaluator shall then verify that the TOE does or does not transmit sensitive information/PII, as appropriate for the configuration specified.  Each function should be tested on each management interface on which the functionality is supported.
 
 Test 2: [conditional] If *other management functions* are specified, the evaluator shall test the application's ability to provide each management function by configuring the application and testing each function specified. The evaluator is expected to test these functions in all the ways in which the ST and guidance documentation state the configuration can be managed.  Each function should be tested on each management interface on which the functionality is supported.
 
