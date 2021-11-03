@@ -1075,10 +1075,6 @@ K is of type ‘mpint’ (as defined in Section 5 of RFC 4251) and thus has a fo
 
 The evaluator shall check the TSS to ensure that if the TOE enforces connection rekey or termination limits lower than the maximum values that these lower limits are identified.
 
-In cases where hardware limitation will prevent reaching data transfer thresholds, the evaluator shall check the TSS to ensure it contains: 
-a. An argument describing this hardware-based limitation and
-b. Identification of the hardware components that form the basis of such argument. For example, if specific Ethernet Controller or Wi-Fi radio chip is the root cause of such limitation, these subsystems shall be identified.
-
 ====== Guidance Documentation
 
 The evaluator shall check the guidance documentation to ensure that if the connection rekey or termination limits are configurable, it contains instructions to the administrator on how to configure the relevant connection rekey or termination limits for the TOE. 
@@ -1510,7 +1506,7 @@ In addition to the activities specified by the CEM in accordance with Table 2 ab
 
 The evaluator shall examine the documentation outlined below provided by the developer to confirm that it contains all required information.  This documentation is in addition to the documentation already required to be supplied in response to the EAs listed previously.
 
-The developer shall provide documentation identifying the list of software and hardware components that compose the TOE. Hardware components should identify at a minimum the processors used by the TOE. Software components include applications, the operating system, virtualization or conainerization services or support, and other major components that are independently identifiable and reusable (outside the TOE) such as a web server and protocol or cryptographic libraries. This additional documentation is merely a list of the name and version number of the components, and will be used by the evaluators in formulating hypotheses during their analysis.
+The developer shall provide documentation identifying the list of software components that compose the TOE. Software components include applications, the operating system, virtualization or conainerization services or support, and other major components that are independently identifiable and reusable (outside the TOE) such as a web server and protocol or cryptographic libraries. This additional documentation is merely a list of the name and version number of the components for identification and/or equivalency purposes.
 
 ===== Evaluation Activity
 
