@@ -318,6 +318,8 @@ This section defines cryptographic requirements that underlie other security pro
 
 *Application Note {counter:appnote}:* In this requirement, cryptographic operations include all cryptographic key generation/derivation/agreement, IVs (for certain modes), as well as protocol-specific random values.
 
+Unless _use no DRBG functionality_ is selected, an Entropy Analaysis Report specified in Appendix D is required.
+
 ==== Storage of Credentials (FCS_STO)
 ===== FCS_STO_EXT.1 Storage of Credentials
 *FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash_] to non-volatile memory.
