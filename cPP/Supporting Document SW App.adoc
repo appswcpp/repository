@@ -491,15 +491,15 @@ No activities specified.
 
 Documentation shall be produced—and the evaluator shall perform the activities—in accordance with Appendix D of [SWAppcPP]. 
 
-====== TSS
+===== TSS
 
 The evaluator shall examine the TSS to determine that it specifies the DRBG type, identifies the entropy source(s) seeding the DRBG, and state the assumed or calculated min-entropy supplied either separately by each source or the min-entropy contained in the combined seed value.
 
-====== Operational Guidance
+===== Operational Guidance
 
 The evaluator shall confirm that the guidance documentation contains appropriate instructions for configuring the RNG functionality.
 
-====== Test
+===== Test
 
 The evaluator shall perform 15 trials for the RNG implementation. If the RNG is configurable, the evaluator shall perform 15 trials for each configuration. 
 
