@@ -175,7 +175,7 @@ SFR Rationale:
 
 * FMT_CFG_EXT.1 ensures that an attacker cannot gain administrator access via nefarious means.
 
-* FCS_STO_EXT.1 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.
+* FCS_STO_EXT.1 and FCS_CKM.1/PBKDF2 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.
 
 * FTP_DIT_EXT.1 specifies the use of secure communication channels to protect data in transit.
 
@@ -322,7 +322,7 @@ Unless _use no DRBG functionality_ is selected, an Entropy Analaysis Report spec
 
 ==== Storage of Credentials (FCS_STO)
 ===== FCS_STO_EXT.1 Storage of Credentials
-*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash_] to non-volatile memory.
+*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2_] to non-volatile memory.
 
 *Application Note {counter:appnote}:* This requirement ensures that persistent credentials (secret keys, PKI private keys, or passwords) are stored securely.
 
@@ -603,6 +603,18 @@ If the key length for the AES implementation used here is different than that us
 *Application Note {counter:appnote}:* The ST author selects all key generation schemes used for key establishment (including generation of ephemeral keys) and device authentication. When key generation is used for key establishment, the schemes in FCS_CKM.2.1 and selected cryptographic protocols must match the selection. When key generation is used for device authentication, other than SSH-RSA, ECDSA-SHA2-NISTP256, ECDSA-SHA2-NISTP384 and ECDSA-SHA2-NISTP521, the public key is expected to be associated with an X.509v3 certificate. 
 
 If the TOE acts as a receiver in the key establishment schemes and is not configured to support mutual authentication, the TOE does not need to implement key generation.
+
+==== FCS_CKM.1.1/PBKDF2 Password Conditioning
+
+*FCS_CKM.1.1/PBKDF2* A password/passphrase shall perform [*assignment*: _Password-based Key Derivation Functions_] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [*assignment*: _positive integer of 1,000 or more_] iterations, and output cryptographic key sizes [*selection*: _128, 256_] that meet the following [*NIST SP 800-132*]. 
+
+*FCS_CKM.1.2/PBKDF2* The TSF shall generate salts using a RBG that meets FCS_RGB_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in FCS_CKM.1.1/PBKDF2.
+
+*Application Note {counter:appnote}:* This should be included if selected in FCS_STO_EXT.1
+
+Conditioning can be performed using one of the identified hash functions or the process described in NIST SP 800-132; the method used is selected by the ST Author. SP 800-132 requires the use of a pseudo-random function (PRF) consisting of HMAC with an approved hash function. The ST author selects the hash function used, also includes the appropriate requirements for HMAC and the hash function.
+
+Appendix A of SP 800-132 recommends setting the iteration count in order to increase the computation needed to derive a key from a password and, therefore, increase the workload of performing a password recovery attack. A significantly higher value is recommended to ensure optimal security. This value is expected to increase to a minimum of 10,000 in a future iteration based on SP800-63. 
 
 ==== FCS_CKM.2 Cryptographic Key Establishment (Refinement)
 
@@ -1318,9 +1330,9 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 [loweralpha]
 . No audit necessary
 
-==== FPT_API_EXT.1 Use of Supported Services and APIs
+==== FPT_API_EXT.2 Use of Supported Services and APIs
 
-===== FPT_API_EXT.1	Use of Supported Services and APIs
+===== FPT_API_EXT.2	Use of Supported Services and APIs
 
 Hierarchical to:	No other components 
 

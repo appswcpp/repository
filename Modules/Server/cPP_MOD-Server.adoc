@@ -104,8 +104,6 @@ As defined by the references <<CC1>>, <<CC2>> and <<CC3>>, this PP-Module:
 
 In order to be conformant to this PP-Module, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <<Security Functional Requirements>> (these are the mandatory SFRs) of this PP-Module, and potentially SFRs from <<Consistency Rationale>> (these are selection-based SFRs) and <<Selection-Based Requirements>> (these are optional SFRs) of this PP-Module. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this PP-Module) are allowed to be included in the ST. Further, no SFRs in <<Security Functional Requirements>> of this PP-Module are allowed to be omitted.
 
-[GUIDANCE]
-
 == Security Problem Definition
 
 The security problem is described in terms of the threats that the TOE is expected to address, assumptions about its operational environment, and any organizational security policies that the TOE is expected to enforce.
@@ -140,11 +138,11 @@ SFR Rationale:
 * FCO_CPC_EXT.1/Server SFR ensures that only trusted entities connect with each other.
 * FPT_ITT.1/Server SFR ensures that the communication between trusted entities is secure using well known protocols.
 
-=== Assumptions
+==== Assumptions
 
 All Assumptions of the {base-pp} apply also to this PP-Module.
  
-=== Organizational Security Policies
+==== Organizational Security Policies
 
 There are no OSPs for applications.
 

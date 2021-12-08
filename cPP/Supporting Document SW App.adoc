@@ -605,6 +605,20 @@ for each FFC parameter set and key pair.
 
 Testing for FFC Schemes using safe-prime groups is done as part of testing in FCS_CKM.2.1.
 
+===== FCS_CKM.1/PBKDF2
+
+====== TSS
+
+Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that the formation of all password based derived keys is described and that the key sizes match that described by the ST author. The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify that these are supported by the selections in this component as well as the selections concerning the hash function itself. The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the submask that will be input into the function. For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash). No explicit testing of the formation of the submask from the input password is required. FCS_CKM.1.1/PBKDF: The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.1.
+
+====== Operational Guidance
+
+No activities specified.
+
+====== Test
+
+No activities specified.
+
 ===== FCS_CKM.2.1
 
 ====== TSS
@@ -1575,22 +1589,9 @@ If the evaluators discover a Type 3 flaw that they believe should be considered 
 [#Type4Hypotheses]
 ==== Type 4 Hypotheses - Tool-Generated
 
-If the TOE implements the functionality of a TLS server (i.e. includes FCS_TLSS_EXT.1 from the TLS Package), then the evaluator shall perform the following activities to generate type 4 flaw hypotheses.
+Automated vulnerability scanning is a method where a specialized tool is applied to a specific attack surface in order to test it for the presence of known types of vulnerabilities. If this approach is technically feasible, the expectation is that the vulnerability scanning is conducted by the evaluator within a controlled test environment. The evaluator must ensure that the TOE is directly reachable and there is no network traffic filtering device, like a firewall, between the scanner and the TOE.
 
-The evaluator shall perform the following activities to generate type 4 flaw hypotheses:
-
-* Fuzz testing
-* Examine effects of sending:
-** mutated packets carrying each ‘Type’ and ‘Code’ value that is undefined in the relevant RFC for each of ICMPv4 (RFC 792) and ICMPv6 (RFC 4443)
-** mutated packets carrying each ‘Transport Layer Protocol’ value that is undefined in the respective RFC for IPv4 (RFC 791) IPv6 (RFC 2460) should also be covered if it is supported and claimed by the TOE. 
-
-Since none of these packets will belong to an allowed session, the packets should not be processed by the TOE, and the TOE should not be adversely affected by this traffic. Any results that are unexpected (e.g., core dumps) are candidates for a flaw hypothesis.
-
-* Mutation fuzz testing of the remaining fields in the required protocol headers. This testing requires sending mutations of well-formed packets that have both carefully chosen and random values inserted into each header field in turn (i.e. testing is to include both carefully chosen and random insertion test cases). The original well-formed packets would be accepted as part of a normal existing communication stream and may still be accepted as valid packets when subject to the carefully chosen mutations (the individual packet alone would be valid although its contents may not be valid in the context of preceding and/or following packets), but will often not be valid packets when random values are inserted into fields. The carefully chosen values should include semantically significant values that can be determined from the type of the data that the field represents, such as values indicating positive and negative integers, boundary conditions, invalid binary combinations (e.g. for flag sets with dependencies between bits), and missing start or end values. Randomly chosen values may not result in well-formed packets, but are included nonetheless to see whether they can lead to the device entering an insecure state. Any results that are unexpected (e.g., core dumps) are candidates for a flaw hypothesis.
-
-The iTC has not identified a specific tool to be used in accomplishing the above flaw hypothesis generation activity, so any tool used by the evaluation team is acceptable.  The evaluation team shall record in the test report the name, version, parameters, and results of all test tools used for this this activity.
-
-If the evaluators discover a Type 4 flaw that they believe should be considered as a Type 2 flaw in future versions of this cPP, they should work with their Certification Body to determine the appropriate means of submitting the flaw for consideration by the iTC.
+Vulnerability scanners are known to produce recommendations for hardening along with possible vulnerabilities. There is no expectation that all recommendations produced by such tool must be implemented. However, each reported vulnerability must be investigated and resolved or classified as a false positive.
 
 === Process for Evaluator Vulnerability Analysis 
 
