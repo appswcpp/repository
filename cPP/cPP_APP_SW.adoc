@@ -6,8 +6,8 @@
 :sectnumlevels: 7
 :imagesdir: images
 :icons: font
-:revnumber: 0.60
-:revdate: 2021-07-22
+:revnumber: 0.7
+:revdate: 2022-01-05
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -64,6 +64,7 @@ Although the cPP and SD may contain minor editorial errors, the cPP is recognize
 * [#CCADD]#[CCADD]# CC and CEM Addenda: Exact Conformance, Selection-Based SFRs, Optional SFRs CCDB-2017-05-xxx, Version 0.5, May 2017
 * [#SD]#[SD]# Supporting Document
 * [#TLS Package]#[TLS Package]# Functional Package for Transport Layer Security (TLS) v1.1
+* [#SSH Package]#[SSH Package]# Functional Package for SSH Version 1.0
 
 For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
 
@@ -139,7 +140,7 @@ This cPP also applies the CC and CEM Addenda, Exact Conformance, Selection-Based
 
 In order to be conformant to this cPP, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <<Security Functional Requirements>> (these are the mandatory SFRs) of this cPP, and potentially SFRs from <<Consistency Rationale>> (these are selection-based SFRs) and <<Selection-Based Requirements>> (these are optional SFRs) of this cPP. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this cPP) are allowed to be included in the ST. Further, no SFRs in <<Security Functional Requirements>> of this cPP are allowed to be omitted.
 
-The packages to which exact conformance can be claimed in conjunction with this PP are specified in the ‘Allowed Packages’ list at https://github.com/appswcpp/. The PP-Modules that are allowed to specify this cPP as a base-PP are specified in the ‘Allowed PP-Modules list at https://github.com/appswcpp/
+The packages to which exact conformance can be claimed in conjunction with this PP are specified in the ‘Allowed Packages’ list at https://github.com/appswcpp/cPP. The PP-Modules that are allowed to specify this cPP as a base-PP are specified in the ‘Allowed PP-Modules list at https://github.com/appswcpp/cPP
 
 === Components allowed with this cPP in a PP-Configuration
 The list of packages, PP-Modules and cPPs that may be used in conjunction with this cPP can be found at: {iTC-website}PP-config.html
@@ -201,7 +202,7 @@ SFR Rationale:
 
 * FIA_X509_EXT.1/Rev and FIA_X509_EXT.2 ensure that certificates used for secure communication channels are validated properly to prevent someone gaining unauthorized access to the TOE.
 
-* FCS_SSH_EXT.1, FCS_SSHS_EXT.1, FCS_SSHC_EXT.1, FCS_HTTPS_EXT.1, [TLS Package] ensures that the secure communication protocols are used to secure the communication channels.
+* FCS_HTTPS_EXT.1, [SSH Package], [TLS Package] ensures that the secure communication protocols are used to secure the communication channels.
 
 ==== T.UPDATE_COMPROMISE
 Threat agents may attempt to provide a compromised update of the application which undermines the security functionality of the application. Non-validated updates or updates validated using non-secure or weak cryptography leave the updated application vulnerable to surreptitious alteration.
@@ -416,8 +417,8 @@ This section defines requirements for a trusted communication path between the T
 *FTP_DIT_EXT.1.1* The application shall [selection:_
 
 * _not transmit any data,_ 
-* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in FCS_SSH_EXT.1],_ 
-* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in FCS_SSH_EXT.1]]_
+* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]],_ 
+* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]]]_
 ]
 between itself and another trusted IT product.
 
@@ -588,7 +589,7 @@ If the key length for the AES implementation used here is different than that us
 
 *FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric_].
 
-*Application Note {counter:appnote}:* This requirement depends upon selection in [TLS Package], FCS_SSH_EXT.1, FCS_SSHS_EXT.1 and FCS_SSHC_EXT.1.
+*Application Note {counter:appnote}:* This requirement depends upon selection in [TLS Package] and [SSH Package].
 
 ==== FCS_CKM.1/Asymmetric Cryptographic Key Generation (Refinement)
 
@@ -669,7 +670,7 @@ The hash selection should be consistent with the overall strength of the algorit
 
 *Application Note {counter:appnote}:* The key size [k] in the assignment falls into a range between L1 and L2 (defined in ISO/IEC 10118 for the appropriate hash function). For example, for SHA-256, L1=512, L2=256, where L2<=k<=L1.
 
-=== Cryptographic Protocols (Extended – FCS_HTTPS_EXT, FCS_SSHC_EXT, FCS_SSHS_EXT, FCS_TLSC_EXT, FCS_TLSS_EXT)
+=== Cryptographic Protocols (Extended – FCS_HTTPS_EXT)
 
 ==== FCS_HTTPS_EXT HTTPS Protocol
 HTTPS is not a required component of this cPP. If a TOE implements HTTPS, a corresponding selection in FTP_DIT_EXT.1 should have been made that defines what the HTTPS protocol is implemented to protect.
@@ -692,174 +693,7 @@ If the TOE implements the TLS protocol, the ST author shall include the requirem
 
 ==== SSH Protocol
 SSH is not a required component of this cPP. If a TOE implements SSH, a corresponding selection in FTP_DIT_EXT.1 should have been made that defines what the SSH protocol is implemented to protect.
-If the TOE acts as both a client and server and the selections are different, the ST author should iterate using the identifiers FCS_SSH_EXT.1/Server and FCS_SSH_EXT.1/Client.
-
-===== FCS_SSH_EXT.1 SSH Protocol
-
-*FCS_SSH_EXT.1.1* The TSF shall implement SSH acting as [_selection: client according to FCS_SSHC_EXT.1, server according to FCS_SSHS_EXT.1_] in accordance with: RFCs 4251, 4252, 4253, 4254, [_selection: 4256, 4344, 5647, 5656, 6187, 6668, 8268, 8308, 8332, no other RFCs_], and no other standard.
-
-*Application Note {counter:appnote}:* The following mapping is provided as a guide to ST authors to ensure the appropriate RFC selections are made based on applicable selections in subsequent SFRs:
-RFC 4256 – Select for keyboard-interactive authentication
-RFC 4344 – Select for AES-128-CTR or AES-256-CTR 
-RFC 5647 – Select for AEAD_AES_128_GCM, AEAD_AES_256_GCM, or 
-aes*-gcm@openssh.com 
-RFC 5656 – Select for elliptic curve cryptography
-RFC 6187 – Select for X.509 certificate use
-RFC 6668 – Select for HMAC-SHA-2 algorithms
-RFC 8268 – Select for FFC DH groups with SHA-2 
-RFC 8308 – Select if RFC 8332 is selected
-RFC 8332 – Select if SHA-2 is available with ssh-rsa
-
-The ST author selects which of the additional RFCs to which conformance is being claimed. An SSH product can implement additional RFCs, but only those listed in the selection can be claimed as conformant under common criteria. The RFC selections for this requirement need to be consistent with selections in later elements of this Package (e.g., cryptographic algorithms permitted). 
-
-For the purposes of this package (and subsequent integration into cPPs) only the claimed algorithms listed in the package must be enabled for use. 
-
-*FCS_SSH_EXT.1.2* The TSF shall ensure that the SSH protocol implementation supports the following session authentication methods: [_selection:
-
-* _“password” (RFC 4252),_
-
-* _“keyboard-interactive” (RFC 4256),_
-
-* _“publickey” (RFC 4252): [selection:_
-
-* _ssh-rsa (RFC 4253),_
-
-* _rsa-sha2-256 (RFC 8332),_
-
-* _rsa-sha2-512 (RFC 8332),_
-
-* _ecdsa-sha2-nistp256 (RFC 5656),_
-
-* _ecdsa-sha2-nistp384 (RFC 5656),_
-
-* _ecdsa-sha2-nistp521 (RFC 5656),_
-
-* _x509v3-ecdsa-sha2-nistp256 (RFC 6187),_
-
-* _x509v3-ecdsa-sha2-nistp384 (RFC 6187),_
-
-* _x509v3-ecdsa-sha2-nistp521 (RFC 6187),_
-
-* _x509v3-rsa2048-sha256  (RFC 6187)_
-
-]_
-
-].
-
-*Application Note {counter:appnote}:* Within SSH there are two types of authentication: session authentication and connection authentication. This SFR deals with the options supported for session authentication. Connection authentication is covered in FCS_SSHS_EXT.1.1 (for servers) and FCS_SSHC_EXT.1.1 (for clients).
-
-*FCS_SSH_EXT.1.3* The TSF shall ensure that, as described in RFC 4253, packets greater than [_assignment: number of bytes between 35,000 and 1 GB (inclusive)_] in an SSH transport connection are dropped.
-
-*Application Note {counter:appnote}:* RFC 4253 (section 6.1) provides for the acceptance of “large packets” with the caveat that the packets should be of “reasonable length” or dropped. The assignment should be filled in by the ST author with the maximum packet size accepted, thus defining “reasonable length” for the TOE.
-
-The upper bound on the packet size is driven by the size identified in FCS_SSH_EXT.1.8.
-
-*FCS_SSH_EXT.1.4* The TSF shall protect data in transit from unauthorised disclosure using one of the following mechanisms: [selection:_ 
-
-* _aes128-ctr (RFC 4344),_
-* _aes256-ctr (RFC 4344),_
-* _aes128-cbc (RFC 4253),_
-* _aes256-cbc (RFC 4253),_
-* _AEAD_AES_128_GCM (RFC 5647),_
-* _AEAD_AES_256_GCM (RFC 5647),_
-* _aes128-gcm@openssh.com,_
-* _aes256-gcm@openssh.com_
-].
-
-*Application Note {counter:appnote}:* As described in RFC 5647, AEAD_AES_128_GCM and AEAD_AES_256_GCM need the corresponding MAC algorithm to be selected.
-
-*FCS_SSH_EXT.1.5* The TSF shall protect data in transit from modification, deletion, and insertion using one of the following mechanisms: [selection:_ 
-
-* _hmac-sha1 (RFC 4253),_
-* _hmac-sha2-256 (RFC 6668),_ 
-* _hmac-sha2-512 (RFC 6668),_
-* _AEAD_AES_128_GCM (RFC 5647),_ 
-* _AEAD_AES_256_GCM (RFC 5647),_
-* implicit
-].
-
-*Application Note {counter:appnote}:* As described in RFC 5647, AEAD_AES_128_GCM and AEAD_AES_256_GCM need the corresponding encryption algorithm to be selected. 
-In AES-GCM mode integrity is not provided using a MAC, it is implicit in AES-GCM mode itself. There is no need for a corresponding FCS_COP element. The FCS_COP element for AES would already cover this.
-
-If the negotiated encryption algorithm is one of the aes*-gcm@openssh.com algorithms, then the MAC field is ignored during negotiation and implicitly selects AES-GCM for the MAC.
-“implicit” is not an SSH identifier and will not be seen on the wire; however, the negotiated MAC might be decoded as “implicit”.
-
-*FCS_SSH_EXT.1.6* The TSF shall establish a shared secret with its peer using one of the following mechanisms: [_selection: 
-* _diffie-hellman-group14-sha1 (RFC 4253),_
-* _diffie-hellman-group14-sha256 (RFC 8268),_ 
-* _diffie-hellman-group15-sha512 (RFC 8268),_
-* _diffie-hellman-group16-sha512 (RFC 8268),_
-* _diffie-hellman-group17-sha512 (RFC 8268),_
-* _diffie-hellman-group18-sha512 (RFC 8268),_
-* _ecdh-sha2-nistp256 (RFC 5656),_
-* _ecdh-sha2-nistp384 (RFC 5656),_
-* _ecdh-sha2-nistp521 (RFC 5656)_
-] 
-and no other mechanisms.
-
-*FCS_SSH_EXT.1.7* The TSF shall use SSH KDF as defined in [_selection:
-* _RFC 4253 (Section 7.2),_
-* _RFC 5656 (Section 4)_
-] 
-to derive the following cryptographic keys from a shared secret: session keys.
-
-*Application Note {counter:appnote}:* RFC 4253 must be selected when the key establishment scheme (selected in FCS_SSH_EXT.1.6) uses finite field cryptography (FFC) and RFC 5656 when it uses elliptic curve cryptography (ECC.
-
-RFC 4253 section 7.2 defines two KDFs for FFC based key establishment schemes.  Therefore RFC 4253 should be selected if any of the RFC 4253 or RFC 8268 key establishment schemes are selected.
-
-RFC 5656 section 4 defines KDFs used in ECC key establishment schemes and should be selected when RFC 5656 key establishment schemes are selected.
-
-*FCS_SSH_EXT.1.8* The TSF shall ensure that [_selection: 
-a rekey of the session keys, connection termination_] occurs when any of the following thresholds are met: no more than one hour connection time, no more than one gigabyte of transmitted data, or no more than one gigabyte of received data.
-
-*Application Note {counter:appnote}:* This SFR defines three thresholds that need to be implemented. These thresholds were arrived at to ensure that the cryptographic key space for the symmetric session keys isn’t exhausted (more detail can be found in RFC 4344 and RFC 4253). A rekey or connection termination needs to be performed whenever a threshold is reached for a given connection. The rekey applies to all session keys (encryption, integrity protection) for incoming and outgoing traffic. 
-
-It is acceptable for a TOE to implement lower thresholds than the maximum values defined in the SFR. If a threshold is configurable, the guidance documentation needs to specify how to configure that threshold.
-
-It is possible that hardware limitation may prevent reaching data transfer threshold in less than one hour. In cases where data transfer threshold could not be reached due to hardware limitations it is acceptable to omit testing of this (SSH rekeying based on data transfer threshold). See Evaluation Activities for details.
-
-===== FCS_SSHS_EXT.1 SSH Server Protocol
-
-*FCS_SSHS_EXT.1.1* The TSF shall authenticate itself to its peer (SSH Client) using one of the following mechanisms: [selection:_
-* _ssh-rsa (RFC 4253),_
-* _rsa-sha2-256 (RFC 8332),_
-* _rsa-sha2-512 (RFC 8332),_
-* _ecdsa-sha2-nistp256 (RFC 5656),_
-* _ecdsa-sha2-nistp384 (RFC 5656),_
-* _ecdsa-sha2-nistp521 (RFC 5656),_
-* _x509v3-ecdsa-sha2-nistp256 (RFC 6187),_ 
-* _x509v3-ecdsa-sha2-nistp384 (RFC 6187),_
-* _x509v3-ecdsa-sha2-nistp521 (RFC 6187),_
-* _x509v3-rsa2048-sha256  (RFC 6187)_
-].
-
-*Application Note {counter:appnote}:* These requirements relate to Server authenticating to the Client. The Client authenticating to the Server is covered in FCS_SSHC_EXT.1.1.
-
-===== FCS_SSHC_EXT.1 SSH Client Protocol
-
-*FCS_SSHC_EXT.1.1* The TSF shall authenticate its peer (SSH server) using one of the following mechanisms: [_selection: 
-using a local database by associating each host name with a public key corresponding to the following list:_
-
-* _[selection:_
-
-** _ssh-rsa (RFC 4253),
-** _rsa-sha2-256 (RFC 8332),
-** _rsa-sha2-512 (RFC 8332), 
-** _ecdsa-sha2-nistp256 (RFC 5656), 
-** _ecdsa-sha2-nistp384 (RFC 5656), 
-** _ecdsa-sha2-nistp521 (RFC 5656)
-],
-* _a list of trusted certification authorities when the public key is in one of the following formats:_
-** _[selection:_
-*** _x509v3-ecdsa-sha2-nistp256 (RFC 6187),_
-*** _x509v3-ecdsa-sha2-nistp384 (RFC 6187),_
-*** _x509v3-ecdsa-sha2-nistp521 (RFC 6187),_
-*** _x509v3-rsa2048-sha256 (RFC 6187)_
-]
-
-as described in RFC 4251 section 4.1.
-
-*Application Note {counter:appnote}:* The local database may be implemented using any equivalent local storage mechanism.
+If the TOE acts as both a client and server and the selections are different, the ST author should iterate using the identifiers FCS_SSH_EXT.1/Server and FCS_SSH_EXT.1/Client in the [SSH Package].
 
 == Class: Identification and Authentication (FIA)
 
@@ -1427,8 +1261,8 @@ Dependencies:		No other components
 
 *FTP_DIT_EXT.1.1* The application shall [_selection:_ 
 * _not transmit any data,_ 
-* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in FCS_SSH_EXT.1],_ 
-* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS, DTLS, SSH as specified in FCS_SSH_EXT.1]]_
+* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]],_ 
+* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS, DTLS, SSH as specified in [SSH Package]]_
 ]
 between itself and another trusted IT product.
 
@@ -1765,18 +1599,6 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 |FCS_COP.1/KeyedHash
 
 |FCS_HTTPS_EXT.1
-|None
-|
-
-|FCS_SSH_EXT.1
-|None
-|
-
-|FCS_SSHS_EXT.1
-|None
-|
-
-|FCS_SSHC_EXT.1
 |None
 |
 

@@ -6,8 +6,8 @@
 :table-caption: Table
 :imagesdir: images
 :icons: font
-:revnumber: 0.1
-:revdate: 2020-07-26
+:revnumber: 0.2
+:revdate: 2022-01-5
 :xrefstyle: full
 
 :iTC-longname: iTC for Application Software
@@ -882,7 +882,7 @@ No activities specified.
 
 For each of the supported parameter sets, the evaluator shall compose 15 sets of test data. Each set shall consist of a key and message data. The evaluator shall have the TSF generate HMAC tags for these sets of test data. The resulting MAC tags shall be compared to the result of generating HMAC tags with the same key and message data using a known good implementation.
 
-==== Cryptographic Protocols (FCS_HTTPS_EXT, FCS_SSHC_EXT, FCS_SSHS_EXT, FCS_TLSC_EXT, FCS_TLSS_EXT))
+==== Cryptographic Protocols (FCS_HTTPS_EXT)
 
 ===== FCS_HTTPS_EXT.1 HTTPS Protocol
 
@@ -907,225 +907,6 @@ If the TOE is an HTTPS client or an HTTPS server utilizing X.509 client authenti
 TLS Protocol
 
 If the TOE implements the TLS protocol, the evaluator shall test the TOE as per evaluation activities from [TLS Package]
-
-===== FCS_SSH_EXT.1.1
-
-====== TSS
-
-The evaluator shall ensure that the subsequent SFR selections are consistent with the RFCs claimed in this SFR.
-
-====== Guidance Documentation
-
-No activities specified.
-
-====== Tests
-
-No activities specified.
-
-===== FCS_SSH_EXT.1.2
-
-====== TSS
-
-The evaluator shall check to ensure that the session authentication methods listed in the TSS are identical to those listed in this SFR component; and ensure if password-based authentication methods have been selected in the ST then these are also described; and ensure that if keyboard-interactive is selected, it describes the multifactor authentication mechanisms provided by the TOE.
-
-====== Guidance Documentation
-
-The evaluator shall check the guidance documentation to ensure the configuration options, if any, for session authentication mechanisms provided by the TOE are described. 
-
-====== Tests
-
-Test 1: [conditional] If the TOE is acting as SSH Server:
-
-[loweralpha]
-
-. The evaluator shall use a suitable SSH Client to connect to the TOE, enable debug messages in the SSH Client, and examine the debug messages to determine that only the configured session authentication methods for the TOE were offered by the server.
-
-. [conditional] If the SSH server supports X509 based Client session authentication options:
-
-.. The evaluator shall initiate an SSH session from a client where the username is associated with the X509 certificate. The evaluator shall verify the session is successfully established.
-
-.. Next the evaluator shall use the same X509 certificate as above but include a username not associated with the certificate. The evaluator shall verify that the session does not establish.
-
-.. Finally, the evaluator shall use the correct username (from step a above) but use a different X509 certificate which is not associated with the username. The evaluator shall verify that the session does not establish.
-
-Test 2: [conditional] If the TOE is acting as SSH Client, the evaluator shall test for a successful configuration setting of each session authentication method as follows:
-
-[loweralpha]
-
-. The evaluator shall initiate a SSH session using the authentication method configured and verify that the session is successfully established.
-
-. Next, the evaluator shall use bad authentication data (e.g. incorrectly generated certificate or incorrect password) and ensure that the connection is rejected.
-
-
-Steps a-b shall be repeated for each independently configurable authentication method supported by the server.
-
-Test 3: [conditional] If the TOE is acting as SSH Client, the evaluator shall verify that the connection fails upon configuration mismatch as follows:
-
-[loweralpha]
-
-. The evaluator shall configure the Client with an authentication method not supported by the Server. 
-
-. The evaluator shall verify that the connection fails. 
-
-If the Client supports only one authentication method, the evaluator can test this failure of connection by configuring the Server with an authentication method not supported by the Client. In order to facilitate this test, it is acceptable for the evaluator to configure an authentication method that is outside of the selections in the SFR.
-
-===== FCS_SSH_EXT.1.3
-
-====== TSS
-
-The evaluator shall check that the TSS describes how “large packets” are detected and handled.
-
-====== Guidance Documentation
-
-No activities specified.
-
-====== TSS
-
-Test 1:
-
-The evaluator shall demonstrate that the TOE accepts the maximum allowed packet size.
-
-Test2:
-
-This test is performed to verify that the TOE drops packets that are larger than size specified in the component. 
-
-The evaluator shall establish a successful SSH connection with the peer. 
-
-Next the evaluator shall craft a packet that is one byte larger than the maximum size specified in this component and send it through the established SSH connection to the TOE.
-
-Evaluator shall verify that the packet was dropped by the TOE. 
-
-===== FCS_SSH_EXT.1.4
-
-====== TSS
-
-The evaluator will check the description of the implementation of SSH in the TSS to ensure the encryption algorithms supported are specified. The evaluator will check the TSS to ensure that the encryption algorithms specified are identical to those listed for this component.
-
-====== Guidance Documentation
-
-The evaluator shall check the guidance documentation to ensure that it contains instructions to the administrator on how to ensure that only the allowed mechanisms are used in SSH connections with the TOE. 
-
-====== TSS
-
-The evaluator shall perform the following tests. 
-
-If the TOE can be both a client and a server, these tests must be performed for both roles.
-
-Test 1: The evaluator must ensure that only claimed algorithms and cryptographic primitives are used to establish an SSH connection. To verify this, the evaluator shall establish an SSH connection with a remote endpoint. The evaluator shall capture the traffic exchanged between the TOE and the remote endpoint during protocol negotiation (e.g. using a packet capture tool or information provided by the endpoint, respectively). The evaluator shall verify from the captured traffic that the TOE offers only the algorithms defined in the ST for the TOE for SSH connections. The evaluator shall perform one successful negotiation of an SSH connection and verify that the negotiated algorithms were included in the advertised set. If the evaluator detects that not all algorithms defined in the ST for SSH are advertised by the TOE or the TOE advertises additional algorithms not defined in the ST for SSH, the test shall be regarded as failed.
-
-The data collected from the connection above shall be used for verification of the advertised hashing and shared secret establishment algorithms in FCS_SSH_EXT.1.5 and FCS_SSH_EXT.1.6 respectively.
-
-Test 2: For the connection established in 
-
-Test 1, the evaluator shall terminate the connection and observe that the TOE terminates the connection. 
-
-Test 3: The evaluator shall configure the remote endpoint to only allow a mechanism that is not included in the ST selection. The evaluator shall attempt to connect to the TOE and observe that the attempt fails.
-
-===== FCS_SSH_EXT.1.5
-
-====== TSS
-
-The evaluator will check the description of the implementation of SSH in the TSS to ensure the hashing algorithms supported are specified. The evaluator will check the TSS to ensure that the hashing algorithms specified are identical to those listed for this component.
-
-====== Guidance Documentation
-
-The evaluator shall check the guidance documentation to ensure that it contains instructions to the administrator on how to ensure that only the allowed mechanisms are used in SSH connections with the TOE. 
-
-====== Test
-
-Test 1: The evaluator shall use the test data collected in FCS_SSH_EXT.1.4, Test 1 to verify that appropriate mechanisms are advertised.
-
-Test 2: The evaluator shall configure an SSH peer to allow only a hashing algorithm that is not included in the ST selection. The evaluator shall attempt to establish an SSH connection and observe that the connection is rejected.
-
-===== FCS_SSH_EXT.1.6
-
-====== TSS
-
-The evaluator will check the description of the implementation of SSH in the TSS to ensure the shared secret establishment algorithms supported are specified. The evaluator will check the TSS to ensure that the shared secret establishment algorithms specified are identical to those listed for this component.
-
-====== Guidance Documentation
-
-The evaluator shall check the guidance documentation to ensure that it contains instructions to the administrator on how to ensure that only the allowed mechanisms are used in SSH connections with the TOE. 
-
-====== Test
-
-Test 1: The evaluator shall use the test data collected in FCS_SSH_EXT.1.4, Test 1 to verify that appropriate mechanisms are advertised. 
-
-Test 2: The evaluator shall configure an SSH peer to allow only a key exchange method that is not included in the ST selection. The evaluator shall attempt to establish an SSH connection and observe that the connection is rejected.
-
-===== FCS_SSH_EXT.1.7
-
-====== TSS
-
-The evaluator will check the description of the implementation of SSH in the TSS to ensure the KDFs supported are specified. The evaluator will check the TSS to ensure that the KDFs specified are identical to those listed for this component.
-
-====== Guidance Documentation
-
-No activities specified.
-
-====== Test
-
-This test verifies the ability of the TOE to implement the SSH key derivation function correctly. For each combination of the SHA function and encryption algorithm that is claimed by the SSH implementation on the TOE, the evaluator shall generate a shared secret, K, of length 2048 bits; a hash ‘H’, and a ‘session_id’ value. Both ‘H’ and the ‘session_id’ values are of the same length as the output of the SHA function under consideration.
-
-Using these inputs, the values for the following parameters are required to be calculated as per Section 7.2 of RFC 4253:
- 
-. Initial IV client to server
-. Initial IV server to client
-. Encryption key client to server
-. Encryption key server to client
-. Integrity key client to server
-. Integrity key server to client
-
-The lengths of the IVs and encryption keys are determined by the block ciphers supported by the SSH implementation on the TOE. IV lengths are determined by the cipher block size, and encryption key lengths are determined by the cipher key lengths. To determine correctness, the evaluator shall compare the calculated parameters to those obtained by submitting the same inputs to a known good implementation.
-
-[note]
-====
-K is of type ‘mpint’ (as defined in Section 5 of RFC 4251) and thus has a four byte field at the beginning (left) that indicates the length of the key in bytes.
-====
-
-===== FCS_SSH_EXT.1.8
-
-====== TSS
-
-The evaluator shall check the TSS to ensure that if the TOE enforces connection rekey or termination limits lower than the maximum values that these lower limits are identified.
-
-====== Guidance Documentation
-
-The evaluator shall check the guidance documentation to ensure that if the connection rekey or termination limits are configurable, it contains instructions to the administrator on how to configure the relevant connection rekey or termination limits for the TOE. 
-
-====== Test
-
-The test harness needs to be configured so that its connection rekey or termination limits are greater than the limits supported by the TOE -- it is expected that the test harness should not be initiating the connection rekey or termination.
-
-Test 1.  Establish an SSH connection.  Wait until the identified connection rekey limit is met.  Observed that a connection rekey or termination is initiated.  This may require traffic to periodically be sent, or connection keep alive to be set, to ensure that the connection is not closed due to an idle timeout.
-
-Test 2.  Establish an SSH connection.  Transmit data from the TOE until the identified connection rekey or termination limit is met.  Observe that a connection rekey or termination is initiated.
-
-Test 3.  Establish an SSH connection.  Send data to the TOE until the identified connection rekey limit or termination is met.  Observe that a connection rekey or termination is initiated.
-
-===== FCS_SSHC_EXT.1.1
-
-====== TSS
-
-No activities specified.
-
-====== Guidance Documentation
-
-The evaluator shall check the guidance documentation to ensure that it contains instructions to the administrator on how to ensure that only the allowed mechanisms are used in SSH connections with the TOE.
-
-====== Test
-
-The evaluator shall perform the following tests:
-
-Test 1: [conditional] If using a local database by associating each host name with its corresponding public key, the evaluator shall configure the TOE with only a single host name and corresponding public key in the local database. The evaluator shall verify that the TOE can successfully connect to the host identified by the host name.
-
-Test 2: [conditional] If using a local database by associating each host name with its corresponding public key, the evaluator shall configure the TOE with only a single host name and non-corresponding public key in the local database. The evaluator shall verify that the TOE fails to connect to a host not identified by the host name.
-
-Test 3: [conditional] If using a local database by associating each host name with its corresponding public key, the evaluator shall try to connect to a host not configured in the local database. The evaluator shall verify that the TOE either fails to connect to a host identified by the host name or there is a prompt provided to store the public key in the local database.
-
-Test 4: [conditional] If using a list of trusted certification authorities, the evaluator shall configure the TOE with only a single trusted certification authority corresponding to the host. The evaluator shall verify that the TOE can successfully connect to the host identified by the host name.
-
-Test 5: [conditional] If using a list of trusted certification authorities, the evaluator shall configure the TOE with only a single trusted certification authority that does not correspond to the host. The evaluator shall verify that the TOE fails to the host identified by the host name.
 
 === Identification and Authentication (FIA)
 
@@ -1660,16 +1441,17 @@ the evaluator penetration testing effort, outlining the testing approach, config
 
 == Public Vulnerability Sources
 
-// pending ITC review / start here //
-
-At a minimum, evaluators shall utilize NVD [https://web.nvd.nist.gov/view/vuln/search] or MITRE [https://cve.mitre.org/cve/] and any relevant TOE vendor vulnerability publications. The following additional sources of public vulnerabilities are sources for the evaluator to consider in both formulating the specific list of flaws to be investigated by the evaluators. 
+The following sources of public vulnerabilities are sources for the iTC to consider in both formulating the specific list of flaws to be investigated by the evaluators, as well as to reference in directing the evaluators to perform keyword searches during the evaluation of a specific TOE.
 
 [loweralpha]
-. US-CERT: http://www.kb.cert.org/vuls/html/search 
-. Exploit / Vulnerability Search Engine: https://www.exploitsearch.net 
-. SecurITeam Exploit Search: https://www.securiteam.com 
-. Tenable Network Security http://nessus.org/plugins/index.php?view=search 
-. Tipping Point Zero Day Initiative http://www.zerodayinitiative.com/advisories 
+. NIST National Vulnerabilities Database (can be used to access CVE and US-CERT databases identified below): https://web.nvd.nist.gov/view/vuln/search 
+. Common Vulnerabilities and Exposures: https://cve.mitre.org/cve/
+https://www.cvedetails.com/vulnerability-search.php
+. US-CERT: https://www.kb.cert.org/vuls/html/search
+. Exploit / Vulnerability Search Engine: https://www.exploitsearch.net
+. SecurITeam Exploit Search: https://www.securiteam.com
+. Tenable Network Security: https://nessus.org/plugins/index.php?view=search
+. Tipping Point Zero Day Initiative: https://www.zerodayinitiative.com/advisories 
 . Offensive Security Exploit Database: https://www.exploit-db.com/
 . Rapid7 Vulnerability Database: https://www.rapid7.com/db/vulnerabilities
 
