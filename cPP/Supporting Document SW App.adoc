@@ -1,4 +1,4 @@
-= Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Coffee Maker
+= Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Application Software
 :showtitle:
 :toc: macro
 :toclevels: 7
