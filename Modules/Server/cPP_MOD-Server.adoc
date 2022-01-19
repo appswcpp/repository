@@ -364,7 +364,7 @@ This is a new component within the FPT class which addresses requirements to ens
 [ditaa, FPT_AEX_EXT, png]
 ....
             +---------------------------------------+     +-----+
-            |    FPT_AEX_EXT Anti-Exploitation      |-----|  1  |
+            |    FPT_AEX_EXT Anti-Exploitation      |-----|  2  |
             +---------------------------------------+     +-----+
 ....
 
