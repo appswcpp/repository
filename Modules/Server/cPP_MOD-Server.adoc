@@ -193,7 +193,9 @@ Extended SFRs are identified by having a label “EXT” at the end of the SFR n
 === FMT_MEC_EXT.1/Server
 *FMT_MEC_EXT.1.1/Server*
 
+=======
 Read and write access to the TOE’s configuration data shall be limited to Administrator, TOE and [assignment: list of authorized entities]
+
 
 === FMT_SMF.1/Server
 *FMT_SMF.1.1/Server*
