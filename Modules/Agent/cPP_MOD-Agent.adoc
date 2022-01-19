@@ -174,7 +174,7 @@ The TSF shall implement a registration process in which TOE parts establish and 
 
 _]._
 
-Application Note {counter:appnote}: An Agent can communicate with a Server or another Agent. This SFR can be iterated if the registration method varies depending on what TOE parts are communicating. 
+*_Application Note {counter:appnote}:_* An Agent can communicate with a Server or another Agent. This SFR can be iterated if the registration method varies depending on what TOE parts are communicating. 
 "No channel" is selected if the registration is performed via out-of-band manual means. 
 
 *FCO_CPC_EXT.1.3/Agent*
@@ -186,7 +186,7 @@ The TSF shall enable a Security Administrator to disable communications between 
 *FPT_ITT.1.1/Agent*
 The TSF shall protect TSF data from disclosure and detect its modification when it is transmitted between separate parts of the TOE through the use of _[selection: SSH, TLS, DTLS, HTTPS]_.
 
-Application Note {counter:appnote}: The data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the selection. The ST author should identify the channels and protocols used by each pair of communicating parts, iterating this SFR as appropriate. 
+*_Application Note {counter:appnote}:_* The data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the selection. The ST author should identify the channels and protocols used by each pair of communicating parts, iterating this SFR as appropriate. 
 
 If certificates are used for authentication in any of the protocols selected above, then FIA_X509_EXT.1/ITT/Agent is to be selected.
 
@@ -219,7 +219,7 @@ _]._
 ** Client certificates presented for TLS shall have the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field.
 ** OCSP certificates presented for OCSP responses shall have the OCSP Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9) in the extendedKeyUsage field.
 
-Application Note {counter:appnote}: This SFR should be chosen if in FPT_ITT.1/Agent protocols selected utilize X.509 certificates for peer authentication. In this case, the use of revocation list checking is optional as there are additional requirements surrounding the enabling and disabling of the ITT channel as defined in FCO_CPC_EXT.1/Agent. If revocation checking is not supported, the ST author should select no revocation method. However, if certificate revocation checking is supported, the ST author selects whether this is performed using OCSP or CRLs.
+*_Application Note {counter:appnote}:_* This SFR should be chosen if in FPT_ITT.1/Agent protocols selected utilize X.509 certificates for peer authentication. In this case, the use of revocation list checking is optional as there are additional requirements surrounding the enabling and disabling of the ITT channel as defined in FCO_CPC_EXT.1/Agent. If revocation checking is not supported, the ST author should select no revocation method. However, if certificate revocation checking is supported, the ST author selects whether this is performed using OCSP or CRLs.
 
 It is acceptable for the TOE to depend on the platform for certification checking (as defined in this SFR) however all the evaluation activities must be performed irrespective of whether the TOE performs the certificate checking or passes the responsibility to the platform.
 
@@ -232,7 +232,7 @@ If the TOE does not support functionality that uses any of the certificate types
 *FIA_X509_EXT.1.2/ITT/Agent*
 The application shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.
 
-Application Note {counter:appnote}: This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.
+*_Application Note {counter:appnote}:_* This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.
 
 [appendix]
 == Optional Requirements
