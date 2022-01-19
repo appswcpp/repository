@@ -6,8 +6,8 @@
 :sectnumlevels: 7
 :imagesdir: images
 :icons: font
-:revnumber: 0.0.1
-:revdate: 2021-02-03
+:revnumber: 0.0.2
+:revdate: 2021-09-08
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -50,7 +50,7 @@ This module is part of a Collaborative Protection Profile (cPP) whose Target of 
 
 1.	Enterprise Agent Applications
 
-This cPP module is to be used against which all of the above categories of software applications may be evaluated. In addition there are PP modules that may be applicable based on the category of application.
+This cPP-Module is to be used against which all of the above categories of software applications may be evaluated. In addition there are PP-Modules that may be applicable based on the category of application.
 
 In addition to the above categories there are large number of applications (Desktop and Mobile) that fall under “Consumer-grade” category. While such applications could be evaluated under the Application Software cPP, it is not the intention of this iTC to specifically address this category. The iTC doesn’t believe the consumer grade app ecosystem would support the historical cost and timelines associated with a Common Criteria evaluation.
 
@@ -90,10 +90,10 @@ For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
 
 ==== Compliant Targets of Evaluation
 
-This is a Collaborative Protection Profile (cPP) Module whose Target of Evaluation (TOE) is Enterprise Agent Applications. This PP module is compatible with the cPP for Application Software and collaborative PP-Module for Server Applications. 
+This is a Collaborative Protection Profile (cPP) Module whose Target of Evaluation (TOE) is Enterprise Agent Applications. This PP-Module is compatible with the cPP for Application Software and collaborative PP-Module for Server Applications. 
 
 === TOE Use Cases
-All use cases of Enterprise Agent applications defined in the Base cPP are applicable to this PP Module.
+All use cases of Enterprise Agent applications defined in the {base-pp} are applicable to this PP-Module.
 
 == CC Conformance Claims
 As defined by the references <<CC1>>, <<CC2>> and <<CC3>>, this PP-Module:
@@ -104,7 +104,6 @@ As defined by the references <<CC1>>, <<CC2>> and <<CC3>>, this PP-Module:
 
 In order to be conformant to this PP-Module, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <<Security Functional Requirements>> (these are the mandatory SFRs) of this PP-Module, and potentially SFRs from <<Consistency Rationale>> (these are selection-based SFRs) and <<Selection-Based Requirements>> (these are optional SFRs) of this PP-Module. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this PP-Module) are allowed to be included in the ST. Further, no SFRs in <<Security Functional Requirements>> of this PP-Module are allowed to be omitted.
 
-[GUIDANCE]
 
 == Security Problem Definition
 
@@ -112,7 +111,7 @@ The security problem is described in terms of the threats that the TOE is expect
 
 === Threats
 
-==== T.UNTRUSTED_COMMUNICATION_CHANNELS_AGENT:
+==== T.UNTRUSTED_COMMUNICATION_CHANNELS_AGENT
 Attackers may take advantage of poorly designed or non-secure protocols or poor key management to successfully perform man-in-the middle attacks, replay attacks, etc. Successful attacks will result in loss of confidentiality and integrity of the critical network traffic, and potentially could lead to a compromise of the application itself. Attackers may attempt to target applications that do not use standardized secure tunneling protocols to protect the critical network traffic. This threat is of particular concern when an application uses protocols that have not been subject to extensive peer review.
 Additionally attackers may attempt to connect via untrusted entities and use that connectivity to perform various attacks. 
 
@@ -123,7 +122,7 @@ SFR Rationale:
 
 === Assumptions
 
-All Assumptions of the Base-PP apply also to this PP-Module.
+All Assumptions of the {base-pp} apply also to this PP-Module.
  
 === Organizational Security Policies
 
@@ -133,11 +132,11 @@ There are no OSPs for applications.
 
 === Security Objectives for the TOE
 
-All Objectives of the Base-PP apply also to this PP-Module.
+All Objectives of the {base-pp} apply also to this PP-Module.
 
 === Security Objectives for the Operational Environment
 
-All objectives for the Operational Environment of the Base-PP apply also to this PP-Module. 
+All objectives for the Operational Environment of the {base-pp} apply also to this PP-Module. 
 
 == Security Functional Requirements
 
@@ -163,10 +162,10 @@ Extended SFRs are identified by having a label “EXT” at the end of the SFR n
 
 === Communication (FCO)
 ==== FCO_CPC_EXT.1/Agent
-===== FCO_CPC_EXT.1.1/Agent
+*FCO_CPC_EXT.1.1/Agent*
 The TSF shall require a Security Administrator to enable communications between any pair of TOE parts before such communication can take place.
 
-===== FCO_CPC_EXT.1.2/Agent
+*FCO_CPC_EXT.1.2/Agent*
 The TSF shall implement a registration process in which TOE parts establish and use a communications channel that uses _[selection:_
 
 ** _A channel that meets the secure channel requirements in  FPT_ITT.1,_
@@ -178,16 +177,18 @@ _]._
 *_Application Note {counter:appnote}:_* An Agent can communicate with a Server or another Agent. This SFR can be iterated if the registration method varies depending on what TOE parts are communicating. 
 "No channel" is selected if the registration is performed via out-of-band manual means. 
 
-==== FCO_CPC_EXT.1.3/Agent
+*FCO_CPC_EXT.1.3/Agent*
 The TSF shall enable a Security Administrator to disable communications between any pair of TOE parts.
 
 === Protection of the TSF (FPT)
 
 ==== FPT_ITT.1/Agent
-===== FPT_ITT.1.1/Agent
+*FPT_ITT.1.1/Agent*
 The TSF shall protect TSF data from disclosure and detect its modification when it is transmitted between separate parts of the TOE through the use of _[selection: SSH, TLS, DTLS, HTTPS]_.
 
 *_Application Note {counter:appnote}:_* The data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the selection. The ST author should identify the channels and protocols used by each pair of communicating parts, iterating this SFR as appropriate. 
+
+If certificates are used for authentication in any of the protocols selected above, then FIA_X509_EXT.1/ITT/Agent is to be selected.
 
 == Security Assurance Requirements
 
@@ -198,7 +199,7 @@ This PP-Module does not define any additional assurance requirements above and b
 === Identification and Authentication (FIA)
 
 ==== FIA_X509_EXT.1/ITT/Certificate Validation/Agent
-===== FIA_X509_EXT.1.1/ITT/Agent
+*FIA_X509_EXT.1.1/ITT/Agent*
 The application shall _[selection: invoked platform-provided functionality, implement functionality]_ to validate certificates in accordance with the following rules:
 
 * RFC 5280 certificate validation and certification path validation supporting a minimum path length of two certificates.
@@ -228,7 +229,7 @@ The TSS shall describe when revocation checking is performed. It is expected tha
 
 If the TOE does not support functionality that uses any of the certificate types listed in the extendedKeyUsage rules in FIA_X509_EXT.1.1 then this is stated in the TSS and the relevant part of the SFR is considered trivially satisfied. However, if the TOE does support functionality that uses certificates of any of these types then the corresponding rule must of course be satisfied as in the SFR.
 
-===== FIA_X509_EXT.1.2/ITT/Agent
+*FIA_X509_EXT.1.2/ITT/Agent*
 The application shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.
 
 *_Application Note {counter:appnote}:_* This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.
@@ -277,7 +278,8 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 . Enabling communications between a pair of TOE parts as in FCO_CPC_EXT.1.1/Agent (including identities of the endpoints).
 . Disabling communications between a pair of TOE parts as in FCO_CPC_EXT.1.3/Agent (including identity of the endpoint that is disabled).
 
-===== FCO_CPC_EXT.1/Agent
+*FCO_CPC_EXT.1/Agent*
+
 Hierarchical to:	No other components 
 
 Dependencies:		No other components
