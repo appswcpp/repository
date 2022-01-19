@@ -110,7 +110,7 @@ The security problem is described in terms of the threats that the TOE is expect
 
 === Threats
 
-==== T.LOCAL_ATTACK_SERVER: 
+==== T.LOCAL_ATTACK_SERVER 
 An attacker can act through unprivileged access on the same computing platform on which the application executes. For example, attackers may provide maliciously formatted input to the application in the form of files or other local communications thus providing unauthorized access to plaintext sensitive data.
 
 SFR Rationale:
@@ -122,14 +122,14 @@ SFR Rationale:
 * FMT_SMF.1/Server ensures that rogue or misconfigured TOE parts/agents do not compromise the security of the server application.
 
 
-==== T.PLATFORM_UPDATE_SERVER: 
+==== T.PLATFORM_UPDATE_SERVER
 Updating the platform that the application operates on could break the application's functionality. As such an end user might choose not to update the platform, thereby preventing the patching of known issues on the platform. An attacker could exploit such unpatched vulnerabilities in the platform to then mount an attack on the application.
 
 SFR Rationale:
 
 * FPT_AEX_EXT.2/Server SFR ensures that the TOE leverages the functionality provided and supported by the platform. This ensures that when the platform is updated, the supported functionality does not break and makes it easier to keep the platform updated without having to worry about breaking the applications running on the platform. 
 
-==== T.UNTRUSTED_COMMUNICATION_CHANNELS_SERVER:
+==== T.UNTRUSTED_COMMUNICATION_CHANNELS_SERVER
 Attackers may take advantage of poorly designed or non-secure protocols or poor key management to successfully perform man-in-the middle attacks, replay attacks, etc. Successful attacks will result in loss of confidentiality and integrity of the critical network traffic, and potentially could lead to a compromise of the application itself. Attackers may attempt to target applications that do not use standardized secure tunneling protocols to protect the critical network traffic. This threat is of particular concern when an application uses protocols that have not been subject to extensive peer review.
 Additionally attackers may attempt to connect via untrusted entities and use that connectivity to perform various attacks. 
 
