@@ -910,6 +910,117 @@ If the TOE implements the TLS protocol, the evaluator shall test the TOE as per 
 
 === Identification and Authentication (FIA)
 
+==== External Identity Provider (FIA_EIP)
+
+===== FIA_EIP_EXT.1 (External Identity Provider)
+
+====== TSS
+
+The evaluator shall examine the TSS and verify that a description is provided for the secure channel used to communicate with the external identity provider, including the supported security parameters (e.g. AES, SHA, RSA, ECDSA claims).
+
+The evaluator shall examine the TSS and verify that a description is provided for how the TOE enrolls with the external identity provider.
+
+====== Guidance Documentation
+
+The evaluator shall review the guidance documentation and verify that procedures are provided for configuring the channel between the TOE and external identity provider.
+
+The evaluator shall review the guidance documentation to ensure that a list of the maintained attributes are provided.
+
+====== Test
+
+The evaluator shall perform the following test activities:
+
+* Test 1: The evaluator shall follow the guidance documentation to establish the secure communication channel between the TOE and external identity provider. The evaluator shall review packet captures and/or log information and verify that the supported security parameters are used, and no other options are offered during the session establishment.
+
+* Test 2: The evaluator shall follow the guidance documentation to enroll with the external identify provider. The evaluator shall complete the enrollment process and attempt a successful authentication attempt to the TOE. If any additional steps are required that are not documented within the AGD, this test fails.
+
+* Test 3: (Conditional) If the TSF can locally configure any of the maintained attributes listed within the guidance documentation, the evaluator shall attempt to modify the attribute prior to authenticating to the TSF. The evaluator shall verify that the attempt fails. The evaluator shall then successfully authenticate to the TOE and repeat the modification of the attribute, verifying the attempt now succeeds.
+
+* Test 4: The evaluator shall interrupt the connection between the TOE and External Identity Provider. The evaluator shall attempt to authenticate to the administrative interface and verify that the attempt fails. The evaluator shall then re-establish the connection to the EIP and attempt to authenticate to the admin interface. The evaluator shall verify that the authentication attempt is successful and the connection to the EIP is securely established.
+
+==== User Authentication (FIA_UAU)
+
+===== FIA_UAU_EXT.5 (User Authentication Mechanisms)
+
+====== TSS
+
+The evaluator shall examine the TSS to ensure that it describes each mechanism provided to support user authentication and the rules describing how the authentication mechanism(s) provide authentication.
+
+====== Guidance Documentation
+
+(Conditional - provide an authentication mechanism) The evaluator will review the Guidance documentation and verify that steps are provided that allow for a Security Administrator to configure and store user credentials in accordance with FCS_STO_EXT.1.
+
+(Conditional - integrate with an external identity provider) The evaluator will review the Guidance documentation and verify that steps are provided that allow for the TOE to successfully connect and enroll with the remote external identity provider for authentication to the TOE.
+ 
+====== Test
+
+The evaluator shall perform the following test cases: 
+
+* Test 1: (Conditional - provide an authentication mechanism) – For each authentication mechanism claimed, the evaluator shall follow the guidance documentation to configure the TOE to use the listed mechanism. The evaluator shall attempt to authenticate to the TOE using a known credential and verify that the authentication attempt is successful. The evaluator shall then repeat the test using an invalid credential and verify the attempt fails.
+
+* Test 2: (Conditional - integrate with an external identity provider) - The evaluator will follow the guidance documentation and verify that following completion of the configuration steps a connection is established with the EIP. The evaluator shall attempt to authenticate to the TOE using a known credential and verify that the authentication attempt is successful. The evaluator shall then repeat the test using an invalid credential and verify the attempt fails.
+
+===== FIA_UAU_EXT.2 (User Authentication)
+
+Evaluation Activities for this requirement are covered under those for FIA_UIA_EXT.1. If other authentication mechanisms are specified, the evaluator shall include those methods in the activities for FIA_UIA_EXT.1.
+
+===== FIA_UAU.7 (User Authentication Obfuscation)
+
+====== TSS
+
+No additional assurance activities.
+
+====== Guidance Documentation
+
+The evaluator shall examine the guidance documentation to determine that any necessary preparatory steps to ensure authentication data is not revealed while entering for each login allowed.
+ 
+====== Test
+
+The evaluator shall perform the following test for each method of login allowed:
+
+* Test 1: The evaluator shall authenticate to the TOE. While making this attempt, the evaluator shall verify that at most obscured feedback is provided while entering the authentication information.
+
+_Application Note : Temporary display of the last character typed during input is permitted._
+
+==== User Identification (FIA_UIA)
+
+===== FIA_UIA_EXT.1 (User Identification)
+
+====== TSS
+
+The evaluator shall examine the TSS to determine that it describes which actions are allowed before user identification and authentication. The description shall cover authentication and identification for TOE administration.
+
+====== Guidance Documentation
+
+If configuration is necessary to ensure the services provided before login are limited, the evaluator shall determine that the guidance documentation provides sufficient instruction on limiting the allowed services.
+ 
+====== Test
+
+* Test 1: The evaluator shall configure the services allowed (if any) according to the guidance documentation. The evaluator shall attempt to perform an operation that is not claimed within the requirement and verify that the operation fails. The evaluator shall then authenticate to the TOE and verify the operation is now successful
+
+==== User Authentication Failure (FIA_AFL)
+
+===== FIA_AFL_EXT.1 (Authentication Failure)
+
+====== TSS
+
+The evaluator shall examine the TSS to determine that it contains a description, for each supported method for authentication, of how successive unsuccessful authentication attempts are detected and tracked. The TSS shall also describe the method by which the administrator is prevented from successfully logging on to the TOE, and the actions necessary to restore this ability.
+
+The evaluator shall examine the TSS to confirm that the TOE ensures that authentication failures by administrators cannot lead to a situation where no administrator access is available, either permanently or temporarily (e.g. by providing local logon which is not subject to blocking).
+
+====== Guidance Documentation
+
+The evaluator shall examine the guidance documentation to ensure that instructions for configuring the number of successive unsuccessful authentication attempts and time period (if implemented) are provided, and that the process of allowing the administrator to once again successfully log on is described for each “action” specified (if that option is chosen). If different actions or mechanisms are implemented, all must be described.
+
+====== Test
+
+The evaluator shall perform the following tests for each method by which administrators access the TOE: 
+
+* Test 1: The evaluator shall use the operational guidance to configure the number of successive unsuccessful authentication attempts allowed by the TOE (and, if the time period selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall also use the operational guidance to configure the time period after which access is re-enabled). The evaluator shall test that once the authentication attempts limit is reached, authentication attempts with valid credentials are no longer successful. 
+
+* Test 2: After reaching the limit for unsuccessful authentication attempts as in Test 1 above, the evaluator shall proceed as follows. If the administrator action selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall confirm by testing that following the operational guidance and performing each action specified in the ST to re-enable the administrator’s access results in successful access (when using valid credentials for that administrator). 
+If the time period selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall wait for just less than the time period configured in Test 1 and show that an authorisation attempt using valid credentials does not result in successful access. The evaluator shall then wait until just after the time period configured in Test 1 and show that an authorisation attempt using valid credentials results in successful access.
+
 ==== Certificate Validation (FIA_X509)
 
 ===== FIA_X509_EXT.1.1/Rev (X.509 Certificate Validation)
@@ -983,6 +1094,45 @@ No activities specified.
 The evaluator shall perform the following test for each trusted channel:
 
 The evaluator shall demonstrate that using a valid certificate that requires certificate validation checking to be performed in at least some part by communicating with a non-TOE IT entity. The evaluator shall then manipulate the environment so that the TOE is unable to verify the validity of the certificate, and observe that the action selected in FIA_X509_EXT.2.2 is performed. If the selected action is administrator-configurable, then the evaluator shall follow the guidance documentation to determine that all supported administrator-configurable options behave in their documented manner.
+
+=== Security Management (FMT)
+
+==== Management Roles (FMT_SMR)
+
+===== FMT_SMR.2 (Security Management Roles)
+
+====== TSS
+
+The evaluator shall examine the TSS to determine that it details the TOE supported roles and any restrictions of the roles involving administration of the TOE.
+
+====== Guidance Documentation
+
+The evaluator shall review the guidance documentation to ensure that it contains instructions for administering the TOE, including any configuration that needs to be performed on the client for administration.
+ 
+====== Test
+
+While performing the testing activities for the evaluation, the evaluator shall ensure that each supported method of administering the TOE that conforms to the requirements of this cPP be tested.
+
+=== TOE Access (FTA)
+
+==== TOE Login Banner (FTA_TAB)
+
+===== FTA_TAB.1 (TOE Login Banner)
+
+====== TSS
+
+No assurance activities.
+
+====== Guidance Documentation
+
+The evaluator shall check the guidance documentation to ensure that it describes how to configure the banner message.
+
+====== Test
+
+The evaluator shall also perform the following test:
+
+* Test 1: The evaluator follows the guidance documentation to configure a notice and consent warning message. The evaluator shall then attempt to establish an administrative session with the TOE and verify that the notice and consent warning message is displayed prior to or during the authentication step.
+
 
 == Evaluation Activities for Objective Requirements
 
