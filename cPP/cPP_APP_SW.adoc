@@ -6,8 +6,8 @@
 :sectnumlevels: 7
 :imagesdir: images
 :icons: font
-:revnumber: 0.7
-:revdate: 2022-01-05
+:revnumber: 0.7.1
+:revdate: 2022-02-23
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -178,7 +178,7 @@ SFR Rationale:
 
 * FCS_STO_EXT.1 and FCS_CKM.1/PBKDF2 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.
 
-* FIA_UAU_EXT.5 ensures that an appropriate mechanism is in place to ensure only an authorized user can interact with the application (if interactive).
+* FIA_AFL_EXT.1, FIA_EIP_EXT.1, FIA_UAU.7, FIA_UAU_EXT.5, FIA_UAU_EXT.2, FIA_UIA_EXT.1, and FTA_TAB.1 ensures that an appropriate mechanism is in place to ensure only an authorized user can interact with the application (if interactive).
 
 * FTP_DIT_EXT.1 specifies the use of secure communication channels to protect data in transit.
 
