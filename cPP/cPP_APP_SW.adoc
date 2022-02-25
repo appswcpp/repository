@@ -869,7 +869,7 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 [loweralpha] 
 . No audit necessary
 
-==== FCS_CKM_EXT.1 Cryptographic Key Generation Services
+===== FCS_CKM_EXT.1 Cryptographic Key Generation Services
 Hierarchical to: No other components
 
 Dependencies: No dependencies
@@ -1014,6 +1014,8 @@ Dependencies: No dependencies
 
 *FCS_STO_EXT.1.1* The application shall [selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]] to non-volatile memory.
 
+=== Data Protection (FDP)
+
 ==== Network Communications (FDP_NET_EXT)
 
 ===== Family Behaviour
@@ -1051,6 +1053,163 @@ Hierarchical to:	No other components
 Dependencies:		No other components
 
 *FDP_NET_EXT.1.1* The TSF shall restrict network communication to: [_selection: no network communication, outbound connections, in-bound connections_].
+
+=== Identification and Authentication (FIA)
+
+==== External Identity Provider (FIA_EIP_EXT)
+
+*Family Behaviour*
+
+Provides for an external identity provider for authentication to the TOE.
+
+*Component levelling*
+
+[#img-FIA_EIP_EXT] 
+.Component levelling 
+[ditaa]
+....                                                  
+    +-------------------------------------------+  
+    |                                           |  +---+
+    | FIA_EIP_EXT External Identity Provider    +->| 1 |
+	|                                           |  +---+
+	+-------------------------------------------+
+....
+
+FIA_EIP_EXT.1 The remote authentication service provides administrative users a managed service to allow for access to TSF mediated actions.
+
+*Management: FIA_EIP_EXT*
+
+The following actions could be considered for the management functions in FMT:
+
+[loweralpha]
+. None.
+
+*Audit: FIA_EIP_EXT*
+
+The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+
+[loweralpha]
+. No audit necessary
+
+=====  FIA_EIP_EXT.1 External Identity Provider
+
+Hierarchical to: No other components.
+
+Dependencies: FIA_UAU_EXT.5.
+
+*FIA_EIP_EXT.1.1* The TSF shall be capable of using [_selection: IPsec, TLS, DTLS_] to provide a communication channel between itself and an external identity provider.
+
+*FIA_EIP_EXT.1.2* The TSF shall provide a [_selection: configurable, externally-managed_] mechanism to enroll with the external identity provider.
+
+*FIA_EIP_EXT.1.3* The TSF shall establish attribute mapping with the provider for [_assignment: list of maintained attributes_].
+
+==== User Identification and Authentication (FIA_UIA_EXT)
+
+===== Family Behaviour
+The TSF allows certain specified actions before the non-TOE entity goes through the identification and authentication process.
+
+===== Component levelling
+[#img-FIA_UIA_EXT] 
+.Component levelling 
+[ditaa]
+....                                                  
+    +-------------------------------------------+  
+    |     FIA_UIA_EXT User Identification       +  +---+
+    |                 and Authentication        +->| 1 |
+	+-------------------------------------------+  +---+
+....
+
+FIA_UIA_EXT.1 User Identification and Authentication requires Administrators (including remote Administrators) to be identified and authenticated by the TOE, providing assurance for that end of the communication path. It also ensures that every user is identified and authenticated before the TOE performs any mediated functions 
+
+===== Management: FIA_UIA_EXT.1
+The following actions could be considered for the management functions in FMT:
+
+[loweralpha]
+. Ability to configure the list of TOE services available before an entity is identified and authenticated
+
+===== Audit: FIA_UIA_EXT.1
+The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+
+[loweralpha]
+. No audit necessary
+
+===== FIA_UIA_EXT.1	User Identification and Authentication
+
+Hierarchical to: No other components.
+
+Dependencies:    FTA_TAB.1 Default TOE Access Banners
+
+*FIA_UIA_EXT.1.1* The TSF shall allow the following actions prior to requiring the non-TOE entity to initiate the identification and authentication process:
+
+* Display the warning banner in accordance with FTA_TAB.1;
+
+* [_assignment: list of services, actions performed by the TSF in response to non-TOE requests_];
+
+* No actions].
+
+*FIA_UIA_EXT.1.2* The TSF shall require each administrative user to be successfully identified and authenticated before allowing any other TSF-mediated actions on behalf of that administrative user.
+
+==== User authentication (FIA_UAU_EXT)
+
+*Family Behaviour*
+
+Provides for a locally based administrative user authentication mechanism
+
+*Component levelling*
+
+[#img-FIA_UAU_EXT] 
+.Component levelling 
+[ditaa]
+....                                                  
+    +-------------------------------------------+  
+    |                                           |  +---+
+    |                                           +->| 2 |
+	|    FIA_UAU_EXT User Authentication        |  +---+
+	|                                           |  +---+
+	|                                           |->| 5 |
+	|                                           |  +---+
+	+-------------------------------------------+
+....
+
+FIA_UAU_EXT.2 The password-based authentication mechanism provides administrative users a locally based authentication mechanism.
+
+FIA_UAU_EXT.5 The TSF provides administrative users a local or external authentication mechanism.
+
+*Management: FIA_UAU_EXT.2, FIA_UAU_EXT.5*
+
+The following actions could be considered for the management functions in FMT:
+
+[loweralpha]
+. configuration of user authentication
+
+*Audit: FIA_UAU_EXT.2, FIA_UAU_EXT.5*
+
+The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+
+[loweralpha]
+. No audit necessary
+
+===== FIA_UAU_EXT.2 Authentication Mechanism
+
+*FIA_UAU_EXT.2 Authentication Mechanism*
+
+Hierarchical to: No other components.
+
+Dependencies: No other components.
+
+*FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
+
+===== FIA_UAU_EXT.5 Authentication Mechanisms
+
+*FIA_UAU_EXT.5 Authentication Mechanisms*
+
+Hierarchical to: No other components.
+
+Dependencies:    FIA_UAU_EXT.2 Authentication Mechanism.
+
+*FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
+
+*FIA_UAU_EXT.5.2* The TSF shall consider [_selection: password, SSH Public Key, X.509 certificate, [assignment: other authentication mechanism]_] as authentication mechanisms.
 
 ==== Authentication using X.509 certificates (FIA_X509_EXT)
 
@@ -1092,7 +1251,7 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 [loweralpha]
 . No audit necessary
 
-==== FIA_X509_EXT.1 Certificate Validation
+===== FIA_X509_EXT.1 Certificate Validation
 
 ===== FIA_X509_EXT.1	X.509 Certificate Validation
 Hierarchical to:	No other components
@@ -1129,6 +1288,8 @@ Dependencies:		FIA_X509_EXT.1 X.509 Certificate Authentication
 *FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS_], and [selection: _code signing for system software updates, code signing for integrity verification, [assignment: other uses], no additional uses_].
 
 *FIA_X509_EXT.2.2* When the TSF cannot establish a connection to determine the validity of a certificate, the TSF shall [_selection: allow the Administrator to choose whether to accept the certificate in these cases, accept the certificate, not accept the certificate_].
+
+=== Security Management (FMT)
 
 ==== Default Configuration (FMT_CFG_EXT)
 
@@ -1170,6 +1331,8 @@ Dependencies:		No other components
 
 *FMT_CFG_EXT.1.2* The application shall be configured by default with file permissions which protect it and its data from unauthorized access.
 
+=== Protection of the TSF (FPT)
+
 ==== Anti-Exploitation Capabilities (FPT_AEX_EXT)
 
 ===== Family Behaviour
@@ -1202,8 +1365,6 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 
 [loweralpha]
 . No audit necessary
-
-==== FPT_AEX_EXT.1 Anti-Exploitation Capabilities
 
 ===== FPT_AEX_EXT.1 Anti-Exploitation Capabilities
 
@@ -1252,8 +1413,6 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 
 [loweralpha]
 . No audit necessary
-
-==== FPT_API_EXT.2 Use of Supported Services and APIs
 
 ===== FPT_API_EXT.2	Use of Supported Services and APIs
 
@@ -1341,9 +1500,11 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 [loweralpha]
 . No audit necessary
 
-===== FTP_DIT_EXT.1 Data in Transit
+=== Trust Path/Channel (FTP)
 
-====== FTP_DIT_EXT.1 Data in Transit
+==== FTP_DIT_EXT.1 Data in Transit
+
+===== FTP_DIT_EXT.1 Data in Transit
 
 Hierarchical to:	No other components 
 Dependencies:		No other components
