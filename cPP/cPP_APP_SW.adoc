@@ -4,9 +4,9 @@
 :toclevels: 7
 :sectnums:
 :sectnumlevels: 7
-:imagesdir: images
+:imagesdir:
 :icons: font
-:revnumber: 0.7.1
+:revnumber: 1.0 
 :revdate: 2022-02-23
 
 :iTC-longname: iTC for Application Software
@@ -29,14 +29,9 @@ This collaborative Protection Profile (cPP) was developed by the {iTC-longname} 
 |Date 
 |Description
 
-|0.60
-|2021-07-22
-|Initial Migration to adoc format.
-
-|
-|
-|
-
+|1.0
+|2022-02-23
+|Initial release.
 
 |===
 

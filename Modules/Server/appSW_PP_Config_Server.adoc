@@ -3,8 +3,8 @@
 :toc:
 :table-caption: Table
 :icons: font
-:revnumber: 0.1
-:revdate: 2021-05-26
+:revnumber: 1.0
+:revdate: 2022-02-23
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -26,9 +26,9 @@ This PP-Configuration was developed by the {iTC-longname} international Technica
 |Date 
 |Description
 
-|0.1
-|2021-05-26
-|Initial Draft
+|1.0
+|2022-02-23
+|Initial Release
 
 
 |===

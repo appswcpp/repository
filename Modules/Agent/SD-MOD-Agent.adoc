@@ -6,8 +6,8 @@
 :table-caption: Table
 :imagesdir: images
 :icons: font
-:revnumber: 0.2.1
-:revdate: 2021-01-27
+:revnumber: 1.0
+:revdate: 2022-02-23
 :xrefstyle: full
 
 :iTC-longname: iTC for Application Software
@@ -39,9 +39,9 @@ This Supporting Document was developed by the {iTC-longname} international Techn
 |===
 |Version |Date |Description
 
-|0.1
-|2020-06-03
-|Initial release for internal review
+|1.0
+|2022-02-23
+|Initial Release
 
 |
 |
