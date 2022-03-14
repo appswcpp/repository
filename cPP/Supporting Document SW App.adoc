@@ -117,8 +117,6 @@ Finally, the subsection labelled Tests is where the iTC has determined that test
 No activities specified.
 
 ====== Test
-
-Test
 [Conditional] If *invoke platform-provided DRBG functionality* is selected the evaluator shall decompile the application binary using an decompiler suitable for the application (TOE). The evaluator shall search the output of the decompiler to determine that, for each API listed in the TSS, that API appears in the output. If the representation of the API does not correspond directly to the strings in the following list, the evaluator shall provide a mapping from the decompiled text to its corresponding API, with a description of why the API text does not directly correspond to the decompiled text and justification that the decompiled text corresponds to the associated API. 
 
 It should be noted that there is no expectation that the evaluators attempt to confirm that the APIs are being used “correctly” for the functions identified in the TSS; the activity is to list the used APIs and then do an existence check via decompilation. 
@@ -149,13 +147,13 @@ No activities specified.
 
 ====== Test
 
-Test 1: [conditional] *If invoke the functionality provided by the platform to securely store* is selected, the evaluator shall perform the following actions which vary per platform.
+[Conditional] *If invoke the functionality provided by the platform to securely store* is selected, the evaluator shall perform the following actions which vary per platform.
 
-*For Windows*: The evaluator shall verify that all certificates are stored in the Windows Certificate Store. The evaluator shall verify that other credentials, like passwords, are stored in the Windows Credential Manager or stored using the Data Protection API (DPAPI). For Windows Universal Applications, the evaluator shall verify that the application is using the ProtectData class and storing credentials in IsolatedStorage.
+Test 1: [conditional] For Windows platform the evaluator shall verify that all certificates are stored in the Windows Certificate Store. The evaluator shall verify that other credentials, like passwords, are stored in the Windows Credential Manager or stored using the Data Protection API (DPAPI). For Windows Universal Applications, the evaluator shall verify that the application is using the ProtectData class and storing credentials in IsolatedStorage.
 
-*For Linux*: The evaluator shall verify that all keys are stored using Linux keyrings.
+Test 2: [conditional] For Linux platform the evaluator shall verify that all keys are stored using Linux keyrings.
 
-*For Mac OS X*: The evaluator shall verify that all credentials are stored within Keychain.
+Test 3: [conditional] For macOS platform the evaluator shall verify that all credentials are stored within Keychain.
 
 === User Data Protection (FDP)
 
