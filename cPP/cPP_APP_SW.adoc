@@ -320,7 +320,7 @@ Unless _use no DRBG functionality_ is selected, an Entropy Analaysis Report spec
 
 ==== Storage of Credentials (FCS_STO)
 ===== FCS_STO_EXT.1 Storage of Credentials
-*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2_] to non-volatile memory.
+*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2_] to non-volatile memory.
 
 *Application Note {counter:appnote}:* This requirement ensures that persistent credentials (secret keys, PKI private keys, or passwords) are stored securely.
 
