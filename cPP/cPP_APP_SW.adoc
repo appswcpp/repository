@@ -371,11 +371,11 @@ The changing of default credentials has to be enforced by the application.
 
 *FMT_SMR.2.2* The TSF shall be able to associate users with roles.
 
-*FMT_SMR.2.3* The TSF shall ensure that the conditions [_selection:
+*FMT_SMR.2.3* The TSF shall ensure that the conditions [_selection:_
 
-* The Security Administrator role shall be able to administer the TOE locally, 
+* _The Security Administrator role shall be able to administer the TOE locally,_ 
 
-* The Security Administrator role shall be able to administer the TOE remotely_] 
+* _The Security Administrator role shall be able to administer the TOE remotely_] 
 
 are satisfied.
 
