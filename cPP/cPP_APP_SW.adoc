@@ -761,9 +761,9 @@ This section defines selection based Identification and Authentication requireme
 
 *FIA_UAU_EXT.5.2* The TSF shall consider [_selection: password, SSH Public Key, X.509 certificate, [assignment: other authentication mechanism]_] as authentication mechanisms.
 
-*Application Note {counter:appnote}:* _If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL_EXT.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2._
+*Application Note {counter:appnote}:* If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL_EXT.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2.
 
-*Application Note {counter:appnote}:* _If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs must be included in the ST: FIA_EIP_EXT.1._
+*Application Note {counter:appnote}:* If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs must be included in the ST: FIA_EIP_EXT.1.
 
 ==== FIA_UAU.7 Protected authentication feedback
 
