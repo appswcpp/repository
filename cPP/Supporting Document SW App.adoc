@@ -84,14 +84,15 @@ If any Evaluation Activity cannot be successfully completed in an evaluation the
 
 In general, if all EAs (for both SFRs and SARs) are successfully completed in an evaluation then it would be expected that the overall verdict for the evaluation is a ‘pass’. 
 
-In some cases, the Common Evaluation Methodology (CEM) work units have been interpreted to require the evaluator to perform specific EAs. In these instances, EAs will be specified in Section 2 (Evaluation Activities for Mandatory SFRs), Section 5 (Evaluation Activities for Objective Requirements), and possibly Section 3 (Evaluation Activities for Optional Requirements) and Section 4 (Evaluation Activities for Selection-Based Requirements). In cases where there are no CEM interpretations, the CEM activities are to be used to determine if SARs are satisfied and references to the CEM work units are identified as being the sole EAs to be performed. 
+In some cases, the Common Evaluation Methodology (CEM) work units have been interpreted to require the evaluator to perform specific EAs. In these instances, EAs will be specified in <<Evaluation Activities for Mandatory SFRs>>, <<Evaluation Activities for Objective Requirements>>, and possibly <<Evaluation Activities for Optional Requirements>> and <<Evaluation Activities for Selection-Based Requirements>>. In cases where there are no CEM interpretations, the CEM activities are to be used to determine if SARs are satisfied and references to the CEM work units are identified as being the sole EAs to be performed. 
 
-Finally, there are cases where EAs have rephrased CEM work units to provide clarity on what is required. The EAs are reworded for clarity and interpret the CEM work units such that they will result in more objective and repeatable actions by the evaluator. In these cases, the EA supplements the CEM work unit. These EAs will be specified in Section 6 (Evaluation Activities for SARs).
+Finally, there are cases where EAs have rephrased CEM work units to provide clarity on what is required. The EAs are reworded for clarity and interpret the CEM work units such that they will result in more objective and repeatable actions by the evaluator. In these cases, the EA supplements the CEM work unit. These EAs will be specified in <<Evaluation Activities for SARs>>.
 
 
 == Evaluation Activities for Mandatory SFRs
 
-he EAs presented in this section capture the actions the evaluator performs to address technology specific aspects covering specific SARs (e.g., ASE_TSS.1, ADV_FSP.1, AGD_OPE.1, and ATE_IND.1) – this is in addition to the CEM work units that are performed in Section 6 (Evaluation Activities for SARs). 
+The EAs presented in this section capture the actions the evaluator performs to address technology specific aspects covering specific SARs (e.g., ASE_TSS.1, ADV_FSP.1, AGD_OPE.1, and ATE_IND.1) – this is in addition to the CEM work units that are performed in <<Evaluation Activities for SARs>>. 
+
 Regarding design descriptions (designated by the subsections labelled TSS, as well as any required supplementary material that may be treated as proprietary), the evaluator must ensure there is specific information that satisfies the EA. For findings regarding the TSS section, the evaluator’s verdicts will be associated with the CEM work unit ASE_TSS.1-1. Evaluator verdicts associated with the supplementary evidence will also be associated with ASE_TSS.1-1, since the requirement to provide such evidence is specified in ASE in the cPP.  
 
 For ensuring the guidance documentation provides sufficient information for the administrators/users as it pertains to SFRs, the evaluator’s verdicts will be associated with CEM work units ADV_FSP.1-7, AGD_OPE.1-4, and AGD_OPE.1-5. 
