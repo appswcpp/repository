@@ -1322,7 +1322,7 @@ Hierarchical to:	No other components
 
 Dependencies:		No other components
 
-*FMT_CFG_EXT.1.1* The TSF shall provide [_selection: no default credentials, default credentials that are changed_ [selection: _during installation, before application is operational_]].
+*FMT_CFG_EXT.1.1* Any default credentials supported by the TSF shall be changed [_selection: during installation, before application is operational_].
 
 *FMT_CFG_EXT.1.2* The application shall be configured by default with file permissions which protect it and its data from unauthorized access.
 
