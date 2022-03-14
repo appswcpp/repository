@@ -627,7 +627,7 @@ If the TOE acts as a receiver in the key establishment schemes and is not config
 
 ==== FCS_CKM.1.1/PBKDF2 Password Conditioning
 
-*FCS_CKM.1.1/PBKDF2* A password/passphrase shall perform [*assignment*: _Password-based Key Derivation Functions_] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [*assignment*: _positive integer of 1,000 or more_] iterations, and output cryptographic key sizes [*selection*: _128, 256_] that meet the following [*NIST SP 800-132*]. 
+*FCS_CKM.1.1/PBKDF2* A password/passphrase shall perform [_assignment: Password-based Key Derivation Functions_] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [_assignment: positive integer of 1,000 or more_] iterations, and output cryptographic key sizes [_selection: 128, 256_] that meet the following [NIST SP 800-132]. 
 
 *FCS_CKM.1.2/PBKDF2* The TSF shall generate salts using a RBG that meets FCS_RGB_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in FCS_CKM.1.1/PBKDF2.
 
