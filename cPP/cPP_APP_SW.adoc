@@ -879,7 +879,7 @@ Components in this family define the requirements for protecting remote manageme
 ===== Component levelling
 [#img-FCS_HTTPS_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FCS_HTTPS_EXT, png]
 ....
     +------------------------------+
     |                              |     +---+
@@ -925,14 +925,14 @@ Components in this family address the requirements for random bit/number generat
 ===== Component levelling
 [#img-FCS_RBG_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FCS_RBG_EXT, png]
 ....
                                                       +---+
                                                    +->| 1 |
                                                    |  +---+
     +-------------------------------------------+  |
     |                                           |  |  
-    |     FCS_RBT_EXT Random Bit Generation     +--+
+    |     FCS_RBG_EXT Random Bit Generation     +--+
     |                                           |  |  
     +-------------------------------------------+  |
                                                    |  +---+ 
@@ -979,7 +979,7 @@ Components in this family address the requirements for storage of credentials su
 ===== Component levelling
 [#img-FCS_STO_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FCS_STO_EXT, png]
 ....
     +------------------------------------+
     |                                    |     +---+
@@ -1019,7 +1019,7 @@ Components in this family address restrictions to network communications. This i
 ===== Component levelling
 [#img-FDP_NET_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FDP_NET_EXT, png]
 ....
     +------------------------------------+
     |                                    |     +---+
@@ -1061,7 +1061,7 @@ Provides for an external identity provider for authentication to the TOE.
 
 [#img-FIA_EIP_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FIA_EIP_EXT, png]
 ....                                                  
     +-------------------------------------------+  
     |                                           |  +---+
@@ -1106,7 +1106,7 @@ The TSF allows certain specified actions before the non-TOE entity goes through 
 ===== Component levelling
 [#img-FIA_UIA_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FIA_UIA_EXT, png]
 ....                                                  
     +-------------------------------------------+  
     |     FIA_UIA_EXT User Identification       +  +---+
@@ -1154,7 +1154,7 @@ Provides for a locally based administrative user authentication mechanism
 
 [#img-FIA_UAU_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FIA_UAU_EXT, png]
 ....                                                  
     +-------------------------------------------+  
     |                                           |  +---+
@@ -1214,7 +1214,7 @@ This family defines the behaviour, management, and use of X.509 certificates for
 ===== Component levelling
 [#img-FIA_X509_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FIA_X509_EXT, png]
 ....
                                                       +---+
                                                    +->| 1 |
@@ -1294,7 +1294,7 @@ Components in this family address requirements for secure default configuration.
 ===== Component levelling
 [#img-FMT_CFG_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FMT_CFG_EXT, png]
 ....
     +------------------------------------+
     |                                    |     +---+
@@ -1336,7 +1336,7 @@ Components in this family address requirements to ensure the TOE is not suscepti
 ===== Component levelling
 [#img-FPT_AEX_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FPT_AEX_EXT, png]
 ....
     +--------------------------------------------+
     |                                            |     +---+
@@ -1384,7 +1384,7 @@ Components in this family address requirements to ensure the TOE uses platform s
 ===== Component levelling
 [#img-FPT_AEX_EXT2] 
 .Component levelling 
-[ditaa]
+[ditaa, FPT_AEX_EXT, png]
 ....
     +--------------------------------------------+
     |                                            |     +---+
@@ -1425,7 +1425,7 @@ Components in this family address the requirements for updating the TOE software
 ===== Component levelling
 [#img-FPT_TUD_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FPT_TUD_EXT, png]
 ....
     +---------------------------------------------------+
     |                                                   |     +---+
@@ -1470,7 +1470,7 @@ Components in this family address requirements to ensure the TOE either doesn’
 ===== Component levelling
 [#img-FTP_DIT_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FTP_DIT_EXT, png]
 ....
     +------------------------------+
     |                              |     +---+
