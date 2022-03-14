@@ -703,7 +703,7 @@ HTTPS is not a required component of this cPP. If a TOE implements HTTPS, a corr
 
 *FCS_HTTPS_EXT.1.2* The TSF shall implement HTTPS using TLS.
 
-*FCS_HTTPS_EXT.1.3* If a peer certificate is presented, the TSF shall [_selection: not require client authentication, not establish the connection, request authorization to establish the connection, [assignment: other action]] if the peer certificate is deemed invalid._
+*FCS_HTTPS_EXT.1.3* If a peer certificate is presented, the TSF shall [_selection: not require client authentication, not establish the connection, request authorization to establish the connection, [assignment: other action]_] if the peer certificate is deemed invalid.
 
 *Application Note {counter:appnote}:* If HTTPS is selected FTP_DIT_EXT.1 then validity is determined by the identifier verification, certification path, the expiration date, and the revocation status in accordance with RFC 5280. Certificate validity is tested in accordance with testing performed for FIA_X509_EXT.1/Rev. 
 
