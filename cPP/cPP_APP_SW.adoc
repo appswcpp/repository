@@ -755,7 +755,7 @@ This section defines selection based Identification and Authentication requireme
 
 *FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
 
-==== FIA_UAU_EXT.1 Authentication Mechanism
+==== FIA_UAU_EXT.5 Authentication Mechanism
 
 *FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
 
