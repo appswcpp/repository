@@ -392,12 +392,11 @@ This section defines requirements for the TOE to provide trusted methods for upd
 
 *Application Note {counter:appnote}:* Requesting a memory mapping at an explicit address subverts address space layout randomization (ASLR).
 
-*FPT _AEX_EXT.1.2* The application shall [selection:
+*FPT _AEX_EXT.1.2* The application shall [_selection:_
 
 * _not allocate any memory region with both write and execute permissions,_
 
-* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_
-].
+* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_].
 
 *Application Note {counter:appnote}:* Requesting a memory mapping with both write and execute permissions subverts the platform protection provided by DEP. If the application performs no just-in-time compiling, then the first selection must be chosen.
 
