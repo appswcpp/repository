@@ -79,7 +79,7 @@ This is a Collaborative Protection Profile (cPP) whose Target of Evaluation (TOE
 . Enterprise Desktop Applications
 . Enterprise-grade Mobile Applications
 
-This cPP is the Base-PP against which all of the above categories of software applications may be evaluated. In addition there are PP-Modules that may be applicable based on the category of application. As of the release of this cPP, a PP-Module for Enterprise Server Applications exists. In the future the iTC may release a module for Enterprise-grade Mobile Applications. Enterprise Desktop Applications do not need a separate PP-Module, the Base-PP suffices.
+This cPP is the Base-PP against which all of the above categories of software applications may be evaluated. The Base-PP is sufficient to evaluate Enterprise Desktop Applications. Separate PP-Modules will provide additional requirements for Enterprise Server Applications and Enterprise-grade Mobile Applications
 
 In addition to the above categories there are large number of applications (Desktop and Mobile) that fall under “Consumer-grade” category. While such applications could be evaluated under the Application Software cPP, it is not the intention of this iTC to 
 specifically address this category. The iTC doesn’t believe the consumer grade app ecosystem would support the historical cost and timelines associated with a Common Criteria evaluation.
