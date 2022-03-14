@@ -769,7 +769,7 @@ This section defines selection based Identification and Authentication requireme
 
 *FIA_UAU.7.1* The TSF shall provide only _obscured feedback_ to the administrative user while the authentication is in progress.
 
-*Application Note {counter:appnote}:* _The TSF may permit user interaction to display the input data. However, this may not be the default state and must revert to an obfuscated state after user interaction._
+*Application Note {counter:appnote}:* The TSF may permit user interaction to display the input data. However, this may not be the default state and must revert to an obfuscated state after user interaction.
 
 === X.509 Certificate Validation (FIA_X509_EXT)
 
