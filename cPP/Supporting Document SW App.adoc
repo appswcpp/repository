@@ -16,8 +16,8 @@
 :iTC-website: https://appswcpp.github.io/
 :iTC-GitHub: https://github.com/appswcpp/repository/
 :pp-name: collaborative Protection Profile for Application Software
-:pp-version: Version 0.2
-:pp-date: July 22, 2021
+:pp-version: Version 1.0
+:pp-date: 2022-02-23
 
 == Document Purpose and Overview
 
