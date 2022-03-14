@@ -841,7 +841,7 @@ Defined in <<CC2>>.
 ===== Component levelling
 [#img-FCS_CKM_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FCS_CKM_EXT, png]
 ....
     +---------------------------------------------------+
     |                                                   |     +---+
@@ -869,7 +869,7 @@ Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_CKM_EXT.1.1/Asymmetric* The application shall [selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric].
+*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric_].
 
 ==== Cryptographic Protocols (FCS_HTTPS_EXT)
 
