@@ -1134,13 +1134,11 @@ Hierarchical to: No other components.
 
 Dependencies:    FTA_TAB.1 Default TOE Access Banners
 
-*FIA_UIA_EXT.1.1* The TSF shall allow the following actions prior to requiring the non-TOE entity to initiate the identification and authentication process:
+*FIA_UIA_EXT.1.1* The TSF shall allow the following actions prior to requiring the administrative user to initiate the identification and authentication process: [_selection_:
 
-* Display the warning banner in accordance with FTA_TAB.1;
-
-* [_assignment: list of services, actions performed by the TSF in response to non-TOE requests_];
-
-* No actions].
+* _display the warning banner in accordance with FTA_TAB.1;_
+* _[assignment: list of services, actions performed by the TSF in response to non-TOE requests];_
+* _no actions_].
 
 *FIA_UIA_EXT.1.2* The TSF shall require each administrative user to be successfully identified and authenticated before allowing any other TSF-mediated actions on behalf of that administrative user.
 
