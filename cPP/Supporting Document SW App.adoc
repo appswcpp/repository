@@ -1135,18 +1135,18 @@ There are no Objective Requirements present in {pp-name}
 
 == Evaluation Activities for SARs
 
-The sections below specify EAs for the Security Assurance Requirements (SARs) included in the related cPPs. The EAs in <<Evaluation Activities for SFRs>>, <<Evaluation Activities for Selection-Based Requirements>>, and <<Evaluation Activities for Optional Requirements>> are an interpretation of the more general CEM assurance requirements as they apply to the specific technology area of the TOE.
+The sections below specify EAs for the Security Assurance Requirements (SARs) included in the related cPPs. The EAs in <<Evaluation Activities for Mandatory SFRs>>, <<Evaluation Activities for Selection-Based Requirements>>, and <<Evaluation Activities for Optional Requirements>> are an interpretation of the more general CEM assurance requirements as they apply to the specific technology area of the TOE.
 
 In this section, each SAR that is contained in the cPP is listed, and the EAs that are not associated with an SFR are captured here, or a reference is made to the CEM, and the evaluator is expected to perform the CEM work units.
 
 
 === Class ASE: Security Target
 
-32	When evaluating a Security Target, the evaluator performs the work units as presented in the CEM. In addition, the evaluator ensures the content of the TSS in the ST satisfies the EAs specified in <<Evaluation Activities for SFRs>>.
+When evaluating a Security Target, the evaluator performs the work units as presented in the CEM. In addition, the evaluator ensures the content of the TSS in the ST satisfies the EAs specified in <<Evaluation Activities for Mandatory SFRs>>.
 
 === Class ADV: Development
 ==== 5.2.1	Basic Functional Specification (ADV_FSP.1)
-The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in Section 2 (Evaluation Activities for SFRs), and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.
+The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in <<Evaluation Activities for Mandatory SFRs>>, and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.
 
 The EAs presented in this section address the CEM work units ADV_FSP.1-1, ADV_FSP.1-2, ADV_FSP.1-3, and ADV_FSP.1-5.
 
