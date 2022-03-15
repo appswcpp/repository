@@ -307,7 +307,7 @@ Test 1 [conditional]: If the application is being tested on Windows which suppor
 
 If the application is being tested on Windows which only supports the Enhanced Mitigation Experience Toolkit (EMET) (can be installed on Windows 10 version 1703 and earlier), then the evaluator shall ensure that the application can run successfully with EMET configured with the following minimum mitigations enabled; Memory Protection Check, Randomize memory allocations (Bottom-Up ASLR), Export address filtering (EAF), and Data Execution Prevention (DEP).
 
-Test 2 [conditional]: If the application is being tested on Linux, the evaluator shall ensure that the application can successfully run on a system with either SELinux or AppArmor enabled and in enforce mode.
+Test 2 [conditional]: If the application is being tested on Linux, the evaluator shall ensure that the application can successfully run on a system with either SELinux (or equivalent platform vendor recommended security features) enabled and in enforce mode.
 
 Test 3 [conditional]: If the application is being tested on macOS, the evaluator shall ensure that the application can successfully run without disabling any OS security functions.
 
