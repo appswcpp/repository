@@ -334,7 +334,7 @@ Test 2: The evaluator shall run the application, mimicking normal usage, and not
 The evaluator shall ensure that the TSS section of the ST describes the compiler flag used to enable stack-based buffer overflow protection in the application. The following flags should be used depending on the compiler:
 
 .Mapping between Security Problem Defintion and Security Objectives
-[%header,cols="1,1"]
+[%header,cols=".^1,1"]
 |===
 |Compiler
 |Flag
@@ -344,6 +344,7 @@ The evaluator shall ensure that the TSS section of the ST describes the compiler
 
 |GCC or Xcode
 |-fstack-protector-all *(preferred)*
+
 -fstack-protector-strong 
 
 |clang
@@ -398,6 +399,7 @@ The evaluator shall query the application for the current version of the softwar
 ====== TSS
 
 The evaluator shall verify that the TSS identifies:
+
 * How the application installation package and updates to it are signed by an authorized source. 
 * The definition of an authorized source.
 
