@@ -74,7 +74,7 @@ Although the PP-Module and SD may contain minor editorial errors, the PP-Module 
 * [#CC2]#[CC2]# Common Criteria for Information Technology Security Evaluation, Part 2: Security Functional Components, CCMB-2017-04-002, Version 3.1 Revision 5, April 2017.
 * [#CC3]#[CC3]# Common Criteria for Information Technology Security Evaluation, Part 3: Security Assurance Components, CCMB-2017-04-003, Version 3.1 Revision 5, April 2017.
 * [#CEM]#[CEM]# Common Methodology for Information Technology Security Evaluation, Evaluation Methodology, CCMB-2017-04-004, Version 3.1 Revision 5, April 2017.
-* [#SD]#[SD]# Supporting Document
+* [#SD]#[SD]# Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Application Software, Version 1.0, February 23, 2022
 
 For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
 
@@ -157,7 +157,7 @@ The TOE shall not circumvent the security controls provided by the underlying pl
 
 SFR Rationale:
 
-* FPT_AEX_EXT.2.1/Server ensures that the app is well-behaved within the narrow context of ensuring security mechanisms of the underlying platforms are not subverted.
+* FPT_AEX_EXT.2/Server ensures that the app is well-behaved within the narrow context of ensuring security mechanisms of the underlying platforms are not subverted.
 
 === Security Objectives for the Operational Environment
 
@@ -192,8 +192,7 @@ Extended SFRs are identified by having a label “EXT” at the end of the SFR n
 
 === FMT_MEC_EXT.1/Server
 *FMT_MEC_EXT.1.1/Server*
-
-Read and write access to the TOE’s configuration data shall be limited to Administrator, TOE and [assignment: list of authorized entities]
+Read and write access to the TOE’s configuration data shall be limited to Administrator, TOE and [_assignment: list of authorized entities_].
 
 === FMT_SMF.1/Server
 *FMT_SMF.1.1/Server*
@@ -209,8 +208,7 @@ The TSF shall be capable of performing the following management functions:
 ** _change agent credentials,_
 ** _configure and change recovery credentials,_
 ** _configure number of authentication attempts and failed authentication behavior,_
-** _[assignment: Other management functions]_
-]
+** _[assignment: Other management functions]_]
 
 *Application Note {counter:appnote}:* Functions that relate to management of agents is intended to be used in conjuction with the Agent module, however, it can be used with third party agents that aren't necessarily within the TOE boundary.
 
@@ -218,7 +216,6 @@ The TSF shall be capable of performing the following management functions:
 
 ==== FPT_AEX_EXT.2/Server
 *FPT_AEX_EXT.2.1/Server*
-
 The application shall be compatible with security features provided by the platform vendor.
 
 *Application Note {counter:appnote}:* This requirement is designed to ensure that platform security features do not need to be disabled in order for the application to run. The assignement in FPT_AEX_EXT.1.3 in the {base-pp} must be None.    
@@ -237,12 +234,12 @@ These SFRs apply if and only if an Agent Module is included in the evaluation.
 The TSF shall require a Security Administrator to enable communications between any pair of TOE parts before such communication can take place.
 
 *FCO_CPC_EXT.1.2/Server*
-The TSF shall implement a registration process in which TOE parts establish and use a communications channel that uses _[selection:_
+The TSF shall implement a registration process in which TOE parts establish and use a communications channel that uses [_selection:_
 
 * _A channel that meets the secure channel requirements in  FPT_ITT.1,_
 * _No channel_
 
-_]._
+].
 
 *Application Note {counter:appnote}:* "No channel" is selected if the component registration is performed via out-of-band manual means.
 
@@ -253,20 +250,17 @@ The TSF shall enable a Security Administrator to disable communications between 
 
 ==== FIA_X509_EXT.1/ITT/Certificate Validation/Server
 *FIA_X509_EXT.1.1/ITT/Server*
-The application shall _[selection: invoked platform-provided functionality, implement functionality]_ to validate certificates in accordance with the following rules:
+The application shall [_selection: invoked platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 
 * RFC 5280 certificate validation and certification path validation supporting a minimum path length of two certificates.
 * The certification path must terminate with a trusted CA certificate.
 * The TSF shall validate a certification path by ensuring that all CA certificates in the certification path contain the basicConstraints extension with the CA flag set to TRUE.
-* The TSF shall validate the revocation status of the certificate using _[selection:_
+* The TSF shall validate the revocation status of the certificate using [_selection:_
 ** _the Online Certificate Status Protocol (OCSP) as specified in RFC 6960,_ 
 ** _Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3,_ 
 ** _Certificate Revocation List (CRL) as specified in RFC 5759 Section 5,_ 
 ** _an OCSP TLS Status Request Extension (i.e., OCSP stapling) as specified in RFC 6066,_
-** _no revocation method_
-
-_]._
-
+** _no revocation method_].
 * The TSF shall validate the extendedKeyUsage field according to the following rules:
 ** Server certificates presented for TLS shall have the Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1) in the extendedKeyUsage field.
 ** Client certificates presented for TLS shall have the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field.
@@ -292,7 +286,7 @@ The application shall only treat a certificate as a CA certificate if the basicC
 
 ==== FPT_ITT.1/Server
 *FPT_ITT.1.1/Server*
-The TSF shall protect TSF data from disclosure and detect its modification when it is transmitted between separate parts of the TOE through the use of _[selection: SSH, TLS, DTLS, HTTPS]_.
+The TSF shall protect TSF data from disclosure and detect its modification when it is transmitted between separate parts of the TOE through the use of [_selection: SSH, TLS, DTLS, HTTPS_].
 
 *Application Note {counter:appnote}:* The data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the selection. The ST author should identify the channels and protocols used by each pair of communicating TOE parts, iterating this SFR as appropriate. 
 
@@ -348,7 +342,7 @@ Hierarchical to:	No other components
 
 Dependencies:		No other components
 
-*FMT_MEC_EXT.1.1/Server* Read and write access to the TOE’s configuration data shall be limited to Administrator, TOE and [assignment: list of authorized entities]
+*FMT_MEC_EXT.1.1/Server* Read and write access to the TOE’s configuration data shall be limited to Administrator, TOE and [_assignment: list of authorized entities_].
 
 
 === Anti-Exploitation Capabilities (FPT_AEX_EXT)
@@ -430,13 +424,12 @@ Dependencies:		No other components
 
 *FCO_CPC_EXT.1.1/Server* The TSF shall require a Security Administrator to enable communications between any pair of TOE parts before such communication can take place.
 
-*FCO_CPC_EXT.1.2/Server* The TSF shall implement a registration process in which TOE parts establish and use a communications channel that uses _[selection:_
+*FCO_CPC_EXT.1.2/Server* The TSF shall implement a registration process in which TOE parts establish and use a communications channel that uses [_selection:_
 
-** _A channel that meets the secure channel requirements in  FPT_ITT.1,_
+* _A channel that meets the secure channel requirements in  FPT_ITT.1,_
+* _No channel_
 
-** _No channel_
-
-_]._
+].
 
 *FCO_CPC_EXT.1.3/Server* The TSF shall enable a Security Administrator to disable communications between any pair of TOE parts.
 
