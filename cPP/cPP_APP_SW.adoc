@@ -751,11 +751,11 @@ This section defines selection based Identification and Authentication requireme
 
 === Authentication Mechanism (FIA_UAU_EXT)
 
-==== FIA_UAU_EXT.2 Authentication Mechanism
+==== FIA_UAU_EXT.2 User Authentication
 
 *FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
 
-==== FIA_UAU_EXT.5 Authentication Mechanism
+==== FIA_UAU_EXT.5 User Authentication Mechanisms
 
 *FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
 
@@ -1184,9 +1184,9 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 [loweralpha]
 . No audit necessary
 
-===== FIA_UAU_EXT.2 Authentication Mechanism
+===== FIA_UAU_EXT.2 User Authentication
 
-*FIA_UAU_EXT.2 Authentication Mechanism*
+*FIA_UAU_EXT.2 User Authentication*
 
 Hierarchical to: No other components.
 
@@ -1194,13 +1194,13 @@ Dependencies: No other components.
 
 *FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
 
-===== FIA_UAU_EXT.5 Authentication Mechanisms
+===== FIA_UAU_EXT.5 User Authentication Mechanisms
 
-*FIA_UAU_EXT.5 Authentication Mechanisms*
+*FIA_UAU_EXT.5 User Authentication Mechanisms*
 
 Hierarchical to: No other components.
 
-Dependencies:    FIA_UAU_EXT.2 Authentication Mechanism.
+Dependencies:    FIA_UAU_EXT.2 User Authentication.
 
 *FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
 
