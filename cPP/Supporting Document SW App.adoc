@@ -505,7 +505,8 @@ If the RNG does not have prediction resistance, each trial consists of (1) insta
 The following paragraphs contain more information on some of the input values to be generated/selected by the evaluator.
 
 *Entropy input*: the length of the entropy input value must equal the seed length.
-Nonce: If a nonce is supported (CTR_DRBG with no Derivation Function does not use a nonce), the nonce bit length is one-half the seed length.
+
+*Nonce*: If a nonce is supported (CTR_DRBG with no Derivation Function does not use a nonce), the nonce bit length is one-half the seed length.
 
 *Personalization string*: The length of the personalization string must be <= seed length. If the implementation only supports one personalization string length, then the same length can be used for both values. If more than one string length is support, the evaluator shall use personalization strings of two different lengths. If the implementation does not use a personalization string, no value needs to be supplied.
 
@@ -1014,6 +1015,7 @@ The evaluator shall perform the following tests for each method by which adminis
 * Test 1: The evaluator shall use the operational guidance to configure the number of successive unsuccessful authentication attempts allowed by the TOE (and, if the time period selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall also use the operational guidance to configure the time period after which access is re-enabled). The evaluator shall test that once the authentication attempts limit is reached, authentication attempts with valid credentials are no longer successful. 
 
 * Test 2: After reaching the limit for unsuccessful authentication attempts as in Test 1 above, the evaluator shall proceed as follows. If the administrator action selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall confirm by testing that following the operational guidance and performing each action specified in the ST to re-enable the administrator’s access results in successful access (when using valid credentials for that administrator). 
++
 If the time period selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall wait for just less than the time period configured in Test 1 and show that an authorisation attempt using valid credentials does not result in successful access. The evaluator shall then wait until just after the time period configured in Test 1 and show that an authorisation attempt using valid credentials results in successful access.
 
 ==== Certificate Validation (FIA_X509)
