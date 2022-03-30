@@ -430,12 +430,12 @@ This section defines requirements for a trusted communication path between the T
 
 ===== FTP_DIT_EXT.1 (Data In Transit)
 
-*FTP_DIT_EXT.1.1* The application shall [selection:_
+*FTP_DIT_EXT.1.1* The application shall [_selection:_
 
 * _not transmit any data,_ 
 * _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]],_ 
-* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]]]_
-]
+* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]]_]
+
 between itself and another trusted IT product.
 
 *Application Note {counter:appnote}:* 
@@ -1507,11 +1507,12 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 Hierarchical to:	No other components 
 Dependencies:		No other components
 
-*FTP_DIT_EXT.1.1* The application shall [_selection:_ 
+*FTP_DIT_EXT.1.1* The application shall [_selection:_
+
 * _not transmit any data,_ 
 * _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]],_ 
-* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS, DTLS, SSH as specified in [SSH Package]]_
-]
+* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]]_]
+
 between itself and another trusted IT product.
 
 [appendix]
