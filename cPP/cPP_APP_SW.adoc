@@ -664,15 +664,15 @@ Safe-prime groups are covered in Appendix D of SP 800-56A Revision 3, “Appendi
 
 ==== FCS_COP.1/SigGen Cryptographic Operation (Signature Generation and Verification)
 
-*FCS_COP.1.1/SigGen* The TSF shall perform cryptographic signature services [_selection: generation, verification_] in accordance with a specified cryptographic algorithm [selection:
+*FCS_COP.1.1/SigGen* The TSF shall perform cryptographic signature services [_selection: generation, verification_] in accordance with a specified cryptographic algorithm [_selection:_
 
 * _RSA Digital Signature Algorithm and cryptographic key sizes (modulus) [assignment: 2048 bits or greater],_
-* _Elliptic Curve Digital Signature Algorithm and cryptographic key sizes [assignment: 256 bits or greater]
-]_
-that meet the following: [_selection:
+* _Elliptic Curve Digital Signature Algorithm and cryptographic key sizes [assignment: 256 bits or greater]_]
+
+that meet the following: [_selection:_
+
 * _For RSA schemes: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Section 5.5, using PKCS #1 v2.1 Signature Schemes RSASSA-PSS and/or RSASSA-PKCS1v1_5; ISO/IEC 9796-2, Digital signature scheme 2 or Digital Signature scheme 3,_
-* _For ECDSA schemes: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Section 6 and Appendix D, Implementing “NIST curves” [selection: P-256, P-384, P-521]; ISO/IEC 14888-3, Section 6.4 
-]._
+* _For ECDSA schemes: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Section 6 and Appendix D, Implementing “NIST curves” [selection: P-256, P-384, P-521]; ISO/IEC 14888-3, Section 6.4_].
 
 *Application Note {counter:appnote}:* The ST Author chooses the algorithm(s) implemented to perform digital signatures. For the algorithm(s) chosen, the ST author makes the appropriate assignments/selections to specify the parameters that are implemented for that algorithm. The ST author ensures that the assignments and selections for this SFR include all the parameter values necessary for the cipher suites selected for the protocol SFRs (see Appendix B.1.4) that are included in the ST. The ST Author checks for consistency of selections with other FCS requirements, especially when supporting elliptic curves.
 
