@@ -451,7 +451,7 @@ The general model for evaluation of TOEs against STs written to conform to this 
 After the ST has been approved for evaluation, the ITSEF (IT Security Evaluation Facility) will obtain the TOE, supporting environmental IT (if required), and the administrative/user guides for the TOE. The ITSEF is expected to perform actions mandated by the Common Evaluation Methodology (CEM) for the ASE and ALC SARs. The ITSEF also performs the Evaluation Activities contained within the SD, which are intended to be an interpretation of the other CEM assurance requirements as they apply to the specific technology instantiated in the TOE. The Evaluation Activities that are captured in the SD also provide clarification as to what the developer needs to provide to demonstrate the TOE is compliant with the cPP. 
 
 .Security Assurance Requirements
-[Header,cols="1,2"]
+[%header,cols="1,2"]
 |===
 |Assurance Class
 |Assurance Components
@@ -1565,7 +1565,7 @@ These Equivalency Guidelines represent a shift from complete testing of all prod
 Equivalency has two aspects:
 
 * Product Equivalence: Products may be considered equivalent if there are no differences between Product Models and Product Versions with respect to cPP-specified security functionality.
-* *Platform Equivalence: Platforms may be considered equivalent if there are no significant differences in the services they provide to the Product—or in the way the platforms provide those services—with respect to cPP-specified security functionality.
+* Platform Equivalence: Platforms may be considered equivalent if there are no significant differences in the services they provide to the Product—or in the way the platforms provide those services—with respect to cPP-specified security functionality.
 
 The equivalency determination is made in accordance with these guidelines by the Certifier and Scheme using information provided by the Evaluator/Vendor.
 
@@ -1589,7 +1589,7 @@ Product Model equivalence attempts to determine whether different feature levels
 Product models are considered equivalent if there are no differences that affect PP-specified security functionality—as indicated in Table 4.
 
 .Determining Product Model Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |Factor
 |Same/Different
@@ -1610,7 +1610,7 @@ In cases of version equivalence, differences are expressed in terms of changes i
 
 
 .Factors for Determining Product Version Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |Factor
 |Same/Different
@@ -1646,7 +1646,7 @@ Platforms with different processor architectures and instruction sets are not eq
 The platforms are equivalent with respect to the application if the platforms are equivalent with respect to all cPP-specified security functionality.
 
 .Factors for Determining Hardware/Virtual Hardware Platform Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |Factor
 |Same/Different
@@ -1667,7 +1667,7 @@ The platforms are equivalent with respect to the application if the platforms ar
 For traditional applications that are built for and run on operating systems, platform equivalence is determined by the interfaces between the application and the operating system that are relevant to cPP-specified security functionality. Generally, these are the processor interface, device interfaces, and OS APIs. The following factors applied in order:
 
 .Factors for Determining OS/VS Platform Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |Factor
 |Same/Different
@@ -1699,8 +1699,11 @@ For traditional applications that are built for and run on operating systems, pl
 If an Application is built for and runs in a non-OS software-based execution environment, such as a Container or Java Runtime, then the below criteria must be used to determine platform equivalence. The key point is that the underlying hardware (virtual or physical) and OS is not relevant to platform equivalence. This allows applications to be tested and run on software-based execution environments on any hardware.
 
 .Factors for Software-based Execution Environment Platform Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
+|Factor
+|Same/Different
+|Guidance
 
 |Platform Type/Vendor
 |Different
@@ -1737,7 +1740,7 @@ For applications that run in a software-based execution environment such as a Ja
 The dependencies between SFRs implemented by the TOE are addressed as follows. 
 
 .SFR Dependencies Rationale for Mandatory SFRs
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |SFR
 |Dependencies
@@ -1778,7 +1781,7 @@ The dependencies between SFRs implemented by the TOE are addressed as follows.
 |===
 
 .SFR Dependencies Rationale for Optional SFRs
-[Header,cols="2,2,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |SFR
 |Dependencies
@@ -1799,8 +1802,12 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 |===
 
 .SFR Dependencies Rationale for Selection-Based SFRs
-[Header,cols="2,2,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
+|SFR
+|Dependencies
+|Rationale Statement
+
 |FCS_RBG_EXT.2.1
 |None
 |
