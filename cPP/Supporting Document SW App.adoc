@@ -196,9 +196,10 @@ The evaluator shall check the Guidance documentation to check if any default cre
 ====== Test
 
 If the application uses any default credentials the evaluator shall run the following tests:
-Test 1: [conditional] If default credentials are required to be changed during installation the evaluator shall install the application and verify that the  application requires that the default credentials are changed.
 
-Test 2: [conditional] If *default credentials are required to be changed* before application is operational the evaluator shall install and run the application without generating or loading new credentials and verify that only the minimal application functionality required to set new credentials is available.
+Test 1: [conditional] If default credentials are required to be changed *during installation* the evaluator shall install the application and verify that the  application requires that the default credentials are changed.
+
+Test 2: [conditional] If default credentials are required to be changed *before application is operational* the evaluator shall install and run the application without generating or loading new credentials and verify that only the minimal application functionality required to set new credentials is available.
 
 Test 3: The evaluator shall run the application after establishing new credentials and verify that the original default credentials no longer provide access to the application.
 
