@@ -751,25 +751,25 @@ This section defines selection based Identification and Authentication requireme
 
 === Authentication Mechanism (FIA_UAU_EXT)
 
-==== FIA_UAU_EXT.2 Authentication Mechanism
+==== FIA_UAU_EXT.2 User Authentication
 
 *FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
 
-==== FIA_UAU_EXT.1 Authentication Mechanism
+==== FIA_UAU_EXT.5 User Authentication Mechanisms
 
 *FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
 
 *FIA_UAU_EXT.5.2* The TSF shall consider [_selection: password, SSH Public Key, X.509 certificate, [assignment: other authentication mechanism]_] as authentication mechanisms.
 
-*Application Note {counter:appnote}:* _If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL_EXT.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2._
+*Application Note {counter:appnote}:* If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL_EXT.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2.
 
-*Application Note {counter:appnote}:* _If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs must be included in the ST: FIA_EIP_EXT.1._
+*Application Note {counter:appnote}:* If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs must be included in the ST: FIA_EIP_EXT.1.
 
 ==== FIA_UAU.7 Protected authentication feedback
 
 *FIA_UAU.7.1* The TSF shall provide only _obscured feedback_ to the administrative user while the authentication is in progress.
 
-*Application Note {counter:appnote}:* _The TSF may permit user interaction to display the input data. However, this may not be the default state and must revert to an obfuscated state after user interaction._
+*Application Note {counter:appnote}:* The TSF may permit user interaction to display the input data. However, this may not be the default state and must revert to an obfuscated state after user interaction.
 
 === X.509 Certificate Validation (FIA_X509_EXT)
 
@@ -1182,9 +1182,9 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 [loweralpha]
 . No audit necessary
 
-===== FIA_UAU_EXT.2 Authentication Mechanism
+===== FIA_UAU_EXT.2 User Authentication
 
-*FIA_UAU_EXT.2 Authentication Mechanism*
+*FIA_UAU_EXT.2 User Authentication*
 
 Hierarchical to: No other components.
 
@@ -1192,13 +1192,13 @@ Dependencies: No other components.
 
 *FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
 
-===== FIA_UAU_EXT.5 Authentication Mechanisms
+===== FIA_UAU_EXT.5 User Authentication Mechanisms
 
-*FIA_UAU_EXT.5 Authentication Mechanisms*
+*FIA_UAU_EXT.5 User Authentication Mechanisms*
 
 Hierarchical to: No other components.
 
-Dependencies:    FIA_UAU_EXT.2 Authentication Mechanism.
+Dependencies:    FIA_UAU_EXT.2 User Authentication.
 
 *FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
 
