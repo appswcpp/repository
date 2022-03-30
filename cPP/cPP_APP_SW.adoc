@@ -4,7 +4,7 @@
 :toclevels: 7
 :sectnums:
 :sectnumlevels: 7
-:imagesdir:
+:imagesdir: images
 :icons: font
 :revnumber: 1.0 
 :revdate: 2022-02-23
