@@ -639,11 +639,11 @@ Appendix A of SP 800-132 recommends setting the iteration count in order to incr
 
 ==== FCS_CKM.2 Cryptographic Key Establishment (Refinement)
 
-*FCS_CKM.2.1* The TSF shall perform cryptographic key establishment in accordance with a specified cryptographic key establishment method: [_selection:
+*FCS_CKM.2.1* The TSF shall perform cryptographic key establishment in accordance with a specified cryptographic key establishment method: [_selection:_
 
 * _RSA-based key establishment schemes that meet the following: RSAES-PKCS1-v1_5 as specified in Section 7.2 of RFC 3447, “Public-Key Cryptography Standards (PKCS) #1: RSA Cryptography Specifications Version 2.1”;_
 * _Elliptic curve-based key establishment schemes that meet the following: NIST Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography”;_
-* _Finite field-based key establishment schemes that meet the following: NIST Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography”.
+* _Finite field-based key establishment schemes that meet the following: NIST Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography”_.
 
 *Application Note {counter:appnote}:* This is a refinement of the SFR FCS_CKM.2 to deal with key establishment rather than key distribution. 
 
