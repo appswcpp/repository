@@ -392,24 +392,23 @@ This section defines requirements for the TOE to provide trusted methods for upd
 
 *Application Note {counter:appnote}:* Requesting a memory mapping at an explicit address subverts address space layout randomization (ASLR).
 
-*FPT _AEX_EXT.1.2* The application shall [selection:
+*FPT_AEX_EXT.1.2* The application shall [_selection:_
 
 * _not allocate any memory region with both write and execute permissions,_
 
-* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_
-].
+* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_].
 
 *Application Note {counter:appnote}:* Requesting a memory mapping with both write and execute permissions subverts the platform protection provided by DEP. If the application performs no just-in-time compiling, then the first selection must be chosen.
 
-*FPT _AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [_selection: [assignment: list of explicit exceptions], no exceptions_].
+*FPT_AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [_selection: [assignment: list of explicit exceptions], no exceptions_].
 
 *Application Note {counter:appnote}:* This requirement is designed to ensure that platform security features do not need to be disabled in order for the application to run. The ability to provide exception in in recognition that for certain applications disabling specific security features might be necessary (e.g. an anti-virus application disabling platform provided virus detection features).
 
-*FPT _AEX_EXT.1.4* The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.
+*FPT_AEX_EXT.1.4* The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.
 
 *Application Note {counter:appnote}:* Executables and user-modifiable files may not share the same parent directory but may share directories above the parent.
 
-*FPT _AEX_EXT.1.5* The application shall be compiled with stack-based buffer overflow protection enabled.
+*FPT_AEX_EXT.1.5* The application shall be compiled with stack-based buffer overflow protection enabled.
 
 *Application Note {counter:appnote}:* Any interpreted code is assured to have met this requirement by default.
 
@@ -1370,14 +1369,19 @@ Hierarchical to:	No other components
 
 Dependencies:		No other components
 
-*FPT_AEX_EXT.1.1* The application shall not request to map memory at an explicit address except for [_assignment: list of explicit exceptions_].
-*FPT _AEX_EXT.1.2* The application shall [_selection:_
+*FPT_AEX_EXT.1.1* The application shall not request to map memory at an explicit address except for [_assignment: list of explicit exceptions_]. 
+
+*FPT_AEX_EXT.1.2* The application shall [_selection:_
+
 * _not allocate any memory region with both write and execute permissions,_
-* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_
-].
-*FPT _AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [_assignment: list of explicit exceptions_].
-*FPT _AEX_EXT.1.4* The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.
-*FPT _AEX_EXT.1.5* The application shall be compiled with stack-based buffer overflow protection enabled.
+
+* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_].
+
+*FPT_AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [_selection: [assignment: list of explicit exceptions], no exceptions_].
+
+*FPT_AEX_EXT.1.4* The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.
+
+*FPT_AEX_EXT.1.5* The application shall be compiled with stack-based buffer overflow protection enabled.
 
 ==== Use of Supported Services and APIs (FPT_API_EXT)
 
