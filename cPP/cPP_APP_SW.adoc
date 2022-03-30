@@ -1253,15 +1253,19 @@ Hierarchical to:	No other components
 
 Dependencies:		FIA_X509_EXT.2 X.509 Certificate Authentication
 
-*FIA_X509_EXT.1.1* The application shall [_selection: invoke platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
+*FIA_X509_EXT.1.1/Rev* The application shall [_selection: invoke platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 
 * RFC 5280 certificate validation and certification path validation supporting a minimum path length of three certificates.
+
 * The certification path must terminate with a trusted CA certificate designated as a trust anchor.
+
 * The application shall validate a certification path by ensuring that all CA certificates in the certification path contain the basicConstraints extension with the CA flag set to TRUE.
-* The application shall validate the revocation status of the certificate using [selection:
+
+* ECC certificates shall conform to RFC 5480, section 2.1.1.
+* The application shall validate the revocation status of the certificate using [_selection:_
 ** _the Online Certificate Status Protocol (OCSP) as specified in RFC 6960,_
 ** _a Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3,_
-** _Certificate Revocation List (CRL) as specified in RFC 5759 Section 5,_
+** _a Certificate Revocation List (CRL) as specified in RFC 5759 Section 5,_
 ** _an OCSP TLS Status Request Extension (i.e., OCSP stapling) as specified in RFC 6066_
 ** _no revocation method_
 ]
@@ -1280,7 +1284,7 @@ Hierarchical to:	No other components
 
 Dependencies:		FIA_X509_EXT.1 X.509 Certificate Authentication
 
-*FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS_], and [selection: _code signing for system software updates, code signing for integrity verification, [assignment: other uses], no additional uses_].
+*FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS_], and [_selection: code signing for system software updates, code signing for integrity verification, [assignment: other uses], no additional uses_].
 
 *FIA_X509_EXT.2.2* When the TSF cannot establish a connection to determine the validity of a certificate, the TSF shall [_selection: allow the Administrator to choose whether to accept the certificate in these cases, accept the certificate, not accept the certificate_].
 
