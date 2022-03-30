@@ -94,6 +94,7 @@ applications/sensors
 . Virtualized and Containerized applications (e.g. running in a Docker container)
 
 The following categories are out of scope of the first iteration of the cPP:
+
 . Software defined network appliances
 . Web applications
 . Applications running on bare metal i.e. directly on hardware without an execution environment such as operating system.
