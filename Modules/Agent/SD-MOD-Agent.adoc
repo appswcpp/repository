@@ -1,4 +1,4 @@
-= Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile Module for Server Applications
+= Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile Module for Agent Applications
 :showtitle:
 :toc: macro
 :toclevels: 7
@@ -19,7 +19,7 @@
 :pp-name: Collaborative Protection Profile for Application Software
 :pp-module-name: collaborative PP-Module for Agent Applications
 :pp-version: Version 1.0
-:pp-date: March 3, 2021
+:pp-date: 2022-2-23
 
 == Foreword
 

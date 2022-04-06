@@ -16,8 +16,8 @@
 :iTC-website: https://appswcpp.github.io/
 :iTC-GitHub: https://github.com/appswcpp/repository/
 :pp-name: collaborative Protection Profile for Application Software
-:pp-version: Version 0.2
-:pp-date: July 22, 2021
+:pp-version: Version 1.0
+:pp-date: 2022-02-23
 
 == Document Purpose and Overview
 
@@ -84,14 +84,15 @@ If any Evaluation Activity cannot be successfully completed in an evaluation the
 
 In general, if all EAs (for both SFRs and SARs) are successfully completed in an evaluation then it would be expected that the overall verdict for the evaluation is a ‘pass’. 
 
-In some cases, the Common Evaluation Methodology (CEM) work units have been interpreted to require the evaluator to perform specific EAs. In these instances, EAs will be specified in Section 2 (Evaluation Activities for Mandatory SFRs), Section 5 (Evaluation Activities for Objective Requirements), and possibly Section 3 (Evaluation Activities for Optional Requirements) and Section 4 (Evaluation Activities for Selection-Based Requirements). In cases where there are no CEM interpretations, the CEM activities are to be used to determine if SARs are satisfied and references to the CEM work units are identified as being the sole EAs to be performed. 
+In some cases, the Common Evaluation Methodology (CEM) work units have been interpreted to require the evaluator to perform specific EAs. In these instances, EAs will be specified in <<Evaluation Activities for Mandatory SFRs>>, <<Evaluation Activities for Objective Requirements>>, and possibly <<Evaluation Activities for Optional Requirements>> and <<Evaluation Activities for Selection-Based Requirements>>. In cases where there are no CEM interpretations, the CEM activities are to be used to determine if SARs are satisfied and references to the CEM work units are identified as being the sole EAs to be performed. 
 
-Finally, there are cases where EAs have rephrased CEM work units to provide clarity on what is required. The EAs are reworded for clarity and interpret the CEM work units such that they will result in more objective and repeatable actions by the evaluator. In these cases, the EA supplements the CEM work unit. These EAs will be specified in Section 6 (Evaluation Activities for SARs).
+Finally, there are cases where EAs have rephrased CEM work units to provide clarity on what is required. The EAs are reworded for clarity and interpret the CEM work units such that they will result in more objective and repeatable actions by the evaluator. In these cases, the EA supplements the CEM work unit. These EAs will be specified in <<Evaluation Activities for SARs>>.
 
 
 == Evaluation Activities for Mandatory SFRs
 
-he EAs presented in this section capture the actions the evaluator performs to address technology specific aspects covering specific SARs (e.g., ASE_TSS.1, ADV_FSP.1, AGD_OPE.1, and ATE_IND.1) – this is in addition to the CEM work units that are performed in Section 6 (Evaluation Activities for SARs). 
+The EAs presented in this section capture the actions the evaluator performs to address technology specific aspects covering specific SARs (e.g., ASE_TSS.1, ADV_FSP.1, AGD_OPE.1, and ATE_IND.1) – this is in addition to the CEM work units that are performed in <<Evaluation Activities for SARs>>. 
+
 Regarding design descriptions (designated by the subsections labelled TSS, as well as any required supplementary material that may be treated as proprietary), the evaluator must ensure there is specific information that satisfies the EA. For findings regarding the TSS section, the evaluator’s verdicts will be associated with the CEM work unit ASE_TSS.1-1. Evaluator verdicts associated with the supplementary evidence will also be associated with ASE_TSS.1-1, since the requirement to provide such evidence is specified in ASE in the cPP.  
 
 For ensuring the guidance documentation provides sufficient information for the administrators/users as it pertains to SFRs, the evaluator’s verdicts will be associated with CEM work units ADV_FSP.1-7, AGD_OPE.1-4, and AGD_OPE.1-5. 
@@ -117,8 +118,6 @@ Finally, the subsection labelled Tests is where the iTC has determined that test
 No activities specified.
 
 ====== Test
-
-Test
 [Conditional] If *invoke platform-provided DRBG functionality* is selected the evaluator shall decompile the application binary using an decompiler suitable for the application (TOE). The evaluator shall search the output of the decompiler to determine that, for each API listed in the TSS, that API appears in the output. If the representation of the API does not correspond directly to the strings in the following list, the evaluator shall provide a mapping from the decompiled text to its corresponding API, with a description of why the API text does not directly correspond to the decompiled text and justification that the decompiled text corresponds to the associated API. 
 
 It should be noted that there is no expectation that the evaluators attempt to confirm that the APIs are being used “correctly” for the functions identified in the TSS; the activity is to list the used APIs and then do an existence check via decompilation. 
@@ -149,13 +148,13 @@ No activities specified.
 
 ====== Test
 
-Test 1: [conditional] *If invoke the functionality provided by the platform to securely store* is selected, the evaluator shall perform the following actions which vary per platform.
+[Conditional] *If invoke the functionality provided by the platform to securely store* is selected, the evaluator shall perform the following actions which vary per platform.
 
-*For Windows*: The evaluator shall verify that all certificates are stored in the Windows Certificate Store. The evaluator shall verify that other credentials, like passwords, are stored in the Windows Credential Manager or stored using the Data Protection API (DPAPI). For Windows Universal Applications, the evaluator shall verify that the application is using the ProtectData class and storing credentials in IsolatedStorage.
+Test 1: [conditional] For Windows platform the evaluator shall verify that all certificates are stored in the Windows Certificate Store. The evaluator shall verify that other credentials, like passwords, are stored in the Windows Credential Manager or stored using the Data Protection API (DPAPI). For Windows Universal Applications, the evaluator shall verify that the application is using the ProtectData class and storing credentials in IsolatedStorage.
 
-*For Linux*: The evaluator shall verify that all keys are stored using Linux keyrings.
+Test 2: [conditional] For Linux platform the evaluator shall verify that all keys are stored using Linux keyrings.
 
-*For Mac OS X*: The evaluator shall verify that all credentials are stored within Keychain.
+Test 3: [conditional] For macOS platform the evaluator shall verify that all credentials are stored within Keychain.
 
 === User Data Protection (FDP)
 
@@ -196,9 +195,10 @@ The evaluator shall check the Guidance documentation to check if any default cre
 ====== Test
 
 If the application uses any default credentials the evaluator shall run the following tests:
-Test 1: [conditional] If default credentials are required to be changed during installation the evaluator shall install the application and verify that the  application requires that the default credentials are changed.
 
-Test 2: [conditional] If *default credentials are required to be changed* before application is operational the evaluator shall install and run the application without generating or loading new credentials and verify that only the minimal application functionality required to set new credentials is available.
+Test 1: [conditional] If default credentials are required to be changed *during installation* the evaluator shall install the application and verify that the  application requires that the default credentials are changed.
+
+Test 2: [conditional] If default credentials are required to be changed *before application is operational* the evaluator shall install and run the application without generating or loading new credentials and verify that only the minimal application functionality required to set new credentials is available.
 
 Test 3: The evaluator shall run the application after establishing new credentials and verify that the original default credentials no longer provide access to the application.
 
@@ -307,7 +307,7 @@ Test 1 [conditional]: If the application is being tested on Windows which suppor
 
 If the application is being tested on Windows which only supports the Enhanced Mitigation Experience Toolkit (EMET) (can be installed on Windows 10 version 1703 and earlier), then the evaluator shall ensure that the application can run successfully with EMET configured with the following minimum mitigations enabled; Memory Protection Check, Randomize memory allocations (Bottom-Up ASLR), Export address filtering (EAF), and Data Execution Prevention (DEP).
 
-Test 2 [conditional]: If the application is being tested on Linux, the evaluator shall ensure that the application can successfully run on a system with either SELinux or AppArmor enabled and in enforce mode.
+Test 2 [conditional]: If the application is being tested on Linux, the evaluator shall ensure that the application can successfully run on a system with either SELinux (or equivalent platform vendor recommended security features) enabled and in enforce mode.
 
 Test 3 [conditional]: If the application is being tested on macOS, the evaluator shall ensure that the application can successfully run without disabling any OS security functions.
 
@@ -334,7 +334,7 @@ Test 2: The evaluator shall run the application, mimicking normal usage, and not
 The evaluator shall ensure that the TSS section of the ST describes the compiler flag used to enable stack-based buffer overflow protection in the application. The following flags should be used depending on the compiler:
 
 .Mapping between Security Problem Defintion and Security Objectives
-[%header,cols="1,1"]
+[%header,cols=".^1,1"]
 |===
 |Compiler
 |Flag
@@ -344,6 +344,7 @@ The evaluator shall ensure that the TSS section of the ST describes the compiler
 
 |GCC or Xcode
 |-fstack-protector-all *(preferred)*
+
 -fstack-protector-strong 
 
 |clang
@@ -398,6 +399,7 @@ The evaluator shall query the application for the current version of the softwar
 ====== TSS
 
 The evaluator shall verify that the TSS identifies:
+
 * How the application installation package and updates to it are signed by an authorized source. 
 * The definition of an authorized source.
 
@@ -505,7 +507,8 @@ If the RNG does not have prediction resistance, each trial consists of (1) insta
 The following paragraphs contain more information on some of the input values to be generated/selected by the evaluator.
 
 *Entropy input*: the length of the entropy input value must equal the seed length.
-Nonce: If a nonce is supported (CTR_DRBG with no Derivation Function does not use a nonce), the nonce bit length is one-half the seed length.
+
+*Nonce*: If a nonce is supported (CTR_DRBG with no Derivation Function does not use a nonce), the nonce bit length is one-half the seed length.
 
 *Personalization string*: The length of the personalization string must be <= seed length. If the implementation only supports one personalization string length, then the same length can be used for both values. If more than one string length is support, the evaluator shall use personalization strings of two different lengths. If the implementation does not use a personalization string, no value needs to be supplied.
 
@@ -1014,6 +1017,7 @@ The evaluator shall perform the following tests for each method by which adminis
 * Test 1: The evaluator shall use the operational guidance to configure the number of successive unsuccessful authentication attempts allowed by the TOE (and, if the time period selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall also use the operational guidance to configure the time period after which access is re-enabled). The evaluator shall test that once the authentication attempts limit is reached, authentication attempts with valid credentials are no longer successful. 
 
 * Test 2: After reaching the limit for unsuccessful authentication attempts as in Test 1 above, the evaluator shall proceed as follows. If the administrator action selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall confirm by testing that following the operational guidance and performing each action specified in the ST to re-enable the administrator’s access results in successful access (when using valid credentials for that administrator). 
++
 If the time period selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall wait for just less than the time period configured in Test 1 and show that an authorisation attempt using valid credentials does not result in successful access. The evaluator shall then wait until just after the time period configured in Test 1 and show that an authorisation attempt using valid credentials results in successful access.
 
 ==== Certificate Validation (FIA_X509)
@@ -1148,6 +1152,13 @@ When evaluating a Security Target, the evaluator performs the work units as pres
 ==== 5.2.1	Basic Functional Specification (ADV_FSP.1)
 The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in <<Evaluation Activities for Mandatory SFRs>>, and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.
 
+32	When evaluating a Security Target, the evaluator performs the work units as presented in the CEM. In addition, the evaluator ensures the content of the TSS in the ST satisfies the EAs specified in <<Evaluation Activities for Mandatory SFRs>>.
+
+=== Class ADV: Development
+==== 5.2.1	Basic Functional Specification (ADV_FSP.1)
+The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in Section 2 (Evaluation Activities for Mandatory SFRs), and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.
+
+
 The EAs presented in this section address the CEM work units ADV_FSP.1-1, ADV_FSP.1-2, ADV_FSP.1-3, and ADV_FSP.1-5.
 
 The EAs are reworded for clarity and interpret the CEM work units such that they will result in more objective and repeatable actions by the evaluator. The EAs in this SD are intended to ensure the evaluators are consistently performing equivalent actions.
@@ -1178,10 +1189,10 @@ Since the rest of the ADV_FSP.1 work units will have been satisfied upon complet
 |<<ADV_FSP.1-5 Evaluation Activity>>: _The evaluator shall examine the interface documentation to develop a mapping of the interfaces to SFRs._
 
 |ADV_FSP.1-6 The evaluator *__shall examine__* the functional specification to determine that it is a complete instantiation of the SFRs.	
-|EAs that are associated with the SFRs in <<Evaluation Activities for SFRs>>, and, if applicable, <<Evaluation Activities for Selection-Based Requirements>> and <<Evaluation Activities for Optional Requirements>>, are performed to ensure that all the SFRs where the security functionality is externally visible (i.e., at the TSFI) are covered. Therefore, the intent of this work unit is covered.
+|EAs that are associated with the SFRs in <<Evaluation Activities for Mandatory SFRs>>, and, if applicable, <<Evaluation Activities for Selection-Based Requirements>> and <<Evaluation Activities for Optional Requirements>>, are performed to ensure that all the SFRs where the security functionality is externally visible (i.e., at the TSFI) are covered. Therefore, the intent of this work unit is covered.
 
 |ADV_FSP.1-7 The evaluator *__shall examine__* the functional specification to determine that it is an accurate instantiation of the SFRs.	
-|EAs that are associated with the SFRs in <<Evaluation Activities for SFRs>>, and, if applicable, <<Evaluation Activities for Selection-Based Requirements>> and <<Evaluation Activities for Optional Requirements>>, are performed to ensure that all the SFRs where the security functionality is externally visible (i.e., at the TSFI) are addressed, and that the description of the interfaces is accurate with respect to the specification captured in the SFRs. Therefore, the intent of this work unit is covered.
+|EAs that are associated with the SFRs in <<Evaluation Activities for Mandatory SFRs>>, and, if applicable, <<Evaluation Activities for Selection-Based Requirements>> and <<Evaluation Activities for Optional Requirements>>, are performed to ensure that all the SFRs where the security functionality is externally visible (i.e., at the TSFI) are addressed, and that the description of the interfaces is accurate with respect to the specification captured in the SFRs. Therefore, the intent of this work unit is covered.
 
 |===
 
@@ -1198,7 +1209,7 @@ _The evaluator shall check the interface documentation to ensure it identifies a
 ==== ADV_FSP.1-3 Evaluation Activity
 _The evaluator shall examine the interface documentation to develop a mapping of the interfaces to SFRs._
 
-The evaluator uses the provided documentation and first identifies, and then examines a representative set of interfaces to perform the EAs presented in <<Evaluation Activities for SFRs>>, including the EAs associated with testing of the interfaces.
+The evaluator uses the provided documentation and first identifies, and then examines a representative set of interfaces to perform the EAs presented in <<Evaluation Activities for Mandatory SFRs>>, including the EAs associated with testing of the interfaces.
 
 It should be noted that there may be some SFRs that do not have an interface that is explicitly "mapped" to invoke the desired functionality. For example, generating a random bit string, destroying a cryptographic key that is no longer needed, or the TSF failing to a secure state, are capabilities that may be specified in SFRs, but are not invoked by an interface. 
 
@@ -1310,10 +1321,6 @@ The following table indicates, for each work unit in ALC_FLR.3, whether the [CEM
 |The evaluator shall perform the [CEM] activity as specified.
 
 |ALC_FLR.3-4 The evaluator shall check the flaw remediation procedures to determine that the application of these procedures would identify the corrective action for each security flaw.
-ALC_FLR.3-5 The evaluator shall examine the flaw remediation procedures documentation to determine that it describes a means of providing the TOE users with the necessary information on each security flaw.
-|The evaluator shall perform the [CEM] activity as specified.
-
-|ALC_FLR.3-4 The evaluator shall check the flaw remediation procedures to determine that the application of these procedures would identify the corrective action for each security flaw.
 |The evaluator shall perform the [CEM] activity as specified.
 
 |ALC_FLR.3-5 The evaluator shall examine the flaw remediation procedures documentation to determine that it describes a means of providing the TOE users with the necessary information on each security flaw.
@@ -1358,7 +1365,7 @@ Operational guidance documentation is accurate.
 
 The evaluator performs the CEM work units associated with the ATE_IND.1
 SAR. Specific testing requirements and EAs are captured for each SFR in
-<<Evaluation Activities for SFRs>>, <<Evaluation Activities for Selection-Based Requirements>> and <<Evaluation Activities for Optional Requirements>>.
+<<Evaluation Activities for Mandatory SFRs>>, <<Evaluation Activities for Selection-Based Requirements>> and <<Evaluation Activities for Optional Requirements>>.
 
 === Class AVA: Vulnerability Assessment
 
@@ -1369,7 +1376,7 @@ While vulnerability analysis is inherently a subjective activity, a minimum leve
 In order to meet these goals some refinement of the AVA_VAN.1 CEM work units is needed. The following table indicates, for each work unit in AVA_VAN.1, whether the CEM work unit is to be performed as written, or if it has been clarified by an Evaluation Activity. If clarification has been provided, a reference to this clarification is provided in the table. 
 
 .Mapping of AVA_VAN.1 CEM Work Units to Evaluation Activities
-[cols="1,.^2",options="header",]
+[cols=".^1,.^2",options="header",]
 |===
 |CEM AVA_VAN.1 Work Units
 |Evaluator Activities
@@ -1393,7 +1400,7 @@ _If the iTC specifies any tools to be used in performing this analysis in sectio
 |AVA_VAN.1-5 The evaluator *__shall devise__* penetration tests, based on the independent search for potential vulnerabilities.	
 |Replace the CEM work unit with the activities specified in Appendix A, section A.2.
 
-|AVA_VAN.1-6 The evaluator *__shall produce__* penetration test documentation for the tests based on the list of potential vulnerabilities in sufficient detail to enable the tests to be repeatable. The test documentation shall include:
+a|AVA_VAN.1-6 The evaluator *__shall produce__* penetration test documentation for the tests based on the list of potential vulnerabilities in sufficient detail to enable the tests to be repeatable. The test documentation shall include:
 
 [loweralpha]
 . Identification of the potential vulnerability the TOE is being tested for;
@@ -1425,7 +1432,7 @@ expected results;
 |AVA_VAN.1-10 The evaluator shall examine the results of all penetration testing to determine that the TOE, in its operational environment, is resistant to an attacker possessing a Basic attack potential.
 |This work unit is not applicable for Type 1 and Type 2 flaws (as defined in Appendix A, Section A.1), as inclusion in this Supporting Document by the iTC makes any confirmed vulnerabilities stemming from these flaws subject to an attacker possessing a Basic attack potential. This work unit is replaced for Type 3 and Type 4 flaws by the activities defined in Appendix A, Section A.2, paragraph 110.
 
-|AVA_VAN.1-11 The evaluator shall report in the ETR all exploitable vulnerabilities and residual vulnerabilities, detailing for each:
+a|AVA_VAN.1-11 The evaluator shall report in the ETR all exploitable vulnerabilities and residual vulnerabilities, detailing for each:
 
 [loweralpha]
 . Its source (e.g. CEM activity being undertaken when it was conceived, known to the evaluator, read in a publication);
@@ -1482,9 +1489,13 @@ CEM Work Unit AVA_VAN.1-3 has been supplemented in this Supporting Document to p
 [#Type1Hypotheses]
 ==== Type 1 Hypotheses - Public-Vulnerability-based
 
-The list of public sources of vulnerability information selected by the iTC is given in Section A.4.
+:xrefstyle: short
 
-The evaluators shall perform a search on the sources listed in Section A.4 to determine a list of potential flaw hypotheses that are more recent that the publication date of the cPP, and those that are specific to the TOE and its components as specified by the additional documentation mentioned above. Any duplicates – either in a specific entry, or in the flaw hypothesis that is generated from an entry from the same or a different source – can be noted and removed from consideration by the evaluation team.  
+The list of public sources of vulnerability information selected by the iTC is given in <<Public Vulnerability Sources>>.
+
+The evaluators shall perform a search on the sources listed in <<Public Vulnerability Sources>> to determine a list of potential flaw hypotheses that are more recent that the publication date of the cPP, and those that are specific to the TOE and its components as specified by the additional documentation mentioned above. Any duplicates – either in a specific entry, or in the flaw hypothesis that is generated from an entry from the same or a different source – can be noted and removed from consideration by the evaluation team.  
+
+:xrefstyle: full
 
 The search criteria to be used when searching the sources published after the publication date of the cPP shall include:
 
@@ -1501,7 +1512,11 @@ As the search terms can contain proprietary information and there is a possibili
 [#Type2Hypotheses]
 ==== Type 2 Hypotheses - iTC-sourced
 
-Section A.5 contains the list of flaw hypothesis generated by the iTC for this technology that must be considered by the evaluation team as flaw hypotheses in performing the vulnerability assessment. 
+:xrefstyle: short
+
+<<Additional Flaw Hypothese>> contains the list of flaw hypothesis generated by the iTC for this technology that must be considered by the evaluation team as flaw hypotheses in performing the vulnerability assessment. 
+
+:xrefstyle: full
 
 If the evaluators discover a Type 3 or Type 4 flaw that they believe should be considered as a Type 2 flaw in future versions of this cPP, they should work with their Certification Body to determine the appropriate means of submitting the flaw for consideration by the iTC.
 
@@ -1531,7 +1546,11 @@ The evaluator will refine each flaw hypothesis for the TOE and attempt to dispro
 
 The Certification Body (CB) will then either approve or disapprove the request for additional information. If approved, the developer provides the requested evidence to disprove the flaw hypothesis (or, of course, acknowledge the flaw). 
 
-For each hypothesis, the evaluator will note whether the flaw hypothesis has been successfully disproved, successfully proven to have identified a flaw, or requires further investigation. It is important to have the results documented as outlined in Section A.3 below.
+:xrefstyle: short
+
+For each hypothesis, the evaluator will note whether the flaw hypothesis has been successfully disproved, successfully proven to have identified a flaw, or requires further investigation. It is important to have the results documented as outlined in <<Reporting>> below.
+
+:xrefstyle: full
 
 If the evaluator finds a flaw, the evaluator must report these flaws to the developer. All reported flaws must be addressed as follows:
 
@@ -1555,11 +1574,13 @@ The evaluators shall produce two reports on the testing effort; one that is publ
 
 The public-facing report contains:
 
+:xrefstyle: short
+
 * The flaw identifiers returned when the procedures for searching public sources were followed according to instructions in the Supporting Document per <<Type1Hypotheses>>;
 
 * A statement that the evaluators have examined the Type 1 flaw hypotheses specified in this Supporting Document in <<Type1Hypotheses>> (i.e. the flaws listed in the previous bullet) and the Type 2 flaw hypotheses specified in this Supporting Document by the iTC in <<Type2Hypotheses>>.
 
-* A statement that the evaluation team developed Types 3 and 4 flaw hypotheses in accordance with Sections A.1.3, A.1.4, and A.2, and that no residual vulnerabilities exist that are exploitable by attackers with Basic Attack Potential as defined by the CB in accordance with the guidance in the CEM. It should be noted that this is just a statement about the “fact of” Types 3 and 4 flaw hypotheses being developed, and that no specifics about the number of flaws, the flaws themselves, or the analysis pertaining to those flaws will be included in the public-facing report. 
+* A statement that the evaluation team developed Types 3 and 4 flaw hypotheses in accordance with <<#Type3Hypotheses>>, <<#Type4Hypotheses>>, and <<Process for Evaluator Vulnerability Analysis>>, and that no residual vulnerabilities exist that are exploitable by attackers with Basic Attack Potential as defined by the CB in accordance with the guidance in the CEM. It should be noted that this is just a statement about the “fact of” Types 3 and 4 flaw hypotheses being developed, and that no specifics about the number of flaws, the flaws themselves, or the analysis pertaining to those flaws will be included in the public-facing report. 
 
 No other information is provided in the public-facing report.
 
@@ -1575,7 +1596,7 @@ the evaluator penetration testing effort, outlining the testing approach, config
 ** whether it is exploitable in its operational environment or not (i.e. exploitable or residual).
 ** the amount of time, level of expertise, level of knowledge of the TOE, level of opportunity and the equipment required to perform the identified vulnerabilities (cf. AVA_VAN.1-11);
 * how each flaw hypothesis was resolved (this includes whether the original flaw hypothesis was confirmed or disproved, and any analysis relating to whether a residual vulnerability is exploitable by an attacker with Basic Attack Potential) (cf. AVA_VAN.1-10); and 
-* in the case that actual testing was performed in the investigation (either as part of flaw hypothesis generation using tools specified by the iTC in Section A.1.4, or in proving/disproving a particular flaw) the steps followed in setting up the TOE (and any required test equipment); executing the test; post-test procedures; and the actual results (to a level of detail that allow repetition of the test, including the following:
+* in the case that actual testing was performed in the investigation (either as part of flaw hypothesis generation using tools specified by the iTC in <<#Type4Hypotheses>>, or in proving/disproving a particular flaw) the steps followed in setting up the TOE (and any required test equipment); executing the test; post-test procedures; and the actual results (to a level of detail that allow repetition of the test, including the following:
 ** identification of the potential vulnerability the TOE is being tested for;
 ** instructions to connect and setup all required test equipment as required to conduct the penetration test;
 ** instructions to establish all penetration test prerequisite initial conditions;
@@ -1584,7 +1605,9 @@ the evaluator penetration testing effort, outlining the testing approach, config
 ** descriptions of all expected results and the necessary analysis to be performed on the observed behaviour for comparison against expected results;
 ** instructions to conclude the test and establish the necessary post-test state for the TOE. (cf. AVA_VAN.1-6, AVA_VAN.1-8).
 
-== Public Vulnerability Sources
+:xrefstyle: full
+
+=== Public Vulnerability Sources
 
 The following sources of public vulnerabilities are sources for the iTC to consider in both formulating the specific list of flaws to be investigated by the evaluators, as well as to reference in directing the evaluators to perform keyword searches during the evaluation of a specific TOE.
 
@@ -1600,7 +1623,7 @@ https://www.cvedetails.com/vulnerability-search.php
 . Offensive Security Exploit Database: https://www.exploit-db.com/
 . Rapid7 Vulnerability Database: https://www.rapid7.com/db/vulnerabilities
 
-== Additional Flaw Hypothese
+=== Additional Flaw Hypothese
 
 No entries are currently defined for this list.
 

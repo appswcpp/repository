@@ -4,7 +4,7 @@
 :toclevels: 7
 :sectnums:
 :sectnumlevels: 7
-:imagesdir:
+:imagesdir: images
 :icons: font
 :revnumber: 1.0 
 :revdate: 2022-02-23
@@ -40,7 +40,7 @@ toc::[]
 == Preface
 
 === Objectives of Document
-This document presents the Common Criteria (CC) collaborative Protection Profile (cPP) to express the security functional requirements (SFRs) and security assurance requirements (SARs) for _some technology type_. The Evaluation activities that specify the actions the evaluator performs to determine if a product satisfies the SFRs captured within this cPP, are described in <<SD>>.
+This document presents the Common Criteria (CC) collaborative Protection Profile (cPP) to express the security functional requirements (SFRs) and security assurance requirements (SARs) for application software. The Evaluation activities that specify the actions the evaluator performs to determine if a product satisfies the SFRs captured within this cPP, are described in <<SD>>.
 
 === Scope of Document
 The scope of the cPP within the development and evaluation process is described in the Common Criteria for Information Technology Security Evaluation. In particular, a cPP defines the IT security requirements of a generic type of TOE and specifies the functional security measures to be offered by that TOE to meet stated requirements [<<CC1>>, Section B.14].
@@ -57,9 +57,9 @@ Although the cPP and SD may contain minor editorial errors, the cPP is recognize
 * [#CC3]#[CC3]# Common Criteria for Information Technology Security Evaluation, Part 3: Security Assurance Components, CCMB-2017-04-003, Version 3.1 Revision 5, April 2017.
 * [#CEM]#[CEM]# Common Methodology for Information Technology Security Evaluation, Evaluation Methodology, CCMB-2017-04-004, Version 3.1 Revision 5, April 2017.
 * [#CCADD]#[CCADD]# CC and CEM Addenda: Exact Conformance, Selection-Based SFRs, Optional SFRs CCDB-2017-05-xxx, Version 0.5, May 2017
-* [#SD]#[SD]# Supporting Document
-* [#TLS Package]#[TLS Package]# Functional Package for Transport Layer Security (TLS) v1.1
-* [#SSH Package]#[SSH Package]# Functional Package for SSH Version 1.0
+* [#SD]#[SD]# Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Application Software, Version 1.0, February 2022
+* [#TLS Package]#[TLS Package]# Functional Package for Transport Layer Security (TLS) v1.1, March 2019
+* [#SSH Package]#[SSH Package]# Functional Package for SSH Version 1.0, May 2021
 
 For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
 
@@ -79,7 +79,7 @@ This is a Collaborative Protection Profile (cPP) whose Target of Evaluation (TOE
 . Enterprise Desktop Applications
 . Enterprise-grade Mobile Applications
 
-This cPP is the Base-PP against which all of the above categories of software applications may be evaluated. In addition there are PP-Modules that may be applicable based on the category of application. As of the release of this cPP, a PP-Module for Enterprise Server Applications exists. In the future the iTC may release a module for Enterprise-grade Mobile Applications. Enterprise Desktop Applications do not need a separate PP-Module, the Base-PP suffices.
+This cPP is the Base-PP against which all of the above categories of software applications may be evaluated. The Base-PP is sufficient to evaluate Enterprise Desktop Applications. Separate PP-Modules will provide additional requirements for Enterprise Server Applications and Enterprise-grade Mobile Applications
 
 In addition to the above categories there are large number of applications (Desktop and Mobile) that fall under “Consumer-grade” category. While such applications could be evaluated under the Application Software cPP, it is not the intention of this iTC to 
 specifically address this category. The iTC doesn’t believe the consumer grade app ecosystem would support the historical cost and timelines associated with a Common Criteria evaluation.
@@ -94,6 +94,7 @@ applications/sensors
 . Virtualized and Containerized applications (e.g. running in a Docker container)
 
 The following categories are out of scope of the first iteration of the cPP:
+
 . Software defined network appliances
 . Web applications
 . Applications running on bare metal i.e. directly on hardware without an execution environment such as operating system.
@@ -107,7 +108,7 @@ The TOE includes all application binaries, libraries and other dependencies spec
 
 BIOS and other firmware, the operating system kernel, and other system software (such as drivers) provided as part of the platform are outside the scope of this document.
 
-For containerized applications, the container is treated as the TOE. Services, libraries, or run-times that exist within the host OS are to be considered part of the TOE platform. At the time of this cPP publication, all containerized applications are implemented using linux-type operating systems. When a containerized application claims conformance to this cPP, all EAs applicable to linux platforms are to be satisfied.
+For containerized applications, the container is treated as the TOE. Services, libraries, or run-times that exist within the host OS are to be considered part of the TOE platform. At the time of this cPP publication, all containerized applications are implemented using Linux-type operating systems. When a containerized application claims conformance to this cPP, all EAs applicable to Linux platforms are to be satisfied.
 
 As far as virtualized applications are concerned, this version of the cPP covers a very narrow type; applications that are installed on a virtualized instance of an OS/Platform are the only type of applications covered. An application that is bundled together with a general purpose operating system via a virtual machine is not considered substantially different than an application that is installed traditionally. In either case the underlying OS is to be considered the TOE platform. 
 
@@ -320,7 +321,7 @@ Unless _use no DRBG functionality_ is selected, an Entropy Analaysis Report spec
 
 ==== Storage of Credentials (FCS_STO)
 ===== FCS_STO_EXT.1 Storage of Credentials
-*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2_] to non-volatile memory.
+*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2_] to non-volatile memory.
 
 *Application Note {counter:appnote}:* This requirement ensures that persistent credentials (secret keys, PKI private keys, or passwords) are stored securely.
 
@@ -371,11 +372,11 @@ The changing of default credentials has to be enforced by the application.
 
 *FMT_SMR.2.2* The TSF shall be able to associate users with roles.
 
-*FMT_SMR.2.3* The TSF shall ensure that the conditions [_selection:
+*FMT_SMR.2.3* The TSF shall ensure that the conditions [_selection:_
 
-* The Security Administrator role shall be able to administer the TOE locally, 
+* _The Security Administrator role shall be able to administer the TOE locally,_ 
 
-* The Security Administrator role shall be able to administer the TOE remotely_] 
+* _The Security Administrator role shall be able to administer the TOE remotely_] 
 
 are satisfied.
 
@@ -388,30 +389,33 @@ This section defines requirements for the TOE to provide trusted methods for upd
 
 ===== FPT_AEX_EXT.1 (Anti-Exploitation Capabilities)
 
-*FPT_AEX_EXT.1.1* The application shall not request to map memory at an explicit address except for [_assignment: list of explicit exceptions_]. 
+*FPT_AEX_EXT.1.1* The application shall not request to map memory at an explicit address except for [_selection:_
+
+* no exceptions,
+
+* _assignment: list of explicit exceptions_]. 
 
 *Application Note {counter:appnote}:* Requesting a memory mapping at an explicit address subverts address space layout randomization (ASLR).
 
-*FPT _AEX_EXT.1.2* The application shall [selection:
+*FPT_AEX_EXT.1.2* The application shall [_selection:_
 
 * _not allocate any memory region with both write and execute permissions,_
 
-* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_
-].
+* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_].
 
 *Application Note {counter:appnote}:* Requesting a memory mapping with both write and execute permissions subverts the platform protection provided by DEP. If the application performs no just-in-time compiling, then the first selection must be chosen.
 
-*FPT _AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [_selection: [assignment: list of explicit exceptions], no exceptions_].
+*FPT_AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [_selection: [assignment: list of explicit exceptions], no exceptions_].
 
 *Application Note {counter:appnote}:* This requirement is designed to ensure that platform security features do not need to be disabled in order for the application to run. The ability to provide exception in in recognition that for certain applications disabling specific security features might be necessary (e.g. an anti-virus application disabling platform provided virus detection features).
 
-*FPT _AEX_EXT.1.4* The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.
+*FPT_AEX_EXT.1.4* The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.
 
 *Application Note {counter:appnote}:* Executables and user-modifiable files may not share the same parent directory but may share directories above the parent.
 
-*FPT _AEX_EXT.1.5* The application shall be compiled with stack-based buffer overflow protection enabled.
+*FPT_AEX_EXT.1.5* The application shall be compiled with stack-based buffer overflow protection enabled.
 
-*Application Note {counter:appnote}:* Any interpreted code is assured to have met this requirement by default.
+*Application Note {counter:appnote}:* Any interpreted code is assumed to have met this requirement by default.
 
 ==== Integrity for Installation and Update (FPT_TUD_EXT)
 ===== FPT_TUD_EXT.1 (Integrity for Installation and Update)
@@ -430,12 +434,12 @@ This section defines requirements for a trusted communication path between the T
 
 ===== FTP_DIT_EXT.1 (Data In Transit)
 
-*FTP_DIT_EXT.1.1* The application shall [selection:_
+*FTP_DIT_EXT.1.1* The application shall [_selection:_
 
 * _not transmit any data,_ 
-* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]],_ 
-* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]]]_
-]
+* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1 in accordance with FCS_CKM.2, TLS as specified in the [TLS Package] in accordance with FCS_CKM.2, DTLS as specified in [TLS Package] in accordance with FCS_CKM.2, SSH as specified in [SSH Package]] in accordance with FCS_CKM.2,_ 
+* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1 in accordance with FCS_CKM.2, TLS as specified in the [TLS Package] in accordance with FCS_CKM.2, DTLS as specified in [TLS Package] in accordance with FCS_CKM.2, SSH as specified in [SSH Package]] in accordance with FCS_CKM.2_]
+
 between itself and another trusted IT product.
 
 *Application Note {counter:appnote}:* 
@@ -451,7 +455,7 @@ The general model for evaluation of TOEs against STs written to conform to this 
 After the ST has been approved for evaluation, the ITSEF (IT Security Evaluation Facility) will obtain the TOE, supporting environmental IT (if required), and the administrative/user guides for the TOE. The ITSEF is expected to perform actions mandated by the Common Evaluation Methodology (CEM) for the ASE and ALC SARs. The ITSEF also performs the Evaluation Activities contained within the SD, which are intended to be an interpretation of the other CEM assurance requirements as they apply to the specific technology instantiated in the TOE. The Evaluation Activities that are captured in the SD also provide clarification as to what the developer needs to provide to demonstrate the TOE is compliant with the cPP. 
 
 .Security Assurance Requirements
-[Header,cols="1,2"]
+[%header,cols="1,2"]
 |===
 |Assurance Class
 |Assurance Components
@@ -558,23 +562,23 @@ The first type (in this Appendix) comprises requirements that can be included in
 
 If a TOE fulfils any of the optional requirements, the vendor is encouraged to add the related functionality to the ST. Therefore, in the application notes of this chapter the wording "This option should be chosen..." is repeatedly used. But it also is used to emphasize that this option should only be chosen if the TOE provides the related functionality and that it is not necessary to implement the related functionality to be compliant to the cPP. ST authors are free to choose none, some or all SFRs defined in this chapter. Just the fact that a product supports a certain functionality does not mandate to add any SFR defined in this chapter. 
 
-== Class: Cryptographic Support (FCS)
+=== Class: Cryptographic Support (FCS)
 This section defines optional cryptographic requirements that underlie other security properties of the TOE.
 
-=== Cryptographic Key Management (FCS_CKM)
+==== Cryptographic Key Management (FCS_CKM)
 
-==== FCS_CKM.1/Symmetric Cryptographic Key Generation
+===== FCS_CKM.1/Symmetric Cryptographic Key Generation
 
 *FCS_CKM.1.1/Symmetric* The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [_assignment: cryptographic key generation algorithm_] using a Random Bit Generator as specified in FCS_RBG_EXT.1 and specified cryptographic key sizes [_selection: 128 bit, 256 bit_]. that meet the following: [_assignment: list of standards_].
 
 *Application Note {counter:appnote}:* Symmetric keys may be used to generate keys along the key chain.
 
-== Class:  Protection of the TSF (FPT)
+=== Class:  Protection of the TSF (FPT)
 This section defines requirements for the TOE while using platform provided APIs as well as transferring data between different parts of the TOE.
 
-=== Use of Supported Services and APIs (FPT_API_EXT)
+==== Use of Supported Services and APIs (FPT_API_EXT)
 
-==== FPT_API_EXT.2 (Use of Supported Services and APIs)
+===== FPT_API_EXT.2 (Use of Supported Services and APIs)
 
 *FPT_API_EXT.2.1* The application [_selection: shall use platform-provided libraries for parsing [assignment: list of formats parsed that are included in the IANA MIME media types], does not perform parsing]_.
 
@@ -584,12 +588,12 @@ This section defines requirements for the TOE while using platform provided APIs
 == Selection-Based Requirements
 As indicated in the introduction to this PP, the baseline requirements (those that must be performed by the TOE or its underlying platform) are contained in the body of this PP.  There are additional requirements based on selections in the body of the PP: if certain selections are made, then additional requirements below will need to be included.
 
-== Class: Cryptographic Support (FCS)
+=== Class: Cryptographic Support (FCS)
 This section defines selection based cryptographic requirements that underlie other security properties of the TOE.
 
-=== Random Bit Generation (Extended – FCS_RBG_EXT)
+==== Random Bit Generation (Extended – FCS_RBG_EXT)
 
-==== FCS_RBG_EXT.1 Random Bit Generation
+===== FCS_RBG_EXT.1 Random Bit Generation
 
 *FCS_RBG_EXT.1.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [_selection: Hash_DRBG (any) in accordance with FCS_COP.1/Hash, HMAC_DRBG (any) in accordance with FCS_COP.1/KeyedHash, CTR_DRBG (AES) in accordance with FCS_COP.1/DataEncryption]_.
 
@@ -603,31 +607,34 @@ ISO/IEC 18031:2011 contains three different methods of generating random numbers
 
 If the key length for the AES implementation used here is different than that used to encrypt the user data, then FCS_COP.1/DataEncryption may have to be adjusted or iterated to reflect the different key length. For the selection in FCS_RBG_EXT.1.2, the ST author selects the minimum number of bits of entropy that is used to seed the RBG, which must be equal or greater than the security strength of any key generated by the TOE.
 
-=== Cryptographic Key Management (FCS_CKM)
+==== Cryptographic Key Management (FCS_CKM)
 
-==== FCS_CKM_EXT.1 Cryptographic Key Generation Services
+===== FCS_CKM_EXT.1 Cryptographic Key Generation Services
 
 *FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric_].
 
 *Application Note {counter:appnote}:* This requirement depends upon selection in [TLS Package] and [SSH Package].
 
-==== FCS_CKM.1/Asymmetric Cryptographic Key Generation (Refinement)
+===== FCS_CKM.1/Asymmetric Cryptographic Key Generation (Refinement)
 
-*FCS_CKM.1.1/Asymmetric* The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [selection:
+*FCS_CKM.1.1/Asymmetric* The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [_selection:_
 
 * _RSA schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.3;_
 * _ECC schemes using “NIST curves” [selection: P-256, P-384, P-521] that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;_
 * _FFC schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.1_
-* _FFC Schemes using ‘safe-prime’ groups that meet the following: “NIST Special Publication 800-56A Revision 3, Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography” and [selection: RFC 3526, RFC 7919]
-] and specified cryptographic key sizes [assignment: cryptographic key sizes] that meet the following: [assignment: list of standards]_.
+* _FFC Schemes using ‘safe-prime’ groups that meet the following: “NIST Special Publication 800-56A Revision 3, Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography” and [selection: RFC 3526, RFC 7919]_
+
+    ] 
+
+and specified cryptographic key sizes [_assignment: cryptographic key sizes_] that meet the following: [_assignment: list of standards_].
 
 *Application Note {counter:appnote}:* The ST author selects all key generation schemes used for key establishment (including generation of ephemeral keys) and device authentication. When key generation is used for key establishment, the schemes in FCS_CKM.2.1 and selected cryptographic protocols must match the selection. When key generation is used for device authentication, other than SSH-RSA, ECDSA-SHA2-NISTP256, ECDSA-SHA2-NISTP384 and ECDSA-SHA2-NISTP521, the public key is expected to be associated with an X.509v3 certificate. 
 
 If the TOE acts as a receiver in the key establishment schemes and is not configured to support mutual authentication, the TOE does not need to implement key generation.
 
-==== FCS_CKM.1.1/PBKDF2 Password Conditioning
+===== FCS_CKM.1.1/PBKDF2 Password Conditioning
 
-*FCS_CKM.1.1/PBKDF2* A password/passphrase shall perform [*assignment*: _Password-based Key Derivation Functions_] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [*assignment*: _positive integer of 1,000 or more_] iterations, and output cryptographic key sizes [*selection*: _128, 256_] that meet the following [*NIST SP 800-132*]. 
+*FCS_CKM.1.1/PBKDF2* A password/passphrase shall perform [_assignment: Password-based Key Derivation Functions_] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [_assignment: positive integer of 1,000 or more_] iterations, and output cryptographic key sizes [_selection: 128, 256_] that meet the following [NIST SP 800-132]. 
 
 *FCS_CKM.1.2/PBKDF2* The TSF shall generate salts using a RBG that meets FCS_RGB_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in FCS_CKM.1.1/PBKDF2.
 
@@ -635,15 +642,15 @@ If the TOE acts as a receiver in the key establishment schemes and is not config
 
 Conditioning can be performed using one of the identified hash functions or the process described in NIST SP 800-132; the method used is selected by the ST Author. SP 800-132 requires the use of a pseudo-random function (PRF) consisting of HMAC with an approved hash function. The ST author selects the hash function used, also includes the appropriate requirements for HMAC and the hash function.
 
-Appendix A of SP 800-132 recommends setting the iteration count in order to increase the computation needed to derive a key from a password and, therefore, increase the workload of performing a password recovery attack. A significantly higher value is recommended to ensure optimal security. This value is expected to increase to a minimum of 10,000 in a future iteration based on SP800-63. 
+Appendix A of SP 800-132 recommends setting the iteration count in order to increase the computation needed to derive a key from a password and, therefore, increase the workload of performing a password recovery attack. A significantly higher value is recommended to ensure optimal security. This value is expected to increase to a minimum of 10,000 in a future iteration based on SP 800-63. 
 
-==== FCS_CKM.2 Cryptographic Key Establishment (Refinement)
+===== FCS_CKM.2 Cryptographic Key Establishment (Refinement)
 
-*FCS_CKM.2.1* The TSF shall perform cryptographic key establishment in accordance with a specified cryptographic key establishment method: [_selection:
+*FCS_CKM.2.1* The TSF shall perform cryptographic key establishment in accordance with a specified cryptographic key establishment method: [_selection:_
 
 * _RSA-based key establishment schemes that meet the following: RSAES-PKCS1-v1_5 as specified in Section 7.2 of RFC 3447, “Public-Key Cryptography Standards (PKCS) #1: RSA Cryptography Specifications Version 2.1”;_
 * _Elliptic curve-based key establishment schemes that meet the following: NIST Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography”;_
-* _Finite field-based key establishment schemes that meet the following: NIST Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography”.
+* _Finite field-based key establishment schemes that meet the following: NIST Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography”_.
 
 *Application Note {counter:appnote}:* This is a refinement of the SFR FCS_CKM.2 to deal with key establishment rather than key distribution. 
 
@@ -654,29 +661,29 @@ The domain parameters used for the finite field-based key establishment scheme a
 
 Safe-prime groups are covered in Appendix D of SP 800-56A Revision 3, “Appendix D: Approved ECC Curves and FFC Safe-prime Groups”.
 
-=== Cryptographic Operation (FCS_COP)
+==== Cryptographic Operation (FCS_COP)
 
-==== FCS_COP.1/DataEncryption Cryptographic Operation (AES Data Encryption/ Decryption)
+===== FCS_COP.1/DataEncryption Cryptographic Operation (AES Data Encryption/ Decryption)
 
 *FCS_COP.1.1/DataEncryption* The TSF shall perform encryption/decryption in accordance with a specified cryptographic algorithm AES used in [_selection: CBC, CTR, GCM_] mode and cryptographic key sizes [_selection: 128 bits, 192 bits, 256 bits_] that meet the following: AES as specified in ISO 18033-3, [_selection: CBC as specified in ISO 10116, CTR as specified in ISO 10116, GCM as specified in ISO 19772_].
 
 *Application Note {counter:appnote}:* For the first selection of FCS_COP.1.1/DataEncryption, the ST author chooses the mode or modes in which AES operates. For the second selection, the ST author chooses the key sizes that are supported by this functionality. The modes and key sizes selected here correspond to the cipher suite selections made in the trusted channel requirements.
 
-==== FCS_COP.1/SigGen Cryptographic Operation (Signature Generation and Verification)
+===== FCS_COP.1/SigGen Cryptographic Operation (Signature Generation and Verification)
 
-*FCS_COP.1.1/SigGen* The TSF shall perform cryptographic signature services [_selection: generation, verification_] in accordance with a specified cryptographic algorithm [selection:
+*FCS_COP.1.1/SigGen* The TSF shall perform cryptographic signature services [_selection: generation, verification_] in accordance with a specified cryptographic algorithm [_selection:_
 
 * _RSA Digital Signature Algorithm and cryptographic key sizes (modulus) [assignment: 2048 bits or greater],_
-* _Elliptic Curve Digital Signature Algorithm and cryptographic key sizes [assignment: 256 bits or greater]
-]_
-that meet the following: [_selection:
+* _Elliptic Curve Digital Signature Algorithm and cryptographic key sizes [assignment: 256 bits or greater]_]
+
+that meet the following: [_selection:_
+
 * _For RSA schemes: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Section 5.5, using PKCS #1 v2.1 Signature Schemes RSASSA-PSS and/or RSASSA-PKCS1v1_5; ISO/IEC 9796-2, Digital signature scheme 2 or Digital Signature scheme 3,_
-* _For ECDSA schemes: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Section 6 and Appendix D, Implementing “NIST curves” [selection: P-256, P-384, P-521]; ISO/IEC 14888-3, Section 6.4 
-]._
+* _For ECDSA schemes: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Section 6 and Appendix D, Implementing “NIST curves” [selection: P-256, P-384, P-521]; ISO/IEC 14888-3, Section 6.4_].
 
 *Application Note {counter:appnote}:* The ST Author chooses the algorithm(s) implemented to perform digital signatures. For the algorithm(s) chosen, the ST author makes the appropriate assignments/selections to specify the parameters that are implemented for that algorithm. The ST author ensures that the assignments and selections for this SFR include all the parameter values necessary for the cipher suites selected for the protocol SFRs (see Appendix B.1.4) that are included in the ST. The ST Author checks for consistency of selections with other FCS requirements, especially when supporting elliptic curves.
 
-==== FCS_COP.1/Hash Cryptographic Operation (Hash Algorithm)
+===== FCS_COP.1/Hash Cryptographic Operation (Hash Algorithm)
 
 *FCS_COP.1.1/Hash* The TSF shall perform cryptographic hashing services in accordance with a specified cryptographic algorithm [_selection: SHA-1, SHA-256, SHA-384, SHA-512_] and cryptographic key sizes [_assignment: cryptographic key sizes_] message digest sizes [_selection: 160, 256, 384, 512_] bits that meet the following: ISO/IEC 10118-3:2004.
 
@@ -684,18 +691,18 @@ that meet the following: [_selection:
 
 The hash selection should be consistent with the overall strength of the algorithm used for FCS_COP.1/DataEncryption and FCS_COP.1/SigGen (for example, SHA 256 for 128-bit keys). 
 
-==== FCS_COP.1/KeyedHash Cryptographic Operation (Keyed Hash Algorithm)
+===== FCS_COP.1/KeyedHash Cryptographic Operation (Keyed Hash Algorithm)
 
 *FCS_COP.1.1/KeyedHash* The TSF shall perform keyed-hash message authentication in accordance with a specified cryptographic algorithm [_selection: HMAC-SHA-1, HMAC-SHA-256, HMAC-SHA-384, HMAC-SHA-512_] and cryptographic key sizes [_assignment: key size (in bits) used in HMAC_] and message digest sizes [_selection: 160, 256, 384, 512_] bits that meet the following: ISO/IEC 9797-2:2011, Section 7 “MAC Algorithm 2”.
 
 *Application Note {counter:appnote}:* The key size [k] in the assignment falls into a range between L1 and L2 (defined in ISO/IEC 10118 for the appropriate hash function). For example, for SHA-256, L1=512, L2=256, where L2<=k<=L1.
 
-=== Cryptographic Protocols (Extended – FCS_HTTPS_EXT)
+==== Cryptographic Protocols (Extended – FCS_HTTPS_EXT)
 
-==== FCS_HTTPS_EXT HTTPS Protocol
+===== FCS_HTTPS_EXT HTTPS Protocol
 HTTPS is not a required component of this cPP. If a TOE implements HTTPS, a corresponding selection in FTP_DIT_EXT.1 should have been made that defines what the HTTPS protocol is implemented to protect.
 
-===== FCS_HTTPS_EXT.1 HTTPS Protocol
+====== FCS_HTTPS_EXT.1 HTTPS Protocol
 
 *FCS_HTTPS_EXT.1.1* The TSF shall implement the HTTPS protocol that complies with RFC 2818.
 
@@ -703,33 +710,33 @@ HTTPS is not a required component of this cPP. If a TOE implements HTTPS, a corr
 
 *FCS_HTTPS_EXT.1.2* The TSF shall implement HTTPS using TLS.
 
-*FCS_HTTPS_EXT.1.3* If a peer certificate is presented, the TSF shall [_selection: not require client authentication, not establish the connection, request authorization to establish the connection, [assignment: other action]] if the peer certificate is deemed invalid._
+*FCS_HTTPS_EXT.1.3* If a peer certificate is presented, the TSF shall [_selection: not require client authentication, not establish the connection, request authorization to establish the connection, [assignment: other action]_] if the peer certificate is deemed invalid.
 
 *Application Note {counter:appnote}:* If HTTPS is selected FTP_DIT_EXT.1 then validity is determined by the identifier verification, certification path, the expiration date, and the revocation status in accordance with RFC 5280. Certificate validity is tested in accordance with testing performed for FIA_X509_EXT.1/Rev. 
 
-==== TLS Protocol
+===== TLS Protocol
 TLS is not a required component of this cPP. If a TOE implements TLS, a corresponding selection in FTP_DIT_EXT.1 should be made to define what the TLS protocol is implemented to protect. 
 If the TOE implements the TLS protocol, the ST author shall include the requirements from [TLS Package]
 
-==== SSH Protocol
+===== SSH Protocol
 SSH is not a required component of this cPP. If a TOE implements SSH, a corresponding selection in FTP_DIT_EXT.1 should have been made that defines what the SSH protocol is implemented to protect.
 If the TOE acts as both a client and server and the selections are different, the ST author should iterate using the identifiers FCS_SSH_EXT.1/Server and FCS_SSH_EXT.1/Client in the [SSH Package].
 
-== Class: Identification and Authentication (FIA)
+=== Class: Identification and Authentication (FIA)
 
 This section defines selection based Identification and Authentication requirements that underlie other security properties of the TOE.
 
-=== Authentication Failure (FIA_AFL_EXT)
+==== Authentication Failure (FIA_AFL_EXT)
 
-==== FIA_AFL_EXT X.509 Authentication Failure Management
+===== FIA_AFL_EXT X.509 Authentication Failure Management
 
 *FIA_AFL_EXT.1.1* The TSF shall detect when a configurable positive integer within [_assignment: range of acceptable values for each authentication mechanism_] of unsuccessful authentication attempts occur related to last successful authentication for each authentication mechanism.
 
 *FIA_AFL_EXT.1.2* When the defined number of unsuccessful authentication attempts has been [.underline]#met#, the TSF shall [_selection: prevent the offending Administrator from successfully establishing a session using the locked authentication method until [assignment: action to unlock] is taken by an Administrator; prevent the offending Administrator from successfully establishing a session using any authentication method until an Administrator-defined time period has elapsed_].
 
-=== External Identity Provider (FIA_EIP_EXT)
+==== External Identity Provider (FIA_EIP_EXT)
 
-==== FIA_EIP_EXT.1 External Identity Provider
+===== FIA_EIP_EXT.1 External Identity Provider
 
 *FIA_EIP_EXT.1.1* The TSF shall be capable of using [_selection: IPsec, TLS, DTLS_] to provide a communication channel between itself and an external identity provider.
 
@@ -737,9 +744,9 @@ This section defines selection based Identification and Authentication requireme
 
 *FIA_EIP_EXT.1.3* The TSF shall establish attribute mapping with the provider for [_assignment: list of maintained attributes_].
 
-=== User Identification and Authentication (FIA_UIA_EXT)
+==== User Identification and Authentication (FIA_UIA_EXT)
 
-==== FIA_UIA_EXT.1 User Identification and Authentication
+===== FIA_UIA_EXT.1 User Identification and Authentication
 
 *FIA_UIA_EXT.1.1* The TSF shall allow the following actions prior to requiring the administrative user to initiate the identification and authentication process: [_selection_:
 
@@ -749,31 +756,37 @@ This section defines selection based Identification and Authentication requireme
 
 *FIA_UIA_EXT.1.2* The TSF shall require each administrative user to be successfully identified and authenticated before allowing any other TSF-mediated actions on behalf of that administrative user.
 
-=== Authentication Mechanism (FIA_UAU_EXT)
+==== Authentication Mechanism (FIA_UAU_EXT)
 
-==== FIA_UAU_EXT.2 Authentication Mechanism
+===== FIA_UAU_EXT.2 Authentication Mechanism
 
 *FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
 
-==== FIA_UAU_EXT.1 Authentication Mechanism
+===== FIA_UAU_EXT.1 Authentication Mechanism
+
+===== FIA_UAU_EXT.2 User Authentication
+
+*FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
+
+===== FIA_UAU_EXT.5 User Authentication Mechanisms
 
 *FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
 
 *FIA_UAU_EXT.5.2* The TSF shall consider [_selection: password, SSH Public Key, X.509 certificate, [assignment: other authentication mechanism]_] as authentication mechanisms.
 
-*Application Note {counter:appnote}:* _If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL_EXT.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2._
+*Application Note {counter:appnote}:* If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL_EXT.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2.
 
-*Application Note {counter:appnote}:* _If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs must be included in the ST: FIA_EIP_EXT.1._
+*Application Note {counter:appnote}:* If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs must be included in the ST: FIA_EIP_EXT.1.
 
-==== FIA_UAU.7 Protected authentication feedback
+===== FIA_UAU.7 Protected authentication feedback
 
 *FIA_UAU.7.1* The TSF shall provide only _obscured feedback_ to the administrative user while the authentication is in progress.
 
-*Application Note {counter:appnote}:* _The TSF may permit user interaction to display the input data. However, this may not be the default state and must revert to an obfuscated state after user interaction._
+*Application Note {counter:appnote}:* The TSF may permit user interaction to display the input data. However, this may not be the default state and must revert to an obfuscated state after user interaction.
 
-=== X.509 Certificate Validation (FIA_X509_EXT)
+==== X.509 Certificate Validation (FIA_X509_EXT)
 
-==== FIA_X509_EXT.1 X.509 Certificate Validation 
+===== FIA_X509_EXT.1 X.509 Certificate Validation 
 
 *FIA_X509_EXT.1.1/Rev* The application shall [_selection: invoke platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 
@@ -803,7 +816,7 @@ This section defines selection based Identification and Authentication requireme
 
 *Application Note {counter:appnote}:* This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.
 
-==== FIA_X509_EXT.2 X.509 Certificate Authentication
+===== FIA_X509_EXT.2 X.509 Certificate Authentication
 
 *FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS, code signing for system software updates, code signing for integrity verification, [assignment: other uses]_].
 
@@ -815,11 +828,11 @@ Often a connection must be established to check the revocation status of a certi
 
 The ST author must include FIA_X509_EXT.2 in all instances except when only SSH is selected within FTP_DIT_EXT.1 and SSH authentication methods do not include X.509v3. Additionally, FIA_X509_EXT.2 must be included if FPT_TUD_EXT digital signatures make use of X.509 certificates and the TOE performs the verification.
 
-== (FTA) TOE Access
+=== (FTA) TOE Access
 
-=== Default TOE Access Banner (FTA_TAB)
+==== Default TOE Access Banner (FTA_TAB)
 
-==== FTA_TAB.1 Default TOE Access Banner
+===== FTA_TAB.1 Default TOE Access Banner
 
 *FTA_TAB.1.1* Before establishing an administrative user session the TSF shall display a Security Administrator-specified advisory notice and consent warning message regarding use of the TOE.
 
@@ -841,7 +854,7 @@ Defined in <<CC2>>.
 ===== Component levelling
 [#img-FCS_CKM_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FCS_CKM_EXT, png]
 ....
     +---------------------------------------------------+
     |                                                   |     +---+
@@ -869,7 +882,7 @@ Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_CKM_EXT.1.1/Asymmetric* The application shall [selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric].
+*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric_].
 
 ==== Cryptographic Protocols (FCS_HTTPS_EXT)
 
@@ -879,7 +892,7 @@ Components in this family define the requirements for protecting remote manageme
 ===== Component levelling
 [#img-FCS_HTTPS_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FCS_HTTPS_EXT, png]
 ....
     +------------------------------+
     |                              |     +---+
@@ -914,7 +927,7 @@ Dependencies: No dependencies
 
 *FCS_HTTPS_EXT.1.2* The TSF shall implement HTTPS using TLS.
 
-*FCS_HTTPS_EXT.1.3* If a peer certificate is presented, the TSF shall [selection: not require client authentication, not establish the connection, request authorization to establish the connection, [assignment: other action]] if the peer certificate is deemed invalid.
+*FCS_HTTPS_EXT.1.3* If a peer certificate is presented, the TSF shall [_selection: not require client authentication, not establish the connection, request authorization to establish the connection, [assignment: other action]_] if the peer certificate is deemed invalid.
 
 ==== Random Bit Generation (FCS_RBG_EXT)
 
@@ -925,14 +938,14 @@ Components in this family address the requirements for random bit/number generat
 ===== Component levelling
 [#img-FCS_RBG_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FCS_RBG_EXT, png]
 ....
                                                       +---+
                                                    +->| 1 |
                                                    |  +---+
     +-------------------------------------------+  |
     |                                           |  |  
-    |     FCS_RBT_EXT Random Bit Generation     +--+
+    |     FCS_RBG_EXT Random Bit Generation     +--+
     |                                           |  |  
     +-------------------------------------------+  |
                                                    |  +---+ 
@@ -960,16 +973,16 @@ Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_RBG_EXT.1.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [selection: Hash_DRBG (any), HMAC_DRBG (any), CTR_DRBG (AES)].
+*FCS_RBG_EXT.1.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [_selection: Hash_DRBG (any), HMAC_DRBG (any), CTR_DRBG (AES)_].
 
-*FCS_RBG_EXT.1.2* The deterministic RBG shall be seeded by at least one entropy source that accumulates entropy from [selection: [assignment: number of software-based sources] software-based noise source, [assignment: number of hardware-based sources] hardware-based noise source] with a minimum of [selection: 128 bits, 192 bits, 256 bits] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate. 
+*FCS_RBG_EXT.1.2* The deterministic RBG shall be seeded by at least one entropy source that accumulates entropy from [_selection: [assignment: number of software-based sources] software-based noise source, [assignment: number of hardware-based sources] hardware-based noise source_] with a minimum of [_selection: 128 bits, 192 bits, 256 bits_] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate. 
 
 ===== FCS_RBG_EXT.2 Random Bit Generation Services
 Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_RBG_EXT.2.1* The application shall [selection: use no DRBG functionality, invoke platform-provided DRBG functionality, implement DRBG functionality] for its cryptographic operations.
+*FCS_RBG_EXT.2.1* The application shall [_selection: use no DRBG functionality, invoke platform-provided DRBG functionality, implement DRBG functionality_] for its cryptographic operations.
 
 ==== Storage of Credentials (FCS_STO_EXT)
 
@@ -979,7 +992,7 @@ Components in this family address the requirements for storage of credentials su
 ===== Component levelling
 [#img-FCS_STO_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FCS_STO_EXT, png]
 ....
     +------------------------------------+
     |                                    |     +---+
@@ -1007,7 +1020,7 @@ Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_STO_EXT.1.1* The application shall [selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]] to non-volatile memory.
+*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2_] to non-volatile memory.
 
 === Data Protection (FDP)
 
@@ -1019,7 +1032,7 @@ Components in this family address restrictions to network communications. This i
 ===== Component levelling
 [#img-FDP_NET_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FDP_NET_EXT, png]
 ....
     +------------------------------------+
     |                                    |     +---+
@@ -1061,7 +1074,7 @@ Provides for an external identity provider for authentication to the TOE.
 
 [#img-FIA_EIP_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FIA_EIP_EXT, png]
 ....                                                  
     +-------------------------------------------+  
     |                                           |  +---+
@@ -1106,7 +1119,7 @@ The TSF allows certain specified actions before the non-TOE entity goes through 
 ===== Component levelling
 [#img-FIA_UIA_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FIA_UIA_EXT, png]
 ....                                                  
     +-------------------------------------------+  
     |     FIA_UIA_EXT User Identification       +  +---+
@@ -1134,13 +1147,11 @@ Hierarchical to: No other components.
 
 Dependencies:    FTA_TAB.1 Default TOE Access Banners
 
-*FIA_UIA_EXT.1.1* The TSF shall allow the following actions prior to requiring the non-TOE entity to initiate the identification and authentication process:
+*FIA_UIA_EXT.1.1* The TSF shall allow the following actions prior to requiring the administrative user to initiate the identification and authentication process: [_selection_:
 
-* Display the warning banner in accordance with FTA_TAB.1;
-
-* [_assignment: list of services, actions performed by the TSF in response to non-TOE requests_];
-
-* No actions].
+* _display the warning banner in accordance with FTA_TAB.1;_
+* _[assignment: list of services, actions performed by the TSF in response to non-TOE requests];_
+* _no actions_].
 
 *FIA_UIA_EXT.1.2* The TSF shall require each administrative user to be successfully identified and authenticated before allowing any other TSF-mediated actions on behalf of that administrative user.
 
@@ -1154,7 +1165,7 @@ Provides for a locally based administrative user authentication mechanism
 
 [#img-FIA_UAU_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FIA_UAU_EXT, png]
 ....                                                  
     +-------------------------------------------+  
     |                                           |  +---+
@@ -1184,9 +1195,9 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 [loweralpha]
 . No audit necessary
 
-===== FIA_UAU_EXT.2 Authentication Mechanism
+===== FIA_UAU_EXT.2 User Authentication
 
-*FIA_UAU_EXT.2 Authentication Mechanism*
+*FIA_UAU_EXT.2 User Authentication*
 
 Hierarchical to: No other components.
 
@@ -1194,13 +1205,13 @@ Dependencies: No other components.
 
 *FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
 
-===== FIA_UAU_EXT.5 Authentication Mechanisms
+===== FIA_UAU_EXT.5 User Authentication Mechanisms
 
-*FIA_UAU_EXT.5 Authentication Mechanisms*
+*FIA_UAU_EXT.5 User Authentication Mechanisms*
 
 Hierarchical to: No other components.
 
-Dependencies:    FIA_UAU_EXT.2 Authentication Mechanism.
+Dependencies:    FIA_UAU_EXT.2 User Authentication.
 
 *FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
 
@@ -1214,7 +1225,7 @@ This family defines the behaviour, management, and use of X.509 certificates for
 ===== Component levelling
 [#img-FIA_X509_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FIA_X509_EXT, png]
 ....
                                                       +---+
                                                    +->| 1 |
@@ -1253,15 +1264,19 @@ Hierarchical to:	No other components
 
 Dependencies:		FIA_X509_EXT.2 X.509 Certificate Authentication
 
-*FIA_X509_EXT.1.1* The application shall [_selection: invoke platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
+*FIA_X509_EXT.1.1/Rev* The application shall [_selection: invoke platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 
 * RFC 5280 certificate validation and certification path validation supporting a minimum path length of three certificates.
+
 * The certification path must terminate with a trusted CA certificate designated as a trust anchor.
+
 * The application shall validate a certification path by ensuring that all CA certificates in the certification path contain the basicConstraints extension with the CA flag set to TRUE.
-* The application shall validate the revocation status of the certificate using [selection:
+
+* ECC certificates shall conform to RFC 5480, section 2.1.1.
+* The application shall validate the revocation status of the certificate using [_selection:_
 ** _the Online Certificate Status Protocol (OCSP) as specified in RFC 6960,_
 ** _a Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3,_
-** _Certificate Revocation List (CRL) as specified in RFC 5759 Section 5,_
+** _a Certificate Revocation List (CRL) as specified in RFC 5759 Section 5,_
 ** _an OCSP TLS Status Request Extension (i.e., OCSP stapling) as specified in RFC 6066_
 ** _no revocation method_
 ]
@@ -1280,7 +1295,7 @@ Hierarchical to:	No other components
 
 Dependencies:		FIA_X509_EXT.1 X.509 Certificate Authentication
 
-*FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS_], and [selection: _code signing for system software updates, code signing for integrity verification, [assignment: other uses], no additional uses_].
+*FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS_], and [_selection: code signing for system software updates, code signing for integrity verification, [assignment: other uses], no additional uses_].
 
 *FIA_X509_EXT.2.2* When the TSF cannot establish a connection to determine the validity of a certificate, the TSF shall [_selection: allow the Administrator to choose whether to accept the certificate in these cases, accept the certificate, not accept the certificate_].
 
@@ -1294,7 +1309,7 @@ Components in this family address requirements for secure default configuration.
 ===== Component levelling
 [#img-FMT_CFG_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FMT_CFG_EXT, png]
 ....
     +------------------------------------+
     |                                    |     +---+
@@ -1322,7 +1337,7 @@ Hierarchical to:	No other components
 
 Dependencies:		No other components
 
-*FMT_CFG_EXT.1.1* The TSF shall provide [_selection: no default credentials, default credentials that are changed_ [selection: _during installation, before application is operational_]].
+*FMT_CFG_EXT.1.1* Any default credentials supported by the TSF shall be changed [_selection: during installation, before application is operational_].
 
 *FMT_CFG_EXT.1.2* The application shall be configured by default with file permissions which protect it and its data from unauthorized access.
 
@@ -1336,7 +1351,7 @@ Components in this family address requirements to ensure the TOE is not suscepti
 ===== Component levelling
 [#img-FPT_AEX_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FPT_AEX_EXT, png]
 ....
     +--------------------------------------------+
     |                                            |     +---+
@@ -1367,14 +1382,19 @@ Hierarchical to:	No other components
 
 Dependencies:		No other components
 
-*FPT_AEX_EXT.1.1* The application shall not request to map memory at an explicit address except for [_assignment: list of explicit exceptions_].
-*FPT _AEX_EXT.1.2* The application shall [_selection:_
+*FPT_AEX_EXT.1.1* The application shall not request to map memory at an explicit address except for [_assignment: list of explicit exceptions_]. 
+
+*FPT_AEX_EXT.1.2* The application shall [_selection:_
+
 * _not allocate any memory region with both write and execute permissions,_
-* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_
-].
-*FPT _AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [_assignment: list of explicit exceptions_].
-*FPT _AEX_EXT.1.4* The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.
-*FPT _AEX_EXT.1.5* The application shall be compiled with stack-based buffer overflow protection enabled.
+
+* _allocate memory regions with write and execute permissions for only [assignment: list of functions performing just-in-time compilation]_].
+
+*FPT_AEX_EXT.1.3* The application shall be compatible with security features provided by the platform vendor except for [_selection: [assignment: list of explicit exceptions], no exceptions_].
+
+*FPT_AEX_EXT.1.4* The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.
+
+*FPT_AEX_EXT.1.5* The application shall be compiled with stack-based buffer overflow protection enabled.
 
 ==== Use of Supported Services and APIs (FPT_API_EXT)
 
@@ -1384,7 +1404,7 @@ Components in this family address requirements to ensure the TOE uses platform s
 ===== Component levelling
 [#img-FPT_AEX_EXT2] 
 .Component levelling 
-[ditaa]
+[ditaa, FPT_AEX_EXT, png]
 ....
     +--------------------------------------------+
     |                                            |     +---+
@@ -1425,7 +1445,7 @@ Components in this family address the requirements for updating the TOE software
 ===== Component levelling
 [#img-FPT_TUD_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FPT_TUD_EXT, png]
 ....
     +---------------------------------------------------+
     |                                                   |     +---+
@@ -1470,7 +1490,7 @@ Components in this family address requirements to ensure the TOE either doesn’
 ===== Component levelling
 [#img-FTP_DIT_EXT] 
 .Component levelling 
-[ditaa]
+[ditaa, FTP_DIT_EXT, png]
 ....
     +------------------------------+
     |                              |     +---+
@@ -1504,11 +1524,12 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 Hierarchical to:	No other components 
 Dependencies:		No other components
 
-*FTP_DIT_EXT.1.1* The application shall [_selection:_ 
+*FTP_DIT_EXT.1.1* The application shall [_selection:_
+
 * _not transmit any data,_ 
 * _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]],_ 
-* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS, DTLS, SSH as specified in [SSH Package]]_
-]
+* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]]_]
+
 between itself and another trusted IT product.
 
 [appendix]
@@ -1565,7 +1586,7 @@ These Equivalency Guidelines represent a shift from complete testing of all prod
 Equivalency has two aspects:
 
 * Product Equivalence: Products may be considered equivalent if there are no differences between Product Models and Product Versions with respect to cPP-specified security functionality.
-* *Platform Equivalence: Platforms may be considered equivalent if there are no significant differences in the services they provide to the Product—or in the way the platforms provide those services—with respect to cPP-specified security functionality.
+* Platform Equivalence: Platforms may be considered equivalent if there are no significant differences in the services they provide to the Product—or in the way the platforms provide those services—with respect to cPP-specified security functionality.
 
 The equivalency determination is made in accordance with these guidelines by the Certifier and Scheme using information provided by the Evaluator/Vendor.
 
@@ -1589,7 +1610,7 @@ Product Model equivalence attempts to determine whether different feature levels
 Product models are considered equivalent if there are no differences that affect PP-specified security functionality—as indicated in Table 4.
 
 .Determining Product Model Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |Factor
 |Same/Different
@@ -1610,7 +1631,7 @@ In cases of version equivalence, differences are expressed in terms of changes i
 
 
 .Factors for Determining Product Version Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |Factor
 |Same/Different
@@ -1646,7 +1667,7 @@ Platforms with different processor architectures and instruction sets are not eq
 The platforms are equivalent with respect to the application if the platforms are equivalent with respect to all cPP-specified security functionality.
 
 .Factors for Determining Hardware/Virtual Hardware Platform Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |Factor
 |Same/Different
@@ -1667,7 +1688,7 @@ The platforms are equivalent with respect to the application if the platforms ar
 For traditional applications that are built for and run on operating systems, platform equivalence is determined by the interfaces between the application and the operating system that are relevant to cPP-specified security functionality. Generally, these are the processor interface, device interfaces, and OS APIs. The following factors applied in order:
 
 .Factors for Determining OS/VS Platform Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |Factor
 |Same/Different
@@ -1699,8 +1720,11 @@ For traditional applications that are built for and run on operating systems, pl
 If an Application is built for and runs in a non-OS software-based execution environment, such as a Container or Java Runtime, then the below criteria must be used to determine platform equivalence. The key point is that the underlying hardware (virtual or physical) and OS is not relevant to platform equivalence. This allows applications to be tested and run on software-based execution environments on any hardware.
 
 .Factors for Software-based Execution Environment Platform Equivalence
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
+|Factor
+|Same/Different
+|Guidance
 
 |Platform Type/Vendor
 |Different
@@ -1737,7 +1761,7 @@ For applications that run in a software-based execution environment such as a Ja
 The dependencies between SFRs implemented by the TOE are addressed as follows. 
 
 .SFR Dependencies Rationale for Mandatory SFRs
-[Header,cols="4,4,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |SFR
 |Dependencies
@@ -1778,7 +1802,7 @@ The dependencies between SFRs implemented by the TOE are addressed as follows.
 |===
 
 .SFR Dependencies Rationale for Optional SFRs
-[Header,cols="2,2,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
 |SFR
 |Dependencies
@@ -1799,8 +1823,12 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 |===
 
 .SFR Dependencies Rationale for Selection-Based SFRs
-[Header,cols="2,2,4"]
+[options="header",cols=".^1,.^1,.^2"]
 |===
+|SFR
+|Dependencies
+|Rationale Statement
+
 |FCS_RBG_EXT.2.1
 |None
 |
