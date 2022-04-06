@@ -19,7 +19,7 @@
 :pp-name: Collaborative Protection Profile for Application Software
 :pp-module-name: collaborative PP-Module for Server Applications
 :pp-version: Version 1.0
-:pp-date: January 1, 2020
+:pp-date: 2022-02-23
 
 == Foreword
 
@@ -218,9 +218,9 @@ The evaluator shall examine the guidance documentation to confirm that it includ
 
 If the TOE uses a registration channel for registering components to the TOE (i.e. where the ST author uses the FPT_ITT.1/Server in the selection for FCO_CPC_EXT.1.2/Server) then the evaluator shall examine the Preparative Procedures to confirm that they:
 
-* describe the security characteristics of the registration channel (e.g. the protocol, keys and authentication data on which it is based).
-* identify any dependencies between the configuration of the registration channel and the security of the subsequent intra-TOE communications (e.g. where AES-256 intra-TOE communications depend on transmitting 256 bit keys between TOE parts and therefore rely on the registration channel being configured to use an equivalent key length).
-* identify any aspects of the channel can be modified by the operational environment in order to improve the channel security and shall describe how this modification can be achieved (e.g. generating a new key pair, or replacing a default public key certificate).
+* Describe the security characteristics of the registration channel (e.g. the protocol, keys and authentication data on which it is based).
+* Identify any dependencies between the configuration of the registration channel and the security of the subsequent intra-TOE communications (e.g. where AES-256 intra-TOE communications depend on transmitting 256 bit keys between TOE parts and therefore rely on the registration channel being configured to use an equivalent key length).
+* Identify any aspects of the channel can be modified by the operational environment in order to improve the channel security and shall describe how this modification can be achieved (e.g. generating a new key pair, or replacing a default public key certificate).
 
 As background for the examination of the registration channel description, it is noted that the requirements above are intended to ensure that administrators can make an accurate judgement of any risks that arise from the default registration process. Examples would be the use of self-signed certificates (i.e. certificates that are not chained to an external or local Certification Authority), manufacturer-issued certificates (where control over aspects such as revocation, or which devices are issued with recognised certificates, is outside the control of the operational environment), use of generic/non-unique keys (e.g. where the same key is present on more than one instance of a device), or well-known keys (i.e. where the confidentiality of the keys is not intended to be strongly protected – note that this does not imply there is a positive action or intention to publicise the keys).
 
@@ -262,9 +262,9 @@ The evaluator shall demonstrate that checking the validity of a certificate is p
 
 * Test 2: The evaluator shall demonstrate that validating an expired certificate results in the function failing.
 
-* Test 3: (conditional) The evaluator shall test that the TOE or Platform can properly handle revoked certificates if CRL or OCSP is selected; if both are selected, then a test shall be performed for each method. The evaluator shall test revocation of the TOE certificate and revocation of the TOE intermediate CA certificate i.e. the intermediate CA certificate should be revoked by the root CA. The evaluator shall ensure that a valid certificate is used, and that the validation function succeeds. The evaluator then attempts the test with a certificate that has been revoked (for each method chosen in the selection) to ensure when the certificate is no longer valid that the validation function fails. No testing is required if no revocation method is selected.
+* Test 3: [conditional] The evaluator shall test that the TOE or Platform can properly handle revoked certificates if CRL or OCSP is selected; if both are selected, then a test shall be performed for each method. The evaluator shall test revocation of the TOE certificate and revocation of the TOE intermediate CA certificate i.e. the intermediate CA certificate should be revoked by the root CA. The evaluator shall ensure that a valid certificate is used, and that the validation function succeeds. The evaluator then attempts the test with a certificate that has been revoked (for each method chosen in the selection) to ensure when the certificate is no longer valid that the validation function fails. No testing is required if no revocation method is selected.
 
-* Test 4: (conditional) If OCSP is selected, the evaluator shall configure the OCSP server or use a man-in-the-middle tool to present a certificate that does not have the OCSP signing purpose and verify that validation of the OCSP response fails. If CRL is selected, the evaluator shall configure the CA to sign a CRL with a certificate that does not have the cRLsign key usage bit set, and verify that validation of the CRL fails.
+* Test 4: [conditional] If OCSP is selected, the evaluator shall configure the OCSP server or use a man-in-the-middle tool to present a certificate that does not have the OCSP signing purpose and verify that validation of the OCSP response fails. If CRL is selected, the evaluator shall configure the CA to sign a CRL with a certificate that does not have the cRLsign key usage bit set, and verify that validation of the CRL fails.
 
 * Test 5: The evaluator shall modify any byte in the first eight bytes of the certificate and demonstrate that the certificate fails to validate. (The certificate will fail to parse correctly.)
 
