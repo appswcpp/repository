@@ -1146,11 +1146,18 @@ In this section, each SAR that is contained in the cPP is listed, and the EAs th
 
 === Class ASE: Security Target
 
+When evaluating a Security Target, the evaluator performs the work units as presented in the CEM. In addition, the evaluator ensures the content of the TSS in the ST satisfies the EAs specified in <<Evaluation Activities for Mandatory SFRs>>.
+
+=== Class ADV: Development
+==== 5.2.1	Basic Functional Specification (ADV_FSP.1)
+The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in <<Evaluation Activities for Mandatory SFRs>>, and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.
+
 32	When evaluating a Security Target, the evaluator performs the work units as presented in the CEM. In addition, the evaluator ensures the content of the TSS in the ST satisfies the EAs specified in <<Evaluation Activities for Mandatory SFRs>>.
 
 === Class ADV: Development
 ==== 5.2.1	Basic Functional Specification (ADV_FSP.1)
 The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in Section 2 (Evaluation Activities for Mandatory SFRs), and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.
+
 
 The EAs presented in this section address the CEM work units ADV_FSP.1-1, ADV_FSP.1-2, ADV_FSP.1-3, and ADV_FSP.1-5.
 
