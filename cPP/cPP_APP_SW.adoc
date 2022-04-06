@@ -113,10 +113,10 @@ For containerized applications, the container is treated as the TOE. Services, l
 As far as virtualized applications are concerned, this version of the cPP covers a very narrow type; applications that are installed on a virtualized instance of an OS/Platform are the only type of applications covered. An application that is bundled together with a general purpose operating system via a virtual machine is not considered substantially different than an application that is installed traditionally. In either case the underlying OS is to be considered the TOE platform. 
 
 .TOE as an Application and Kernel Module Running on an Operating System
-image::images/toe.png[TOE as an Application and Kernel Module Running on an Operating System]
+image::toe.png[TOE as an Application and Kernel Module Running on an Operating System]
 
 .TOE as an Application Running in an Execution Environment Plus Native Code
-image::images/toeruntime.png[TOE as an Application Running in an Execution Environment Plus Native Code]
+image::toeruntime.png[TOE as an Application Running in an Execution Environment Plus Native Code]
 
 === TOE Usage
 The essence of the requirements for application software TOEs is that they are well behaved and do not compromise the security of their operational environment. Additionally, these requirements ensure that evaluated applications are secure by default, store sensitive data in a secure manner and communicate with external entities using secure well-known protocols. Examples of applications are provided in the section above.  This cPP forms the Base-PP and would be applicable to all applications. 
@@ -269,22 +269,6 @@ The user of the application uses the software within compliance of the applied e
 ==== OE.PROPER_ADMIN
 The administrator of the application software is trusted to administer the software within compliance of the applied enterprise security policy.
 
-
-=== Security Objectives Rationale
-The following table describes how the assumptions, threats, and organizational security policies map to the security objectives.
-
-.Mapping between Security Problem Defintion and Security Objectives
-[%header,cols="1,1,1"]
-|===
-|Threat, Assumption, or OSP 
-|Security Objectives 
-|Rationale
-
-|
-|
-|
-
-|===
 
 == Security Functional Requirements
 The individual security functional requirements are specified in the sections below. SFRs in this section are mandatory SFRs that any conformant TOE must meet. Based on selections made in these SFRs it will also be necessary to include some of the selection-based SFRs in Appendix B. Additional optional SFRs may also be adopted from those listed in Appendix A. 
@@ -1079,8 +1063,8 @@ Provides for an external identity provider for authentication to the TOE.
     +-------------------------------------------+  
     |                                           |  +---+
     | FIA_EIP_EXT External Identity Provider    +->| 1 |
-	|                                           |  +---+
-	+-------------------------------------------+
+    |                                           |  +---+
+    +-------------------------------------------+
 ....
 
 FIA_EIP_EXT.1 The remote authentication service provides administrative users a managed service to allow for access to TSF mediated actions.
@@ -1122,9 +1106,11 @@ The TSF allows certain specified actions before the non-TOE entity goes through 
 [ditaa, FIA_UIA_EXT, png]
 ....                                                  
     +-------------------------------------------+  
-    |     FIA_UIA_EXT User Identification       +  +---+
-    |                 and Authentication        +->| 1 |
-	+-------------------------------------------+  +---+
+    |                                           |
+    |     FIA_UIA_EXT User Identification       |  +---+
+    |            and Authentication             +->| 1 |
+    |                                           |  +---+
+    +-------------------------------------------+  
 ....
 
 FIA_UIA_EXT.1 User Identification and Authentication requires Administrators (including remote Administrators) to be identified and authenticated by the TOE, providing assurance for that end of the communication path. It also ensures that every user is identified and authenticated before the TOE performs any mediated functions 
@@ -1170,11 +1156,12 @@ Provides for a locally based administrative user authentication mechanism
     +-------------------------------------------+  
     |                                           |  +---+
     |                                           +->| 2 |
-	|    FIA_UAU_EXT User Authentication        |  +---+
-	|                                           |  +---+
-	|                                           |->| 5 |
-	|                                           |  +---+
-	+-------------------------------------------+
+    |                                           |  +---+
+    |    FIA_UAU_EXT User Authentication        |
+    |                                           |  +---+
+    |                                           |->| 5 |
+    |                                           |  +---+
+    +-------------------------------------------+
 ....
 
 FIA_UAU_EXT.2 The password-based authentication mechanism provides administrative users a locally based authentication mechanism.
