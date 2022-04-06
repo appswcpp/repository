@@ -7,7 +7,7 @@
 :imagesdir: images
 :icons: font
 :revnumber: 1.0 
-:revdate: 2022-02-23
+:revdate: 2022-04-06
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -30,7 +30,7 @@ This collaborative Protection Profile (cPP) was developed by the {iTC-longname} 
 |Description
 
 |1.0
-|2022-02-23
+|2022-04-06
 |Initial release.
 
 |===
@@ -746,12 +746,6 @@ This section defines selection based Identification and Authentication requireme
 
 *FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
 
-===== FIA_UAU_EXT.1 Authentication Mechanism
-
-===== FIA_UAU_EXT.2 User Authentication
-
-*FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
-
 ===== FIA_UAU_EXT.5 User Authentication Mechanisms
 
 *FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
@@ -1164,7 +1158,7 @@ Provides for a locally based administrative user authentication mechanism
     +-------------------------------------------+
 ....
 
-FIA_UAU_EXT.2 The password-based authentication mechanism provides administrative users a locally based authentication mechanism.
+FIA_UAU_EXT.2 The password-based authentication mechanism provides administrative users an authentication mechanism for access to TSF mediated functionality.
 
 FIA_UAU_EXT.5 The TSF provides administrative users a local or external authentication mechanism.
 

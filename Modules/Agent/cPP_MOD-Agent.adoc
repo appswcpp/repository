@@ -7,7 +7,7 @@
 :imagesdir: images
 :icons: font
 :revnumber: 1.0
-:revdate: 2022-02-23
+:revdate: 2022-04-06
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -31,7 +31,7 @@ This collaborative Protection Profile Module (PP-Module) was developed by the {i
 |Description
 
 |1.0
-|2022-02-23
+|2022-04-06
 |Initial Release
 
 
