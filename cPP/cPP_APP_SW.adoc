@@ -136,7 +136,7 @@ This cPP also applies the CC and CEM Addenda, Exact Conformance, Selection-Based
 
 In order to be conformant to this cPP, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <<Security Functional Requirements>> (these are the mandatory SFRs) of this cPP, and potentially SFRs from <<Consistency Rationale>> (these are selection-based SFRs) and <<Selection-Based Requirements>> (these are optional SFRs) of this cPP. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this cPP) are allowed to be included in the ST. Further, no SFRs in <<Security Functional Requirements>> of this cPP are allowed to be omitted.
 
-The packages to which exact conformance can be claimed in conjunction with this PP are specified in the ‘Allowed Packages’ list at https://github.com/appswcpp/cPP. The PP-Modules that are allowed to specify this cPP as a base-PP are specified in the ‘Allowed PP-Modules list at https://github.com/appswcpp/cPP
+The packages and modules to which exact conformance can be claimed in conjunction with this PP are specified in the ‘Allowed With’ list at https://appswcpp.github.io.
 
 === Components allowed with this cPP in a PP-Configuration
 The list of packages, PP-Modules and cPPs that may be used in conjunction with this cPP can be found at: {iTC-website}PP-config.html
