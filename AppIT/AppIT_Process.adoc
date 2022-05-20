@@ -1,0 +1,235 @@
+= APPSW iTC Interpretation Team (AppIT) - Process Description 
+:showtitle:
+:toc: macro
+:toclevels: 7
+:sectnums:
+:sectnumlevels: 7
+:imagesdir: images
+:icons: font
+:revnumber: 1.0 
+:revdate: 2022-05-20
+
+:iTC-longname: iTC for Application Software
+:iTC-shortname: AppSW-iTC
+:iTC-email: cm-itc-mailing-list@gmail.com
+:iTC-website: https://appswcpp.github.io/
+:iTC-GitHub: https://github.com/appswcpp/repository/
+
+:sectnums!:
+
+Published {revdate}
+
+== Introduction
+The AppSW iTC needs to provide timely responses to requests for interpretation from the CC community. For that purpose, an ‘AppSW iTC Interpretation Team’ (AppIT) is established which is in charge of handling the requests for interpretation. The AppIT shall act according to the process defined in this document.
+Process Description
+
+== Overview
+The following figure shows the overall process 
+ 
+.Figure 1: General Process Overview
+image::AppIT1.jpeg[General Process Overview]
+
+In general, the APPSW iTC’s ToR shall apply, especially for decision making. When handling requests for interpretation, the group’s main goal should be to come to consensus, preferably a unanimous result. This applies at two particular points in Figure 1:
+
+* Decisions on ‘action required’ (i.e., whether an interpretation is to be produced or the request rejected)
+* Adoption of an interpretation as definitive (in this case the fact that the interpretation was subject to a vote, the number of votes cast and the number in favour of the adopted conclusion shall be recorded as part of the interpretation). 
+
+If reaching unanimity at either of these stages is not possible then a vote shall be taken on acceptance or rejection of a proposal for a specific course of action. For any vote to be valid, at least 50% of the AppIT subgroup members should participate. The AppIT group leader and deputy shall ensure that the votes cast are preserved, but these will not be routinely published (publication would be expected only if it becomes necessary at a later stage to demonstrate that an interpretation accurately reflects the votes cast).
+
+When making a decision by means of a vote, the proposal shall be accepted if it meets the following condition:
+
+* 51% or more of the valid votes received from members of the AppIT subgroup are in favour of the proposal
+
+Otherwise, the proposal shall be regarded as rejected.  
+
+For voting the terms 'Acceptance' and 'Rejection' shall be used. For all votes, the general rule of ‘one vote per organization’ (compared to ‘one vote per individual’) shall apply (as defined in the iTC’s ToR). The arguments of different organizations shall be documented to keep track about the pros and cons of a proposal and to document possible alternatives. The preferred way to handle votes should therefore be via call. If alternative ways of voting are applied, proper documentation shall be ensured.
+
+If the group encounters a deadlock situation, the group needs to decide on its next course of action.  Before the decision is made there shall be a coordination time of one week which may allow resolving the issue. In case the deadlock situation cannot be resolved within the coordination time, a decision shall be made by the group how to proceed. If unanimity cannot be achieved as to the preferred course, then it may be decided by simple majority (i.e., 51%) of respondents to a request for an email response from the members of the AppIT between the following two alternatives:
+
+* The proposal may be reworked, and voting repeated after revision, or 
+* The decision may be handed over to the whole iTC. 
+
+Members of the APPIT should refrain from deciding not to participate in a vote. Members of the APPIT should try to personally contribute to the work of the AppIT to ensure continuity and consistency. They should make only rare use of delegation to other representatives of their organization (e.g., extended absence). All members of the AppIT can take advice of other members of their organization for their decision making, of course.   
+
+== Assigning Priorities
+
+=== Rationale
+
+Based on the estimated number of requests and the expertise of the members of the APPIT it is expected that the APPIT will be able to handle requests in a first come first serve method.  
+
+=== Steps following ‘action required’ decision: 
+
+==== No Action Required
+In case the AppIT comes to the conclusion that no action is required, it should draft the response, publish the result and inform the wider iTC about the outcome. The decision whether an action is required or not will be made during the weekly call of the AppIT. This means that the target time for a decision on 'action required or not' should usually not exceed one week. 
+
+==== Action Required
+In case the AppIT comes to the conclusion that an action is required; it should decide about the priority of the issue and an appropriate response time first. The target for having the draft agreed within the AppIT and ready for review by the wider iTC should be two weeks. The task to prepare a draft should be assigned to one or more members of the AppIT. The member(s) of the AppIT responsible for preparing a draft on a particular topic are also in charge of collecting all the communication on that topic for traceability and transparency. If the AppIT would reach consensus over the response (with or without voting) and approves it, the response shall be published without further involvement of the wider iTC (Remark: Way of publication is still under discussion). 
+
+If a vote is required for decision about the acceptance of a draft reply to a request for interpretation, it shall be ensured that the members of the APPIT had the chance to provide review comments on the draft (about 1 week) to avoid rejection of a draft for editorial reasons. Deadlines for votes should be specified for all votes. Members should have about one week of time to send in their votes to the group leader and deputy group leader. The voting period should include a weekend. 
+If the APPIT fails to reach consensus over the response and comes to the conclusion that reworking the response is not likely to lead to consensus, then the APPIT shall seek inputs (and, if necessary, a vote) on the response from the wider iTC. The APPIT shall then make the draft response available to the wider iTC and inform the iTC members to provide their feedback on the draft response within one week. 
+
+By default, the APPIT will be the arbiter of action to be taken in response to the iTC feedback and shall provide explanation/justification for any comment provided by the wider iTC that is rejected by the APPIT. The APPIT will therefore take the final decision on each interpretation unless there is a wider iTC vote that decides against the APPIT response (such a vote would be expected only in exceptional circumstances). 
+
+If a member of the APPIT works for an entity that is involved in a request for interpretation, the member should disclose this involvement (full disclosure). Due to this full transparency, there is no need to restrict the participation of this team member in the decision process, i.e., this member can still provide information on the subject, voice an opinion and participate in the vote (if applicable).
+
+=== Feedback to originator of an RFI 
+The APPIT is publishing their results on its related infrastructure (currently on Github). Originators of RFIs should check the APPIT related infrastructure for updates. Nevertheless, the APPIT intends to actively inform all originators of RFIs about the outcome of their RFI. APPIT will not provide status updates, though. In case an RFI is forwarded to the APPIT via a third party (e.g., a vendor's request which is forwarded to the APPIT via a laboratory or scheme), APPIT intends to provide the feedback to the forwarding third party expecting that this party will inform the true originator of the APPIT accordingly.
+If the APPIT has trouble to assess an RFI due to the lack of information or lack of clarity in the description of the RFI, the APPIT will decide whether it wants to seek clarification of the RFI or to reject the RFI. In case APPIT is seeking clarification for the RFI, the APPIT will contact the originator of the RFI or the forwarding third party, respectively.
+
+=== Focus of APPIT work 
+The APPIT is responsible for providing interpretations of the cPPs and SDs created and maintained by the APPSW iTC. What is summarized as 'Requests for Interpretation' (RFIs) is intended to trigger different types of actions according to the nature of each RFI. For example, an RFI could be intended to result in the modification of obviously erroneous requirements (i.e., error correction), a clarification of existing requirements, or the modification (including adding or deleting) of requirements. This holds for both cPPs and SDs.  
+
+The overall objective for the APPIT is not to introduce new requirements, though - neither through changes to the cPPs nor the SDs   because this is more properly done by a process that is open to the whole iTC. However, experience has shown that it is not always straightforward to determine when a new requirement is being introduced: this assessment is in general a subjective one, and the APPIT cannot easily guarantee that a change will not be perceived by some iTC participant as a new requirement. The alternative would be to subject all RFIs to review by the wider iTC which is not desirable because of the additional time this would impose in resolving each RFI. 
+To implement a process that allows the APPIT to serve a useful purpose and to respond efficiently to RFIs whilst also respecting the potential impact on the wider iTC, the handling of RFIs by the APPIT should therefore be in agreement with the following rules:
+Where the response to an RFI involves a change to an SFR or SAR, other than error corrections, the APPIT shall provide a ‘Technical Recommendation’ to the APPSW iTC and obtain agreement from the iTC.  The APPSW iTC shall be sent an email of the Technical Recommendation, if the APPIT does not receive a negative response within two weeks the Technical Recommendation is considered approved. All other changes (error correction of SFRs and SARs, changes to Application Notes, adding Application Notes, etc.) are handled by the APPIT itself (without involvement of the rest of the iTC) and results are documented as ‘Technical Decisions’. 
+For evaluation activities the situation is similar but the definition of criteria for determining a requirement change, and hence when agreement from the wider iTC should be sought is more difficult. Changing an Application Note in the cPP might require adding new tests to the SD. This should be acceptable as long as no security-related claims are added. If requirements for tests are modified or removed, then the APPIT needs to ensure that all SFR elements are still properly covered. Similar considerations apply to requirements on TSS and Guidance Documentation. Overall, if APPIT changes an evaluation activity in a way that impacts security-relevant claims, then the response to an RFI must provide a justification that the change would not leave unsubstantiated claims, nor introduce new requirements beyond those stated in the cPP. Otherwise, a Technical Recommendation for the RFI shall be handed over to the APPSW iTC to obtain iTC agreement (with modification as necessary to produce an agreed Technical Decision).  
+If a APPIT member feels that a APPIT Interpretation (which is handled by the APPIT itself without seeking agreement by the APPSW iTC) is introducing a new requirement or removing an existing requirement then this should be raised during discussion of the interpretation, and ultimately (if other members of the APPIT involved in the discussion do not agree at the time) then the member should vote against the proposed APPIT Interpretation. The rules defined for APPIT's voting and decision-making process should then be sufficient to ensure that if a significant minority of APPIT members believe that a requirement is being changed in a way that exceeds the remit of the APPIT, then agreement to the interpretation will have to be sought from the APPSW iTC.
+
+== Impact of Technical Decisions and Technical Recommendations on previous and future versions of cPPs and SDs 
+Technical Decisions and Technical Recommendations might also apply to previous versions of cPPs and SDs. Any new Technical Decision and Technical Recommendations will also be checked against previous cPP versions and SD versions which are still regarded as 'supported versions' by the APPSW iTC. Versions which are no longer supported by the APPSW iTC will not be checked. The reply to an RFI might need different wording for different cPP or SD versions. 
+
+Technical Decisions and Technical Recommendations are expected to be integrated into the next version of the corresponding cPP or SD, respectively. For example, a TD that is created while APPSWcPP V1 is the current version should be integrated into APPSWcPP V2. In case a TD or TR is created after public review of a new document version (e.g., during the editing phase of APPSWcPP V2 after public review but prior to release of APPSWcPP V2), this TD or TR might not make it into the new version and might therefore also apply to the new version (in this case V2). After release of a new cPP or SD version, the APPIT will check which TDs and TRs also apply to the new version and update the TDs and TRs respectively as AppIT. This is limited to a difference of one version. For example, if APPSWcPP V3 is released, only TDs and TRs related to APPSWcPP V2 are considered because all TDs and TRs related to APPSWcPP V1 should have been integrated latest in APPSWcPP V3.
+
+== Transition from APPIT Technical Recommendations to APPSW iTC Technical Decisions 
+
+=== Overview 
+
+APPIT TRs need to be approved by the wider APPIT iTC, as pointed out above. Since APPIT TRs already underwent an acceptance procedure before publication by the APPIT, it should be regarded as sufficient to ensure that there are no major objections by the members of the APPSW iTC within a given timeframe. At all decision steps the 'one vote per entity' rule applies. 
+The following figure shows the overall process: 
+Figure 2: General Process for translating APPIT TRs into iTC TDs
+
+After approval of a APPIT TR by the APPIT, the APPIT TR should be published on Github as quickly as possible. In addition, the publication of the APPIT TR shall be announced in a thread in Github. A separate thread shall be started for every single APPIT TR which should always reflect the current status of the APPIT TR.
+If objections are not raised in Github (at the same location as the publication of the APPIT TR(s)) by at least two different entities which are members of the APPSW iTC within two weeks after publication of the APPIT TR, the APPIT TR is regarded as approved. The status of the published APPIT TR shall be updated as 'approved by APPSW iTC' and the corresponding information shall be added to the tracking sheet of APPIT publications. 
+If objections are raised in Github (at the same location as the publication of the APPIT TR(s)) by at least two different entities which are members of the APPSW iTC within two weeks after publication of the APPIT TR, the APPIT TR is regarded as rejected. In that case, an ad-hoc Task Force (TF) shall be established within two weeks by posting a corresponding request to Github. Entities which are represented in the APPIT can also object as APPSW iTC members to a APPIT TR, but this situation is expected to be a rare case.
+Forming the ad-hoc Task Force (TF) 
+All entities which have raised objections to the APPIT TR are requested to send at least one representative to the TF. One of these representatives shall chair the TF. In addition, at least two APPIT members representing different entities and different entities than the entities opposing to the APPIT TR shall participate in the TF. Other volunteers from the APPSW iTC are welcome to the TFs as well, regardless of whether they object to the APPIT TR or not. Situations might occur where an entity raises an objection to a APPIT TR but does not (or not in time) nominate a representative for the TF. Due to this situation, the number of representatives of opposing entities in the TF might drop below two. If a leader of the TF has already been defined at this stage, the time to form the TF can be extended by a maximum of one week. If the number of representatives of opposing entities in the TF remains below two or no leader of the TF can be found, the objection is regarded as withdrawn and the APPIT TR is regarded as accepted. 
+
+When forming the TF has been completed successfully, the TF shall draft the APPSW iTC TD based on the APPIT TR. If a member of the APPSW iTC wants to join the TF after forming the TF has been completed, the TF members at this time shall decide about this request by simple majority (one vote per entity). 
+
+To approve the APPSW iTC TD the following rules apply: 
+
+•	• 51% or more of the valid votes received from members of the APPIT subgroup are in favour of the proposal. 
+
+The draft shall be updated until it is either accepted by the TF or the TF comes to the conclusion that acceptance cannot be achieved (simple majority). In the latter case the issue shall be handed over to the overall APPSW iTC. Although no strict limits are defined, the TF should target a resolution within a time frame of not more than one month. If the matter has neither been resolved within this time frame nor the majority of the TF members are of the opinion that the resolution is imminent, the TF should seriously consider handing the matter over to the full iTC.
+If the iTC TD is accepted by the TF, the TD shall be published on Github, and the publication shall be announced in the related APPIT TR. The status of the underlying APPIT TR shall be updated reflecting that it has been superseded by an iTC TD. The tracking sheet of APPIT publication shall be updated accordingly.
+== Participation 
+
+=== Membership in general 
+APPIT members are expected to actively contribute to APPIT activities and participate in the decision-making process. In particular members are expected to commit to at least a 50% level of attendance at APPIT online meetings. For the purposes of this threshold, attendance may include meetings attended by a nominated deputy on the member’s behalf, provided these comprise less than 50% of the member’s semi-annual attendances. For the purposes of this threshold, this may include votes provided by a nominated deputy on the member’s behalf, provided these comprise less than 50% of the member’s votes on semi-annual average. Participation rates in APPIT online meetings and votes are checked every 6 months by the group leader.
+
+Membership is in general unlimited in time as long as no special incidents occur (e.g., see regulations below if new applicants want to join the APPIT or regulations on involuntary leaving APPIT). Only members of the APPSW iTC can become APPIT members. APPIT will inform the APPSW iTC about all changes to the list of members. 
+The number of members of the APPIT should not exceed 15 and should also not drop below 5. If this happen, a warning should be sent to the APPSW iTC. If the number of members drops below 3, the APPIT should stop their work on requests for interpretation and hand this work over to the APPSW iTC until the number of members has increased to at least 3 members. 
+
+From time to time the APPIT may, at its discretion, accept non-voting participation by official representatives of the CC community (e.g., CCDB representatives, Scheme representatives, iTC or subgroup chairs, etc.). Non-voting participants are welcome to attend meetings and give input as they see AppIT. Non-voting participants are not subject to the same thresholds for meeting attendance as voting members. In particular the APPIT intends that the involvement of non-voting participants should encourage greater levels of Scheme participation and help to maintain support for cPPs in Position and Endorsement statements. 
+To become a non-voting participant, please contact the chair or deputy chair for consideration. The APPIT will discuss and approve using standard voting criteria.
+
+=== Becoming a APPIT member
+
+To become a APPIT member, a member of the APPSW iTC first makes an application to the APPIT group leader or deputy group leader. As long as there are less than 15 APPIT members, and as long as the general conditions of membership are met by the applicant, APPIT acknowledges the application and discusses the application in the next APPIT meeting. Any APPIT member can oppose the acceptance of a new member by informing APPIT about the underlying concerns. If at least 75% of the existing APPIT members support this opposition, the application is rejected. In the case of a successful application, the APPIT group leader or deputy defines the date when the applicant’s membership will become effective. The acceptance (or rejection) of an applicant should be completed no later than four weeks after the date of the application. 
+
+If there are already 15 APPIT members or more, APPIT will nonetheless discuss the application and will decide about acceptance of additional members according to APPIT's general decision-making rules (i.e., seeking consensus; voting if no consensus can be reached; for acceptance 51% or more of the valid votes are in favour of the). A waiting list may be maintained if the APPIT decides against accepting additional APPIT members at that time. The decision cannot be made related to specific applicants but only in favour or against new members in general. If the decision is against new APPIT members, then applicants would be added to the waiting list in the order of dates of their application. If the number of APPIT members subsequently drops below 15, or if the APPIT subsequently decides to accept new members, then membership would be offered to the next applicant on the waiting list. The applicant needs to accept the offer within four weeks. Otherwise, the applicant will be removed from the waiting list and membership will be offered to the next applicant on the waiting list. There are no mechanisms defined to 'bypass' other applicants on the waiting list. If a representative of one organisation is permanently handing over membership to a colleague working for the same organisation, this is not regarded as bypassing the waiting list. Any applicant who wants to be removed from the waiting list shall inform APPIT about this, and the list will be updated accordingly. 
+
+The status of applicants on the waiting list will be checked no later than every six months. If an applicant was not offered membership to APPIT within 6 months, APPIT members should reconsider accepting the application, reconsider the upper limit for APPIT members, find volunteers among APPIT members to offer their place in the APPIT to the applicant, or consider introducing a structured rotating process for APPIT membership. If an applicant on the waiting list was not offered a membership to APPIT within one year, the decision how to proceed should be handed over to the APPSW iTC. 
+
+Any APPIT member can oppose to the acceptance of an applicant on the waiting list in the same way as described above for opposing the acceptance of a new member. 
+APPIT will inform the APPSW iTC about all rejections of applications as members or to the waiting list as well as about all cases where applicants are removed from the waiting list (either due to their own wish or due to not responding to the offer of membership). APPIT will refrain from informing the APPSW iTC upon request of the applicant.
+
+=== Voluntarily leaving the APPIT 
+If a member of APPIT wishes to voluntarily leave the group, she/he needs to inform APPIT about this wish including the date when this decision should take effect. APPIT will acknowledge this. There is no step of acceptance required by APPIT. If there is a waiting list of applicants at this time, then the vacant position should then be offered to the next applicant on the waiting list. If the waiting list is empty and the loss of the APPIT member takes the membership below 15 then the APPIT should notify the APPSW iTC that it has membership vacancies. 
+
+=== Voluntarily handing over 
+If a member of APPIT wishes to permanently handing over her/his membership to a colleague working for the same organisation as herself/himself, the member has to inform APPIT about this wish including the date when this transition should take effect. APPIT has to be informed at least four weeks in advance about the handover. Any remaining APPIT member can oppose to the handover by informing APPIT about the underlying concerns. If at least 75% of the remaining APPIT members support this opposition, the APPIT member who wanted to hand over her/his membership will be given the opportunity to decide how to proceed (i.e., stay in the APPIT herself/himself, announce handover to another representative of her/his organisation or voluntarily leaving APPIT without replacement). 
+Although membership can be handed over (if not rejected), official roles cannot be handed over to another person (e.g., group leader, deputy group leader). Once vacated, official roles are subject to the group's decision-making process. 
+
+=== Involuntarily leaving the APPIT 
+Every APPIT member is expected to actively contribute to the work of the group. The thresholds in the decision criteria have been defined under this assumption. Inactive members are likely to affect the balance for decision making and might lead to the situation where some of the processes no longer work properly. Therefore, the APPIT needs some mechanisms that allow reacting to this situation and - in the worst case - expelling APPIT members from the APPIT. 
+
+A APPIT member may be given notice that their membership of the APPIT is under review in the following circumstances: 
+
+* *Where the member’s attendance at meetings (including attendance by a nominated deputy as discussed above) falls below the threshold in the general membership rules (i.e., 50% participation rate in online meetings averaged over 6 months); or 
+* Where a member has repeatedly been unable to undertake or complete tasks within the APPIT (since most APPIT tasks are assigned to groups of volunteers, this criterion includes situations where a member has not volunteered for a fair share of tasks taken on by the APPIT). 
+
+If the member does not display a consistent improvement in the relevant criteria during the period in which they are under review, then the remaining APPIT members may vote on whether the membership should be terminated. A vote will only be initiated if both, the chair of the group as well as the deputy chair of the group are in favour of starting the vote. 
+
+In addition to the rules defined above, APPIT reserves the right to expel a APPIT member due to major misconduct. Every APPIT member can raise the concern about the conduct of another APPIT member and propose to initiate consideration about expelling the affected APPIT member. For acceptance of such an incident, the proposal needs to be supported by two other APPIT members. If the proposal is not supported by two other APPIT members within two weeks, it will be rejected, and the incident will be documented. If the proposal is supported by two other APPIT members within two weeks, decision making about the incident will be initiated within four weeks. Both sides - the initiator and the affected APPIT member - shall be heard by the APPIT before decision making. 
+
+Regardless of the reason for the proposal of termination of membership, the affected APPIT member shall be informed by the group leader or deputy of the taking place of any such vote, and of its result. If membership of the APPIT is terminated then this does not prevent the individual from re-applying to join the APPIT in future, in which case their application shall be handled as for any other new applicant. 
+
+For all decisions regarding the termination of the membership of a APPIT member 75% of the APPIT members (excluding the affected APPIT member) need to vote in favour of doing so and no more than 25% vote against the termination of the membership of a APPIT member. If the proposal for termination of a APPIT member is accepted by the APPIT, the membership of the affected APPIT member shall be terminated no later than four weeks after the decision.
+
+== Relationship with schemes 
+This chapter describes the relationship between the APPSW iTC and Certificate Authorising Participants in the CCRA (“Schemes”). In particular it addresses the work of the APPIT within the APPSW iTC, in producing interpretations and updates to published versions of the APPSW cPPs and SDs.
+
+=== Current APPIT contacts 
+- (Chair) Garry McCracken (garry.mccracken@winmagic.com)
+- (Deputy) Joseph McDaniels (jmcdan3@uwe.nsa.gov)
+
+=== Participation 
+
+APPIT welcomes the advice and input of Schemes. To help ensure visibility into the workings of the APPIT, participation by Schemes as voting or non-voting entities is encouraged. To further that end, Scheme representatives are invited to attend the (currently weekly) APPIT meetings as desired. E-mailing APPIT with feedback or requirements is also encouraged. If a Scheme is a voting member of the APPIT and sends multiple representatives, it will still only receive one vote for voting purposes. 
+For Schemes who would like to follow the workings of the APPIT, a point-of-contact would be helpful so that we could proactively provide information and solicit feedback as needed. 
+
+All enquiries about participation in the APPIT should be directed to the APPIT contacts identified above.
+
+== RFIs 
+
+=== Submitting 
+When questions come up regarding the cPPs or SDs maintained by APPSW iTC, users are encouraged to submit a Request for Interpretation (RFI) to the APPIT. For on-going certification projects, RFIs shall be sent through the scheme related to the certification. All requests outside running certification projects (e.g., during a project preparation phase or during gap analysis) can be sent also to the APPIT (garry.mccracken@winmagic.com, jmcdan3@uwe.nsa.gov) directly, e.g., by vendors, consultants or laboratories. To do so, the user should email both APPIT contacts the following information using the template provided by the APPIT for RFI submittal on Github:
+
+* Document affected 
+* Section in question (reference to SFR or subchapter in SD) 
+* Question (RFIs are restricted to single questions except RFIs submitted by schemes) 
+* Proposed solution (if any) 
+* Whether the question pertains to a current certification 
+
+Schemes could alternatively send in RFIs without using the RFI submittal template. 
+
+The APPIT will prioritize the RFI according to its documented criteria and return a response after consideration. +-
+
+APPIT requests that interpretations made by Schemes in the course of their certifications against the cPPs maintained by APPSW iTC are notified to the APPIT, so that the cPPs, SDs and interpretations (as appropriate) can be updated using this feedback. This will help to maintain the visibility of Evaluation Activities and hence the consistency and reproducibility of evaluations against the relevant cPPs.
+
+=== Publishing & Adoption 
+After an RFI has been considered by the APPIT and a APPIT interpretation has been agreed upon, the APPIT will publish its interpretation only on GitHub. 
+
+As described in "Focus of APPIT work" above, APPIT interpretations comprise APPIT Decisions and APPIT Recommendations. APPIT Decisions become active when they are published; APPIT Recommendations need to be approved by the APPSW iTC. After a APPIT interpretation has been published (and approved in the case of APPIT Recommendations), it is up to Scheme policy as to when the published RFIs are adopted and applied to that Scheme’s certifications. In general, the APPIT recommends that APPIT interpretations be optional for the first 90 days after publication, after which they be applied to new certifications   new interpretations should not be made mandatory for in process certifications. This 90-day period allows time for developers and evaluators to plan evaluations and develop evidence based on a stable and predictable set of interpretations. However, the 90-day window does not prevent earlier adoption if agreed by all parties to the certification (i.e., developer, evaluator and certifier). 
+
+Where a APPIT interpretation identifies an action to update a future version of one of the iTC’s cPPs or SDs, the update will generally be applied in the next major or minor version that is published for iTC or public review. Where approval of a APPIT interpretation by the wider iTC is required, the opportunity to comment as part of an iTC or public review of a cPP/SD version incorporating updates based on that APPIT interpretation will be counted as review of the interpretation by the wider iTC. Comments arising from the review will then be handled by the normal editorial process.
+
+=== Differences of Interpretation 
+The APPIT aims to produce interpretations that it believes will be acceptable to all Schemes; however, it recognizes that there may be occasions where a Scheme disagrees with a decision the APPIT has made. In this case it remains a Scheme’s prerogative to apply alternative interpretations as it sees AppIT. Ideally, if such a situation arises, then the Scheme would raise any such problem with the APPIT by submitting an RFI (including an explanation of the reason for adopting an alternative interpretation) as soon as the problem is recognized, thus giving the earliest opportunity to resolve the conflict and therefore to keep certifications consistent.
+
+The APPIT will then consider the new RFI and attempt to find a resolution (probably in the form of an updated interpretation) that addresses the additional issues raised by the Scheme. In some cases, it may be possible for the APPIT to make a resolution by modifying the cPP or SD such that alternative national requirements can be identified in Position Statements and Endorsement Statements. In other cases, a mutually agreeable resolution may not be able to be reached and the RFI may remain as issued.
+Changing the APPIT process
+
+The decision-making process on changes to the APPIT process should be handled by the APPIT itself, but any intended changes to the APPIT process need to be posted to an Github discussion item to ensure they are visible to the wider iTC and that any comments from the wider iTC on the planned changes shall be considered by the APPIT. When the APPIT votes on changes to its own process, this should be stricter than for proposals to answer requests for interpretation. In practice this means:
+
+* The group leader and deputy will seek 100% participation rate in the vote.  The vote will be open for 30 days. Any member who does not vote within the time period will not be counted for purposes of deciding how many votes are needed to pass the proposal.
+* Accepting a proposed process change within the APPIT requires that 75% of the APPIT members cast valid votes in favour of the proposal. 
+ Note that the potential impact of an insufficient response to a comment from the wider iTC is that the iTC may challenge the conclusion and conduct an iTC-wide vote. 
+
+== Appendix A: Backup Priority Assignment
+This method is being preserved as a backup in case of the first come first serve method is insufficient.  
+
+=== Rationale
+If it is determined by the APPIT that the current first come first serve method of prioritization is insufficient to handle the requests this point method is being preserved as a fall back.  With limited resources and multiple Requests for Interpretation (RFI) requests there must be a formal method to categorize, accept or reject, and assign priority to each accepted case.
+
+=== Method
+Each new request is assigned a point value based on ‘Positive’ and ‘Negative’ criteria listed below. The overall score is the total of all positive and negative points. Any request that reaches a negative score is removed from consideration. The assigned score is not published but is tracked and accessible to all APPIT members. 
+
+Positive Points
+* Request contains clear problem description and rationale (+1)
+* Request is related to an active evaluation (+3)
+* Request is originated from a Scheme that ratified APPSWcPP (+1)
+* Request has a Scheme-proposed solution (+5)
+* Request is originated from wider iTC and has a consensus-based solution (+5)
+* There are/were similar requests in the past that were not considered (+1)
+* Request spent 2 weeks in the queue waiting for consideration (+1 each 2 weeks)
+
+Negative Points
+* Request is asking permission to set aside a reporting requirement, a testing requirement, or to modify a functional requirement (-1)
+* Request is unreasonably broad in scope (-1)
+* Request contains more than one unrelated issue (-1)
+* Request is a question that could be unambiguously answered by reading the PP or SD (-3)
+* There is an existing decision covering the topic and there are no new considerations offered (-3)
+* Request is not directly related to APPSW AA, EE or relevant extended packages (-5)
+* Request originates from an unrelated organization but is closely related to one waiting for consideration (+1 to already open RFI; no additional RFI will be created; consolidate to avoid duplicates)
