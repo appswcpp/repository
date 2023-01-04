@@ -124,11 +124,11 @@ It should be noted that there is no expectation that the evaluators attempt to c
 
 The following are the per-platform list of acceptable APIs:
 
-Test 1: [conditional] For Windows platform, the evaluator shall verify that BCryptGenRandom or CryptGenRandom API is used for classic desktop applications. The evaluator shall verify that the System.Random API is used for Windows Universal Applications. 
+Test 1: [conditional] The evaluator shall verify that rand_s, RtlGenRandom, BCryptGenRandom, or CryptGenRandom API is used for classic desktop applications. The evaluator shall verify the application uses the RNGCryptoServiceProvider class or derives a class from System.Security.Cryptography.RandomNumberGenerator API for Windows Universal Applications. It is only required that the API is called/invoked, there is no requirement that the API be used directly. In future versions of this document, CryptGenRandom may be removed as an option as it is no longer the preferred API per vendor documentation.
 
 Test 2: [conditional] For Linux platform, the evaluator shall verify that the application collects random from /dev/random or /dev/urandom.
 
-Test 3: [conditional] For macOS, the evaluator shall verify that the application uses /dev/random to acquire random.
+Test 3: [conditional] The evaluator shall verify that the application invokes either CCRandomGenerateBytes or CCRandomCopyBytes, or collects random from /dev/random.
 
 If invocation of platform-provided functionality is achieved in another way, the evaluator shall ensure the TSS describes how this is carried out, and how it is equivalent to the methods listed here (e.g. higher-level API invokes identical low-level API).
 
