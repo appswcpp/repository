@@ -174,7 +174,7 @@ SFR Rationale:
 
 * FCS_STO_EXT.1 and FCS_CKM.1/PBKDF2 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.
 
-* FIA_AFL_EXT.1, FIA_EIP_EXT.1, FIA_UAU.7, FIA_UAU_EXT.5, FIA_UAU_EXT.2, FIA_UIA_EXT.1, and FTA_TAB.1 ensures that an appropriate mechanism is in place to ensure only an authorized user can interact with the application (if interactive).
+* FIA_AFL.1, FIA_EIP_EXT.1, FIA_UAU.7, FIA_UAU_EXT.5, FIA_UAU_EXT.2, FIA_UIA_EXT.1, and FTA_TAB.1 ensures that an appropriate mechanism is in place to ensure only an authorized user can interact with the application (if interactive).
 
 * FTP_DIT_EXT.1 specifies the use of secure communication channels to protect data in transit.
 
@@ -244,11 +244,6 @@ The user of the application is trusted to use the software in compliance with th
 The administrator of the application is trusted to administer the software within compliance of the applied enterprise security policy.
 
 `[OE.PROPER_ADMIN]`
-
-==== A.SECURE_LOCATION
-For enterprise servers that run enterprise applications, it is assumed that these servers are housed in a physically secure location
-
-`[OE.SECURE_LOCATION]`
  
 === Organizational Security Policies
 There are no OSPs for applications. 
@@ -261,7 +256,7 @@ This cPP does not define any security objectives for the TOE as it is a ‘low-a
 === Security Objectives for the Operational Environment
 
 ==== OE.PLATFORM
-The TOE relies upon the underlying platform for its security and as a result this platform must be trustworthy. It is the organization’s responsibility to ensure that the platform meets the trustworthiness requirements of the organization’s security policies.
+The TOE relies upon the underlying platform for its security and as a result this platform must be trustworthy and appropriately protected. It is the organization’s responsibility to ensure that the platform meets the trustworthiness requirements of the organization’s security policies.
 
 ==== OE.PROPER_USER
 The user of the application uses the software within compliance of the applied enterprise security policy.
@@ -710,13 +705,13 @@ If the TOE acts as both a client and server and the selections are different, th
 
 This section defines selection based Identification and Authentication requirements that underlie other security properties of the TOE.
 
-==== Authentication Failure (FIA_AFL_EXT)
+==== Authentication Failure (FIA_AFL)
 
-===== FIA_AFL_EXT X.509 Authentication Failure Management
+===== FIA_AFL.1 Authentication Failure Management
 
-*FIA_AFL_EXT.1.1* The TSF shall detect when a configurable positive integer within [_assignment: range of acceptable values for each authentication mechanism_] of unsuccessful authentication attempts occur related to last successful authentication for each authentication mechanism.
+*FIA_AFL.1.1* The TSF shall detect when *a configurable positive integer within* [ _assignment_: range of acceptable values *for each authentication mechanism*] of unsuccessful authentication attempts occur related to *last successful authentication for each authentication mechanism.*
 
-*FIA_AFL_EXT.1.2* When the defined number of unsuccessful authentication attempts has been [.underline]#met#, the TSF shall [_selection: prevent the offending Administrator from successfully establishing a session using the locked authentication method until [assignment: action to unlock] is taken by an Administrator; prevent the offending Administrator from successfully establishing a session using any authentication method until an Administrator-defined time period has elapsed_].
+*FIA_AFL.1.2* When the defined number of unsuccessful authentication attempts has been *met*, the TSF shall *[_selection: prevent the offending Administrator from successfully establishing a session using the locked authentication method until [assignment: action to unlock] is taken by an Administrator; prevent the offending Administrator from successfully establishing a session using any authentication method until an Administrator-defined time period has elapsed_].*
 
 ==== External Identity Provider (FIA_EIP_EXT)
 
@@ -748,11 +743,15 @@ This section defines selection based Identification and Authentication requireme
 
 ===== FIA_UAU_EXT.5 User Authentication Mechanisms
 
+--
+Start here next. Do these need to move into the base SFRs?
+--
+
 *FIA_UAU_EXT.5.1* The TSF shall [_selection: provide an authentication mechanism, integrate with an external identity provider_] to support user authentication.
 
 *FIA_UAU_EXT.5.2* The TSF shall consider [_selection: password, SSH Public Key, X.509 certificate, [assignment: other authentication mechanism]_] as authentication mechanisms.
 
-*Application Note {counter:appnote}:* If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL_EXT.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2.
+*Application Note {counter:appnote}:* If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2.
 
 *Application Note {counter:appnote}:* If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs must be included in the ST: FIA_EIP_EXT.1.
 
