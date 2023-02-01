@@ -307,8 +307,8 @@ Where compliance to RFCs is referred to in SFRs, this is intended to be demonstr
 This section defines cryptographic requirements that underlie other security properties of the TOE.
 
 ==== Random Bit Generation Services (FCS_RBG)
-===== FCS_RBG_EXT.2 Random Bit Generation Services
-*FCS_RBG_EXT.2.1* The application shall [_selection: use no DRBG functionality, invoke platform-provided DRBG functionality, implement DRBG functionality according to FCS_RBG_EXT.1_] for its cryptographic operations.
+===== FCS_RBG_EXT.1 Random Bit Generation Services
+*FCS_RBG_EXT.1.1* The application shall [_selection: use no DRBG functionality, invoke platform-provided DRBG functionality, implement DRBG functionality according to FCS_RBG_EXT.2_] for its cryptographic operations.
 
 *Application Note {counter:appnote}:* In this requirement, cryptographic operations include all cryptographic key generation/derivation/agreement, IVs (for certain modes), as well as protocol-specific random values.
 
@@ -336,7 +336,7 @@ Management functions in this section describe required capabilities to support a
 ===== FMT_CFG_EXT.1 (Default Configuration)
 *FMT_CFG_EXT.1.1* Any default credentials supported by the TSF shall be changed [_selection: during installation, before application is operational_].
 
-*Application Note {counter:appnote}:* Manufacturer default credentials are credentials (e.g., passwords, keys) that are automatically (without user interaction) loaded onto the platform during application installation. Credentials generated during or after the installation using requirements laid out in FCS_RBG_EXT.1 are not by definition default credentials.
+*Application Note {counter:appnote}:* Manufacturer default credentials are credentials (e.g., passwords, keys) that are automatically (without user interaction) loaded onto the platform during application installation. Credentials generated during or after the installation using requirements laid out in FCS_RBG_EXT.2 are not by definition default credentials.
 An application is considered operational once initial set-up is complete or at first use.
 
 The changing of default credentials has to be enforced by the application.
@@ -432,7 +432,7 @@ This section defines requirements for a trusted communication path between the T
 *FTP_DIT_EXT.1.1* The application shall [_selection:_
 
 * _not transmit any data,_ 
-* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1 in accordance with FCS_CKM.2, TLS as specified in the [TLS Package] in accordance with FCS_CKM.2, DTLS as specified in [TLS Package] in accordance with FCS_CKM.2, SSH as specified in [SSH Package]] in accordance with FCS_CKM.2,_ 
+* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client, HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server, HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, TLS as a server as defined in the Functional Package for TLS and also supports functionality for [selection: mutual authentication, none], TLS as a client as defined in the Functional Package for TLS, DTLS as a server as defined in the Functional Package for TLS and also supports functionality for [selection: mutual authentication, none], DTLS as a client as defined in the Functional Package for TLS, SSH as defined in the Functional Package for Secure Shell,_
 * _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1 in accordance with FCS_CKM.2, TLS as specified in the [TLS Package] in accordance with FCS_CKM.2, DTLS as specified in [TLS Package] in accordance with FCS_CKM.2, SSH as specified in [SSH Package]] in accordance with FCS_CKM.2_]
 
 between itself and another trusted IT product.
@@ -564,7 +564,7 @@ This section defines optional cryptographic requirements that underlie other sec
 
 ===== FCS_CKM.1/Symmetric Cryptographic Key Generation
 
-*FCS_CKM.1.1/Symmetric* The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [_assignment: cryptographic key generation algorithm_] using a Random Bit Generator as specified in FCS_RBG_EXT.1 and specified cryptographic key sizes [_selection: 128 bit, 256 bit_]. that meet the following: [_assignment: list of standards_].
+*FCS_CKM.1.1/Symmetric* The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [_assignment: cryptographic key generation algorithm_] using a Random Bit Generator as specified in FCS_RBG_EXT.2 and specified cryptographic key sizes [_selection: 128 bit, 256 bit_]. that meet the following: [_assignment: list of standards_].
 
 *Application Note {counter:appnote}:* Symmetric keys may be used to generate keys along the key chain.
 
@@ -588,11 +588,11 @@ This section defines selection based cryptographic requirements that underlie ot
 
 ==== Random Bit Generation (Extended – FCS_RBG_EXT)
 
-===== FCS_RBG_EXT.1 Random Bit Generation
+===== FCS_RBG_EXT.2 Random Bit Generation
 
-*FCS_RBG_EXT.1.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [_selection: Hash_DRBG (any) in accordance with FCS_COP.1/Hash, HMAC_DRBG (any) in accordance with FCS_COP.1/KeyedHash, CTR_DRBG (AES) in accordance with FCS_COP.1/DataEncryption]_.
+*FCS_RBG_EXT.2.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [_selection: Hash_DRBG (any) in accordance with FCS_COP.1/Hash, HMAC_DRBG (any) in accordance with FCS_COP.1/KeyedHash, CTR_DRBG (AES) in accordance with FCS_COP.1/DataEncryption]_.
 
-*FCS_RBG_EXT.1.2* The deterministic RBG shall be seeded by at least one entropy sources that accumulates entropy from [_selection: [assignment: number of software-based sources] software-based noise source(s), [assignment: number of hardware-based sources] hardware-based noise source(s_] with a minimum of [_selection: 128 bits, 192 bits, 256 bits_] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.
+*FCS_RBG_EXT.2.2* The deterministic RBG shall be seeded by at least one entropy sources that accumulates entropy from [_selection: [assignment: number of software-based sources] software-based noise source(s), [assignment: number of hardware-based sources] hardware-based noise source(s_] with a minimum of [_selection: 128 bits, 192 bits, 256 bits_] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.
 
 *Application Note {counter:appnote}:* This requirement shall be included in STs in which implement DRBG functionality is chosen in FCS_RBG_EXT.2.1.
 
@@ -957,14 +957,14 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 [loweralpha]
 . Minimal: failure of the randomization process
 
-===== FCS_RBG_EXT.1 Random Bit Generation
+===== FCS_RBG_EXT.2 Random Bit Generation
 Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_RBG_EXT.1.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [_selection: Hash_DRBG (any), HMAC_DRBG (any), CTR_DRBG (AES)_].
+*FCS_RBG_EXT.2.1* The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [_selection: Hash_DRBG (any), HMAC_DRBG (any), CTR_DRBG (AES)_].
 
-*FCS_RBG_EXT.1.2* The deterministic RBG shall be seeded by at least one entropy source that accumulates entropy from [_selection: [assignment: number of software-based sources] software-based noise source, [assignment: number of hardware-based sources] hardware-based noise source_] with a minimum of [_selection: 128 bits, 192 bits, 256 bits_] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate. 
+*FCS_RBG_EXT.2.2* The deterministic RBG shall be seeded by at least one entropy source that accumulates entropy from [_selection: [assignment: number of software-based sources] software-based noise source, [assignment: number of hardware-based sources] hardware-based noise source_] with a minimum of [_selection: 128 bits, 192 bits, 256 bits_] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate. 
 
 ===== FCS_RBG_EXT.2 Random Bit Generation Services
 Hierarchical to: No other components
@@ -1374,7 +1374,9 @@ Hierarchical to:	No other components
 
 Dependencies:		No other components
 
-*FPT_AEX_EXT.1.1* The application shall not request to map memory at an explicit address except for [_assignment: list of explicit exceptions_]. 
+*FPT_AEX_EXT.1.1* The application shall not request to map memory at an explicit address except for [_selection:_
+
+* no exceptions, _assignment: list of explicit exceptions_]. 
 
 *FPT_AEX_EXT.1.2* The application shall [_selection:_
 
@@ -1493,14 +1495,14 @@ Components in this family address requirements to ensure the TOE either doesn’
 
 FTP_DIT_EXT.1 ensures that if the TOE transmits sensitive data it is done so inside of a secure tunnel protected by HTTPs, TLS, DTLS or SSH. 
 
-===== Management: FPT_API_EXT.2
+===== Management: FTP_DIT_EXT.2
 
 The following actions could be considered for the management functions in FPT:
 
 [loweralpha]
 . There are no management activities foreseen
 
-===== Audit: FPT_API_EXT.2
+===== Audit: FTP_DIT_EXT.2
 
 The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
 
@@ -1519,8 +1521,8 @@ Dependencies:		No other components
 *FTP_DIT_EXT.1.1* The application shall [_selection:_
 
 * _not transmit any data,_ 
-* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]],_ 
-* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]]_]
+* _encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client, HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server, HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, TLS as a server as defined in the Functional Package for TLS and also supports functionality for [selection: mutual authentication, none], TLS as a client as defined in the Functional Package for TLS, DTLS as a server as defined in the Functional Package for TLS and also supports functionality for [selection: mutual authentication, none], DTLS as a client as defined in the Functional Package for TLS, SSH as defined in the Functional Package for Secure Shell,_
+* _invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1 in accordance with FCS_CKM.2, TLS as specified in the [TLS Package] in accordance with FCS_CKM.2, DTLS as specified in [TLS Package] in accordance with FCS_CKM.2, SSH as specified in [SSH Package]] in accordance with FCS_CKM.2_]
 
 between itself and another trusted IT product.
 
@@ -1759,7 +1761,7 @@ The dependencies between SFRs implemented by the TOE are addressed as follows.
 |Dependencies
 |Rationale Statement
 
-|FCS_RBG_EXT.2.1
+|FCS_RBG_EXT.1
 |None
 |
 
@@ -1776,6 +1778,10 @@ The dependencies between SFRs implemented by the TOE are addressed as follows.
 |
 
 |FMT_SMF.1
+|None
+|
+
+|FPT_API_EXT.1
 |None
 |
 
@@ -1821,7 +1827,7 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 |Dependencies
 |Rationale Statement
 
-|FCS_RBG_EXT.2.1
+|FCS_CKM.1/PBKDF2
 |None
 |
 
@@ -1864,6 +1870,26 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 |FCS_COP.1/KeyedHash
 
 |FCS_HTTPS_EXT.1
+|None
+|
+
+|FCS_RBG_EXT.2
+|None
+|
+
+|FIA_EIP_EXT.1
+|None
+|
+
+|FIA_UAU_EXT.2
+|None
+|
+
+|FIA_UAU_EXT.5
+|FIA_UAU_EXT.2
+|FIA_UAU_EXT.2 ensures valid implementation of the authentication mechanism.
+
+|FIA_UIA_EXT.1
 |None
 |
 

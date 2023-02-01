@@ -103,7 +103,7 @@ Finally, the subsection labelled Tests is where the iTC has determined that test
 
 ==== Random Bit Generation Services (FCS_RBG)
 
-===== FCS_RBG_EXT.2
+===== FCS_RBG_EXT.1
 
 ====== TSS
 
@@ -111,7 +111,7 @@ Finally, the subsection labelled Tests is where the iTC has determined that test
 
 [Conditional] If *invoke platform-provided DRBG functionality* is selected, the evaluator shall examine the TSS to confirm that it identifies all functions (as described by the SFRs included in the ST) that obtain random numbers from the platform RBG. The evaluator shall determine that for each of these functions, the TSS states which platform interface (API) is used to obtain the random numbers. The evaluator shall confirm that each of these interfaces corresponds to the acceptable interfaces listed for each platform below in Test activities.
 
-[Conditional] If *implement DRBG functionality* is selected, the evaluator shall ensure that FCS_RBG_EXT.1 is included in the ST. 
+[Conditional] If *implement DRBG functionality* is selected, the evaluator shall ensure that FCS_RBG_EXT.2 is included in the ST. 
 
 ====== Operational Guidance
 
@@ -450,7 +450,7 @@ Test 3: [conditional] If credentials are transmitted the evaluator shall set the
 
 ====== TSS
 
-The evaluator shall review the TSS to determine that it describes how the functionality described by FCS_RBG_EXT.1 is invoked. 
+The evaluator shall review the TSS to determine that it describes how the functionality described by FCS_RBG_EXT.2 is invoked. 
 
 If the application is relying on random bit generation from the host platform, the evaluator shall verify the TSS includes the name/manufacturer of the external RBG and describes the function call and parameters used when calling the external DRBG function. If different external RBGs are used for different platforms, the evaluator shall verify the TSS identifies each RBG for each platform. Also, the evaluator shall verify the TSS includes a short description of the vendor's assumption for the amount of entropy seeding the external DRBG. The evaluator uses the description of the RBG functionality in FCS_RBG_EXT or documentation available for the operational environment to determine that the key size being requested is identical to the key size and mode to be used for the encryption/decryption of the user data.
 
@@ -484,7 +484,7 @@ No activities specified.
 
 === Cryptograhic Support (FCS)
 
-==== Random Bit Generation (FCS_RBG_EXT.1)
+==== Random Bit Generation (FCS_RBG_EXT.2)
 
 Documentation shall be produced—and the evaluator shall perform the activities—in accordance with Appendix D of [SWAppcPP]. 
 
@@ -607,7 +607,7 @@ Testing for FFC Schemes using safe-prime groups is done as part of testing in FC
 
 ====== TSS
 
-Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that the formation of all password based derived keys is described and that the key sizes match that described by the ST author. The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify that these are supported by the selections in this component as well as the selections concerning the hash function itself. The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the submask that will be input into the function. For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash). No explicit testing of the formation of the submask from the input password is required. FCS_CKM.1.1/PBKDF: The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.1.
+Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that the formation of all password based derived keys is described and that the key sizes match that described by the ST author. The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify that these are supported by the selections in this component as well as the selections concerning the hash function itself. The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the submask that will be input into the function. For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash). No explicit testing of the formation of the submask from the input password is required. FCS_CKM.1.1/PBKDF: The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.2.
 
 ====== Operational Guidance
 
