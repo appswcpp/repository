@@ -292,7 +292,7 @@ The following conventions are used for the completion of operations:
 
 * [text within square brackets] indicates the completion of a selection.
 
-* Number in parentheses after SFR name, e.g. (1) indicates the completion of an iteration.
+* A text descriptor after an SFR name, e.g. "/Asymmetric" indicates the completion of an iteration.
 
 * Extended SFRs are identified by having a label “EXT” at the end of the SFR name.
 
@@ -720,7 +720,7 @@ This section defines selection based Identification and Authentication requireme
 
 ===== FIA_AFL.1 Authentication Failure Management
 
-*FIA_AFL.1.1* The TSF shall detect when *a configurable positive integer within* [ _assignment_: range of acceptable values *for each authentication mechanism*] of unsuccessful authentication attempts occur related to *last successful authentication for each authentication mechanism.*
+*FIA_AFL.1.1* The TSF shall detect when *a configurable positive integer* [ _assignment_: range of acceptable values less than 64 *for each password-based authentication mechanism*] of unsuccessful authentication attempts occur related to *last successful authentication for each password-based authentication mechanism.*
 
 *FIA_AFL.1.2* When the defined number of unsuccessful authentication attempts has been *met*, the TSF shall *[_selection: prevent the offending Administrator from successfully establishing a session using the locked authentication method until [assignment: action to unlock] is taken by an Administrator; prevent the offending Administrator from successfully establishing a session using any authentication method until an Administrator-defined time period has elapsed_].*
 
@@ -1250,10 +1250,10 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 
 ===== FIA_X509_EXT.1 Certificate Validation
 
-===== FIA_X509_EXT.1	X.509 Certificate Validation
+===== FIA_X509_EXT.1 X.509 Certificate Validation
 Hierarchical to:	No other components
 
-Dependencies:		FIA_X509_EXT.2 X.509 Certificate Authentication
+Dependencies: FIA_X509_EXT.2 X.509 Certificate Authentication
 
 *FIA_X509_EXT.1.1/Rev* The application shall [_selection: invoke platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 
@@ -1281,10 +1281,10 @@ Dependencies:		FIA_X509_EXT.2 X.509 Certificate Authentication
 
 *FIA_X509_EXT.1.2* The TSF shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.
 
-===== FIA_X509_EXT.2	X.509 Certificate Validation
+===== FIA_X509_EXT.2 X.509 Certificate Validation
 Hierarchical to:	No other components
 
-Dependencies:		FIA_X509_EXT.1 X.509 Certificate Authentication
+Dependencies: FIA_X509_EXT.1 X.509 Certificate Authentication
 
 *FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS_], and [_selection: code signing for system software updates, code signing for integrity verification, [assignment: other uses], no additional uses_].
 
@@ -1420,7 +1420,7 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 [loweralpha]
 . No audit necessary
 
-===== FPT_API_EXT.2	Use of Supported Services and APIs
+===== FPT_API_EXT.2 Use of Supported Services and APIs
 
 Hierarchical to:	No other components 
 
@@ -1473,6 +1473,8 @@ Dependencies:		No other components
 
 *FPT_TUD_EXT.1.2*	The application installation package and its updates shall be digitally signed such that the [_selection: TOE, platform_] can cryptographically verify them prior to installation.
 
+=== Trust Path/Channel (FTP)
+
 ==== Data in Transit (FTP_DIT_EXT)
 
 ===== Family Behaviour
@@ -1505,8 +1507,6 @@ The following actions should be auditable if FAU_GEN Security audit data generat
 
 [loweralpha]
 . No audit necessary
-
-=== Trust Path/Channel (FTP)
 
 ==== FTP_DIT_EXT.1 Data in Transit
 
