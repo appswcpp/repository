@@ -8,6 +8,7 @@
 :icons: font
 :revnumber: 1.0 
 :revdate: 2022-04-06
+:shortname: cPP_APP_SW_V{revnumber}
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -68,6 +69,7 @@ For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
 == PP Introduction
 === PP Reference Identification
 - PP Reference: {doctitle}
+- PP Short Name: {shortname}
 - PP Version: {revnumber}
 - PP Date: {revdate}
 
@@ -181,7 +183,7 @@ An attacker may attempt to gain administrator access to the application by nefar
 
 SFR Rationale:
 
-* FMT_CFG_EXT.1 ensures that an attacker cannot gain administrator access via nefarious means.
+* FMT_CFG_EXT.1 ensures that an attacker cannot gain administrator access via misconfiguration of the application.
 
 * FCS_STO_EXT.1 and FCS_CKM.1/PBKDF2 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.
 
@@ -589,9 +591,9 @@ This section defines selection based cryptographic requirements that underlie ot
 
 *FCS_RBG_EXT.2.2* The deterministic RBG shall be seeded by at least one entropy sources that accumulates entropy from [_selection: [assignment: number of software-based sources] software-based noise source(s), [assignment: number of hardware-based sources] hardware-based noise source(s_] with a minimum of [_selection: 128 bits, 192 bits, 256 bits_] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.
 
-*Application Note {counter:appnote}:* This requirement shall be included in STs in which implement DRBG functionality is chosen in FCS_RBG_EXT.2.1.
+*Application Note {counter:appnote}:* This requirement shall be included in STs where "implement DRBG functionality" is selected in FCS_RBG_EXT.1.1.
 
-For the first selection in FCS_RBG_EXT.1.2, the ST author selects at least one of the types of noise sources. If the TOE contains multiple noise sources of the same type, the ST author fills the assignment with the appropriate number for each type of source (e.g., 2 software-based noise sources, 1 hardware-based noise source). The documentation and tests required in the Evaluation Activity for this element should be repeated to cover each source indicated in the ST. 
+For the first selection in FCS_RBG_EXT.2.2, the ST author selects at least one of the types of noise sources. If the TOE contains multiple noise sources of the same type, the ST author fills the assignment with the appropriate number for each type of source (e.g., 2 software-based noise sources, 1 hardware-based noise source). The documentation and tests required in the Evaluation Activity for this element should be repeated to cover each source indicated in the ST. 
 
 ISO/IEC 18031:2011 contains three different methods of generating random numbers; each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers). The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement. While any of the identified hash functions (SHA-1, SHA-256, SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG, only AES-based implementations for CTR_DRBG are allowed. 
 
@@ -613,8 +615,7 @@ If the key length for the AES implementation used here is different than that us
 * _ECC schemes using “NIST curves” [selection: P-256, P-384, P-521] that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;_
 * _FFC schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.1_
 * _FFC Schemes using ‘safe-prime’ groups that meet the following: “NIST Special Publication 800-56A Revision 3, Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography” and [selection: RFC 3526, RFC 7919]_
-
-    ] 
+] 
 
 and specified cryptographic key sizes [_assignment: cryptographic key sizes_] that meet the following: [_assignment: list of standards_].
 
@@ -762,15 +763,15 @@ Start here next. Do these need to move into the base SFRs?
 
 *FIA_UAU_EXT.5.2* The TSF shall consider [_selection: password, SSH Public Key, X.509 certificate, [assignment: other authentication mechanism]_] as authentication mechanisms.
 
-*Application Note {counter:appnote}:* If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2.
+*Application Note {counter:appnote}:* If the TOE implements its own authentication mechanism, “provide an authentication mechanism” shall be selected and the following selection-based SFRs shall be include in the ST: FIA_AFL.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2.
 
-*Application Note {counter:appnote}:* If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs must be included in the ST: FIA_EIP_EXT.1.
+*Application Note {counter:appnote}:* If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs shall be included in the ST: FIA_EIP_EXT.1.
 
 ===== FIA_UAU.7 Protected authentication feedback
 
 *FIA_UAU.7.1* The TSF shall provide only _obscured feedback_ to the administrative user while the authentication is in progress.
 
-*Application Note {counter:appnote}:* The TSF may permit user interaction to display the input data. However, this may not be the default state and must revert to an obfuscated state after user interaction.
+*Application Note {counter:appnote}:* The TSF may permit user interaction to display the input data. However, this may not be the default state and shall revert to an obfuscated state after user interaction.
 
 ==== X.509 Certificate Validation (FIA_X509_EXT)
 
@@ -824,7 +825,7 @@ The ST author must include FIA_X509_EXT.2 in all instances except when only SSH 
 
 *FTA_TAB.1.1* Before establishing an administrative user session the TSF shall display a Security Administrator-specified advisory notice and consent warning message regarding use of the TOE.
 
-*Application Note {counter:appnote}:* This requirement should be included if the selection for a warning banner is made within FIA_UIA_EXT.1.
+*Application Note {counter:appnote}:* This requirement shall be included if the selection for a warning banner is made within FIA_UIA_EXT.1.
 
 [appendix]
 == Extended Component Definitions
@@ -1923,6 +1924,9 @@ The SSH transport layer between a client and a server.  Within a connection ther
 
 Credential:: 
 Data that establishes the identity of a user, e.g. a cryptographic key or password.
+
+Data Execution Prevention:: 
+DEP is a set of hardware and software technologies that perform additional checks on memory to help protect against malicious code exploits.
 
 Operating System:: 
 Software that manages hardware resources and provides services for applications.

@@ -242,6 +242,22 @@ Test 1: For each selection in FMT_SMF.1, the evaluator shall configure the TOE f
 
 Test 2: [conditional] If *other management functions* are specified, the evaluator shall test the application's ability to provide each management function by configuring the application and testing each function specified. The evaluator is expected to test these functions in all the ways in which the ST and guidance documentation state the configuration can be managed.  Each function should be tested on each management interface on which the functionality is supported.
 
+==== Management Roles (FMT_SMR)
+
+===== FMT_SMR.2 (Security Management Roles)
+
+====== TSS
+
+The evaluator shall examine the TSS to determine that it details the TOE supported roles and any restrictions of the roles involving administration of the TOE.
+
+====== Guidance Documentation
+
+The evaluator shall review the guidance documentation to ensure that it contains instructions for administering the TOE, including any configuration that needs to be performed on the client for administration.
+ 
+====== Test
+
+While performing the testing activities for the evaluation, the evaluator shall ensure that each supported method of administering the TOE that conforms to the requirements of this cPP be tested.
+
 === Protection of the TSF (FPT)
 
 ==== Anti-Exploitation Capabilities (FPT_AEX_EXT)
@@ -1093,24 +1109,6 @@ No activities specified.
 The evaluator shall perform the following test for each trusted channel:
 
 The evaluator shall demonstrate that using a valid certificate that requires certificate validation checking to be performed in at least some part by communicating with a non-TOE IT entity. The evaluator shall then manipulate the environment so that the TOE is unable to verify the validity of the certificate, and observe that the action selected in FIA_X509_EXT.2.2 is performed. If the selected action is administrator-configurable, then the evaluator shall follow the guidance documentation to determine that all supported administrator-configurable options behave in their documented manner.
-
-=== Security Management (FMT)
-
-==== Management Roles (FMT_SMR)
-
-===== FMT_SMR.2 (Security Management Roles)
-
-====== TSS
-
-The evaluator shall examine the TSS to determine that it details the TOE supported roles and any restrictions of the roles involving administration of the TOE.
-
-====== Guidance Documentation
-
-The evaluator shall review the guidance documentation to ensure that it contains instructions for administering the TOE, including any configuration that needs to be performed on the client for administration.
- 
-====== Test
-
-While performing the testing activities for the evaluation, the evaluator shall ensure that each supported method of administering the TOE that conforms to the requirements of this cPP be tested.
 
 === TOE Access (FTA)
 
