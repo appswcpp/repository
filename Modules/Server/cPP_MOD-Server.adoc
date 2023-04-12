@@ -248,7 +248,7 @@ The TSF shall enable a Security Administrator to disable communications between 
 
 === Identification and Authentication (FIA)
 
-==== FIA_X509_EXT.1/ITT/Certificate Validation/Server
+==== FIA_X509_EXT.1/ITT/Server
 *FIA_X509_EXT.1.1/ITT/Server*
 The application shall [_selection: invoked platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 

@@ -192,9 +192,10 @@ This PP-Module does not define any additional assurance requirements above and b
 
 [appendix]
 == Selection-Based Requirements
+
 === Identification and Authentication (FIA)
 
-==== FIA_X509_EXT.1/ITT/Certificate Validation/Agent
+==== FIA_X509_EXT.1/ITT/Agent
 *FIA_X509_EXT.1.1/ITT/Agent*
 The application shall [_selection: invoked platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 

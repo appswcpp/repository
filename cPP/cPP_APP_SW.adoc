@@ -713,6 +713,12 @@ If the TOE implements the TLS protocol, the ST author shall include the requirem
 SSH is not a required component of this cPP. If a TOE implements SSH, a corresponding selection in FTP_DIT_EXT.1 should have been made that defines what the SSH protocol is implemented to protect.
 If the TOE acts as both a client and server and the selections are different, the ST author should iterate using the identifiers FCS_SSH_EXT.1/Server and FCS_SSH_EXT.1/Client in the [SSH Package].
 
+====== FCS_HTTPS_EXT.2 HTTPS Protocol with Mutual Authentication
+
+*FCS_HTTPS_EXT.2.1* The application shall [*selection*: _not establish the connection, establish or not establish the connection based on an administrative or user setting_]if the peer certificate is deemed invalid. 
+
+*Application Note {counter:appnote}:* Validity is determined by the certificate path, the expiration date, and the revocation status in accordance with RFC 5280. 
+
 === Class: Identification and Authentication (FIA)
 
 This section defines selection based Identification and Authentication requirements that underlie other security properties of the TOE.
@@ -729,7 +735,7 @@ This section defines selection based Identification and Authentication requireme
 
 ===== FIA_EIP_EXT.1 External Identity Provider
 
-*FIA_EIP_EXT.1.1* The TSF shall be capable of using [_selection: IPsec, TLS, DTLS_] to provide a communication channel between itself and an external identity provider.
+*FIA_EIP_EXT.1.1* The TSF shall be capable of using [_selection: TLS, DTLS_] as specified in the [TLS Package] to provide a communication channel between itself and an external identity provider.
 
 *FIA_EIP_EXT.1.2* The TSF shall provide a [_selection: configurable, externally-managed_] mechanism to enroll with the external identity provider.
 
@@ -751,7 +757,7 @@ This section defines selection based Identification and Authentication requireme
 
 ===== FIA_UAU_EXT.2 Authentication Mechanism
 
-*FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
+*FIA_UAU_EXT.2.1* The TSF shall provide a [_selection: password-based, SSH public key-based as specified in the [SSH Package], certificate-based, [assignment: other authentication mechanism]_] authentication mechanism to perform administrative user authentication.
 
 ===== FIA_UAU_EXT.5 User Authentication Mechanisms
 
@@ -807,7 +813,7 @@ Start here next. Do these need to move into the base SFRs?
 
 ===== FIA_X509_EXT.2 X.509 Certificate Authentication
 
-*FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH, TLS, DTLS, code signing for system software updates, code signing for integrity verification, [assignment: other uses]_].
+*FIA_X509_EXT.2.1* The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [_selection: HTTPS, SSH as defined in the [SSH Package], TLS as defined in the [TLS Package], DTLS as defined in the [TLS Package], code signing for system software updates, code signing for integrity verification, [assignment: other uses]_].
 
 *FIA_X509_EXT.2.2* When the TSF cannot establish a connection to determine the validity of a certificate, the TSF shall [selection: allow the Administrator to choose whether to accept the certificate in these cases, accept the certificate, not accept the certificate]. 
 
@@ -1094,7 +1100,7 @@ Hierarchical to: No other components.
 
 Dependencies: FIA_UAU_EXT.5.
 
-*FIA_EIP_EXT.1.1* The TSF shall be capable of using [_selection: IPsec, TLS, DTLS_] to provide a communication channel between itself and an external identity provider.
+*FIA_EIP_EXT.1.1* The TSF shall be capable of using [_selection: TLS, DTLS_] to provide a communication channel between itself and an external identity provider.
 
 *FIA_EIP_EXT.1.2* The TSF shall provide a [_selection: configurable, externally-managed_] mechanism to enroll with the external identity provider.
 
