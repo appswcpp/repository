@@ -264,3 +264,9 @@ The PP-Module does not define any SARs beyond those defined within the App PP ba
 * [#CEM]#[CEM]#	Common Methodology for Information Technology Security Evaluation, Evaluation Methodology, CCMB-2017-04-004, Version 3.1 Revision 5, April 2017.
 * [#addenda]#[addenda]# CC and CEM addenda, Exact Conformance, Selection-Based SFRs, Optional SFRs, Version 0.5, May 2017
 * [#cPP]#[cPP]# {pp-name}, {pp-version}, {pp-date}
+
+[appendix]
+== Rationales
+
+=== SFR Dependencies Analysis
+The dependencies between SFRs implemented by the TOE are addressed as shown in the base PP.
