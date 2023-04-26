@@ -156,7 +156,7 @@ There are no OSPs for applications.
 
 === Security Objectives for the TOE
 
-The following subsections describe objectives for the TOE. Since the {base-pp} does not specify any Objectives for the TOE this section contains only additional Objectives for the TOE related to the PP-Module but independent from the {base-pp}.
+The following subsections describe objectives for the TOE. Since the {base-pp} does not specify any Objectives for the TOE. This section contains only additional Objectives for the TOE related to the PP-Module but independent from the {base-pp}.
 
 ==== O.WELL-BEHAVED_SERVER
 The TOE shall not circumvent the security controls provided by the underlying platform. 
@@ -254,7 +254,7 @@ The TSF shall enable a Security Administrator to disable communications between 
 
 === Identification and Authentication (FIA)
 
-==== FIA_X509_EXT.1/ITT/Server
+==== FIA_X509_EXT.1/ITT/Server Certificate Validation
 *FIA_X509_EXT.1.1/ITT/Server*
 The application shall [_selection: invoked platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 
@@ -292,7 +292,7 @@ The application shall only treat a certificate as a CA certificate if the basicC
 
 ==== FPT_ITT.1/Server
 *FPT_ITT.1.1/Server*
-The TSF shall protect TSF data from disclosure and detect its modification when it is transmitted between separate parts of the TOE through the use of [_selection: SSH, TLS, DTLS, HTTPS_].
+The TSF shall protect TSF data from *disclosure and detect its modification* when it is transmitted between separate parts of the TOE *through the use of [_selection: SSH, TLS, DTLS, HTTPS_]*.
 
 *Application Note {counter:appnote}:* The data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the selection. The ST author should identify the channels and protocols used by each pair of communicating TOE parts, iterating this SFR as appropriate. 
 
@@ -437,3 +437,11 @@ Dependencies:		No other components
 
 *FCO_CPC_EXT.1.3/Server* The TSF shall enable a Security Administrator to disable communications between any pair of TOE parts.
 
+[appendix]
+== Consistency Rationale
+
+=== Consistency of TOE Type
+When this PP-Module is used to extend [cPP_APP_SW], the TOE type for the overall TOE is still a generic application. However, one of the functions of the device must be the ability for it to the capability to manage agent applications. The TOE boundary is simply extended to include that functionality.
+
+=== SFR Dependencies Analysis
+The dependencies between SFRs implemented by the TOE are addressed as shown in the base PP.

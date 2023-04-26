@@ -1,5 +1,3 @@
-= Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile Module for Server Applications
-:showtitle:
 :toc: macro
 :toclevels: 7
 :sectnumlevels: 7
@@ -20,6 +18,11 @@
 :pp-module-name: collaborative PP-Module for Server Applications
 :pp-version: Version 1.0
 :pp-date: 2022-04-06
+:short name: SD_APP_SERVER_v{revnumber}
+
+= Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile Module for Server Applications
+{shortname} 
+:showtitle:
 
 == Foreword
 

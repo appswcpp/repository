@@ -185,7 +185,7 @@ The TSF shall enable a Security Administrator to disable communications between 
 
 ==== FPT_ITT.1/Agent
 *FPT_ITT.1.1/Agent*
-The TSF shall protect TSF data from disclosure and detect its modification when it is transmitted between separate parts of the TOE *through the use of [_selection: SSH, TLS, DTLS, HTTPS_]*.
+The TSF shall protect TSF data from *disclosure and detect its modification* when it is transmitted between separate parts of the TOE *through the use of [_selection: SSH, TLS, DTLS, HTTPS_]*.
 
 *Application Note {counter:appnote}:* The data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the selection. The ST author should identify the channels and protocols used by each pair of communicating parts, iterating this SFR as appropriate. 
 
@@ -200,7 +200,7 @@ This PP-Module does not define any additional assurance requirements above and b
 
 === Identification and Authentication (FIA)
 
-==== FIA_X509_EXT.1/ITT/Agent
+==== FIA_X509_EXT.1/ITT/Agent Certificate Validation
 *FIA_X509_EXT.1.1/ITT/Agent*
 The application shall [_selection: invoked platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 
@@ -223,8 +223,6 @@ The application shall [_selection: invoked platform-provided functionality, impl
 It is acceptable for the TOE to depend on the platform for certification checking (as defined in this SFR) however all the evaluation activities must be performed irrespective of whether the TOE performs the certificate checking or passes the responsibility to the platform.
 
 The TSF shall be capable of supporting a minimum path length of two certificates. That is, it shall support a certificate hierarchy comprising of at least a self-signed root certificate and a TOE identity certificate. 
-
-The TSS shall describe when revocation checking is performed. It is expected that revocation checking is performed when a certificate is used in an authentication step. It is not sufficient to verify the status of a X.509 certificate only when it is loaded onto the device.
 
 If the TOE does not support functionality that uses any of the certificate types listed in the extendedKeyUsage rules in FIA_X509_EXT.1.1 then this is stated in the TSS and the relevant part of the SFR is considered trivially satisfied. However, if the TOE does support functionality that uses certificates of any of these types then the corresponding rule must of course be satisfied as in the SFR.
 

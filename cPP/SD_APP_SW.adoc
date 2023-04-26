@@ -19,13 +19,6 @@
 :pp-version: Version 1.0
 :pp-date: 2022-04-06
 
-== Document Purpose and Overview
-
-This document serves as a template Supporting Document (SD) for use by international Technical Communities (iTCs). SDs are complementary to collaborative Protection Profiles (cPPs) and define the evaluation activities (EAs) required to satisfy the Security Functional Requirements (SFRs) in the cPP.
-The intent of this SD template is to provide iTCs with a method for developing SDs that address the CEM work units. International Technical Communities are expected to tailor this template to appropriately address the technology type in question. 
-Sections of this document contain notes in <brackets and italics> for the SD author to take into consideration when developing the SD and should be removed by the iTC prior to finalizing the SD. 
-Similarly, some sections of this template are populated with examples to illustrate the structure of the section. They are expected to be replaced by the specific EAs deemed necessary by the iTC.
-
 == Foreword
 
 This is a Supporting Document, intended to complement the Common Criteria (CC) version 3 and the associated Common Evaluation Methodology for Information Technology Security Evaluation.
@@ -1627,9 +1620,6 @@ No entries are currently defined for this list.
 
 [appendix]
 == Glossary
-====
-This should be completed to define all the terms needed to fully understand the content of the SD.
-====
 
 For definitions of standard CC terminology see [CC1]. 
 
@@ -1675,6 +1665,9 @@ Data for the operation of the TSF upon which the enforcement of the requirements
 
 |DSA
 |Digital Signature Algorithm
+
+|EA
+|Evaluation Activity
 
 |ECDSA
 |Elliptic Curve Digital Signature Algorithm
