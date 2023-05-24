@@ -1,4 +1,3 @@
-= Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile Module for Server Applications
 :showtitle:
 
 :toc: macro

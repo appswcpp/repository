@@ -322,7 +322,7 @@ This section defines requirements pertaining to protection of user data.
 
 ==== Network communications (FDP_NET)
 ===== FDP_NET_EXT.1 (Network Communications)
-*FDP_NET_EXT.1.1* The TSF shall restrict network communication to: [_selection: no network communication, outbound connections, in-bound connections_].
+*FDP_NET_EXT.1.1* The TSF shall restrict network communication to: [_selection: no network communication, outbound connections, inbound connections_].
 
 *Application Note {counter:appnote}:* This requirement is intended to restrict both inbound and outbound network communications to only those required. It does not apply to network communications handled by the platform that may support access to remote filesystems mounted locally by the platform.
 
@@ -355,23 +355,6 @@ The changing of default credentials has to be enforced by the application.
 * _[assignment: Other management functions]_.
 
 *Application Note {counter:appnote}:* This requirement stipulates that an application needs to provide the ability to enable/disable only those functions that it actually implements. The application is not responsible for controlling the behavior of the platform or other applications.
-
-==== FMT_SMR.2 Protected authentication feedback
-
-*FMT_SMR.2.1* The TSF shall maintain the roles: 
-
-* Security Administrator.
-
-*FMT_SMR.2.2* The TSF shall be able to associate users with roles.
-
-*FMT_SMR.2.3* The TSF shall ensure that the conditions [_selection:_
-
-* _The Security Administrator role shall be able to administer the TOE locally,_ 
-
-* _The Security Administrator role shall be able to administer the TOE remotely_] 
-
-are satisfied.
-
 
 
 === Protection of the TSF (FPT)
@@ -773,7 +756,7 @@ Start here next. Do these need to move into the base SFRs?
 
 *Application Note {counter:appnote}:* If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs shall be included in the ST: FIA_EIP_EXT.1.
 
-===== FIA_UAU.7 Protected authentication feedback
+===== FIA_UAU.7 Protected Authentication Feedback
 
 *FIA_UAU.7.1* The TSF shall provide only _obscured feedback_ to the administrative user while the authentication is in progress.
 
@@ -822,6 +805,24 @@ Start here next. Do these need to move into the base SFRs?
 Often a connection must be established to check the revocation status of a certificate - either to download a CRL or to perform a lookup using OCSP. In FIA_X509_EXT.2.2 the selection is used to describe the behavior in the event that such a connection cannot be established (for example, due to a network error). If the TOE has determined the certificate is valid according to all other rules in FIA_X509_EXT.1, the behavior indicated in the selection determines the validity. The TOE must not accept the certificate if it fails any of the other validation rules in FIA_X509_EXT.1. If the Administrator-configured option is selected by the ST Author, the ST Author also selects the corresponding function in FMT_SMF.1. The selection should be consistent with the validation requirements in [TLS Package, FCS_TLSC_EXT.1.3].  
 
 The ST author must include FIA_X509_EXT.2 in all instances except when only SSH is selected within FTP_DIT_EXT.1 and SSH authentication methods do not include X.509v3. Additionally, FIA_X509_EXT.2 must be included if FPT_TUD_EXT digital signatures make use of X.509 certificates and the TOE performs the verification.
+
+=== (FMT) Specification of Management Functions
+
+==== FMT_SMR.2 Restrictions on Security Roles
+
+*FMT_SMR.2.1* The TSF shall maintain the roles: 
+
+* Security Administrator.
+
+*FMT_SMR.2.2* The TSF shall be able to associate users with roles.
+
+*FMT_SMR.2.3* The TSF shall ensure that the conditions [_selection:_
+
+* _The Security Administrator role shall be able to administer the TOE locally,_ 
+
+* _The Security Administrator role shall be able to administer the TOE remotely_] 
+
+are satisfied.
 
 === (FTA) TOE Access
 

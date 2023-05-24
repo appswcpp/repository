@@ -133,7 +133,7 @@ If invocation of platform-provided functionality is achieved in another way, the
 
 The evaluator shall check the TSS to ensure that it lists all persistent credentials (secret keys, PKI private keys, or passwords) needed to meet the requirements in the ST. For each of these items, the evaluator shall confirm that the TSS lists for what purpose it is used, and how it is stored.
 
-[Conditional] If implement functionality to securely store is selected, the evaluator shall verify that the TSS states how credentials are encrypted according to FCS_COP.1/DataEncryption or conditioned according to FCS_CKM.1.
+[Conditional] If implement functionality to securely store is selected, the evaluator shall verify that the TSS states how credentials are stored utilizing FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, or FCS_CKM.1/PBKDF2.
 
 ====== Operational Guidance
 
@@ -167,9 +167,11 @@ No activities specified.
 
 The evaluator shall perform the following test:
 
-Test 1: [conditional] If *no network communication or outbound connections* is selected then the evaluator shall run the application. While the application is running, the evaluator shall sniff network traffic ignoring all non-application associated traffic and verify that any network communications witnessed are documented in the TSS or are user-initiated.
+Test 1: [conditional] If *outbound connections* is selected then the evaluator shall run the application. While the application is running, the evaluator shall sniff network traffic ignoring all non-application associated traffic and verify that any network communications witnessed are documented in the TSS or are user-initiated.
 
-Test 2: [conditional] If *no network communication or in-bound connections* is selected then the evaluator shall run the application. After the application initializes, the evaluator shall verify that any ports opened by the application have been captured in the TSS. This includes connection-based protocols (e.g. TCP, DCCP) as well as connectionless protocols (e.g. UDP).
+Test 2: [conditional] If *inbound connections* is selected then the evaluator shall run the application. After the application initializes, the evaluator shall verify that any ports opened by the application have been captured in the TSS. This includes connection-based protocols (e.g. TCP) as well as connectionless protocols (e.g. UDP).
+
+Test 3: [conditional] If *no network communication* is selected then the evaluator shall initialize and run the application. The evaluator shall verify that no ports are opened by the application and no other connectivity is observed.
 
 === Security Management (FMT)
 
@@ -245,7 +247,7 @@ The evaluator shall examine the TSS to determine that it details the TOE support
 
 ====== Guidance Documentation
 
-The evaluator shall review the guidance documentation to ensure that it contains instructions for administering the TOE, including any configuration that needs to be performed on the client for administration.
+The evaluator shall review the guidance documentation to ensure that it contains instructions for administering the TOE.
  
 ====== Test
 
@@ -342,7 +344,7 @@ Test 2: The evaluator shall run the application, mimicking normal usage, and not
 
 The evaluator shall ensure that the TSS section of the ST describes the compiler flag used to enable stack-based buffer overflow protection in the application. The following flags should be used depending on the compiler:
 
-.Mapping between Security Problem Defintion and Security Objectives
+.Mapping between Compilers and Compiler Flags
 [%header,cols=".^1,1"]
 |===
 |Compiler
@@ -455,7 +457,7 @@ Test 3: [conditional] If credentials are transmitted the evaluator shall set the
 
 ==== Cryptographic Key Management (FCS_CKM)
 
-===== FCS_CKM.1.1/Symmetric
+===== FCS_CKM.1.1/Symmetric Cryptographic Key Generation
 
 ====== TSS
 
@@ -479,7 +481,9 @@ No activities specified.
 
 ====== TSS
 
-The evaluator shall verify that the TSS lists the IANA MIME media types (as described by http://www.iana.org/assignments/media-types) for all formats the application processes and that it maps those formats to parsing services provided by the platform.
+If *use platform-provided libraries for parsing* is selected, the evaluator shall verify that the TSS lists the IANA MIME media types (as described by http://www.iana.org/assignments/media-types) for all formats the application processes and that it maps those formats to parsing services provided by the platform.
+
+If *does not perform parsing* is selected there is no activity specified.
 
 ====== Operational Guidance
 

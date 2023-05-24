@@ -247,7 +247,7 @@ The TSF shall implement a registration process in which TOE parts establish and 
 
 ].
 
-*Application Note {}:* "No channel" is selected if the component registration is performed via out-of-band manual means.
+*Application Note {counter:appnote}:* "No channel" is selected if the component registration is performed via out-of-band manual means.
 
 *FCO_CPC_EXT.1.3/Server*
 The TSF shall enable a Security Administrator to disable communications between any pair of TOE parts.
