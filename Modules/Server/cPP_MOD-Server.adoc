@@ -224,7 +224,7 @@ The TSF shall be capable of performing the following management functions:
 *FPT_AEX_EXT.2.1/Server*
 The application shall be compatible with security features provided by the platform vendor.
 
-*Application Note {counter:appnote}:* This requirement is designed to ensure that platform security features do not need to be disabled in order for the application to run. The assignement in FPT_AEX_EXT.1.3 in the {base-pp} must be None.    
+*Application Note {counter:appnote}:* This requirement is designed to ensure that platform security features do not need to be disabled in order for the application to run. The assignment in FPT_AEX_EXT.1.3 in the {base-pp} must be "no exceptions".    
 
 == Security Assurance Requirements
 
@@ -247,40 +247,56 @@ The TSF shall implement a registration process in which TOE parts establish and 
 
 ].
 
-*Application Note {counter:appnote}:* "No channel" is selected if the component registration is performed via out-of-band manual means.
+*Application Note {}:* "No channel" is selected if the component registration is performed via out-of-band manual means.
 
 *FCO_CPC_EXT.1.3/Server*
 The TSF shall enable a Security Administrator to disable communications between any pair of TOE parts.
 
 === Identification and Authentication (FIA)
 
-==== FIA_X509_EXT.1/ITT/Server Certificate Validation
+==== FIA_X509_EXT.1/ITT/Certificate Validation/Server
+
 *FIA_X509_EXT.1.1/ITT/Server*
-The application shall [_selection: invoked platform-provided functionality, implement functionality_] to validate certificates in accordance with the following rules:
 
-* RFC 5280 certificate validation and certification path validation supporting a minimum path length of two certificates.
-* The certification path must terminate with a trusted CA certificate.
+*FIA_X509_EXT.1.1/ITT* The TSF shall validate certificates in accordance with the following rules:
+
+* RFC 5280 certificate validation and certification path validation *supporting a minimum path length of two certificates*.
+* The certification path must terminate with a trusted CA certificate designated as a trust anchor.
 * The TSF shall validate a certification path by ensuring that all CA certificates in the certification path contain the basicConstraints extension with the CA flag set to TRUE.
-* The TSF shall validate the revocation status of the certificate using [_selection:_
-** _the Online Certificate Status Protocol (OCSP) as specified in RFC 6960,_ 
-** _Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3,_ 
-** _Certificate Revocation List (CRL) as specified in RFC 5759 Section 5,_ 
-** _an OCSP TLS Status Request Extension (i.e., OCSP stapling) as specified in RFC 6066,_
-** _no revocation method_].
+
+* The TSF shall validate the revocation status of the certificate using [selection: _the Online Certificate Status Protocol (OCSP) as specified in RFC 6960, a Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3, Certificate Revocation List (CRL) as specified in RFC 5759 Section 5, no revocation method_]
 * The TSF shall validate the extendedKeyUsage field according to the following rules:
-** Server certificates presented for TLS shall have the Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1) in the extendedKeyUsage field.
-** Client certificates presented for TLS shall have the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field.
-** OCSP certificates presented for OCSP responses shall have the OCSP Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9) in the extendedKeyUsage field.
+** _Server certificates presented for DTLS/TLS shall have the Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1) in the extendedKeyUsage field._
+** _Client certificates presented for DTLS/TLS shall have the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field._
+** _OCSP certificates presented for OCSP responses shall have the OCSP Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9) in the extendedKeyUsage field._
 
-*Application Note {counter:appnote}:* This SFR should be chosen if in FPT_ITT.1/Server protocols selected utilize X.509 certificates for peer authentication. In this case, the use of revocation list checking is optional as there are additional requirements surrounding the enabling and disabling of the ITT channel as defined in FCO_CPC_EXT.1/Server. If revocation checking is not supported, the ST author should select no revocation method. However, if certificate revocation checking is supported, the ST author selects whether this is performed using OCSP or CRLs.
+*_Application Note {counter:appnote}_*
 
-It is acceptable for the TOE to depend on the platform for certification checking (as defined in this SFR) however all the evaluation activities must be performed irrespective of whether the TOE performs the certificate checking or passes the responsibility to the platform.
+_This SFR should be chosen if the TOE is distributed and the protocol(s) selected in FPT_ITT.1 utilize X.509v3 certificates for peer authentication. In this case, the use of revocation list checking is optional as there are additional requirements surrounding the enabling and disabling of the ITT channel as defined in FCO_CPC_EXT.1. If the revocation checking is not supported, the ST author should select “no revocation method”. However, if certificate revocation checking is supported, the ST author must select whether this is performed using OCSP or CRLs._
 
-The TSF shall be capable of supporting a minimum path length of two certificates. That is, it shall support a certificate hierarchy comprising of at least a self-signed root certificate and a TOE identity certificate. 
+_The TOE must be capable of supporting a minimum path length of two certificates. That is, it must support a certificate hierarchy comprising of at least a self-signed root certificate and a leaf certificate._
 
-The TSS shall describe when revocation checking is performed. It is expected that revocation checking is performed when a certificate is used in an authentication step. It is not sufficient to verify the status of a X.509 certificate only when it is loaded onto the device.
+_The certificate chain validation is expected to terminate with a trust anchor. This means the validation can terminate with any trusted CA certificate administratively designated as a trust anchor or default to terminate with a Root CA. If the TOE validates certificates presented by remote endpoints (i.e., external IT entities, remote administrators, or remote parts of the TOE), the CA certificates designated as trust anchors must be loaded into the trust store ('certificate store', ' trusted CA Key Store' or similar) managed by the platform. In such cases, the TOE’s trust store must support loading of multiple hierarchical CA certificates or certificate chains and must clearly indicate all certificates it considers trust anchors. If the TOE only presents its own certificate (e.g., a web server without mutual authentication), implementing the trust store is optional._
 
-If the TOE does not support functionality that uses any of the certificate types listed in the extendedKeyUsage rules in FIA_X509_EXT.1.1 then this is stated in the TSS and the relevant part of the SFR is considered trivially satisfied. However, if the TOE does support functionality that uses certificates of any of these types then the corresponding rule must of course be satisfied as in the SFR.
+_The validation of X.509v3 leaf certificates comprises several steps:_
+
+[loweralpha]
+. _A Certificate Revocation Check refers to the process of determining the current revocation status of an otherwise structurally valid certificate. This is optionally performed when a certificate is used for authentication, however this behaviour must be consistent. If this check is performed, it must be performed for each certificate in the chain up to, but not including, the trust anchor. This means that CA certificates that are not trust anchors, and leaf certificates in the chain, must be checked. It is not required to check the revocation status of any CA certificate designated a trust anchor, however if such check is performed it must be handled consistently with how other certificates are checked._
+
+. _An expiration check must be performed. This check must be conducted for each certificate in the chain, up to and including the trust anchor._
+
+. _The continuity of the chain must be checked, showing that the signature on each certificate that is presented to the TOE is valid and the chain terminates at the trust anchor._
+
+_If revocation checking is performed, it is expected that it is performed on both leaf and intermediate CA certificates when a leaf certificate is presented to the TOE as part of the certificate chain during authentication. Revocation checking of any CA certificate designated a trust anchor is not required. It is not sufficient to perform a revocation check of an intermediate CA certificate only when it is loaded onto the device._
+
+_If the TOE does not support functionality that uses any of the certificate types listed in the extendedKeyUsage rules in FIA_X509_EXT.1.1/ITT then this is stated in the TSS and the relevant part of the SFR is considered trivially satisfied. However, if the TOE does support functionality that uses certificates of any of these types then the corresponding rule must of course be satisfied as in the SFR._
+
+*FIA_X509_EXT.1.2/ITT* The TSF shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.
+
+*_Application Note {counter:appnote}_*
+
+_This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates._
+
 
 *FIA_X509_EXT.1.2/ITT/Server*
 The application shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.
