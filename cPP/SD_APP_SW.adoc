@@ -461,7 +461,7 @@ Test 3: [conditional] If credentials are transmitted the evaluator shall set the
 
 ====== TSS
 
-The evaluator shall review the TSS to determine that it describes how the functionality described by FCS_RBG_EXT.2 is invoked. 
+The evaluator shall review the TSS to determine that it describes how the functionality described by FCS_RBG_EXT.1 is invoked.  The TSS shall identify the key generation algorithms, key sizes, and usage.
 
 If the application is relying on random bit generation from the host platform, the evaluator shall verify the TSS includes the name/manufacturer of the external RBG and describes the function call and parameters used when calling the external DRBG function. If different external RBGs are used for different platforms, the evaluator shall verify the TSS identifies each RBG for each platform. Also, the evaluator shall verify the TSS includes a short description of the vendor's assumption for the amount of entropy seeding the external DRBG. The evaluator uses the description of the RBG functionality in FCS_RBG_EXT or documentation available for the operational environment to determine that the key size being requested is identical to the key size and mode to be used for the encryption/decryption of the user data.
 
