@@ -628,7 +628,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_cryptographic_key_management_fcs_ckm">A.1.1. Cryptographic Key Management (FCS_CKM)</a>
 <ul class="sectlevel4">
-<li><a href="#_fcs_ckm_1symmetric_cryptographic_key_generation">A.1.1.1. FCS_CKM.1/Symmetric Cryptographic Key Generation</a></li>
+<li><a href="#_fcs_ckm_1symmetric_cryptographic_key_generation">A.1.1.1. FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation</a></li>
 </ul>
 </li>
 </ul>
@@ -656,8 +656,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_cryptographic_key_management_fcs_ckm_2">B.1.2. Cryptographic Key Management (FCS_CKM)</a>
 <ul class="sectlevel4">
 <li><a href="#_fcs_ckm_ext_1_cryptographic_key_generation_services">B.1.2.1. FCS_CKM_EXT.1 Cryptographic Key Generation Services</a></li>
-<li><a href="#_fcs_ckm_1asymmetric_cryptographic_key_generation_refinement">B.1.2.2. FCS_CKM.1/Asymmetric Cryptographic Key Generation (Refinement)</a></li>
-<li><a href="#_fcs_ckm_1_1pbkdf2_password_conditioning">B.1.2.3. FCS_CKM.1.1/PBKDF2 Password Conditioning</a></li>
+<li><a href="#_fcs_ckm_1asymmetric_cryptographic_key_generation_refinement">B.1.2.2. FCS_CKM_EXT.1/Asymmetric Cryptographic Key Generation (Refinement)</a></li>
+<li><a href="#_fcs_ckm_1_1pbkdf2_password_conditioning">B.1.2.3. FCS_CKM_EXT.1.1/PBKDF2 Password Conditioning</a></li>
 <li><a href="#_fcs_ckm_2_cryptographic_key_establishment_refinement">B.1.2.4. FCS_CKM.2 Cryptographic Key Establishment (Refinement)</a></li>
 </ul>
 </li>
@@ -1241,7 +1241,7 @@ applications/sensors</p>
 <p>FMT_CFG_EXT.1 ensures that an attacker cannot gain administrator access via nefarious means.</p>
 </li>
 <li>
-<p>FCS_STO_EXT.1 and FCS_CKM.1/PBKDF2 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.</p>
+<p>FCS_STO_EXT.1 and FCS_CKM_EXT.1/PBKDF2 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.</p>
 </li>
 <li>
 <p>FIA_AFL_EXT.1, FIA_EIP_EXT.1, FIA_UAU.7, FIA_UAU_EXT.5, FIA_UAU_EXT.2, FIA_UIA_EXT.1, and FTA_TAB.1 ensures that an appropriate mechanism is in place to ensure only an authorized user can interact with the application (if interactive).</p>
@@ -1263,7 +1263,7 @@ applications/sensors</p>
 <div class="ulist">
 <ul>
 <li>
-<p>FCS_CKM.1/Asymmetric and FCS_CKM.2 defines the requirements for key generation and key distribution respectively.</p>
+<p>FCS_CKM_EXT.1/Asymmetric and FCS_CKM.2 defines the requirements for key generation and key distribution respectively.</p>
 </li>
 <li>
 <p>FCS_COP.1 defines the requirements for use of cryptographic schemes.</p>
@@ -1501,7 +1501,7 @@ applications/sensors</p>
 <div class="sect4">
 <h5 id="_fcs_sto_ext_1_storage_of_credentials">5.2.2.1. FCS_STO_EXT.1 Storage of Credentials</h5>
 <div class="paragraph">
-<p><strong>FCS_STO_EXT.1.1</strong> The application shall [<em>selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]</em>] according to [<em>selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2</em>] to non-volatile memory.</p>
+<p><strong>FCS_STO_EXT.1.1</strong> The application shall [<em>selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]</em>] according to [<em>selection: FCS_COP.1/DataEncryption, FCS_CKM_EXT.1/Hash, FCS_CKM_EXT.1/KeyedHash, FCS_CKM_EXT.1/PBKDF2</em>] to non-volatile memory.</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note 2:</strong> This requirement ensures that persistent credentials (secret keys, PKI private keys, or passwords) are stored securely.</p>
@@ -1960,9 +1960,9 @@ The selection ‘not transmit any data’ cannot be selected for TOEs being eval
 <div class="sect3">
 <h4 id="_cryptographic_key_management_fcs_ckm">A.1.1. Cryptographic Key Management (FCS_CKM)</h4>
 <div class="sect4">
-<h5 id="_fcs_ckm_1symmetric_cryptographic_key_generation">A.1.1.1. FCS_CKM.1/Symmetric Cryptographic Key Generation</h5>
+<h5 id="_fcs_ckm_1symmetric_cryptographic_key_generation">A.1.1.1. FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation</h5>
 <div class="paragraph">
-<p><strong>FCS_CKM.1.1/Symmetric</strong> The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [<em>assignment: cryptographic key generation algorithm</em>] using a Random Bit Generator as specified in FCS_RBG_EXT.1 and specified cryptographic key sizes [<em>selection: 128 bit, 256 bit</em>]. that meet the following: [<em>assignment: list of standards</em>].</p>
+<p><strong>FCS_CKM_EXT.1.1/Symmetric</strong> The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [<em>assignment: cryptographic key generation algorithm</em>] using a Random Bit Generator as specified in FCS_RBG_EXT.1 and specified cryptographic key sizes [<em>selection: 128 bit, 256 bit</em>]. that meet the following: [<em>assignment: list of standards</em>].</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note 15:</strong> Symmetric keys may be used to generate keys along the key chain.</p>
@@ -2030,16 +2030,16 @@ The selection ‘not transmit any data’ cannot be selected for TOEs being eval
 <div class="sect4">
 <h5 id="_fcs_ckm_ext_1_cryptographic_key_generation_services">B.1.2.1. FCS_CKM_EXT.1 Cryptographic Key Generation Services</h5>
 <div class="paragraph">
-<p><strong>FCS_CKM_EXT.1.1</strong> The application shall [<em>selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric</em>].</p>
+<p><strong>FCS_CKM_EXT.1.1</strong> The application shall [<em>selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM_EXT.1/Asymmetric</em>].</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note 18:</strong> This requirement depends upon selection in [TLS Package] and [SSH Package].</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_ckm_1asymmetric_cryptographic_key_generation_refinement">B.1.2.2. FCS_CKM.1/Asymmetric Cryptographic Key Generation (Refinement)</h5>
+<h5 id="_fcs_ckm_1asymmetric_cryptographic_key_generation_refinement">B.1.2.2. FCS_CKM_EXT.1/Asymmetric Cryptographic Key Generation (Refinement)</h5>
 <div class="paragraph">
-<p><strong>FCS_CKM.1.1/Asymmetric</strong> The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [<em>selection:</em></p>
+<p><strong>FCS_CKM_EXT.1.1/Asymmetric</strong> The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [<em>selection:</em></p>
 </div>
 <div class="ulist">
 <ul>
@@ -2073,12 +2073,12 @@ The selection ‘not transmit any data’ cannot be selected for TOEs being eval
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_ckm_1_1pbkdf2_password_conditioning">B.1.2.3. FCS_CKM.1.1/PBKDF2 Password Conditioning</h5>
+<h5 id="_fcs_ckm_1_1pbkdf2_password_conditioning">B.1.2.3. FCS_CKM_EXT.1.1/PBKDF2 Password Conditioning</h5>
 <div class="paragraph">
-<p><strong>FCS_CKM.1.1/PBKDF2</strong> A password/passphrase shall perform [<em>assignment: Password-based Key Derivation Functions</em>] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [<em>assignment: positive integer of 1,000 or more</em>] iterations, and output cryptographic key sizes [<em>selection: 128, 256</em>] that meet the following [NIST SP 800-132].</p>
+<p><strong>FCS_CKM_EXT.1.1/PBKDF2</strong> A password/passphrase shall perform [<em>assignment: Password-based Key Derivation Functions</em>] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [<em>assignment: positive integer of 1,000 or more</em>] iterations, and output cryptographic key sizes [<em>selection: 128, 256</em>] that meet the following [NIST SP 800-132].</p>
 </div>
 <div class="paragraph">
-<p><strong>FCS_CKM.1.2/PBKDF2</strong> The TSF shall generate salts using a RBG that meets FCS_RGB_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in FCS_CKM.1.1/PBKDF2.</p>
+<p><strong>FCS_CKM_EXT.1.2/PBKDF2</strong> The TSF shall generate salts using a RBG that meets FCS_RGB_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.1.1/PBKDF2.</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note 20:</strong> This should be included if selected in FCS_STO_EXT.1</p>
@@ -2115,8 +2115,8 @@ The selection ‘not transmit any data’ cannot be selected for TOEs being eval
 <p>The ST author selects all key establishment schemes used for the selected cryptographic protocols.</p>
 </div>
 <div class="paragraph">
-<p>The elliptic curves used for the key establishment scheme correlate with the curves specified in FCS_CKM.1.1/Asymmetric
-The domain parameters used for the finite field-based key establishment scheme are specified by the key generation according to FCS_CKM.1.1/Asymmetric.</p>
+<p>The elliptic curves used for the key establishment scheme correlate with the curves specified in FCS_CKM_EXT.1.1/Asymmetric
+The domain parameters used for the finite field-based key establishment scheme are specified by the key generation according to FCS_CKM_EXT.1.1/Asymmetric.</p>
 </div>
 <div class="paragraph">
 <p>Safe-prime groups are covered in Appendix D of SP 800-56A Revision 3, “Appendix D: Approved ECC Curves and FFC Safe-prime Groups”.</p>
@@ -2501,7 +2501,7 @@ If the TOE acts as both a client and server and the selections are different, th
 <p>Dependencies: No dependencies</p>
 </div>
 <div class="paragraph">
-<p><strong>FCS_CKM_EXT.1.1</strong> The application shall [<em>selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric</em>].</p>
+<p><strong>FCS_CKM_EXT.1.1</strong> The application shall [<em>selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM_EXT.1/Asymmetric</em>].</p>
 </div>
 </div>
 </div>
@@ -2699,7 +2699,7 @@ If the TOE acts as both a client and server and the selections are different, th
 <p>Dependencies: No dependencies</p>
 </div>
 <div class="paragraph">
-<p><strong>FCS_STO_EXT.1.1</strong> The application shall [<em>selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]</em>] according to [<em>selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2</em>] to non-volatile memory.</p>
+<p><strong>FCS_STO_EXT.1.1</strong> The application shall [<em>selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]</em>] according to [<em>selection: FCS_COP.1/DataEncryption, FCS_CKM_EXT.1/Hash, FCS_CKM_EXT.1/KeyedHash, FCS_CKM_EXT.1/PBKDF2</em>] to non-volatile memory.</p>
 </div>
 </div>
 </div>
@@ -3931,7 +3931,7 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM.1/Symmetric</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM_EXT.1/Symmetric</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">[FCS_CKM.2 or FCS_COP.1] FCS_CKM.4</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM.2 is met</p>
 <p class="tableblock">FCS_COP.1 is met</p>
@@ -3970,7 +3970,7 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 <td class="tableblock halign-left valign-middle"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM.1/Asymmetric</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM_EXT.1/Asymmetric</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">[FCS_CKM.2 or FCS_COP.1]</p>
 <p class="tableblock">FCS_CKM.4</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM.2 is met</p>
@@ -3979,16 +3979,16 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM.2</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1/Asymmetric]</p>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM_EXT.1/Asymmetric]</p>
 <p class="tableblock">FCS_CKM.4</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM.1/Asymmetric met</p>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM_EXT.1/Asymmetric met</p>
 <p class="tableblock">FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_COP.1/DataEncryption</p></td>
-<td class="tableblock halign-left valign-middle" rowspan="4"><p class="tableblock">[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1/Asymmetric]</p>
+<td class="tableblock halign-left valign-middle" rowspan="4"><p class="tableblock">[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM_EXT.1/Asymmetric]</p>
 <p class="tableblock">FCS_CKM.4</p></td>
-<td class="tableblock halign-left valign-middle" rowspan="4"><p class="tableblock">FCS_CKM.1/Asymmetric met</p>
+<td class="tableblock halign-left valign-middle" rowspan="4"><p class="tableblock">FCS_CKM_EXT.1/Asymmetric met</p>
 <p class="tableblock">FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management</p></td>
 </tr>
 <tr>
