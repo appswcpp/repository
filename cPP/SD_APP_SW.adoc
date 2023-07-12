@@ -1279,6 +1279,8 @@ When evaluating the developer's coverage of the TOE in their CM system, the eval
 
 It is not uncommon for software applications needing to be updated due security flaws. Therefore, the response to potential security flaws must be clearly established, and comprehensive. There must be a means of providing information and solutions to users in a timely manner, using automated means. ALC_FLR.3 has been mandated to meet these requirements.
 
+ALC_FLR.3 documentation is split into two inputs: guidance for TOE users and procedures for TOE developers.  The ALC_FLR.3 guidance must be a public facing document.  The ALC_FLR.3 procedures may be a public or private document. 
+
 The following table indicates, for each work unit in ALC_FLR.3, whether the [CEM] work unit is to be performed as written, or if it has been clarified by an Evaluation Activity. If clarification has been provided, a reference to this clarification is provided in the table.
 
 .Mapping of ALC_FLR.3 CEM Work Units to Evaluation Activities
