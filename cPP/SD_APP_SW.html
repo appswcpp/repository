@@ -641,7 +641,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_cryptographic_key_management_fcs_ckm">3.1.1. Cryptographic Key Management (FCS_CKM)</a>
 <ul class="sectlevel4">
-<li><a href="#_fcs_ckm_1_1symmetric">3.1.1.1. FCS_CKM.1.1/Symmetric</a>
+<li><a href="#_fcs_ckm_1_1symmetric">3.1.1.1. FCS_CKM_EXT.1.1/Symmetric</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_15">3.1.1.1.1. TSS</a></li>
 <li><a href="#_operational_guidance_15">3.1.1.1.2. Operational Guidance</a></li>
@@ -689,14 +689,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_test_18">4.1.2.1.3. Test</a></li>
 </ul>
 </li>
-<li><a href="#_fcs_ckm_1_1">4.1.2.2. FCS_CKM.1.1</a>
+<li><a href="#_fcs_ckm_1_1">4.1.2.2. FCS_CKM_EXT.1.1</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_19">4.1.2.2.1. TSS</a></li>
 <li><a href="#_operational_guidance_19">4.1.2.2.2. Operational Guidance</a></li>
 <li><a href="#_test_19">4.1.2.2.3. Test</a></li>
 </ul>
 </li>
-<li><a href="#_fcs_ckm_1pbkdf2">4.1.2.3. FCS_CKM.1/PBKDF2</a>
+<li><a href="#_fcs_ckm_1pbkdf2">4.1.2.3. FCS_CKM_EXT.1/PBKDF2</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_20">4.1.2.3.1. TSS</a></li>
 <li><a href="#_operational_guidance_20">4.1.2.3.2. Operational Guidance</a></li>
@@ -1146,7 +1146,7 @@ Similarly, some sections of this template are populated with examples to illustr
 <p>The evaluator shall check the TSS to ensure that it lists all persistent credentials (secret keys, PKI private keys, or passwords) needed to meet the requirements in the ST. For each of these items, the evaluator shall confirm that the TSS lists for what purpose it is used, and how it is stored.</p>
 </div>
 <div class="paragraph">
-<p>[Conditional] If implement functionality to securely store is selected, the evaluator shall verify that the TSS states how credentials are encrypted according to FCS_COP.1/DataEncryption or conditioned according to FCS_CKM.1.</p>
+<p>[Conditional] If implement functionality to securely store is selected, the evaluator shall verify that the TSS states how credentials are encrypted according to FCS_COP.1/DataEncryption or conditioned according to FCS_CKM_EXT.1.</p>
 </div>
 </div>
 <div class="sect5">
@@ -1620,7 +1620,7 @@ call (...)</code></pre>
 <div class="sect3">
 <h4 id="_cryptographic_key_management_fcs_ckm">3.1.1. Cryptographic Key Management (FCS_CKM)</h4>
 <div class="sect4">
-<h5 id="_fcs_ckm_1_1symmetric">3.1.1.1. FCS_CKM.1.1/Symmetric</h5>
+<h5 id="_fcs_ckm_1_1symmetric">3.1.1.1. FCS_CKM_EXT.1.1/Symmetric</h5>
 <div class="sect5">
 <h6 id="_tss_15">3.1.1.1.1. TSS</h6>
 <div class="paragraph">
@@ -1748,7 +1748,7 @@ call (...)</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_ckm_1_1">4.1.2.2. FCS_CKM.1.1</h5>
+<h5 id="_fcs_ckm_1_1">4.1.2.2. FCS_CKM_EXT.1.1</h5>
 <div class="sect5">
 <h6 id="_tss_19">4.1.2.2.1. TSS</h6>
 <div class="paragraph">
@@ -1862,11 +1862,11 @@ For each supported NIST curve, i.e., P-256, P-384 and P-521, the evaluator shall
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_ckm_1pbkdf2">4.1.2.3. FCS_CKM.1/PBKDF2</h5>
+<h5 id="_fcs_ckm_1pbkdf2">4.1.2.3. FCS_CKM_EXT.1/PBKDF2</h5>
 <div class="sect5">
 <h6 id="_tss_20">4.1.2.3.1. TSS</h6>
 <div class="paragraph">
-<p>Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that the formation of all password based derived keys is described and that the key sizes match that described by the ST author. The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify that these are supported by the selections in this component as well as the selections concerning the hash function itself. The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the submask that will be input into the function. For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash). No explicit testing of the formation of the submask from the input password is required. FCS_CKM.1.1/PBKDF: The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.1.</p>
+<p>Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that the formation of all password based derived keys is described and that the key sizes match that described by the ST author. The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify that these are supported by the selections in this component as well as the selections concerning the hash function itself. The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the submask that will be input into the function. For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash). No explicit testing of the formation of the submask from the input password is required. FCS_CKM_EXT.1.1/PBKDF: The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.1.</p>
 </div>
 </div>
 <div class="sect5">
@@ -1887,7 +1887,7 @@ For each supported NIST curve, i.e., P-256, P-384 and P-521, the evaluator shall
 <div class="sect5">
 <h6 id="_tss_21">4.1.2.4.1. TSS</h6>
 <div class="paragraph">
-<p>The evaluator shall ensure that the supported key establishment schemes correspond to the key generation schemes identified in FCS_CKM.1.1. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme (including whether the TOE acts as a sender, a recipient, or both).
+<p>The evaluator shall ensure that the supported key establishment schemes correspond to the key generation schemes identified in FCS_CKM_EXT.1.1. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme (including whether the TOE acts as a sender, a recipient, or both).
 The intent of this activity is to be able to identify the scheme being used by each service.  This would mean, for example, one way to document scheme usage could be:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">

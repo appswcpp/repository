@@ -133,7 +133,7 @@ If invocation of platform-provided functionality is achieved in another way, the
 
 The evaluator shall check the TSS to ensure that it lists all persistent credentials (secret keys, PKI private keys, or passwords) needed to meet the requirements in the ST. For each of these items, the evaluator shall confirm that the TSS lists for what purpose it is used, and how it is stored.
 
-[Conditional] If implement functionality to securely store is selected, the evaluator shall verify that the TSS states how credentials are stored utilizing FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, or FCS_CKM.1/PBKDF2.
+[Conditional] If implement functionality to securely store is selected, the evaluator shall verify that the TSS states how credentials are stored utilizing FCS_COP.1/DataEncryption, FCS_CKM_EXT.1/Hash, FCS_CKM_EXT.1/KeyedHash, or FCS_CKM_EXT.1/PBKDF2.
 
 ====== Operational Guidance
 
@@ -457,7 +457,7 @@ Test 3: [conditional] If credentials are transmitted the evaluator shall set the
 
 ==== Cryptographic Key Management (FCS_CKM)
 
-===== FCS_CKM.1.1/Symmetric Cryptographic Key Generation
+===== FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation
 
 ====== TSS
 
@@ -529,25 +529,13 @@ The following paragraphs contain more information on some of the input values to
 
 ==== Cryptographic Key Generation Services (FCS_CKM_EXT)
 
-===== FCS_CKM_EXT.1.1
+===== FCS_CKM_EXT.1/Asymetric
 
 ====== TSS
 
-The evaluator shall inspect the application and its developer documentation to determine if the application needs asymmetric key generation services. If not, the evaluator shall verify the *generate no asymmetric cryptographic keys* selection is present in the ST. Otherwise, the evaluation activities shall be performed as stated in the selection-based requirements.
+The evaluator shall inspect the application and its developer documentation to determine if the application needs asymmetric key generation services. If not, the evaluator shall verify the *generate no asymmetric cryptographic keys* selection is present in the ST. Otherwise, the evaluation activities shall be performed as stated below.
 
-====== Operational Guidance
-
-No activities specified.
-
-====== Test
-
-No activities specified.
-
-===== FCS_CKM.1.1
-
-====== TSS
-
-The evaluator shall ensure that the TSS identifies the key sizes supported by the TOE. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme.
+If asymetric keys are generated, The evaluator shall ensure that the TSS identifies the key sizes supported by the TOE. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme.
 
 ====== Operational Guidance
 
@@ -616,11 +604,11 @@ for each FFC parameter set and key pair.
 
 Testing for FFC Schemes using safe-prime groups is done as part of testing in FCS_CKM.2.1.
 
-===== FCS_CKM.1/PBKDF2
+===== FCS_CKM_EXT.1/PBKDF2
 
 ====== TSS
 
-Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that the formation of all password based derived keys is described and that the key sizes match that described by the ST author. The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify that these are supported by the selections in this component as well as the selections concerning the hash function itself. The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the submask that will be input into the function. For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash). No explicit testing of the formation of the submask from the input password is required. FCS_CKM.1.1/PBKDF: The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.2.
+Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that the formation of all password based derived keys is described and that the key sizes match that described by the ST author. The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify that these are supported by the selections in this component as well as the selections concerning the hash function itself. The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the submask that will be input into the function. For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash). No explicit testing of the formation of the submask from the input password is required. FCS_CKM_EXT.1/PBKDF: The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.2.
 
 ====== Operational Guidance
 
@@ -634,7 +622,8 @@ No activities specified.
 
 ====== TSS
 
-The evaluator shall ensure that the supported key establishment schemes correspond to the key generation schemes identified in FCS_CKM.1.1. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme (including whether the TOE acts as a sender, a recipient, or both). 
+The evaluator shall ensure that the supported key establishment schemes correspond to the key generation schemes identified in FCS_CKM_EXT.1/Asymetric. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme (including whether the TOE acts as a sender, a recipient, or both). 
+
 The intent of this activity is to be able to identify the scheme being used by each service.  This would mean, for example, one way to document scheme usage could be:
 
 [%header,cols="1,2,2"]
@@ -655,10 +644,6 @@ The intent of this activity is to be able to identify the scheme being used by e
 |Diffie-Hellman (Group 14)
 |FCS_SSHC_EXT.1
 |Backup Server
-
-|ECDH
-|FCS_IPSEC_EXT.1
-|Authentication Server
 
 |===
 
@@ -1149,15 +1134,9 @@ In this section, each SAR that is contained in the cPP is listed, and the EAs th
 When evaluating a Security Target, the evaluator performs the work units as presented in the CEM. In addition, the evaluator ensures the content of the TSS in the ST satisfies the EAs specified in <<Evaluation Activities for Mandatory SFRs>>.
 
 === Class ADV: Development
-==== 5.2.1	Basic Functional Specification (ADV_FSP.1)
+
+==== Basic Functional Specification (ADV_FSP.1)
 The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in <<Evaluation Activities for Mandatory SFRs>>, and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.
-
-32	When evaluating a Security Target, the evaluator performs the work units as presented in the CEM. In addition, the evaluator ensures the content of the TSS in the ST satisfies the EAs specified in <<Evaluation Activities for Mandatory SFRs>>.
-
-=== Class ADV: Development
-==== 5.2.1	Basic Functional Specification (ADV_FSP.1)
-The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in Section 2 (Evaluation Activities for Mandatory SFRs), and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.
-
 
 The EAs presented in this section address the CEM work units ADV_FSP.1-1, ADV_FSP.1-2, ADV_FSP.1-3, and ADV_FSP.1-5.
 
@@ -1300,9 +1279,11 @@ When evaluating the developer's coverage of the TOE in their CM system, the eval
 
 It is not uncommon for software applications needing to be updated due security flaws. Therefore, the response to potential security flaws must be clearly established, and comprehensive. There must be a means of providing information and solutions to users in a timely manner, using automated means. ALC_FLR.3 has been mandated to meet these requirements.
 
+ALC_FLR.3 documentation is split into two inputs: guidance for TOE users and procedures for TOE developers.  The ALC_FLR.3 guidance must be a public facing document.  The ALC_FLR.3 procedures may be a public or private document. 
+
 The following table indicates, for each work unit in ALC_FLR.3, whether the [CEM] work unit is to be performed as written, or if it has been clarified by an Evaluation Activity. If clarification has been provided, a reference to this clarification is provided in the table.
 
-.Mapping of ADV_FSP.1 CEM Work Units to Evaluation Activities
+.Mapping of ALC_FLR.3 CEM Work Units to Evaluation Activities
 [cols=".^1,.^2",options="header",]
 |===
 |CEM ALC_FLR.3 Work Units
@@ -1499,7 +1480,7 @@ The evaluators shall perform a search on the sources listed in <<Public Vulnerab
 
 The search criteria to be used when searching the sources published after the publication date of the cPP shall include:
 
-* Any protocols not listed above supported (through an SFR) by the TOE (these will include at least one of the remote management protocols (IPsec, TLS, SSH))
+* Any protocols not listed above supported (through an SFR) by the TOE (these will include at least one of the remote management protocols (TLS, SSH))
 
 * The TOE name (including appropriate model information as appropriate)
 

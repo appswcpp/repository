@@ -185,7 +185,7 @@ SFR Rationale:
 
 * FMT_CFG_EXT.1 ensures that an attacker cannot gain administrator access via misconfiguration of the application.
 
-* FCS_STO_EXT.1 and FCS_CKM.1/PBKDF2 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.
+* FCS_STO_EXT.1 and FCS_CKM_EXT.1/PBKDF2 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.
 
 * FIA_AFL.1, FIA_EIP_EXT.1, FIA_UAU.7, FIA_UAU_EXT.5, FIA_UAU_EXT.2, FIA_UIA_EXT.1, and FTA_TAB.1 ensures that an appropriate mechanism is in place to ensure only an authorized user can interact with the application (if interactive).
 
@@ -196,7 +196,7 @@ Attackers may exploit weak cryptographic algorithms or perform a cryptographic e
 
 SFR Rationale:
 
-* FCS_CKM.1/Asymmetric and FCS_CKM.2 defines the requirements for key generation and key distribution respectively.
+* FCS_CKM_EXT.1/Asymmetric and FCS_CKM.2 defines the requirements for key generation and key distribution respectively.
 
 * FCS_COP.1 defines the requirements for use of cryptographic schemes.
 
@@ -313,7 +313,7 @@ Unless _use no DRBG functionality_ is selected, an Entropy Analaysis Report spec
 
 ==== Storage of Credentials (FCS_STO)
 ===== FCS_STO_EXT.1 Storage of Credentials
-*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2_] to non-volatile memory.
+*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM_EXT.1/Hash, FCS_CKM_EXT.1/KeyedHash, FCS_CKM_EXT.1/PBKDF2_] to non-volatile memory.
 
 *Application Note {counter:appnote}:* This requirement ensures that persistent credentials (secret keys, PKI private keys, or passwords) are stored securely.
 
@@ -542,9 +542,9 @@ This section defines optional cryptographic requirements that underlie other sec
 
 ==== Cryptographic Key Management (FCS_CKM)
 
-===== FCS_CKM.1/Symmetric Cryptographic Key Generation
+===== FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation
 
-*FCS_CKM.1.1/Symmetric* The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [_assignment: cryptographic key generation algorithm_] using a Random Bit Generator as specified in FCS_RBG_EXT.2 and specified cryptographic key sizes [_selection: 128 bit, 256 bit_]. that meet the following: [_assignment: list of standards_].
+*FCS_CKM_EXT.1.1/Symmetric* The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [_assignment: cryptographic key generation algorithm_] using a Random Bit Generator as specified in FCS_RBG_EXT.2 and specified cryptographic key sizes [_selection: 128 bit, 256 bit_]. that meet the following: [_assignment: list of standards_].
 
 *Application Note {counter:appnote}:* Symmetric keys may be used to generate keys along the key chain.
 
@@ -586,13 +586,13 @@ If the key length for the AES implementation used here is different than that us
 
 ===== FCS_CKM_EXT.1 Cryptographic Key Generation Services
 
-*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric_].
+*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM_EXT.1/Asymmetric_].
 
 *Application Note {counter:appnote}:* This requirement depends upon selection in [TLS Package] and [SSH Package].
 
-===== FCS_CKM.1/Asymmetric Cryptographic Key Generation (Refinement)
+===== FCS_CKM_EXT.1/Asymmetric Cryptographic Key Generation (Refinement)
 
-*FCS_CKM.1.1/Asymmetric* The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [_selection:_
+*FCS_CKM_EXT.1.1/Asymmetric* The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [_selection:_
 
 * _RSA schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.3;_
 * _ECC schemes using “NIST curves” [selection: P-256, P-384, P-521] that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;_
@@ -606,11 +606,11 @@ and specified cryptographic key sizes [_assignment: cryptographic key sizes_] th
 
 If the TOE acts as a receiver in the key establishment schemes and is not configured to support mutual authentication, the TOE does not need to implement key generation.
 
-===== FCS_CKM.1.1/PBKDF2 Password Conditioning
+===== FCS_CKM_EXT.1.1/PBKDF2 Password Conditioning
 
-*FCS_CKM.1.1/PBKDF2* A password/passphrase shall perform [_assignment: Password-based Key Derivation Functions_] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [_assignment: positive integer of 1,000 or more_] iterations, and output cryptographic key sizes [_selection: 128, 256_] that meet the following [NIST SP 800-132]. 
+*FCS_CKM_EXT.1.1/PBKDF2* A password/passphrase shall perform [_assignment: Password-based Key Derivation Functions_] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [_assignment: positive integer of 1,000 or more_] iterations, and output cryptographic key sizes [_selection: 128, 256_] that meet the following [NIST SP 800-132]. 
 
-*FCS_CKM.1.2/PBKDF2* The TSF shall generate salts using a RBG that meets FCS_RGB_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in FCS_CKM.1.1/PBKDF2.
+*FCS_CKM_EXT.1.2/PBKDF2* The TSF shall generate salts using a RBG that meets FCS_RGB_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.1.1/PBKDF2.
 
 *Application Note {counter:appnote}:* This should be included if selected in FCS_STO_EXT.1
 
@@ -630,8 +630,8 @@ Appendix A of SP 800-132 recommends setting the iteration count in order to incr
 
 The ST author selects all key establishment schemes used for the selected cryptographic protocols. 
 
-The elliptic curves used for the key establishment scheme correlate with the curves specified in FCS_CKM.1.1/Asymmetric
-The domain parameters used for the finite field-based key establishment scheme are specified by the key generation according to FCS_CKM.1.1/Asymmetric.
+The elliptic curves used for the key establishment scheme correlate with the curves specified in FCS_CKM_EXT.1.1/Asymmetric
+The domain parameters used for the finite field-based key establishment scheme are specified by the key generation according to FCS_CKM_EXT.1.1/Asymmetric.
 
 Safe-prime groups are covered in Appendix D of SP 800-56A Revision 3, “Appendix D: Approved ECC Curves and FFC Safe-prime Groups”.
 
@@ -878,7 +878,25 @@ Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM.1/Asymmetric_].
+*FCS_CKM_EXT.1.1* The application shall [_selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM_EXT.1/Asymmetric_].
+
+*FCS_CKM_EXT.1/Asymmetric*
+
+The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [_selection:_
+
+* _RSA schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.3;_
+* _ECC schemes using “NIST curves” [selection: P-256, P-384, P-521] that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;_
+* _FFC schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.1_
+* _FFC Schemes using ‘safe-prime’ groups that meet the following: “NIST Special Publication 800-56A Revision 3, Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography” and [selection: RFC 3526, RFC 7919]_
+] 
+
+and specified cryptographic key sizes [_assignment: cryptographic key sizes_] that meet the following: [_assignment: list of standards_].
+
+*FCS_CKM_EXT.1.1/Symmetric* The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [_assignment: cryptographic key generation algorithm_] using a Random Bit Generator as specified in FCS_RBG_EXT.2 and specified cryptographic key sizes [_selection: 128 bit, 256 bit_]. that meet the following: [_assignment: list of standards_].
+
+*FCS_CKM_EXT.1.1/PBKDF2* A password/passphrase shall perform [_assignment: Password-based Key Derivation Functions_] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [_assignment: positive integer of 1,000 or more_] iterations, and output cryptographic key sizes [_selection: 128, 256_] that meet the following [NIST SP 800-132]. 
+
+*FCS_CKM_EXT.1.2/PBKDF2* The TSF shall generate salts using a RBG that meets FCS_RGB_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.1.1/PBKDF2.
 
 ==== Cryptographic Protocols (FCS_HTTPS_EXT)
 
@@ -1016,7 +1034,7 @@ Hierarchical to: No other components
 
 Dependencies: No dependencies
 
-*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM.1/Hash, FCS_CKM.1/KeyedHash, FCS_CKM.1/PBKDF2_] to non-volatile memory.
+*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM_EXT.1/Hash, FCS_CKM_EXT.1/KeyedHash, FCS_CKM_EXT.1/PBKDF2_] to non-volatile memory.
 
 === Data Protection (FDP)
 
@@ -1813,7 +1831,7 @@ The dependencies between SFRs implemented by the TOE are addressed as follows.
 |Dependencies
 |Rationale Statement
 
-|FCS_CKM.1/Symmetric
+|FCS_CKM_EXT.1/Symmetric
 |[FCS_CKM.2 or FCS_COP.1] FCS_CKM.4
 |FCS_CKM.2 is met
 
@@ -1834,7 +1852,7 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 |Dependencies
 |Rationale Statement
 
-|FCS_CKM.1/PBKDF2
+|FCS_CKM_EXT.1/PBKDF2
 |None
 |
 
@@ -1842,7 +1860,7 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 |None
 |
 
-|FCS_CKM.1/Asymmetric
+|FCS_CKM_EXT.1/Asymmetric
 |[FCS_CKM.2 or FCS_COP.1] 
 
 FCS_CKM.4 
@@ -1854,19 +1872,19 @@ FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applicat
 
 
 |FCS_CKM.2
-|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1/Asymmetric] 
+|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM_EXT.1/Asymmetric] 
 
 FCS_CKM.4 
-|FCS_CKM.1/Asymmetric met
+|FCS_CKM_EXT.1/Asymmetric met
 
 FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management
 
 
 |FCS_COP.1/DataEncryption
-.4+|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM.1/Asymmetric] 
+.4+|[FDP_ITC.1, or FDP_ITC.2, or FCS_CKM_EXT.1/Asymmetric] 
 
 FCS_CKM.4 
-.4+|FCS_CKM.1/Asymmetric met
+.4+|FCS_CKM_EXT.1/Asymmetric met
 
 FCS_CKM.4 Cryptographic Key Destruction isn’t included since software applications rely on underlying platform for memory and storage management
 
