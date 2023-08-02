@@ -1218,24 +1218,31 @@ _The evaluator shall ensure the Operational guidance makes it clear to an admini
 ===== Evaluation Activity
 In addition the evaluator shall ensure that the following requirements are also met.
 
-. The guidance documentation shall contain instructions for configuring
+* The guidance documentation shall contain instructions for configuring
 any cryptographic engine associated with the evaluated configuration
 of the TOE. It shall provide a warning to the administrator that use of other cryptographic engines was not evaluated nor tested during the
 CC evaluation of the TOE.
-. The documentation must describe the process for verifying updates to
+* The documentation must describe the process for verifying updates to
 the TOE by verifying a digital signature. The evaluator shall verify that
 this process includes the following steps:
-.. Instructions for obtaining the update itself. This should include
+** Instructions for obtaining the update itself. This should include
 instructions for making the update accessible to the TOE (e.g.,
 placement in a specific directory).
-.. Instructions for initiating the update process, as well as
+** Instructions for initiating the update process, as well as
 discerning whether the process was successful or unsuccessful.
 This includes instructions that describe at least one method of
 validating the hash/digital signature.
-. The TOE will likely contain security functionality that does not fall in
+* The TOE will likely contain security functionality that does not fall in
 the scope of evaluation under this cPP. The guidance documentation
 shall make it clear to an administrator which security functionality is
 covered by the Evaluation Activities.
+
+===== Evaluation Activity
+The evaluator shall examine the Operational Guidance to ensure that the following ALC_FLR.3 information is included:
+
+* A means for the TOE user to provide reports of suspected security flaws or requests for corrections to such flaws.
+* A means of enabling the TOE users to register with the developer.
+* Specific points of contact for user reports and enquiries about security issues involving the TOE.
 
 ==== Preparative Procedures (AGD_PRE.1)
 _The evaluator performs the CEM work units associated with the AGD_PRE.1 SAR. Specific requirements and EAs on the preparative documentation are identified (and where relevant are captured in the Guidance Documentation portions of the EAs) in the individual EAs for each SFR._
@@ -1263,8 +1270,8 @@ In addition the evaluator shall ensure that the following requirements are also 
 
 The preparative procedures must
 
-. Include instructions to provide a protected administrative capability; and
-. Identify TOE passwords that have default values associated with them and
+* Include instructions to provide a protected administrative capability; and
+* Identify TOE passwords that have default values associated with them and
 instructions shall be provided for how these can be changed.
 
 === Class ALC: Life-cycle Support
@@ -1296,9 +1303,6 @@ The following table indicates, for each work unit in ALC_FLR.3, whether the [CEM
 |The evaluator shall perform the [CEM] activity as specified.
 
 |ALC_FLR.3-3 The evaluator shall examine the flaw remediation procedures to determine that the application of these procedures would identify the status of finding a correction to each security flaw.
-|The evaluator shall perform the [CEM] activity as specified.
-
-|ALC_FLR.3-4 The evaluator shall check the flaw remediation procedures to determine that the application of these procedures would identify the corrective action for each security flaw.
 |The evaluator shall perform the [CEM] activity as specified.
 
 |ALC_FLR.3-4 The evaluator shall check the flaw remediation procedures to determine that the application of these procedures would identify the corrective action for each security flaw.
@@ -1381,24 +1385,17 @@ _If the iTC specifies any tools to be used in performing this analysis in sectio
 |AVA_VAN.1-5 The evaluator *__shall devise__* penetration tests, based on the independent search for potential vulnerabilities.	
 |Replace the CEM work unit with the activities specified in Appendix A, section A.2.
 
-a|AVA_VAN.1-6 The evaluator *__shall produce__* penetration test documentation for the tests based on the list of potential vulnerabilities in sufficient detail to enable the tests to be repeatable. The test documentation shall include:
+|AVA_VAN.1-6 The evaluator *__shall produce__* penetration test documentation for the tests based on the list of potential vulnerabilities in sufficient detail to enable the tests to be repeatable. The test documentation shall include:
 
 [loweralpha]
-. Identification of the potential vulnerability the TOE is being tested for;
+* Identification of the potential vulnerability the TOE is being tested for;
+* Instructions to connect and setup all required test equipment as required to conduct the penetration test;
+* Instructions to establish all penetration test prerequisite initial conditions;
+* Instructions to stimulate the TSF;
+* Instructions for observing the behaviour of the TSF;
+* Descriptions of all expected results and the necessary analysis to be performed on the observed behaviour for comparison against expected results;
+* Instructions to conclude the test and establish the necessary post-test state for the TOE.	
 
-. Instructions to connect and setup all required test equipment as required to conduct the penetration test;
-
-. Instructions to establish all penetration test prerequisite initial
-conditions;
-
-. Instructions to stimulate the TSF;
-
-. Instructions for observing the behaviour of the TSF;
-
-. Descriptions of all expected results and the necessary analysis to be performed on the observed behaviour for comparison against
-expected results;
-
-. Instructions to conclude the test and establish the necessary post-test state for the TOE.	
 |The CEM work unit is captured in Appendix A, Section A.3; there are no substantive differences.
 
 |AVA_VAN.1-7 The evaluator shall conduct penetration testing.
@@ -1411,9 +1408,10 @@ expected results;
 |Replace the CEM work unit with the reporting called for in Appendix A, Section A.3.
 
 |AVA_VAN.1-10 The evaluator shall examine the results of all penetration testing to determine that the TOE, in its operational environment, is resistant to an attacker possessing a Basic attack potential.
+
 |This work unit is not applicable for Type 1 and Type 2 flaws (as defined in Appendix A, Section A.1), as inclusion in this Supporting Document by the iTC makes any confirmed vulnerabilities stemming from these flaws subject to an attacker possessing a Basic attack potential. This work unit is replaced for Type 3 and Type 4 flaws by the activities defined in Appendix A, Section A.2, paragraph 110.
 
-a|AVA_VAN.1-11 The evaluator shall report in the ETR all exploitable vulnerabilities and residual vulnerabilities, detailing for each:
+|AVA_VAN.1-11 The evaluator shall report in the ETR all exploitable vulnerabilities and residual vulnerabilities, detailing for each:
 
 [loweralpha]
 . Its source (e.g. CEM activity being undertaken when it was conceived, known to the evaluator, read in a publication);

@@ -313,7 +313,7 @@ Unless _use no DRBG functionality_ is selected, an Entropy Analaysis Report spec
 
 ==== Storage of Credentials (FCS_STO)
 ===== FCS_STO_EXT.1 Storage of Credentials
-*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM_EXT.1/Hash, FCS_CKM_EXT.1/KeyedHash, FCS_CKM_EXT.1/PBKDF2_] to non-volatile memory.
+*FCS_STO_EXT.1.1* The application shall [_selection: not store any credentials, invoke the functionality provided by the platform to securely store [assignment: list of credentials], implement functionality to securely store [assignment: list of credentials]_] according to [_selection: FCS_COP.1/DataEncryption, FCS_CKM_EXT.1/Hash, FCS_CKM_EXT.1/KeyedHash, FCS_CKM_EXT.1/PBKDF2_] to non-volatile memory.  
 
 *Application Note {counter:appnote}:* This requirement ensures that persistent credentials (secret keys, PKI private keys, or passwords) are stored securely.
 
@@ -322,9 +322,9 @@ This section defines requirements pertaining to protection of user data.
 
 ==== Network communications (FDP_NET)
 ===== FDP_NET_EXT.1 (Network Communications)
-*FDP_NET_EXT.1.1* The TSF shall restrict network communication to: [_selection: no network communication, outbound connections, inbound connections_].
+*FDP_NET_EXT.1.1* The TSF shall restrict network communication to: [_selection: no network communication, user-initiated communication for [*assignment*: list of functions for which the user can initiate network communication], respond to [*assignment*: list of remotely initiated communication ], [*assignment*: list of application-initiated network communication] ].
 
-*Application Note {counter:appnote}:* This requirement is intended to restrict both inbound and outbound network communications to only those required. It does not apply to network communications handled by the platform that may support access to remote filesystems mounted locally by the platform.
+*Application Note {counter:appnote}:* This requirement is intended to restrict both inbound and outbound network communications to only those required, or to network communications that are user initiated. It does not apply to network communications in which the application may generically access the filesystem which may result in the platform accessing remotely mounted drives/shares.
 
 === Security Management (FMT)
 Management functions in this section describe required capabilities to support a Security Administrator role and basic set of security management functions dealing with management of configurable aspects included in other SFRs, Default Configuration (FMT_CFG_EXT.1) and Specification of Management Functions (FMT_SMF.1).
