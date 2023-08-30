@@ -459,13 +459,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Application Software</h1>
 <div class="details">
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2022-04-06</span>
+<span id="revnumber">version 1.1,</span>
+<span id="revdate">2023-08-16</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_document_purpose_and_overview">Document Purpose and Overview</a></li>
 <li><a href="#_foreword">Foreword</a></li>
 <li><a href="#_acknowledgements">Acknowledgements</a>
 <ul class="sectlevel2">
@@ -487,7 +486,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_random_bit_generation_services_fcs_rbg">2.1.1. Random Bit Generation Services (FCS_RBG)</a>
 <ul class="sectlevel4">
-<li><a href="#_fcs_rbg_ext_2">2.1.1.1. FCS_RBG_EXT.2</a>
+<li><a href="#_fcs_rbg_ext_1">2.1.1.1. FCS_RBG_EXT.1</a>
 <ul class="sectlevel5">
 <li><a href="#_tss">2.1.1.1.1. TSS</a></li>
 <li><a href="#_operational_guidance">2.1.1.1.2. Operational Guidance</a></li>
@@ -555,6 +554,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
+<li><a href="#_management_roles_fmt_smr">2.3.3. Management Roles (FMT_SMR)</a>
+<ul class="sectlevel4">
+<li><a href="#_fmt_smr_2_security_management_roles">2.3.3.1. FMT_SMR.2 (Security Management Roles)</a>
+<ul class="sectlevel5">
+<li><a href="#_tss_7">2.3.3.1.1. TSS</a></li>
+<li><a href="#_guidance_documentation">2.3.3.1.2. Guidance Documentation</a></li>
+<li><a href="#_test_7">2.3.3.1.3. Test</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_protection_of_the_tsf_fpt">2.4. Protection of the TSF (FPT)</a>
@@ -563,37 +573,37 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel4">
 <li><a href="#_fpt_aex_ext_1_1">2.4.1.1. FPT_AEX_EXT.1.1</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_7">2.4.1.1.1. TSS</a></li>
+<li><a href="#_tss_8">2.4.1.1.1. TSS</a></li>
 <li><a href="#_operational_guidance_7">2.4.1.1.2. Operational Guidance</a></li>
-<li><a href="#_test_7">2.4.1.1.3. Test</a></li>
+<li><a href="#_test_8">2.4.1.1.3. Test</a></li>
 </ul>
 </li>
 <li><a href="#_fpt_aex_ext_1_2">2.4.1.2. FPT_AEX_EXT.1.2</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_8">2.4.1.2.1. TSS</a></li>
+<li><a href="#_tss_9">2.4.1.2.1. TSS</a></li>
 <li><a href="#_operational_guidance_8">2.4.1.2.2. Operational Guidance</a></li>
-<li><a href="#_test_8">2.4.1.2.3. Test</a></li>
+<li><a href="#_test_9">2.4.1.2.3. Test</a></li>
 </ul>
 </li>
 <li><a href="#_fpt_aex_ext_1_3">2.4.1.3. FPT_AEX_EXT.1.3</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_9">2.4.1.3.1. TSS</a></li>
+<li><a href="#_tss_10">2.4.1.3.1. TSS</a></li>
 <li><a href="#_operational_guidance_9">2.4.1.3.2. Operational Guidance</a></li>
-<li><a href="#_test_9">2.4.1.3.3. Test</a></li>
+<li><a href="#_test_10">2.4.1.3.3. Test</a></li>
 </ul>
 </li>
 <li><a href="#_fpt_aex_ext_1_4">2.4.1.4. FPT_AEX_EXT.1.4</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_10">2.4.1.4.1. TSS</a></li>
+<li><a href="#_tss_11">2.4.1.4.1. TSS</a></li>
 <li><a href="#_operational_guidance_10">2.4.1.4.2. Operational Guidance</a></li>
-<li><a href="#_test_10">2.4.1.4.3. Test</a></li>
+<li><a href="#_test_11">2.4.1.4.3. Test</a></li>
 </ul>
 </li>
 <li><a href="#_fpt_aex_ext_1_5">2.4.1.5. FPT_AEX_EXT.1.5</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_11">2.4.1.5.1. TSS</a></li>
+<li><a href="#_tss_12">2.4.1.5.1. TSS</a></li>
 <li><a href="#_operational_guidance_11">2.4.1.5.2. Operational Guidance</a></li>
-<li><a href="#_test_11">2.4.1.5.3. Test</a></li>
+<li><a href="#_test_12">2.4.1.5.3. Test</a></li>
 </ul>
 </li>
 </ul>
@@ -602,16 +612,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel4">
 <li><a href="#_fpt_tud_ext_1_1">2.4.2.1. FPT_TUD_EXT.1.1</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_12">2.4.2.1.1. TSS</a></li>
+<li><a href="#_tss_13">2.4.2.1.1. TSS</a></li>
 <li><a href="#_operational_guidance_12">2.4.2.1.2. Operational Guidance</a></li>
-<li><a href="#_test_12">2.4.2.1.3. Test</a></li>
+<li><a href="#_test_13">2.4.2.1.3. Test</a></li>
 </ul>
 </li>
 <li><a href="#_fpt_tud_ext_1_2">2.4.2.2. FPT_TUD_EXT.1.2</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_13">2.4.2.2.1. TSS</a></li>
+<li><a href="#_tss_14">2.4.2.2.1. TSS</a></li>
 <li><a href="#_operational_guidance_13">2.4.2.2.2. Operational Guidance</a></li>
-<li><a href="#_test_13">2.4.2.2.3. Test</a></li>
+<li><a href="#_test_14">2.4.2.2.3. Test</a></li>
 </ul>
 </li>
 </ul>
@@ -624,9 +634,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel4">
 <li><a href="#_ftp_dit_ext_1">2.5.1.1. FTP_DIT_EXT.1</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_14">2.5.1.1.1. TSS</a></li>
+<li><a href="#_tss_15">2.5.1.1.1. TSS</a></li>
 <li><a href="#_operational_guidance_14">2.5.1.1.2. Operational Guidance</a></li>
-<li><a href="#_test_14">2.5.1.1.3. Test</a></li>
+<li><a href="#_test_15">2.5.1.1.3. Test</a></li>
 </ul>
 </li>
 </ul>
@@ -641,11 +651,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_cryptographic_key_management_fcs_ckm">3.1.1. Cryptographic Key Management (FCS_CKM)</a>
 <ul class="sectlevel4">
-<li><a href="#_fcs_ckm_1_1symmetric">3.1.1.1. FCS_CKM_EXT.1.1/Symmetric</a>
+<li><a href="#_fcs_ckm_ext_1symmetric_cryptographic_key_generation">3.1.1.1. FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_15">3.1.1.1.1. TSS</a></li>
+<li><a href="#_tss_16">3.1.1.1.1. TSS</a></li>
 <li><a href="#_operational_guidance_15">3.1.1.1.2. Operational Guidance</a></li>
-<li><a href="#_test_15">3.1.1.1.3. Test</a></li>
+<li><a href="#_test_16">3.1.1.1.3. Test</a></li>
 </ul>
 </li>
 </ul>
@@ -658,9 +668,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel4">
 <li><a href="#_fpt_api_ext_2_1">3.2.1.1. FPT_API_EXT.2.1</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_16">3.2.1.1.1. TSS</a></li>
+<li><a href="#_tss_17">3.2.1.1.1. TSS</a></li>
 <li><a href="#_operational_guidance_16">3.2.1.1.2. Operational Guidance</a></li>
-<li><a href="#_test_16">3.2.1.1.3. Test</a></li>
+<li><a href="#_test_17">3.2.1.1.3. Test</a></li>
 </ul>
 </li>
 </ul>
@@ -673,41 +683,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_cryptograhic_support_fcs">4.1. Cryptograhic Support (FCS)</a>
 <ul class="sectlevel3">
-<li><a href="#_random_bit_generation_fcs_rbg_ext_1">4.1.1. Random Bit Generation (FCS_RBG_EXT.1)</a>
+<li><a href="#_random_bit_generation_fcs_rbg_ext_2">4.1.1. Random Bit Generation (FCS_RBG_EXT.2)</a>
 <ul class="sectlevel4">
-<li><a href="#_tss_17">4.1.1.1. TSS</a></li>
+<li><a href="#_tss_18">4.1.1.1. TSS</a></li>
 <li><a href="#_operational_guidance_17">4.1.1.2. Operational Guidance</a></li>
-<li><a href="#_test_17">4.1.1.3. Test</a></li>
+<li><a href="#_test_18">4.1.1.3. Test</a></li>
 </ul>
 </li>
 <li><a href="#_cryptographic_key_generation_services_fcs_ckm_ext">4.1.2. Cryptographic Key Generation Services (FCS_CKM_EXT)</a>
 <ul class="sectlevel4">
-<li><a href="#_fcs_ckm_ext_1_1">4.1.2.1. FCS_CKM_EXT.1.1</a>
+<li><a href="#_fcs_ckm_ext_1asymetric">4.1.2.1. FCS_CKM_EXT.1/Asymetric</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_18">4.1.2.1.1. TSS</a></li>
+<li><a href="#_tss_19">4.1.2.1.1. TSS</a></li>
 <li><a href="#_operational_guidance_18">4.1.2.1.2. Operational Guidance</a></li>
-<li><a href="#_test_18">4.1.2.1.3. Test</a></li>
+<li><a href="#_test_19">4.1.2.1.3. Test</a></li>
 </ul>
 </li>
-<li><a href="#_fcs_ckm_1_1">4.1.2.2. FCS_CKM_EXT.1.1</a>
+<li><a href="#_fcs_ckm_ext_1pbkdf2">4.1.2.2. FCS_CKM_EXT.1/PBKDF2</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_19">4.1.2.2.1. TSS</a></li>
+<li><a href="#_tss_20">4.1.2.2.1. TSS</a></li>
 <li><a href="#_operational_guidance_19">4.1.2.2.2. Operational Guidance</a></li>
-<li><a href="#_test_19">4.1.2.2.3. Test</a></li>
+<li><a href="#_test_20">4.1.2.2.3. Test</a></li>
 </ul>
 </li>
-<li><a href="#_fcs_ckm_1pbkdf2">4.1.2.3. FCS_CKM_EXT.1/PBKDF2</a>
+<li><a href="#_fcs_ckm_2_1">4.1.2.3. FCS_CKM.2.1</a>
 <ul class="sectlevel5">
-<li><a href="#_tss_20">4.1.2.3.1. TSS</a></li>
-<li><a href="#_operational_guidance_20">4.1.2.3.2. Operational Guidance</a></li>
-<li><a href="#_test_20">4.1.2.3.3. Test</a></li>
-</ul>
-</li>
-<li><a href="#_fcs_ckm_2_1">4.1.2.4. FCS_CKM.2.1</a>
-<ul class="sectlevel5">
-<li><a href="#_tss_21">4.1.2.4.1. TSS</a></li>
-<li><a href="#_guidance_documentation">4.1.2.4.2. Guidance Documentation</a></li>
-<li><a href="#_test_21">4.1.2.4.3. Test</a></li>
+<li><a href="#_tss_21">4.1.2.3.1. TSS</a></li>
+<li><a href="#_guidance_documentation_2">4.1.2.3.2. Guidance Documentation</a></li>
+<li><a href="#_test_21">4.1.2.3.3. Test</a></li>
 </ul>
 </li>
 </ul>
@@ -717,28 +720,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fcs_cop_1dataencryption">4.1.3.1. FCS_COP.1/DataEncryption</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_22">4.1.3.1.1. TSS</a></li>
-<li><a href="#_guidance_documentation_2">4.1.3.1.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_3">4.1.3.1.2. Guidance Documentation</a></li>
 <li><a href="#_tests">4.1.3.1.3. Tests</a></li>
 </ul>
 </li>
 <li><a href="#_fcs_cop_1_1siggen">4.1.3.2. FCS_COP.1.1/SigGen</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_23">4.1.3.2.1. TSS</a></li>
-<li><a href="#_guidance_documentation_3">4.1.3.2.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_4">4.1.3.2.2. Guidance Documentation</a></li>
 <li><a href="#_tests_2">4.1.3.2.3. Tests</a></li>
 </ul>
 </li>
 <li><a href="#_fcs_cop_1hash">4.1.3.3. FCS_COP.1/Hash</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_24">4.1.3.3.1. TSS</a></li>
-<li><a href="#_guidance_documentation_4">4.1.3.3.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_5">4.1.3.3.2. Guidance Documentation</a></li>
 <li><a href="#_tests_3">4.1.3.3.3. Tests</a></li>
 </ul>
 </li>
 <li><a href="#_fcs_cop_1keyedhash">4.1.3.4. FCS_COP.1/KeyedHash</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_25">4.1.3.4.1. TSS</a></li>
-<li><a href="#_guidance_documentation_5">4.1.3.4.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_6">4.1.3.4.2. Guidance Documentation</a></li>
 <li><a href="#_tests_4">4.1.3.4.3. Tests</a></li>
 </ul>
 </li>
@@ -749,7 +752,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fcs_https_ext_1_https_protocol">4.1.4.1. FCS_HTTPS_EXT.1 HTTPS Protocol</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_26">4.1.4.1.1. TSS</a></li>
-<li><a href="#_guidance_documentation_6">4.1.4.1.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_7">4.1.4.1.2. Guidance Documentation</a></li>
 <li><a href="#_tests_5">4.1.4.1.3. Tests</a></li>
 </ul>
 </li>
@@ -764,7 +767,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fia_eip_ext_1_external_identity_provider">4.2.1.1. FIA_EIP_EXT.1 (External Identity Provider)</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_27">4.2.1.1.1. TSS</a></li>
-<li><a href="#_guidance_documentation_7">4.2.1.1.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_8">4.2.1.1.2. Guidance Documentation</a></li>
 <li><a href="#_test_22">4.2.1.1.3. Test</a></li>
 </ul>
 </li>
@@ -775,7 +778,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fia_uau_ext_5_user_authentication_mechanisms">4.2.2.1. FIA_UAU_EXT.5 (User Authentication Mechanisms)</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_28">4.2.2.1.1. TSS</a></li>
-<li><a href="#_guidance_documentation_8">4.2.2.1.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_9">4.2.2.1.2. Guidance Documentation</a></li>
 <li><a href="#_test_23">4.2.2.1.3. Test</a></li>
 </ul>
 </li>
@@ -783,7 +786,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fia_uau_7_user_authentication_obfuscation">4.2.2.3. FIA_UAU.7 (User Authentication Obfuscation)</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_29">4.2.2.3.1. TSS</a></li>
-<li><a href="#_guidance_documentation_9">4.2.2.3.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_10">4.2.2.3.2. Guidance Documentation</a></li>
 <li><a href="#_test_24">4.2.2.3.3. Test</a></li>
 </ul>
 </li>
@@ -794,7 +797,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fia_uia_ext_1_user_identification">4.2.3.1. FIA_UIA_EXT.1 (User Identification)</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_30">4.2.3.1.1. TSS</a></li>
-<li><a href="#_guidance_documentation_10">4.2.3.1.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_11">4.2.3.1.2. Guidance Documentation</a></li>
 <li><a href="#_test_25">4.2.3.1.3. Test</a></li>
 </ul>
 </li>
@@ -802,10 +805,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_user_authentication_failure_fia_afl">4.2.4. User Authentication Failure (FIA_AFL)</a>
 <ul class="sectlevel4">
-<li><a href="#_fia_afl_ext_1_authentication_failure">4.2.4.1. FIA_AFL_EXT.1 (Authentication Failure)</a>
+<li><a href="#_fia_afl_1_authentication_failure">4.2.4.1. FIA_AFL.1 (Authentication Failure)</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_31">4.2.4.1.1. TSS</a></li>
-<li><a href="#_guidance_documentation_11">4.2.4.1.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_12">4.2.4.1.2. Guidance Documentation</a></li>
 <li><a href="#_test_26">4.2.4.1.3. Test</a></li>
 </ul>
 </li>
@@ -816,21 +819,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fia_x509_ext_1_1rev_x_509_certificate_validation">4.2.5.1. FIA_X509_EXT.1.1/Rev (X.509 Certificate Validation)</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_32">4.2.5.1.1. TSS</a></li>
-<li><a href="#_guidance_documentation_12">4.2.5.1.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_13">4.2.5.1.2. Guidance Documentation</a></li>
 <li><a href="#_test_27">4.2.5.1.3. Test</a></li>
 </ul>
 </li>
 <li><a href="#_fia_x509_ext_1_2rev_x_509_certificate_validation">4.2.5.2. FIA_X509_EXT.1.2/Rev (X.509 Certificate Validation)</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_33">4.2.5.2.1. TSS</a></li>
-<li><a href="#_guidance_documentation_13">4.2.5.2.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_14">4.2.5.2.2. Guidance Documentation</a></li>
 <li><a href="#_test_28">4.2.5.2.3. Test</a></li>
 </ul>
 </li>
 <li><a href="#_fia_x509_ext_2_x_509_certificate_authentication">4.2.5.3. FIA_X509.EXT.2 X.509 Certificate Authentication</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_34">4.2.5.3.1. TSS</a></li>
-<li><a href="#_guidance_documentation_14">4.2.5.3.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_15">4.2.5.3.2. Guidance Documentation</a></li>
 <li><a href="#_test_29">4.2.5.3.3. Test</a></li>
 </ul>
 </li>
@@ -838,30 +841,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_security_management_fmt_2">4.3. Security Management (FMT)</a>
+<li><a href="#_toe_access_fta">4.3. TOE Access (FTA)</a>
 <ul class="sectlevel3">
-<li><a href="#_management_roles_fmt_smr">4.3.1. Management Roles (FMT_SMR)</a>
+<li><a href="#_toe_login_banner_fta_tab">4.3.1. TOE Login Banner (FTA_TAB)</a>
 <ul class="sectlevel4">
-<li><a href="#_fmt_smr_2_security_management_roles">4.3.1.1. FMT_SMR.2 (Security Management Roles)</a>
+<li><a href="#_fta_tab_1_toe_login_banner">4.3.1.1. FTA_TAB.1 (TOE Login Banner)</a>
 <ul class="sectlevel5">
 <li><a href="#_tss_35">4.3.1.1.1. TSS</a></li>
-<li><a href="#_guidance_documentation_15">4.3.1.1.2. Guidance Documentation</a></li>
+<li><a href="#_guidance_documentation_16">4.3.1.1.2. Guidance Documentation</a></li>
 <li><a href="#_test_30">4.3.1.1.3. Test</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_toe_access_fta">4.4. TOE Access (FTA)</a>
-<ul class="sectlevel3">
-<li><a href="#_toe_login_banner_fta_tab">4.4.1. TOE Login Banner (FTA_TAB)</a>
-<ul class="sectlevel4">
-<li><a href="#_fta_tab_1_toe_login_banner">4.4.1.1. FTA_TAB.1 (TOE Login Banner)</a>
-<ul class="sectlevel5">
-<li><a href="#_tss_36">4.4.1.1.1. TSS</a></li>
-<li><a href="#_guidance_documentation_16">4.4.1.1.2. Guidance Documentation</a></li>
-<li><a href="#_test_31">4.4.1.1.3. Test</a></li>
 </ul>
 </li>
 </ul>
@@ -876,57 +864,53 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_class_ase_security_target">6.1. Class ASE: Security Target</a></li>
 <li><a href="#_class_adv_development">6.2. Class ADV: Development</a>
 <ul class="sectlevel3">
-<li><a href="#_5_2_1basic_functional_specification_adv_fsp_1">6.2.1. 5.2.1	Basic Functional Specification (ADV_FSP.1)</a></li>
+<li><a href="#_basic_functional_specification_adv_fsp_1">6.2.1. Basic Functional Specification (ADV_FSP.1)</a></li>
+<li><a href="#_adv_fsp_1_1_evaluation_activity">6.2.2. ADV_FSP.1-1 Evaluation Activity</a></li>
+<li><a href="#_adv_fsp_1_2_evaluation_activity">6.2.3. ADV_FSP.1-2 Evaluation Activity</a></li>
+<li><a href="#_adv_fsp_1_3_evaluation_activity">6.2.4. ADV_FSP.1-3 Evaluation Activity</a></li>
 </ul>
 </li>
-<li><a href="#_class_adv_development_2">6.3. Class ADV: Development</a>
+<li><a href="#_class_agd_guidance_documentation">6.3. Class AGD: Guidance Documentation</a>
 <ul class="sectlevel3">
-<li><a href="#_5_2_1basic_functional_specification_adv_fsp_1_2">6.3.1. 5.2.1	Basic Functional Specification (ADV_FSP.1)</a></li>
-<li><a href="#_adv_fsp_1_1_evaluation_activity">6.3.2. ADV_FSP.1-1 Evaluation Activity</a></li>
-<li><a href="#_adv_fsp_1_2_evaluation_activity">6.3.3. ADV_FSP.1-2 Evaluation Activity</a></li>
-<li><a href="#_adv_fsp_1_3_evaluation_activity">6.3.4. ADV_FSP.1-3 Evaluation Activity</a></li>
-</ul>
-</li>
-<li><a href="#_class_agd_guidance_documentation">6.4. Class AGD: Guidance Documentation</a>
-<ul class="sectlevel3">
-<li><a href="#_operational_user_guidance_agd_ope_1">6.4.1. Operational User Guidance (AGD_OPE.1)</a>
+<li><a href="#_operational_user_guidance_agd_ope_1">6.3.1. Operational User Guidance (AGD_OPE.1)</a>
 <ul class="sectlevel4">
-<li><a href="#_evaluation_activity">6.4.1.1. Evaluation Activity</a></li>
-<li><a href="#_evaluation_activity_2">6.4.1.2. Evaluation Activity</a></li>
-<li><a href="#_evaluation_activity_3">6.4.1.3. Evaluation Activity</a></li>
-<li><a href="#_evaluation_activity_4">6.4.1.4. Evaluation Activity</a></li>
-<li><a href="#_evaluation_activity_5">6.4.1.5. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity">6.3.1.1. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_2">6.3.1.2. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_3">6.3.1.3. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_4">6.3.1.4. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_5">6.3.1.5. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_6">6.3.1.6. Evaluation Activity</a></li>
 </ul>
 </li>
-<li><a href="#_preparative_procedures_agd_pre_1">6.4.2. Preparative Procedures (AGD_PRE.1)</a>
+<li><a href="#_preparative_procedures_agd_pre_1">6.3.2. Preparative Procedures (AGD_PRE.1)</a>
 <ul class="sectlevel4">
-<li><a href="#_evaluation_activity_6">6.4.2.1. Evaluation Activity</a></li>
-<li><a href="#_evaluation_activity_7">6.4.2.2. Evaluation Activity</a></li>
-<li><a href="#_evaluation_activity_8">6.4.2.3. Evaluation Activity</a></li>
-<li><a href="#_evaluation_activity_9">6.4.2.4. Evaluation Activity</a></li>
-<li><a href="#_evaluation_activity_10">6.4.2.5. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_7">6.3.2.1. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_8">6.3.2.2. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_9">6.3.2.3. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_10">6.3.2.4. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_11">6.3.2.5. Evaluation Activity</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_class_alc_life_cycle_support">6.5. Class ALC: Life-cycle Support</a>
+<li><a href="#_class_alc_life_cycle_support">6.4. Class ALC: Life-cycle Support</a>
 <ul class="sectlevel3">
-<li><a href="#_labelling_of_the_toe_alc_cmc_1">6.5.1. Labelling of the TOE (ALC_CMC.1)</a></li>
-<li><a href="#_toe_cm_coverage_alc_cms_1">6.5.2. TOE CM coverage (ALC_CMS.1)</a></li>
-<li><a href="#_systematic_flaw_remediation_alc_flr_3">6.5.3. Systematic Flaw Remediation (ALC_FLR.3)</a></li>
+<li><a href="#_labelling_of_the_toe_alc_cmc_1">6.4.1. Labelling of the TOE (ALC_CMC.1)</a></li>
+<li><a href="#_toe_cm_coverage_alc_cms_1">6.4.2. TOE CM coverage (ALC_CMS.1)</a></li>
+<li><a href="#_systematic_flaw_remediation_alc_flr_3">6.4.3. Systematic Flaw Remediation (ALC_FLR.3)</a></li>
 </ul>
 </li>
-<li><a href="#_class_ate_tests">6.6. Class ATE: Tests</a>
+<li><a href="#_class_ate_tests">6.5. Class ATE: Tests</a>
 <ul class="sectlevel3">
-<li><a href="#_independent_testing_conformance_ate_ind_1">6.6.1. Independent Testing - Conformance (ATE_IND.1)</a></li>
+<li><a href="#_independent_testing_conformance_ate_ind_1">6.5.1. Independent Testing - Conformance (ATE_IND.1)</a></li>
 </ul>
 </li>
-<li><a href="#_class_ava_vulnerability_assessment">6.7. Class AVA: Vulnerability Assessment</a>
+<li><a href="#_class_ava_vulnerability_assessment">6.6. Class AVA: Vulnerability Assessment</a>
 <ul class="sectlevel3">
-<li><a href="#_vulnerability_survey_ava_van_1">6.7.1. Vulnerability Survey (AVA_VAN.1)</a>
+<li><a href="#_vulnerability_survey_ava_van_1">6.6.1. Vulnerability Survey (AVA_VAN.1)</a>
 <ul class="sectlevel4">
-<li><a href="#_evaluation_activity_documentation">6.7.1.1. Evaluation Activity (Documentation)</a></li>
-<li><a href="#_evaluation_activity_11">6.7.1.2. Evaluation Activity</a></li>
+<li><a href="#_evaluation_activity_documentation">6.6.1.1. Evaluation Activity (Documentation)</a></li>
+<li><a href="#_evaluation_activity_12">6.6.1.2. Evaluation Activity</a></li>
 </ul>
 </li>
 </ul>
@@ -957,17 +941,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_document_purpose_and_overview">Document Purpose and Overview</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This document serves as a template Supporting Document (SD) for use by international Technical Communities (iTCs). SDs are complementary to collaborative Protection Profiles (cPPs) and define the evaluation activities (EAs) required to satisfy the Security Functional Requirements (SFRs) in the cPP.
-The intent of this SD template is to provide iTCs with a method for developing SDs that address the CEM work units. International Technical Communities are expected to tailor this template to appropriately address the technology type in question.
-Sections of this document contain notes in &lt;brackets and italics&gt; for the SD author to take into consideration when developing the SD and should be removed by the iTC prior to finalizing the SD.
-Similarly, some sections of this template are populated with examples to illustrate the structure of the section. They are expected to be replaced by the specific EAs deemed necessary by the iTC.</p>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_foreword">Foreword</h2>
 <div class="sectionbody">
@@ -1014,6 +987,11 @@ Similarly, some sections of this template are populated with examples to illustr
 <td class="tableblock halign-left valign-top"><p class="tableblock">2022-04-06</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initial release.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-08-16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Incorporated feedback recevied following initial release.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1043,7 +1021,7 @@ Similarly, some sections of this template are populated with examples to illustr
 <div class="ulist">
 <ul>
 <li>
-<p>collaborative Protection Profile for Application Software, Version 1.0, 2022-04-06</p>
+<p>collaborative Protection Profile for Application Software, Version 1.1, 2023-08-16</p>
 </li>
 </ul>
 </div>
@@ -1091,7 +1069,7 @@ Similarly, some sections of this template are populated with examples to illustr
 <div class="sect3">
 <h4 id="_random_bit_generation_services_fcs_rbg">2.1.1. Random Bit Generation Services (FCS_RBG)</h4>
 <div class="sect4">
-<h5 id="_fcs_rbg_ext_2">2.1.1.1. FCS_RBG_EXT.2</h5>
+<h5 id="_fcs_rbg_ext_1">2.1.1.1. FCS_RBG_EXT.1</h5>
 <div class="sect5">
 <h6 id="_tss">2.1.1.1.1. TSS</h6>
 <div class="paragraph">
@@ -1101,7 +1079,7 @@ Similarly, some sections of this template are populated with examples to illustr
 <p>[Conditional] If <strong>invoke platform-provided DRBG functionality</strong> is selected, the evaluator shall examine the TSS to confirm that it identifies all functions (as described by the SFRs included in the ST) that obtain random numbers from the platform RBG. The evaluator shall determine that for each of these functions, the TSS states which platform interface (API) is used to obtain the random numbers. The evaluator shall confirm that each of these interfaces corresponds to the acceptable interfaces listed for each platform below in Test activities.</p>
 </div>
 <div class="paragraph">
-<p>[Conditional] If <strong>implement DRBG functionality</strong> is selected, the evaluator shall ensure that FCS_RBG_EXT.1 is included in the ST.</p>
+<p>[Conditional] If <strong>implement DRBG functionality</strong> is selected, the evaluator shall ensure that FCS_RBG_EXT.2 is included in the ST.</p>
 </div>
 </div>
 <div class="sect5">
@@ -1122,13 +1100,13 @@ Similarly, some sections of this template are populated with examples to illustr
 <p>The following are the per-platform list of acceptable APIs:</p>
 </div>
 <div class="paragraph">
-<p>Test 1: [conditional] For Windows platform, the evaluator shall verify that BCryptGenRandom or CryptGenRandom API is used for classic desktop applications. The evaluator shall verify that the System.Random API is used for Windows Universal Applications.</p>
+<p>Test 1: [conditional] The evaluator shall verify that rand_s, RtlGenRandom, BCryptGenRandom, or CryptGenRandom API is used for classic desktop applications. The evaluator shall verify the application uses the RNGCryptoServiceProvider class or derives a class from System.Security.Cryptography.RandomNumberGenerator API for Windows Universal Applications. It is only required that the API is called/invoked, there is no requirement that the API be used directly. In future versions of this document, CryptGenRandom may be removed as an option as it is no longer the preferred API per vendor documentation.</p>
 </div>
 <div class="paragraph">
 <p>Test 2: [conditional] For Linux platform, the evaluator shall verify that the application collects random from /dev/random or /dev/urandom.</p>
 </div>
 <div class="paragraph">
-<p>Test 3: [conditional] For macOS, the evaluator shall verify that the application uses /dev/random to acquire random.</p>
+<p>Test 3: [conditional] The evaluator shall verify that the application invokes either CCRandomGenerateBytes or CCRandomCopyBytes, or collects random from /dev/random.</p>
 </div>
 <div class="paragraph">
 <p>If invocation of platform-provided functionality is achieved in another way, the evaluator shall ensure the TSS describes how this is carried out, and how it is equivalent to the methods listed here (e.g. higher-level API invokes identical low-level API).</p>
@@ -1146,7 +1124,7 @@ Similarly, some sections of this template are populated with examples to illustr
 <p>The evaluator shall check the TSS to ensure that it lists all persistent credentials (secret keys, PKI private keys, or passwords) needed to meet the requirements in the ST. For each of these items, the evaluator shall confirm that the TSS lists for what purpose it is used, and how it is stored.</p>
 </div>
 <div class="paragraph">
-<p>[Conditional] If implement functionality to securely store is selected, the evaluator shall verify that the TSS states how credentials are encrypted according to FCS_COP.1/DataEncryption or conditioned according to FCS_CKM_EXT.1.</p>
+<p>[Conditional] If implement functionality to securely store is selected, the evaluator shall verify that the TSS states how credentials are stored utilizing FCS_COP.1/DataEncryption, FCS_CKM_EXT.1/Hash, FCS_CKM_EXT.1/KeyedHash, or FCS_CKM_EXT.1/PBKDF2.</p>
 </div>
 </div>
 <div class="sect5">
@@ -1197,10 +1175,13 @@ Similarly, some sections of this template are populated with examples to illustr
 <p>The evaluator shall perform the following test:</p>
 </div>
 <div class="paragraph">
-<p>Test 1: [conditional] If <strong>no network communication or outbound connections</strong> is selected then the evaluator shall run the application. While the application is running, the evaluator shall sniff network traffic ignoring all non-application associated traffic and verify that any network communications witnessed are documented in the TSS or are user-initiated.</p>
+<p>Test 1: [conditional] If <strong>outbound connections</strong> is selected then the evaluator shall run the application. While the application is running, the evaluator shall sniff network traffic ignoring all non-application associated traffic and verify that any network communications witnessed are documented in the TSS or are user-initiated.</p>
 </div>
 <div class="paragraph">
-<p>Test 2: [conditional] If <strong>no network communication or in-bound connections</strong> is selected then the evaluator shall run the application. After the application initializes, the evaluator shall verify that any ports opened by the application have been captured in the TSS. This includes connection-based protocols (e.g. TCP, DCCP) as well as connectionless protocols (e.g. UDP).</p>
+<p>Test 2: [conditional] If <strong>inbound connections</strong> is selected then the evaluator shall run the application. After the application initializes, the evaluator shall verify that any ports opened by the application have been captured in the TSS. This includes connection-based protocols (e.g. TCP) as well as connectionless protocols (e.g. UDP).</p>
+</div>
+<div class="paragraph">
+<p>Test 3: [conditional] If <strong>no network communication</strong> is selected then the evaluator shall initialize and run the application. The evaluator shall verify that no ports are opened by the application and no other connectivity is observed.</p>
 </div>
 </div>
 </div>
@@ -1301,6 +1282,30 @@ Similarly, some sections of this template are populated with examples to illustr
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_management_roles_fmt_smr">2.3.3. Management Roles (FMT_SMR)</h4>
+<div class="sect4">
+<h5 id="_fmt_smr_2_security_management_roles">2.3.3.1. FMT_SMR.2 (Security Management Roles)</h5>
+<div class="sect5">
+<h6 id="_tss_7">2.3.3.1.1. TSS</h6>
+<div class="paragraph">
+<p>The evaluator shall examine the TSS to determine that it details the TOE supported roles and any restrictions of the roles involving administration of the TOE.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_guidance_documentation">2.3.3.1.2. Guidance Documentation</h6>
+<div class="paragraph">
+<p>The evaluator shall review the guidance documentation to ensure that it contains instructions for administering the TOE.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_test_7">2.3.3.1.3. Test</h6>
+<div class="paragraph">
+<p>While performing the testing activities for the evaluation, the evaluator shall ensure that each supported method of administering the TOE that conforms to the requirements of this cPP be tested.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_protection_of_the_tsf_fpt">2.4. Protection of the TSF (FPT)</h3>
@@ -1309,7 +1314,7 @@ Similarly, some sections of this template are populated with examples to illustr
 <div class="sect4">
 <h5 id="_fpt_aex_ext_1_1">2.4.1.1. FPT_AEX_EXT.1.1</h5>
 <div class="sect5">
-<h6 id="_tss_7">2.4.1.1.1. TSS</h6>
+<h6 id="_tss_8">2.4.1.1.1. TSS</h6>
 <div class="paragraph">
 <p>The evaluator shall ensure that the TSS describes the compiler flags used to enable ASLR when the application is compiled.  If no compiler flags are required to be set (the default behaviour satisfies the SFR), this shall be noted in the TSS.</p>
 </div>
@@ -1321,7 +1326,7 @@ Similarly, some sections of this template are populated with examples to illustr
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_7">2.4.1.1.3. Test</h6>
+<h6 id="_test_8">2.4.1.1.3. Test</h6>
 <div class="paragraph">
 <p>The evaluator shall perform either a static or dynamic analysis to determine that no memory mappings are placed at an explicit and consistent address. The method of doing so varies per platform.</p>
 </div>
@@ -1339,7 +1344,7 @@ Similarly, some sections of this template are populated with examples to illustr
 <div class="sect4">
 <h5 id="_fpt_aex_ext_1_2">2.4.1.2. FPT_AEX_EXT.1.2</h5>
 <div class="sect5">
-<h6 id="_tss_8">2.4.1.2.1. TSS</h6>
+<h6 id="_tss_9">2.4.1.2.1. TSS</h6>
 <div class="paragraph">
 <p>No activities specified</p>
 </div>
@@ -1351,7 +1356,7 @@ Similarly, some sections of this template are populated with examples to illustr
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_8">2.4.1.2.3. Test</h6>
+<h6 id="_test_9">2.4.1.2.3. Test</h6>
 <div class="paragraph">
 <p>The evaluator shall verify that no memory mapping requests are made with write and execute permissions. The method of doing so varies per platform.</p>
 </div>
@@ -1379,7 +1384,7 @@ Similarly, some sections of this template are populated with examples to illustr
 <div class="sect4">
 <h5 id="_fpt_aex_ext_1_3">2.4.1.3. FPT_AEX_EXT.1.3</h5>
 <div class="sect5">
-<h6 id="_tss_9">2.4.1.3.1. TSS</h6>
+<h6 id="_tss_10">2.4.1.3.1. TSS</h6>
 <div class="paragraph">
 <p>No activities specified</p>
 </div>
@@ -1391,7 +1396,7 @@ Similarly, some sections of this template are populated with examples to illustr
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_9">2.4.1.3.3. Test</h6>
+<h6 id="_test_10">2.4.1.3.3. Test</h6>
 <div class="paragraph">
 <p>The evaluator shall configure the platform in the ascribed manner and carry out one of the prescribed tests:</p>
 </div>
@@ -1412,7 +1417,7 @@ Similarly, some sections of this template are populated with examples to illustr
 <div class="sect4">
 <h5 id="_fpt_aex_ext_1_4">2.4.1.4. FPT_AEX_EXT.1.4</h5>
 <div class="sect5">
-<h6 id="_tss_10">2.4.1.4.1. TSS</h6>
+<h6 id="_tss_11">2.4.1.4.1. TSS</h6>
 <div class="paragraph">
 <p>No activities specified</p>
 </div>
@@ -1424,7 +1429,7 @@ Similarly, some sections of this template are populated with examples to illustr
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_10">2.4.1.4.3. Test</h6>
+<h6 id="_test_11">2.4.1.4.3. Test</h6>
 <div class="paragraph">
 <p>Test 1: The evaluator shall run the application and determine where it writes its files. For files where the user does not choose the destination, the evaluator shall check whether the destination directory contains executable files.</p>
 </div>
@@ -1436,12 +1441,12 @@ Similarly, some sections of this template are populated with examples to illustr
 <div class="sect4">
 <h5 id="_fpt_aex_ext_1_5">2.4.1.5. FPT_AEX_EXT.1.5</h5>
 <div class="sect5">
-<h6 id="_tss_11">2.4.1.5.1. TSS</h6>
+<h6 id="_tss_12">2.4.1.5.1. TSS</h6>
 <div class="paragraph">
 <p>The evaluator shall ensure that the TSS section of the ST describes the compiler flag used to enable stack-based buffer overflow protection in the application. The following flags should be used depending on the compiler:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Mapping between Security Problem Defintion and Security Objectives</caption>
+<caption class="title">Table 2. Mapping between Compilers and Compiler Flags</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1479,7 +1484,7 @@ Similarly, some sections of this template are populated with examples to illustr
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_11">2.4.1.5.3. Test</h6>
+<h6 id="_test_12">2.4.1.5.3. Test</h6>
 <div class="paragraph">
 <p>Test 1: [conditional] If the application is evaluated on Windows platform, evaluator shall run a tool, like BinScope, that can verify the correct usage of /GS</p>
 </div>
@@ -1513,7 +1518,7 @@ call (...)</code></pre>
 <div class="sect4">
 <h5 id="_fpt_tud_ext_1_1">2.4.2.1. FPT_TUD_EXT.1.1</h5>
 <div class="sect5">
-<h6 id="_tss_12">2.4.2.1.1. TSS</h6>
+<h6 id="_tss_13">2.4.2.1.1. TSS</h6>
 <div class="paragraph">
 <p>No activities specified</p>
 </div>
@@ -1525,7 +1530,7 @@ call (...)</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_12">2.4.2.1.3. Test</h6>
+<h6 id="_test_13">2.4.2.1.3. Test</h6>
 <div class="paragraph">
 <p>The evaluator shall query the application for the current version of the software and verify that the current version matches that of the documented and installed version.</p>
 </div>
@@ -1534,7 +1539,7 @@ call (...)</code></pre>
 <div class="sect4">
 <h5 id="_fpt_tud_ext_1_2">2.4.2.2. FPT_TUD_EXT.1.2</h5>
 <div class="sect5">
-<h6 id="_tss_13">2.4.2.2.1. TSS</h6>
+<h6 id="_tss_14">2.4.2.2.1. TSS</h6>
 <div class="paragraph">
 <p>The evaluator shall verify that the TSS identifies:</p>
 </div>
@@ -1556,7 +1561,7 @@ call (...)</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_13">2.4.2.2.3. Test</h6>
+<h6 id="_test_14">2.4.2.2.3. Test</h6>
 <div class="paragraph">
 <p>Test 1: [conditional] If the TOE verifies the digital signature of the installation package and its updates, the evaluator shall obtain or produce illegitimate updates as defined below, and attempt to install them. The evaluator shall verify that the updates are rejected for all illegitimate updates. The evaluator shall perform this test using all of the following forms of illegitimate updates:</p>
 </div>
@@ -1584,7 +1589,7 @@ call (...)</code></pre>
 <div class="sect4">
 <h5 id="_ftp_dit_ext_1">2.5.1.1. FTP_DIT_EXT.1</h5>
 <div class="sect5">
-<h6 id="_tss_14">2.5.1.1.1. TSS</h6>
+<h6 id="_tss_15">2.5.1.1.1. TSS</h6>
 <div class="paragraph">
 <p>The evaluator shall verify that the TSS describes whether the application transmits any data over a network. If data is transmitted, the TSS shall identify whether all data or only sensitive data is transmitted. It must also identify types of sensitive data transmitted.</p>
 </div>
@@ -1596,7 +1601,7 @@ call (...)</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_14">2.5.1.1.3. Test</h6>
+<h6 id="_test_15">2.5.1.1.3. Test</h6>
 <div class="paragraph">
 <p>Test 1: [conditional] The evaluator shall exercise the application (attempting to transmit data; for example by connecting to remote systems or websites) while capturing packets from the application. Based on the selection in the ST, the evaluator shall verify from the packet capture that the traffic is encrypted with HTTPS, TLS, DTLS or SSH.</p>
 </div>
@@ -1620,11 +1625,11 @@ call (...)</code></pre>
 <div class="sect3">
 <h4 id="_cryptographic_key_management_fcs_ckm">3.1.1. Cryptographic Key Management (FCS_CKM)</h4>
 <div class="sect4">
-<h5 id="_fcs_ckm_1_1symmetric">3.1.1.1. FCS_CKM_EXT.1.1/Symmetric</h5>
+<h5 id="_fcs_ckm_ext_1symmetric_cryptographic_key_generation">3.1.1.1. FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation</h5>
 <div class="sect5">
-<h6 id="_tss_15">3.1.1.1.1. TSS</h6>
+<h6 id="_tss_16">3.1.1.1.1. TSS</h6>
 <div class="paragraph">
-<p>The evaluator shall review the TSS to determine that it describes how the functionality described by FCS_RBG_EXT.1 is invoked.</p>
+<p>The evaluator shall review the TSS to determine that it describes how the functionality described by FCS_RBG_EXT.1 is invoked.  The TSS shall identify the key generation algorithms, key sizes, and usage.</p>
 </div>
 <div class="paragraph">
 <p>If the application is relying on random bit generation from the host platform, the evaluator shall verify the TSS includes the name/manufacturer of the external RBG and describes the function call and parameters used when calling the external DRBG function. If different external RBGs are used for different platforms, the evaluator shall verify the TSS identifies each RBG for each platform. Also, the evaluator shall verify the TSS includes a short description of the vendor&#8217;s assumption for the amount of entropy seeding the external DRBG. The evaluator uses the description of the RBG functionality in FCS_RBG_EXT or documentation available for the operational environment to determine that the key size being requested is identical to the key size and mode to be used for the encryption/decryption of the user data.</p>
@@ -1637,7 +1642,7 @@ call (...)</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_15">3.1.1.1.3. Test</h6>
+<h6 id="_test_16">3.1.1.1.3. Test</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
@@ -1652,9 +1657,12 @@ call (...)</code></pre>
 <div class="sect4">
 <h5 id="_fpt_api_ext_2_1">3.2.1.1. FPT_API_EXT.2.1</h5>
 <div class="sect5">
-<h6 id="_tss_16">3.2.1.1.1. TSS</h6>
+<h6 id="_tss_17">3.2.1.1.1. TSS</h6>
 <div class="paragraph">
-<p>The evaluator shall verify that the TSS lists the IANA MIME media types (as described by <a href="http://www.iana.org/assignments/media-types" class="bare">http://www.iana.org/assignments/media-types</a>) for all formats the application processes and that it maps those formats to parsing services provided by the platform.</p>
+<p>If <strong>use platform-provided libraries for parsing</strong> is selected, the evaluator shall verify that the TSS lists the IANA MIME media types (as described by <a href="http://www.iana.org/assignments/media-types" class="bare">http://www.iana.org/assignments/media-types</a>) for all formats the application processes and that it maps those formats to parsing services provided by the platform.</p>
+</div>
+<div class="paragraph">
+<p>If <strong>does not perform parsing</strong> is selected there is no activity specified.</p>
 </div>
 </div>
 <div class="sect5">
@@ -1664,7 +1672,7 @@ call (...)</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_16">3.2.1.1.3. Test</h6>
+<h6 id="_test_17">3.2.1.1.3. Test</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
@@ -1680,12 +1688,12 @@ call (...)</code></pre>
 <div class="sect2">
 <h3 id="_cryptograhic_support_fcs">4.1. Cryptograhic Support (FCS)</h3>
 <div class="sect3">
-<h4 id="_random_bit_generation_fcs_rbg_ext_1">4.1.1. Random Bit Generation (FCS_RBG_EXT.1)</h4>
+<h4 id="_random_bit_generation_fcs_rbg_ext_2">4.1.1. Random Bit Generation (FCS_RBG_EXT.2)</h4>
 <div class="paragraph">
 <p>Documentation shall be produced—and the evaluator shall perform the activities—in accordance with Appendix D of [SWAppcPP].</p>
 </div>
 <div class="sect4">
-<h5 id="_tss_17">4.1.1.1. TSS</h5>
+<h5 id="_tss_18">4.1.1.1. TSS</h5>
 <div class="paragraph">
 <p>The evaluator shall examine the TSS to determine that it specifies the DRBG type, identifies the entropy source(s) seeding the DRBG, and state the assumed or calculated min-entropy supplied either separately by each source or the min-entropy contained in the combined seed value.</p>
 </div>
@@ -1697,7 +1705,7 @@ call (...)</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_test_17">4.1.1.3. Test</h5>
+<h5 id="_test_18">4.1.1.3. Test</h5>
 <div class="paragraph">
 <p>The evaluator shall perform 15 trials for the RNG implementation. If the RNG is configurable, the evaluator shall perform 15 trials for each configuration.</p>
 </div>
@@ -1727,42 +1735,24 @@ call (...)</code></pre>
 <div class="sect3">
 <h4 id="_cryptographic_key_generation_services_fcs_ckm_ext">4.1.2. Cryptographic Key Generation Services (FCS_CKM_EXT)</h4>
 <div class="sect4">
-<h5 id="_fcs_ckm_ext_1_1">4.1.2.1. FCS_CKM_EXT.1.1</h5>
+<h5 id="_fcs_ckm_ext_1asymetric">4.1.2.1. FCS_CKM_EXT.1/Asymetric</h5>
 <div class="sect5">
-<h6 id="_tss_18">4.1.2.1.1. TSS</h6>
+<h6 id="_tss_19">4.1.2.1.1. TSS</h6>
 <div class="paragraph">
-<p>The evaluator shall inspect the application and its developer documentation to determine if the application needs asymmetric key generation services. If not, the evaluator shall verify the <strong>generate no asymmetric cryptographic keys</strong> selection is present in the ST. Otherwise, the evaluation activities shall be performed as stated in the selection-based requirements.</p>
+<p>The evaluator shall inspect the application and its developer documentation to determine if the application needs asymmetric key generation services. If not, the evaluator shall verify the <strong>generate no asymmetric cryptographic keys</strong> selection is present in the ST. Otherwise, the evaluation activities shall be performed as stated below.</p>
+</div>
+<div class="paragraph">
+<p>If asymetric keys are generated, The evaluator shall ensure that the TSS identifies the key sizes supported by the TOE. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme.</p>
 </div>
 </div>
 <div class="sect5">
 <h6 id="_operational_guidance_18">4.1.2.1.2. Operational Guidance</h6>
 <div class="paragraph">
-<p>No activities specified.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_test_18">4.1.2.1.3. Test</h6>
-<div class="paragraph">
-<p>No activities specified.</p>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_fcs_ckm_1_1">4.1.2.2. FCS_CKM_EXT.1.1</h5>
-<div class="sect5">
-<h6 id="_tss_19">4.1.2.2.1. TSS</h6>
-<div class="paragraph">
-<p>The evaluator shall ensure that the TSS identifies the key sizes supported by the TOE. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_operational_guidance_19">4.1.2.2.2. Operational Guidance</h6>
-<div class="paragraph">
 <p>The evaluator shall verify that the AGD guidance instructs the administrator how to configure the TOE to use the selected key generation scheme(s) and key size(s) for all cryptographic protocols defined in the Security Target.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_19">4.1.2.2.3. Test</h6>
+<h6 id="_test_19">4.1.2.1.3. Test</h6>
 <div class="paragraph">
 <p>Note: The following tests require the developer to provide access to a test platform that provides the evaluator with tools that are typically not found on factory products. Generation of long-term cryptographic keys (i.e. keys that are not ephemeral keys/session keys) might be performed automatically (e.g. during initial start-up). Testing of key generation must cover not only administrator invoked key generation but also automated key generation (if supported).</p>
 </div>
@@ -1862,33 +1852,35 @@ For each supported NIST curve, i.e., P-256, P-384 and P-521, the evaluator shall
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_ckm_1pbkdf2">4.1.2.3. FCS_CKM_EXT.1/PBKDF2</h5>
+<h5 id="_fcs_ckm_ext_1pbkdf2">4.1.2.2. FCS_CKM_EXT.1/PBKDF2</h5>
 <div class="sect5">
-<h6 id="_tss_20">4.1.2.3.1. TSS</h6>
+<h6 id="_tss_20">4.1.2.2.1. TSS</h6>
 <div class="paragraph">
-<p>Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that the formation of all password based derived keys is described and that the key sizes match that described by the ST author. The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify that these are supported by the selections in this component as well as the selections concerning the hash function itself. The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the submask that will be input into the function. For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash). No explicit testing of the formation of the submask from the input password is required. FCS_CKM_EXT.1.1/PBKDF: The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.1.</p>
+<p>Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that the formation of all password based derived keys is described and that the key sizes match that described by the ST author. The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify that these are supported by the selections in this component as well as the selections concerning the hash function itself. The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the submask that will be input into the function. For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash). No explicit testing of the formation of the submask from the input password is required. FCS_CKM_EXT.1/PBKDF: The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.2.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_operational_guidance_20">4.1.2.3.2. Operational Guidance</h6>
+<h6 id="_operational_guidance_19">4.1.2.2.2. Operational Guidance</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_20">4.1.2.3.3. Test</h6>
+<h6 id="_test_20">4.1.2.2.3. Test</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_ckm_2_1">4.1.2.4. FCS_CKM.2.1</h5>
+<h5 id="_fcs_ckm_2_1">4.1.2.3. FCS_CKM.2.1</h5>
 <div class="sect5">
-<h6 id="_tss_21">4.1.2.4.1. TSS</h6>
+<h6 id="_tss_21">4.1.2.3.1. TSS</h6>
 <div class="paragraph">
-<p>The evaluator shall ensure that the supported key establishment schemes correspond to the key generation schemes identified in FCS_CKM_EXT.1.1. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme (including whether the TOE acts as a sender, a recipient, or both).
-The intent of this activity is to be able to identify the scheme being used by each service.  This would mean, for example, one way to document scheme usage could be:</p>
+<p>The evaluator shall ensure that the supported key establishment schemes correspond to the key generation schemes identified in FCS_CKM_EXT.1/Asymetric. If the ST specifies more than one scheme, the evaluator shall examine the TSS to verify that it identifies the usage for each scheme (including whether the TOE acts as a sender, a recipient, or both).</p>
+</div>
+<div class="paragraph">
+<p>The intent of this activity is to be able to identify the scheme being used by each service.  This would mean, for example, one way to document scheme usage could be:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1919,11 +1911,6 @@ The intent of this activity is to be able to identify the scheme being used by e
 <td class="tableblock halign-left valign-top"><p class="tableblock">FCS_SSHC_EXT.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Backup Server</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ECDH</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_IPSEC_EXT.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Authentication Server</p></td>
-</tr>
 </tbody>
 </table>
 <div class="paragraph">
@@ -1931,13 +1918,13 @@ The intent of this activity is to be able to identify the scheme being used by e
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation">4.1.2.4.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_2">4.1.2.3.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>The evaluator shall verify that the AGD guidance instructs the administrator how to configure the TOE to use the selected key establishment scheme(s).</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_21">4.1.2.4.3. Test</h6>
+<h6 id="_test_21">4.1.2.3.3. Test</h6>
 <div class="paragraph">
 <p>Key Establishment Schemes
 The evaluator shall verify the implementation of the key establishment schemes of the supported by the TOE using the applicable tests below.</p>
@@ -1998,7 +1985,7 @@ The TOE shall use these modified test vectors to emulate the key agreement schem
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_2">4.1.3.1.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_3">4.1.3.1.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
@@ -2149,7 +2136,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_3">4.1.3.2.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_4">4.1.3.2.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
@@ -2203,7 +2190,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_4">4.1.3.3.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_5">4.1.3.3.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>The evaluator checks the AGD documents to determine that any configuration that is required to configure the required hash sizes is present.</p>
 </div>
@@ -2257,7 +2244,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_5">4.1.3.4.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_6">4.1.3.4.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
@@ -2281,7 +2268,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_6">4.1.4.1.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_7">4.1.4.1.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
@@ -2330,7 +2317,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_7">4.2.1.1.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_8">4.2.1.1.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>The evaluator shall review the guidance documentation and verify that procedures are provided for configuring the channel between the TOE and external identity provider.</p>
 </div>
@@ -2373,7 +2360,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_8">4.2.2.1.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_9">4.2.2.1.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>(Conditional - provide an authentication mechanism) The evaluator will review the Guidance documentation and verify that steps are provided that allow for a Security Administrator to configure and store user credentials in accordance with FCS_STO_EXT.1.</p>
 </div>
@@ -2413,7 +2400,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_9">4.2.2.3.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_10">4.2.2.3.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>The evaluator shall examine the guidance documentation to determine that any necessary preparatory steps to ensure authentication data is not revealed while entering for each login allowed.</p>
 </div>
@@ -2447,7 +2434,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_10">4.2.3.1.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_11">4.2.3.1.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>If configuration is necessary to ensure the services provided before login are limited, the evaluator shall determine that the guidance documentation provides sufficient instruction on limiting the allowed services.</p>
 </div>
@@ -2467,7 +2454,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 <div class="sect3">
 <h4 id="_user_authentication_failure_fia_afl">4.2.4. User Authentication Failure (FIA_AFL)</h4>
 <div class="sect4">
-<h5 id="_fia_afl_ext_1_authentication_failure">4.2.4.1. FIA_AFL_EXT.1 (Authentication Failure)</h5>
+<h5 id="_fia_afl_1_authentication_failure">4.2.4.1. FIA_AFL.1 (Authentication Failure)</h5>
 <div class="sect5">
 <h6 id="_tss_31">4.2.4.1.1. TSS</h6>
 <div class="paragraph">
@@ -2478,7 +2465,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_11">4.2.4.1.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_12">4.2.4.1.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>The evaluator shall examine the guidance documentation to ensure that instructions for configuring the number of successive unsuccessful authentication attempts and time period (if implemented) are provided, and that the process of allowing the administrator to once again successfully log on is described for each “action” specified (if that option is chosen). If different actions or mechanisms are implemented, all must be described.</p>
 </div>
@@ -2491,12 +2478,12 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>Test 1: The evaluator shall use the operational guidance to configure the number of successive unsuccessful authentication attempts allowed by the TOE (and, if the time period selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall also use the operational guidance to configure the time period after which access is re-enabled). The evaluator shall test that once the authentication attempts limit is reached, authentication attempts with valid credentials are no longer successful.</p>
+<p>Test 1: The evaluator shall use the operational guidance to configure the number of successive unsuccessful authentication attempts allowed by the TOE (and, if the time period selection in FIA_AFL.1.2 is included in the ST, then the evaluator shall also use the operational guidance to configure the time period after which access is re-enabled). The evaluator shall test that once the authentication attempts limit is reached, authentication attempts with valid credentials are no longer successful.</p>
 </li>
 <li>
-<p>Test 2: After reaching the limit for unsuccessful authentication attempts as in Test 1 above, the evaluator shall proceed as follows. If the administrator action selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall confirm by testing that following the operational guidance and performing each action specified in the ST to re-enable the administrator’s access results in successful access (when using valid credentials for that administrator).</p>
+<p>Test 2: After reaching the limit for unsuccessful authentication attempts as in Test 1 above, the evaluator shall proceed as follows. If the administrator action selection in FIA_AFL.1.2 is included in the ST, then the evaluator shall confirm by testing that following the operational guidance and performing each action specified in the ST to re-enable the administrator’s access results in successful access (when using valid credentials for that administrator).</p>
 <div class="paragraph">
-<p>If the time period selection in FIA_AFL_EXT.1.2 is included in the ST, then the evaluator shall wait for just less than the time period configured in Test 1 and show that an authorisation attempt using valid credentials does not result in successful access. The evaluator shall then wait until just after the time period configured in Test 1 and show that an authorisation attempt using valid credentials results in successful access.</p>
+<p>If the time period selection in FIA_AFL.1.2 is included in the ST, then the evaluator shall wait for just less than the time period configured in Test 1 and show that an authorisation attempt using valid credentials does not result in successful access. The evaluator shall then wait until just after the time period configured in Test 1 and show that an authorisation attempt using valid credentials results in successful access.</p>
 </div>
 </li>
 </ul>
@@ -2515,7 +2502,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_12">4.2.5.1.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_13">4.2.5.1.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
@@ -2538,7 +2525,13 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 <p>Test 3: The evaluator shall test that the TOE can properly handle revoked certificates-–conditional on whether CRL or OCSP is selected; if both are selected, then a test shall be performed for each method. The evaluator shall test revocation of the peer certificate and revocation of the peer intermediate CA certificate i.e. the intermediate CA certificate should be revoked by the root CA. The evaluator shall ensure that a valid certificate is used, and that the validation function succeeds. The evaluator then attempts the test with a certificate that has been revoked (for each method chosen in the selection) to ensure when the certificate is no longer valid that the validation function fails. Revocation checking is only applied to certificates that are not designated as trust anchors. Therefore the revoked certificate(s) used for testing shall not be a trust anchor.</p>
 </div>
 <div class="paragraph">
-<p>Test 4: If OCSP is selected, the evaluator shall configure the OCSP server or use a man-in-the-middle tool to present a certificate that does not have the OCSP signing purpose and verify that validation of the OCSP response fails. If CRL is selected, the evaluator shall configure the CA to sign a CRL with a certificate that does not have the cRLsign key usage bit set, and verify that validation of the CRL fails.</p>
+<p>Test 4: If any OCSP option is selected, the evaluator shall ensure the TSF has no other source of revocation information available and configure the OCSP server or use a man-in-the-middle tool to present an OCSP response signed by a certificate that does not have the OCSP signing purpose and which is the only source of revocation status information advertised by the CA issuing the certificate being validated. The evaluator shall verify that validation of the OCSP response fails and that the TOE treats the certificate being checked as invalid and rejects the
+connection. If CRL is selected, the evaluator shall likewise configure the CA to be the only source of revocation status information, and sign a CRL with a certificate that does not have the cRLsign key usage bit set. The evaluator shall verify that validation of the CRL fails and that the TOE treats the certificate being checked as invalid and rejects the connection.</p>
+</div>
+<div class="paragraph">
+<p>Note: The intent of this test is to ensure a TSF does not trust invalid revocation status information. A TSF receiving invalid revocation status information from the only advertised certificate status provider should treat the certificate whose status is being checked as invalid. This should generally be treated differently
+from the case where the TSF is not able to establish a connection to check revocation status information,but it is acceptable that the TSF ignore any invalid information and attempt to find another source of revocation status (another advertised provider, a locally configured provider, or cached information) and
+treat this situation as not having a connection to a valid certificate status provider.</p>
 </div>
 <div class="paragraph">
 <p>Test 5: The evaluator shall modify any byte in the first eight bytes of the certificate and demonstrate that the certificate fails to validate. (The certificate will fail to parse correctly.)</p>
@@ -2563,7 +2556,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_13">4.2.5.2.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_14">4.2.5.2.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
@@ -2599,7 +2592,7 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_14">4.2.5.3.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_15">4.2.5.3.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>No activities specified.</p>
 </div>
@@ -2617,52 +2610,25 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_security_management_fmt_2">4.3. Security Management (FMT)</h3>
+<h3 id="_toe_access_fta">4.3. TOE Access (FTA)</h3>
 <div class="sect3">
-<h4 id="_management_roles_fmt_smr">4.3.1. Management Roles (FMT_SMR)</h4>
+<h4 id="_toe_login_banner_fta_tab">4.3.1. TOE Login Banner (FTA_TAB)</h4>
 <div class="sect4">
-<h5 id="_fmt_smr_2_security_management_roles">4.3.1.1. FMT_SMR.2 (Security Management Roles)</h5>
+<h5 id="_fta_tab_1_toe_login_banner">4.3.1.1. FTA_TAB.1 (TOE Login Banner)</h5>
 <div class="sect5">
 <h6 id="_tss_35">4.3.1.1.1. TSS</h6>
-<div class="paragraph">
-<p>The evaluator shall examine the TSS to determine that it details the TOE supported roles and any restrictions of the roles involving administration of the TOE.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_guidance_documentation_15">4.3.1.1.2. Guidance Documentation</h6>
-<div class="paragraph">
-<p>The evaluator shall review the guidance documentation to ensure that it contains instructions for administering the TOE, including any configuration that needs to be performed on the client for administration.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_test_30">4.3.1.1.3. Test</h6>
-<div class="paragraph">
-<p>While performing the testing activities for the evaluation, the evaluator shall ensure that each supported method of administering the TOE that conforms to the requirements of this cPP be tested.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_toe_access_fta">4.4. TOE Access (FTA)</h3>
-<div class="sect3">
-<h4 id="_toe_login_banner_fta_tab">4.4.1. TOE Login Banner (FTA_TAB)</h4>
-<div class="sect4">
-<h5 id="_fta_tab_1_toe_login_banner">4.4.1.1. FTA_TAB.1 (TOE Login Banner)</h5>
-<div class="sect5">
-<h6 id="_tss_36">4.4.1.1.1. TSS</h6>
 <div class="paragraph">
 <p>No assurance activities.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_guidance_documentation_16">4.4.1.1.2. Guidance Documentation</h6>
+<h6 id="_guidance_documentation_16">4.3.1.1.2. Guidance Documentation</h6>
 <div class="paragraph">
 <p>The evaluator shall check the guidance documentation to ensure that it describes how to configure the banner message.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_test_31">4.4.1.1.3. Test</h6>
+<h6 id="_test_30">4.3.1.1.3. Test</h6>
 <div class="paragraph">
 <p>The evaluator shall also perform the following test:</p>
 </div>
@@ -2705,21 +2671,9 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 <div class="sect2">
 <h3 id="_class_adv_development">6.2. Class ADV: Development</h3>
 <div class="sect3">
-<h4 id="_5_2_1basic_functional_specification_adv_fsp_1">6.2.1. 5.2.1	Basic Functional Specification (ADV_FSP.1)</h4>
+<h4 id="_basic_functional_specification_adv_fsp_1">6.2.1. Basic Functional Specification (ADV_FSP.1)</h4>
 <div class="paragraph">
 <p>The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in <a href="#_evaluation_activities_for_mandatory_sfrs">Section 2, &#8220;Evaluation Activities for Mandatory SFRs&#8221;</a>, and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.</p>
-</div>
-<div class="paragraph">
-<p>32	When evaluating a Security Target, the evaluator performs the work units as presented in the CEM. In addition, the evaluator ensures the content of the TSS in the ST satisfies the EAs specified in <a href="#_evaluation_activities_for_mandatory_sfrs">Section 2, &#8220;Evaluation Activities for Mandatory SFRs&#8221;</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_class_adv_development_2">6.3. Class ADV: Development</h3>
-<div class="sect3">
-<h4 id="_5_2_1basic_functional_specification_adv_fsp_1_2">6.3.1. 5.2.1	Basic Functional Specification (ADV_FSP.1)</h4>
-<div class="paragraph">
-<p>The EAs for this assurance component focus on understanding the interfaces (e.g., application programing interfaces, command line interfaces, graphical user interfaces, network interfaces) described in the AGD documentation, and possibly identified in the TOE Summary Specification (TSS) in response to the SFRs. Specific evaluator actions to be performed against this documentation are identified (where relevant) for each SFR in Section 2 (Evaluation Activities for Mandatory SFRs), and in EAs for AGD, ATE and AVA SARs in other parts of Section 5.</p>
 </div>
 <div class="paragraph">
 <p>The EAs presented in this section address the CEM work units ADV_FSP.1-1, ADV_FSP.1-2, ADV_FSP.1-3, and ADV_FSP.1-5.</p>
@@ -2745,16 +2699,16 @@ CT[i] = AES-CTR-Encrypt(Key, PT) PT = CT[i]</code></pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">ADV_FSP.1-1 The evaluator <strong><em>shall examine</em></strong> the functional specification to determine that it states the purpose of each SFR-supporting and SFR-enforcing TSFI.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_adv_fsp_1_1_evaluation_activity">Section 6.3.2, &#8220;ADV_FSP.1-1 Evaluation Activity&#8221;</a>: <em>The evaluator shall examine the interface documentation to ensure it describes the purpose and method of use for each TSFI that is identified as being security relevant.</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_adv_fsp_1_1_evaluation_activity">Section 6.2.2, &#8220;ADV_FSP.1-1 Evaluation Activity&#8221;</a>: <em>The evaluator shall examine the interface documentation to ensure it describes the purpose and method of use for each TSFI that is identified as being security relevant.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">ADV_FSP.1-2 The evaluator <strong><em>shall examine</em></strong> the functional specification to determine that the method of use for each SFR-supporting and SFR-enforcing TSFI is given.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_adv_fsp_1_2_evaluation_activity">Section 6.3.3, &#8220;ADV_FSP.1-2 Evaluation Activity&#8221;</a>: <em>The evaluator shall examine the interface documentation to ensure it describes the purpose and method of use for each TSFI that is identified as being security relevant.</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_adv_fsp_1_2_evaluation_activity">Section 6.2.3, &#8220;ADV_FSP.1-2 Evaluation Activity&#8221;</a>: <em>The evaluator shall examine the interface documentation to ensure it describes the purpose and method of use for each TSFI that is identified as being security relevant.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">ADV_FSP.1-3 The evaluator <strong><em>shall examine</em></strong> the presentation of the TSFI to determine that it identifies all parameters associated with each SFR-enforcing and SFR supporting
 TSFI.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_adv_fsp_1_3_evaluation_activity">Section 6.3.4, &#8220;ADV_FSP.1-3 Evaluation Activity&#8221;</a>: <em>The evaluator shall check the interface documentation to ensure it identifies and describes the parameters for each TSFI that is identified as being security relevant.</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_adv_fsp_1_3_evaluation_activity">Section 6.2.4, &#8220;ADV_FSP.1-3 Evaluation Activity&#8221;</a>: <em>The evaluator shall check the interface documentation to ensure it identifies and describes the parameters for each TSFI that is identified as being security relevant.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">ADV_FSP.1-4 The evaluator shall examine the rationale provided by the developer for the implicit categorisation of interfaces as SFR-non-interfering to determine that it is accurate.</p></td>
@@ -2777,7 +2731,7 @@ Since the rest of the ADV_FSP.1 work units will have been satisfied upon complet
 </table>
 </div>
 <div class="sect3">
-<h4 id="_adv_fsp_1_1_evaluation_activity">6.3.2. ADV_FSP.1-1 Evaluation Activity</h4>
+<h4 id="_adv_fsp_1_1_evaluation_activity">6.2.2. ADV_FSP.1-1 Evaluation Activity</h4>
 <div class="paragraph">
 <p><em>The evaluator shall examine the interface documentation to ensure it describes the purpose and method of use for each TSFI that is identified as being security relevant.</em></p>
 </div>
@@ -2789,13 +2743,13 @@ Since the rest of the ADV_FSP.1 work units will have been satisfied upon complet
 </div>
 </div>
 <div class="sect3">
-<h4 id="_adv_fsp_1_2_evaluation_activity">6.3.3. ADV_FSP.1-2 Evaluation Activity</h4>
+<h4 id="_adv_fsp_1_2_evaluation_activity">6.2.3. ADV_FSP.1-2 Evaluation Activity</h4>
 <div class="paragraph">
 <p><em>The evaluator shall check the interface documentation to ensure it identifies and describes the parameters for each TSFI that is identified as being security relevant.</em></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_adv_fsp_1_3_evaluation_activity">6.3.4. ADV_FSP.1-3 Evaluation Activity</h4>
+<h4 id="_adv_fsp_1_3_evaluation_activity">6.2.4. ADV_FSP.1-3 Evaluation Activity</h4>
 <div class="paragraph">
 <p><em>The evaluator shall examine the interface documentation to develop a mapping of the interfaces to SFRs.</em></p>
 </div>
@@ -2811,12 +2765,12 @@ Since the rest of the ADV_FSP.1 work units will have been satisfied upon complet
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_agd_guidance_documentation">6.4. Class AGD: Guidance Documentation</h3>
+<h3 id="_class_agd_guidance_documentation">6.3. Class AGD: Guidance Documentation</h3>
 <div class="paragraph">
 <p>It is not necessary for a TOE to provide separate documentation to meet the individual requirements of AGD_OPE and AGD_PRE. Although the EAs in this section are described under the traditionally separate AGD families, the mapping between the documentation provided by the developer and the AGD_OPE and AGD_PRE requirements may be many-to-many, as long as all requirements are met in documentation that is delivered to administrators and users (as appropriate) as part of the TOE.</p>
 </div>
 <div class="sect3">
-<h4 id="_operational_user_guidance_agd_ope_1">6.4.1. Operational User Guidance (AGD_OPE.1)</h4>
+<h4 id="_operational_user_guidance_agd_ope_1">6.3.1. Operational User Guidance (AGD_OPE.1)</h4>
 <div class="paragraph">
 <p>The evaluator performs the CEM work units associated with the AGD_OPE.1 SAR. Specific requirements and EAs on the guidance documentation are identified (where relevant) in the individual EAs for each SFR.</p>
 </div>
@@ -2824,36 +2778,36 @@ Since the rest of the ADV_FSP.1 work units will have been satisfied upon complet
 <p>In addition, the evaluator performs the EAs specified below.</p>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity">6.4.1.1. Evaluation Activity</h5>
+<h5 id="_evaluation_activity">6.3.1.1. Evaluation Activity</h5>
 <div class="paragraph">
 <p><em>The evaluator shall ensure the Operational guidance documentation is distributed to administrators and users (as appropriate) as part of the TOE, so that there is a reasonable guarantee that administrators and users are aware of the existence and role of the documentation in establishing and maintaining the evaluated configuration.</em></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_2">6.4.1.2. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_2">6.3.1.2. Evaluation Activity</h5>
 <div class="paragraph">
 <p><em>The evaluator shall ensure that the Operational guidance is provided for every Operational Environment that the product supports as claimed in the Security Target and shall adequately address all platforms claimed for the TOE in the Security Target.</em></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_3">6.4.1.3. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_3">6.3.1.3. Evaluation Activity</h5>
 <div class="paragraph">
 <p><em>The evaluator shall ensure that the Operational guidance contains instructions for configuring any cryptographic engine associated with the evaluated configuration of the TOE. It shall provide a warning to the administrator that use of other cryptographic engines was not evaluated nor tested during the CC evaluation of the TOE.</em></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_4">6.4.1.4. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_4">6.3.1.4. Evaluation Activity</h5>
 <div class="paragraph">
 <p><em>The evaluator shall ensure the Operational guidance makes it clear to an administrator which security functionality and interfaces have been assessed and tested by the EAs.</em></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_5">6.4.1.5. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_5">6.3.1.5. Evaluation Activity</h5>
 <div class="paragraph">
 <p>In addition the evaluator shall ensure that the following requirements are also met.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>The guidance documentation shall contain instructions for configuring
 any cryptographic engine associated with the evaluated configuration
@@ -2864,8 +2818,8 @@ CC evaluation of the TOE.</p>
 <p>The documentation must describe the process for verifying updates to
 the TOE by verifying a digital signature. The evaluator shall verify that
 this process includes the following steps:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<div class="ulist">
+<ul>
 <li>
 <p>Instructions for obtaining the update itself. This should include
 instructions for making the update accessible to the TOE (e.g.,
@@ -2877,7 +2831,7 @@ discerning whether the process was successful or unsuccessful.
 This includes instructions that describe at least one method of
 validating the hash/digital signature.</p>
 </li>
-</ol>
+</ul>
 </div>
 </li>
 <li>
@@ -2886,12 +2840,31 @@ the scope of evaluation under this cPP. The guidance documentation
 shall make it clear to an administrator which security functionality is
 covered by the Evaluation Activities.</p>
 </li>
-</ol>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_evaluation_activity_6">6.3.1.6. Evaluation Activity</h5>
+<div class="paragraph">
+<p>The evaluator shall examine the Operational Guidance to ensure that the following ALC_FLR.3 information is included:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A means for the TOE user to provide reports of suspected security flaws or requests for corrections to such flaws.</p>
+</li>
+<li>
+<p>A means of enabling the TOE users to register with the developer.</p>
+</li>
+<li>
+<p>Specific points of contact for user reports and enquiries about security issues involving the TOE.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_preparative_procedures_agd_pre_1">6.4.2. Preparative Procedures (AGD_PRE.1)</h4>
+<h4 id="_preparative_procedures_agd_pre_1">6.3.2. Preparative Procedures (AGD_PRE.1)</h4>
 <div class="paragraph">
 <p><em>The evaluator performs the CEM work units associated with the AGD_PRE.1 SAR. Specific requirements and EAs on the preparative documentation are identified (and where relevant are captured in the Guidance Documentation portions of the EAs) in the individual EAs for each SFR.</em></p>
 </div>
@@ -2902,7 +2875,7 @@ covered by the Evaluation Activities.</p>
 <p>In addition, the evaluator performs the EAs specified below.</p>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_6">6.4.2.1. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_7">6.3.2.1. Evaluation Activity</h5>
 <div class="paragraph">
 <p><em>The evaluator shall examine the Preparative procedures to ensure they include a description of how the administrator verifies that the operational environment can fulfil its role to support the security functionality (including the requirements of the Security Objectives for the Operational Environment specified in the Security Target).</em></p>
 </div>
@@ -2911,33 +2884,33 @@ covered by the Evaluation Activities.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_7">6.4.2.2. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_8">6.3.2.2. Evaluation Activity</h5>
 <div class="paragraph">
 <p><em>The evaluator shall examine the Preparative procedures to ensure they are provided for every Operational Environment that the product supports as claimed in the Security Target and shall adequately address all platforms claimed for the TOE in the Security Target.</em></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_8">6.4.2.3. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_9">6.3.2.3. Evaluation Activity</h5>
 <div class="paragraph">
 <p><em>The evaluator shall examine the preparative procedures to ensure they include instructions to successfully install the TSF in each Operational Environment.</em></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_9">6.4.2.4. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_10">6.3.2.4. Evaluation Activity</h5>
 <div class="paragraph">
 <p><em>The evaluator shall examine the preparative procedures to ensure they include instructions to manage the security of the TSF as a product and as a component of the larger operational environment.</em></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_10">6.4.2.5. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_11">6.3.2.5. Evaluation Activity</h5>
 <div class="paragraph">
 <p>In addition the evaluator shall ensure that the following requirements are also met.</p>
 </div>
 <div class="paragraph">
 <p>The preparative procedures must</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>Include instructions to provide a protected administrative capability; and</p>
 </li>
@@ -2945,35 +2918,38 @@ covered by the Evaluation Activities.</p>
 <p>Identify TOE passwords that have default values associated with them and
 instructions shall be provided for how these can be changed.</p>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_alc_life_cycle_support">6.5. Class ALC: Life-cycle Support</h3>
+<h3 id="_class_alc_life_cycle_support">6.4. Class ALC: Life-cycle Support</h3>
 <div class="sect3">
-<h4 id="_labelling_of_the_toe_alc_cmc_1">6.5.1. Labelling of the TOE (ALC_CMC.1)</h4>
+<h4 id="_labelling_of_the_toe_alc_cmc_1">6.4.1. Labelling of the TOE (ALC_CMC.1)</h4>
 <div class="paragraph">
 <p>When evaluating that the TOE has been provided and is labelled with a unique reference, the evaluator performs the work units as presented in the CEM.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_toe_cm_coverage_alc_cms_1">6.5.2. TOE CM coverage (ALC_CMS.1)</h4>
+<h4 id="_toe_cm_coverage_alc_cms_1">6.4.2. TOE CM coverage (ALC_CMS.1)</h4>
 <div class="paragraph">
 <p>When evaluating the developer&#8217;s coverage of the TOE in their CM system, the evaluator performs the work units as presented in the CEM.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_systematic_flaw_remediation_alc_flr_3">6.5.3. Systematic Flaw Remediation (ALC_FLR.3)</h4>
+<h4 id="_systematic_flaw_remediation_alc_flr_3">6.4.3. Systematic Flaw Remediation (ALC_FLR.3)</h4>
 <div class="paragraph">
 <p>It is not uncommon for software applications needing to be updated due security flaws. Therefore, the response to potential security flaws must be clearly established, and comprehensive. There must be a means of providing information and solutions to users in a timely manner, using automated means. ALC_FLR.3 has been mandated to meet these requirements.</p>
+</div>
+<div class="paragraph">
+<p>ALC_FLR.3 documentation is split into two inputs: guidance for TOE users and procedures for TOE developers.  The ALC_FLR.3 guidance must be a public facing document.  The ALC_FLR.3 procedures may be a public or private document.</p>
 </div>
 <div class="paragraph">
 <p>The following table indicates, for each work unit in ALC_FLR.3, whether the [CEM] work unit is to be performed as written, or if it has been clarified by an Evaluation Activity. If clarification has been provided, a reference to this clarification is provided in the table.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Mapping of ADV_FSP.1 CEM Work Units to Evaluation Activities</caption>
+<caption class="title">Table 4. Mapping of ALC_FLR.3 CEM Work Units to Evaluation Activities</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 66.6667%;">
@@ -2995,10 +2971,6 @@ instructions shall be provided for how these can be changed.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">ALC_FLR.3-3 The evaluator shall examine the flaw remediation procedures to determine that the application of these procedures would identify the status of finding a correction to each security flaw.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The evaluator shall perform the [CEM] activity as specified.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ALC_FLR.3-4 The evaluator shall check the flaw remediation procedures to determine that the application of these procedures would identify the corrective action for each security flaw.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The evaluator shall perform the [CEM] activity as specified.</p></td>
 </tr>
 <tr>
@@ -3050,9 +3022,9 @@ instructions shall be provided for how these can be changed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_ate_tests">6.6. Class ATE: Tests</h3>
+<h3 id="_class_ate_tests">6.5. Class ATE: Tests</h3>
 <div class="sect3">
-<h4 id="_independent_testing_conformance_ate_ind_1">6.6.1. Independent Testing - Conformance (ATE_IND.1)</h4>
+<h4 id="_independent_testing_conformance_ate_ind_1">6.5.1. Independent Testing - Conformance (ATE_IND.1)</h4>
 <div class="paragraph">
 <p>The focus of the testing is to confirm that the requirements specified in the SFRs are being met. Additionally, testing is performed to confirm the
 functionality described in the TSS, as well as the dependencies on the
@@ -3066,9 +3038,9 @@ SAR. Specific testing requirements and EAs are captured for each SFR in
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_ava_vulnerability_assessment">6.7. Class AVA: Vulnerability Assessment</h3>
+<h3 id="_class_ava_vulnerability_assessment">6.6. Class AVA: Vulnerability Assessment</h3>
 <div class="sect3">
-<h4 id="_vulnerability_survey_ava_van_1">6.7.1. Vulnerability Survey (AVA_VAN.1)</h4>
+<h4 id="_vulnerability_survey_ava_van_1">6.6.1. Vulnerability Survey (AVA_VAN.1)</h4>
 <div class="paragraph">
 <p>While vulnerability analysis is inherently a subjective activity, a minimum level of analysis can be defined and some measure of objectivity and repeatability (or at least comparability) can be imposed on the vulnerability analysis process. In order to achieve such objectivity and repeatability it is important that the evaluator follows a set of well-defined activities, and documents their findings so others can follow their arguments and come to the same conclusions as the evaluator. While this does not guarantee that different evaluation facilities will identify exactly the same type of vulnerabilities or come to exactly the same conclusions, the approach defines the minimum level of analysis and the scope of that analysis, and provides Certification Bodies a measure of assurance that the minimum level of analysis is being performed by the evaluation facilities.</p>
 </div>
@@ -3111,36 +3083,15 @@ SAR. Specific testing requirements and EAs are captured for each SFR in
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Replace the CEM work unit with the activities specified in Appendix A, section A.2.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>AVA_VAN.1-6 The evaluator <strong><em>shall produce</em></strong> penetration test documentation for the tests based on the list of potential vulnerabilities in sufficient detail to enable the tests to be repeatable. The test documentation shall include:</p>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Identification of the potential vulnerability the TOE is being tested for;</p>
-</li>
-<li>
-<p>Instructions to connect and setup all required test equipment as required to conduct the penetration test;</p>
-</li>
-<li>
-<p>Instructions to establish all penetration test prerequisite initial
-conditions;</p>
-</li>
-<li>
-<p>Instructions to stimulate the TSF;</p>
-</li>
-<li>
-<p>Instructions for observing the behaviour of the TSF;</p>
-</li>
-<li>
-<p>Descriptions of all expected results and the necessary analysis to be performed on the observed behaviour for comparison against
-expected results;</p>
-</li>
-<li>
-<p>Instructions to conclude the test and establish the necessary post-test state for the TOE.</p>
-</li>
-</ol>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">AVA_VAN.1-6 The evaluator <strong><em>shall produce</em></strong> penetration test documentation for the tests based on the list of potential vulnerabilities in sufficient detail to enable the tests to be repeatable. The test documentation shall include:</p>
+<p class="tableblock">[loweralpha]
+* Identification of the potential vulnerability the TOE is being tested for;
+* Instructions to connect and setup all required test equipment as required to conduct the penetration test;
+* Instructions to establish all penetration test prerequisite initial conditions;
+* Instructions to stimulate the TSF;
+* Instructions for observing the behaviour of the TSF;
+* Descriptions of all expected results and the necessary analysis to be performed on the observed behaviour for comparison against expected results;
+* Instructions to conclude the test and establish the necessary post-test state for the TOE.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The CEM work unit is captured in Appendix A, Section A.3; there are no substantive differences.</p></td>
 </tr>
 <tr>
@@ -3160,29 +3111,14 @@ expected results;</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">This work unit is not applicable for Type 1 and Type 2 flaws (as defined in Appendix A, Section A.1), as inclusion in this Supporting Document by the iTC makes any confirmed vulnerabilities stemming from these flaws subject to an attacker possessing a Basic attack potential. This work unit is replaced for Type 3 and Type 4 flaws by the activities defined in Appendix A, Section A.2, paragraph 110.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>AVA_VAN.1-11 The evaluator shall report in the ETR all exploitable vulnerabilities and residual vulnerabilities, detailing for each:</p>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Its source (e.g. CEM activity being undertaken when it was conceived, known to the evaluator, read in a publication);</p>
-</li>
-<li>
-<p>The SFR(s) not met;</p>
-</li>
-<li>
-<p>A description;</p>
-</li>
-<li>
-<p>Whether it is exploitable in its operational environment or not (i.e. exploitable or residual).</p>
-</li>
-<li>
-<p>The amount of time, level of  expertise, level of knowledge of the
-TOE, level of opportunity and the equipment required to perform the identified vulnerabilities, and the corresponding values using the tables 3 and 4 of Annex B.4.</p>
-</li>
-</ol>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">AVA_VAN.1-11 The evaluator shall report in the ETR all exploitable vulnerabilities and residual vulnerabilities, detailing for each:</p>
+<p class="tableblock">[loweralpha]
+. Its source (e.g. CEM activity being undertaken when it was conceived, known to the evaluator, read in a publication);
+. The SFR(s) not met;
+. A description;
+. Whether it is exploitable in its operational environment or not (i.e. exploitable or residual).
+. The amount of time, level of  expertise, level of knowledge of the
+TOE, level of opportunity and the equipment required to perform the identified vulnerabilities, and the corresponding values using the tables 3 and 4 of Annex B.4.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Replace the CEM work unit with the reporting called for in Appendix A, Section A.3.</p></td>
 </tr>
 </tbody>
@@ -3191,7 +3127,7 @@ TOE, level of opportunity and the equipment required to perform the identified v
 <p>Because of the level of detail required for the evaluation activities, the bulk of the instructions are contained in Appendix A, while an "outline" of the assurance activity is provided below.</p>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_documentation">6.7.1.1. Evaluation Activity (Documentation)</h5>
+<h5 id="_evaluation_activity_documentation">6.6.1.1. Evaluation Activity (Documentation)</h5>
 <div class="paragraph">
 <p>In addition to the activities specified by the CEM in accordance with Table 2 above, the evaluator shall perform the following activities.</p>
 </div>
@@ -3203,7 +3139,7 @@ TOE, level of opportunity and the equipment required to perform the identified v
 </div>
 </div>
 <div class="sect4">
-<h5 id="_evaluation_activity_11">6.7.1.2. Evaluation Activity</h5>
+<h5 id="_evaluation_activity_12">6.6.1.2. Evaluation Activity</h5>
 <div class="paragraph">
 <p>The evaluator formulates hypotheses in accordance with process defined in Appendix A.1. The evaluator documents the flaw hypotheses generated for the TOE in the report in accordance with the guidelines in Appendix A.3. The evaluator shall perform vulnerability analysis in accordance with Appendix A.2. The results of the analysis shall be documented in the report according to Appendix A.3.</p>
 </div>
@@ -3244,7 +3180,7 @@ TOE, level of opportunity and the equipment required to perform the identified v
 <p><span id="addenda">[addenda]</span> CC and CEM addenda, Exact Conformance, Selection-Based SFRs, Optional SFRs, Version 0.5, May 2017</p>
 </li>
 <li>
-<p><span id="cPP">[cPP]</span> collaborative Protection Profile for Application Software, Version 1.0, 2022-04-06</p>
+<p><span id="cPP">[cPP]</span> collaborative Protection Profile for Application Software, Version 1.1, 2023-08-16</p>
 </li>
 <li>
 <p>[TLS Package SHAVS], Functional Package for Transport Layer Security (TLS) v1.1
@@ -3271,7 +3207,7 @@ The Secure Hash Algorithm Validation System (SHAVS)</p>
 <p>A list of flaw hypotheses contained in this document that are derived from lessons learned specific to that technology and other iTC input (that might be derived from other open sources and vulnerability databases, for example) as documented in <a href="#Type2Hypotheses">Section A.1.2, &#8220;Type 2 Hypotheses - iTC-sourced&#8221;</a>;</p>
 </li>
 <li>
-<p>A list of flaw hypotheses derived from information available to the evaluators; this includes  the baseline evidence provided by the vendor described in this Supporting Document (documentation associated with EAs, documentation described in <a href="#_evaluation_activity_documentation">Section 6.7.1.1, &#8220;Evaluation Activity (Documentation)&#8221;</a>, &lt;the iTC can remove the reference to <a href="#_evaluation_activity_documentation">Section 6.7.1.1, &#8220;Evaluation Activity (Documentation)&#8221;</a> if no additional documentation is defined&gt; documentation described in <a href="#_required_supplementary_information">Section 7, &#8220;Required Supplementary Information&#8221;</a>), as well as other information (public and/or based on evaluator experience) as documented in <a href="#Type3Hypotheses">Section A.1.3, &#8220;Type 3 Hypotheses - Evaluation-Team-Generated&#8221;</a>; and. A list of flaw hypotheses that are generated through the use of iTC-defined tools (e.g., nmap, protocol testers) and their application is specified in <a href="#Type4Hypotheses">Section A.1.4, &#8220;Type 4 Hypotheses - Tool-Generated&#8221;</a>.(If applicable) A list of flaw hypotheses that are generated through the use of TC-defined tools (e.g., nmap, fuzz testers) and their application as specified in section A.1.4.</p>
+<p>A list of flaw hypotheses derived from information available to the evaluators; this includes  the baseline evidence provided by the vendor described in this Supporting Document (documentation associated with EAs, documentation described in <a href="#_evaluation_activity_documentation">Section 6.6.1.1, &#8220;Evaluation Activity (Documentation)&#8221;</a>, &lt;the iTC can remove the reference to <a href="#_evaluation_activity_documentation">Section 6.6.1.1, &#8220;Evaluation Activity (Documentation)&#8221;</a> if no additional documentation is defined&gt; documentation described in <a href="#_required_supplementary_information">Section 7, &#8220;Required Supplementary Information&#8221;</a>), as well as other information (public and/or based on evaluator experience) as documented in <a href="#Type3Hypotheses">Section A.1.3, &#8220;Type 3 Hypotheses - Evaluation-Team-Generated&#8221;</a>; and. A list of flaw hypotheses that are generated through the use of iTC-defined tools (e.g., nmap, protocol testers) and their application is specified in <a href="#Type4Hypotheses">Section A.1.4, &#8220;Type 4 Hypotheses - Tool-Generated&#8221;</a>.(If applicable) A list of flaw hypotheses that are generated through the use of TC-defined tools (e.g., nmap, fuzz testers) and their application as specified in section A.1.4.</p>
 </li>
 </ol>
 </div>
@@ -3289,7 +3225,7 @@ The Secure Hash Algorithm Validation System (SHAVS)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Any protocols not listed above supported (through an SFR) by the TOE (these will include at least one of the remote management protocols (IPsec, TLS, SSH))</p>
+<p>Any protocols not listed above supported (through an SFR) by the TOE (these will include at least one of the remote management protocols (TLS, SSH))</p>
 </li>
 <li>
 <p>The TOE name (including appropriate model information as appropriate)</p>
@@ -3527,13 +3463,6 @@ the evaluator penetration testing effort, outlining the testing approach, config
 <div class="sect1">
 <h2 id="_glossary">Appendix B: Glossary</h2>
 <div class="sectionbody">
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>This should be completed to define all the terms needed to fully understand the content of the SD.</p>
-</div>
-</div>
-</div>
 <div class="paragraph">
 <p>For definitions of standard CC terminology see [CC1].</p>
 </div>
@@ -3604,6 +3533,10 @@ the evaluator penetration testing effort, outlining the testing approach, config
 <td class="tableblock halign-left valign-top"><p class="tableblock">Digital Signature Algorithm</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluation Activity</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ECDSA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Elliptic Curve Digital Signature Algorithm</p></td>
 </tr>
@@ -3670,8 +3603,8 @@ the evaluator penetration testing effort, outlining the testing approach, config
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2022-04-06 12:53:33 -0500
+Version 1.1<br>
+Last updated 2023-08-16 13:35:42 -0500
 </div>
 </div>
 </body>

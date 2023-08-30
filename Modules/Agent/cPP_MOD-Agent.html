@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="MOD_APP_AGENT_v1.1">
 <title>collaborative PP-Module for Agent Applications</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -459,8 +460,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>collaborative PP-Module for Agent Applications</h1>
 <div class="details">
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2022-04-06</span>
+<span id="author" class="author">MOD_APP_AGENT_v1.1</span><br>
+<span id="revnumber">version 1.1,</span>
+<span id="revdate">2023-08-16</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -489,7 +491,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_toe_use_cases">1.3. TOE Use Cases</a></li>
 </ul>
 </li>
-<li><a href="#_cc_conformance_claims">2. CC Conformance Claims</a></li>
+<li><a href="#_cc_conformance_claims">2. CC Conformance Claims</a>
+<ul class="sectlevel2">
+<li><a href="#_components_allowed_with_this_cpp_in_a_pp_configuration">2.1. Components allowed with this cPP in a PP-Configuration</a></li>
+</ul>
+</li>
 <li><a href="#_security_problem_definition">3. Security Problem Definition</a>
 <ul class="sectlevel2">
 <li><a href="#_threats">3.1. Threats</a>
@@ -527,7 +533,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_identification_and_authentication_fia">A.1. Identification and Authentication (FIA)</a>
 <ul class="sectlevel3">
-<li><a href="#_fia_x509_ext_1ittcertificate_validationagent">A.1.1. FIA_X509_EXT.1/ITT/Certificate Validation/Agent</a></li>
+<li><a href="#_fia_x509_ext_1ittagent_certificate_validation">A.1.1. FIA_X509_EXT.1/ITT/Agent Certificate Validation</a></li>
 </ul>
 </li>
 </ul>
@@ -541,6 +547,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_component_levelling">C.1.2. Component Levelling</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#_consistency_rationale">Appendix D: Consistency Rationale</a>
+<ul class="sectlevel2">
+<li><a href="#_consistency_of_toe_type">D.1. Consistency of TOE Type</a></li>
+<li><a href="#_sfr_dependencies_analysis">D.2. SFR Dependencies Analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -575,6 +587,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">2022-04-06</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initial Release</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-08-16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Incorporated feedback received following initial release.</p></td>
+</tr>
 </tbody>
 </table>
 <!-- toc disabled -->
@@ -607,7 +624,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_objectives_of_document">Objectives of Document</h3>
 <div class="paragraph">
-<p>This document presents the Common Criteria (CC) collaborative Protection Profile Module (PP-Module) to express the security functional requirements (SFRs) and security assurance requirements (SARs) for Enterprise Server Applications. The Evaluation activities that specify the actions the evaluator performs to determine if a product satisfies the SFRs captured within this PP-Module, are described in <a href="#SD">[SD]</a>.</p>
+<p>This document presents the Common Criteria (CC) collaborative Protection Profile Module (PP-Module) to express the security functional requirements (SFRs) and security assurance requirements (SARs) for Enterprise Agent Applications. The Evaluation activities that specify the actions the evaluator performs to determine if a product satisfies the SFRs captured within this PP-Module, are described in <a href="#SD">[SD]</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -663,10 +680,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>PP-Module Reference: collaborative PP-Module for Agent Applications</p>
 </li>
 <li>
-<p>PP-Module Version: 1.0</p>
+<p>PP-Module Version: 1.1</p>
 </li>
 <li>
-<p>PP-Module Date: 2022-04-06</p>
+<p>PP-Module Date: 2023-08-16</p>
 </li>
 </ul>
 </div>
@@ -708,7 +725,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>In order to be conformant to this PP-Module, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> (these are the mandatory SFRs) of this PP-Module, and potentially SFRs from <a href="#Consistency Rationale">[Consistency Rationale]</a> (these are selection-based SFRs) and <a href="#_selection_based_requirements">Selection-Based Requirements</a> (these are optional SFRs) of this PP-Module. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this PP-Module) are allowed to be included in the ST. Further, no SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> of this PP-Module are allowed to be omitted.</p>
+<p>In order to be conformant to this PP-Module, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> (these are the mandatory SFRs) of this PP-Module, and potentially SFRs from <a href="#_consistency_rationale">Consistency Rationale</a> (these are selection-based SFRs) and <a href="#_selection_based_requirements">Selection-Based Requirements</a> (these are optional SFRs) of this PP-Module. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this PP-Module) are allowed to be included in the ST. Further, no SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> of this PP-Module are allowed to be omitted.</p>
+</div>
+<div class="sect2">
+<h3 id="_components_allowed_with_this_cpp_in_a_pp_configuration">2.1. Components allowed with this cPP in a PP-Configuration</h3>
+<div class="paragraph">
+<p>The list of packages, PP-Modules and cPPs that may be used in conjunction with this Module can be found at: <a href="https://appswcpp.github.io/cPP/AppSW_cPP_allowed-with-list.pdf" class="bare">https://appswcpp.github.io/cPP/AppSW_cPP_allowed-with-list.pdf</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -848,7 +871,7 @@ The TSF shall enable a Security Administrator to disable communications between 
 <h4 id="_fpt_itt_1agent">5.3.1. FPT_ITT.1/Agent</h4>
 <div class="paragraph">
 <p><strong>FPT_ITT.1.1/Agent</strong>
-The TSF shall protect TSF data from disclosure and detect its modification when it is transmitted between separate parts of the TOE through the use of [<em>selection: SSH, TLS, DTLS, HTTPS</em>].</p>
+The TSF shall protect TSF data from <strong>disclosure and detect its modification</strong> when it is transmitted between separate parts of the TOE <strong>through the use of [<em>selection: SSH, TLS, DTLS, HTTPS</em>]</strong>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note 2:</strong> The data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the selection. The ST author should identify the channels and protocols used by each pair of communicating parts, iterating this SFR as appropriate.</p>
@@ -874,7 +897,7 @@ The TSF shall protect TSF data from disclosure and detect its modification when 
 <div class="sect2">
 <h3 id="_identification_and_authentication_fia">A.1. Identification and Authentication (FIA)</h3>
 <div class="sect3">
-<h4 id="_fia_x509_ext_1ittcertificate_validationagent">A.1.1. FIA_X509_EXT.1/ITT/Certificate Validation/Agent</h4>
+<h4 id="_fia_x509_ext_1ittagent_certificate_validation">A.1.1. FIA_X509_EXT.1/ITT/Agent Certificate Validation</h4>
 <div class="paragraph">
 <p><strong>FIA_X509_EXT.1.1/ITT/Agent</strong>
 The application shall [<em>selection: invoked platform-provided functionality, implement functionality</em>] to validate certificates in accordance with the following rules:</p>
@@ -940,9 +963,6 @@ The application shall [<em>selection: invoked platform-provided functionality, i
 <p>The TSF shall be capable of supporting a minimum path length of two certificates. That is, it shall support a certificate hierarchy comprising of at least a self-signed root certificate and a TOE identity certificate.</p>
 </div>
 <div class="paragraph">
-<p>The TSS shall describe when revocation checking is performed. It is expected that revocation checking is performed when a certificate is used in an authentication step. It is not sufficient to verify the status of a X.509 certificate only when it is loaded onto the device.</p>
-</div>
-<div class="paragraph">
 <p>If the TOE does not support functionality that uses any of the certificate types listed in the extendedKeyUsage rules in FIA_X509_EXT.1.1 then this is stated in the TSS and the relevant part of the SFR is considered trivially satisfied. However, if the TOE does support functionality that uses certificates of any of these types then the corresponding rule must of course be satisfied as in the SFR.</p>
 </div>
 <div class="paragraph">
@@ -972,10 +992,7 @@ The application shall only treat a certificate as a CA certificate if the basicC
 <h2 id="_extended_component_definitions">Appendix C: Extended Component Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This appendix contains the definitions for the extended requirements that are used in the PP-Module, including those used in <a href="#Consistency Rationale">[Consistency Rationale]</a> and <a href="#_selection_based_requirements">Selection-Based Requirements</a> .</p>
-</div>
-<div class="paragraph">
-<p>(Note: formatting conventions for selections and assignments in this chapter are those in <a href="#CC2">[CC2]</a>.)</p>
+<p>This appendix contains the definitions for the extended requirements that are used in the PP-Module, including those used in <a href="#_consistency_rationale">Consistency Rationale</a> and <a href="#_selection_based_requirements">Selection-Based Requirements</a> .</p>
 </div>
 <div class="sect2">
 <h3 id="_communication_partner_control_fco_cpc_ext">C.1. Communication Partner Control (FCO_CPC_EXT)</h3>
@@ -1060,11 +1077,28 @@ The application shall only treat a certificate as a CA certificate if the basicC
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_consistency_rationale">Appendix D: Consistency Rationale</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_consistency_of_toe_type">D.1. Consistency of TOE Type</h3>
+<div class="paragraph">
+<p>When this PP-Module is used to extend [cPP_APP_SW], the TOE type for the overall TOE is still a generic application. However, one of the functions of the device must be the ability for it to the capability to be managed by a server application. The TOE boundary is simply extended to include that functionality.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sfr_dependencies_analysis">D.2. SFR Dependencies Analysis</h3>
+<div class="paragraph">
+<p>The dependencies between SFRs implemented by the TOE are addressed as shown in the base PP.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2022-04-06 12:58:22 -0500
+Version 1.1<br>
+Last updated 2023-08-16 13:35:42 -0500
 </div>
 </div>
 </body>

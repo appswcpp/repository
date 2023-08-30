@@ -6,8 +6,8 @@
 :sectnumlevels: 7
 :imagesdir: images
 :icons: font
-:revnumber: 1.0 
-:revdate: 2022-04-06
+:revnumber: 1.1 
+:revdate: 2023-08-16
 :shortname: cPP_APP_SW_V{revnumber}
 
 :iTC-longname: iTC for Application Software
@@ -34,6 +34,10 @@ This collaborative Protection Profile (cPP) was developed by the {iTC-longname} 
 |2022-04-06
 |Initial release.
 
+|1.1
+|2023-08-16
+|Incorporated feedback from initial release.
+
 |===
 
 toc::[]
@@ -58,8 +62,8 @@ Although the cPP and SD may contain minor editorial errors, the cPP is recognize
 * [#CC3]#[CC3]# Common Criteria for Information Technology Security Evaluation, Part 3: Security Assurance Components, CCMB-2017-04-003, Version 3.1 Revision 5, April 2017.
 * [#CEM]#[CEM]# Common Methodology for Information Technology Security Evaluation, Evaluation Methodology, CCMB-2017-04-004, Version 3.1 Revision 5, April 2017.
 * [#CCADD]#[CCADD]# CC and CEM Addenda: Exact Conformance, Selection-Based SFRs, Optional SFRs CCDB-2017-05-xxx, Version 0.5, May 2017
-* [#SD]#[SD]# Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Application Software, Version 1.0, February 2022
-* [#TLS Package]#[TLS Package]# Functional Package for Transport Layer Security (TLS) v1.1, March 2019
+* [#SD]#[SD]# Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Application Software, Version 1.1, February 2022
+* [#TLS Package]#[TLS Package]# Functional Package for Transport Layer Security (TLS) v2.0, March 2019
 * [#SSH Package]#[SSH Package]# Functional Package for SSH Version 1.0, May 2021
 
 For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
@@ -139,7 +143,7 @@ As defined by the references <<CC1>>, <<CC2>> and <<CC3>>, this cPP:
 * conforms to the requirements of Common Criteria v3.1, Revision 5,
 * is Part 2 extended,
 * is Part 3 conformant,
-* Functional Package for Transport Layer Security (TLS) v1.1
+* Functional Package for Transport Layer Security (TLS) v2.0
 * Functional Package for Secure Shell (SSH) v1.0
 * does not claim conformance to any other security functional requirement packages.
 
@@ -1560,9 +1564,7 @@ The documentation of the entropy source(s) should be detailed enough that, after
 === Design Description
 Documentation shall include the design of each entropy source as a whole, including the interaction of all entropy source components. Any information that can be shared regarding the design should also be included for any third-party entropy sources that are included in the product.
 
-The documentation will describe the operation of the entropy source to include how entropy is produced, and how unprocessed (raw) data can be obtained from within the entropy source for testing purposes. The documentation should walk through the entropy source design indicating
-where the entropy comes from, where the entropy output is passed next, any post-processing of the raw outputs (hash, XOR, etc.), if/where it is stored, and finally, how it is output from the entropy source. Any conditions placed on the process (e.g., blocking) should also be described
-in the entropy source design. Diagrams and examples are encouraged.
+The documentation will describe the operation of the entropy source to include how entropy is produced, and how unprocessed (raw) data can be obtained from within the entropy source for testing purposes. The documentation should walk through the entropy source design indicating where the entropy comes from, where the entropy output is passed next, any post-processing of the raw outputs (hash, XOR, etc.), if/where it is stored, and finally, how it is output from the entropy source. Any conditions placed on the process (e.g., blocking) should also be describedin the entropy source design. Diagrams and examples are encouraged.
 
 This design must also include a description of the content of the security boundary of the entropy source and a description of how the security boundary ensures that an adversary outside the boundary cannot affect the entropy rate.
 

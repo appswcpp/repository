@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="SD_APP_AGENT_v1.1">
 <title>Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile Module for Agent Applications</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -459,8 +460,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile Module for Agent Applications</h1>
 <div class="details">
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2022-04-06</span>
+<span id="author" class="author">SD_APP_AGENT_v1.1</span><br>
+<span id="revnumber">version 1.1,</span>
+<span id="revdate">2022-08-16</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -543,6 +545,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_evaluation_activities_for_sars">4. Evaluation Activities for SARs</a></li>
 <li><a href="#_references">5. References</a></li>
+<li><a href="#_rationales">Appendix A: Rationales</a>
+<ul class="sectlevel2">
+<li><a href="#_sfr_dependencies_analysis">A.1. SFR Dependencies Analysis</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -590,9 +597,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initial Release</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-08-16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Incorporated feedback received following initial release.</p></td>
 </tr>
 </tbody>
 </table>
@@ -623,12 +630,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>collaborative PP-Module for Agent Applications, Version 1.0, 2022-04-06</p>
+<p>collaborative PP-Module for Agent Applications, Version 1.1, 2022-08-16</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Although EAs are defined mainly for the evaluator to follow, the definitions in this SD aim to provide a common understanding for developers, evaluators and users as to what aspects of the TOE are tested in an evaluation against Collaborative Protection Profile for Application Software, and to what depth the testing is carried out. This common understanding in turn contributes to the goal of ensuring that evaluations against Collaborative Protection Profile for Application Software achieve comparable, transparent and repeatable results. In general, the definition of EAs will also help developers to prepare for evaluation by identifying specific requirements for their TOE. The specific requirements in EAs may in some cases clarify the meaning of SFRs, and may identify particular requirements for the content of Security Targets (STs) (especially the TOE Summary Specification (TSS)), AGD guidance, and possibly required supplementary information (e.g. <em>any examples, such as for entropy analysis or cryptographic key architecture</em>).</p>
+<p>Although evaluation activities (EAs) are defined mainly for the evaluator to follow, the definitions in this SD aim to provide a common understanding for developers, evaluators and users as to what aspects of the TOE are tested in an evaluation against Collaborative Protection Profile for Application Software, and to what depth the testing is carried out. This common understanding in turn contributes to the goal of ensuring that evaluations against Collaborative Protection Profile for Application Software achieve comparable, transparent and repeatable results. In general, the definition of EAs will also help developers to prepare for evaluation by identifying specific requirements for their TOE. The specific requirements in EAs may in some cases clarify the meaning of SFRs, and may identify particular requirements for the content of Security Targets (STs) (especially the TOE Summary Specification (TSS)), AGD guidance, and possibly required supplementary information (e.g. <em>any examples, such as for entropy analysis or cryptographic key architecture</em>).</p>
 </div>
 </div>
 <div class="sect2">
@@ -909,13 +916,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect5">
 <h6 id="_tss_3">3.1.1.1.1. TSS</h6>
 <div class="paragraph">
-<p>The evaluator shall ensure the TSS describes where the check of validity of the certificates takes place, and that the TSS identifies any of the rules for extendedKeyUsage fields (in FIA_X509_EXT.1.1/ITT/Agent) that are not supported by the TOE or Platform (i.e. where the ST is therefore claiming that they are trivially satisfied). If selected, the TSS shall describe how certificate revocation checking is performed. It is not sufficient to verify the status of a X.509 certificate only when it&#8217;s loaded onto the TOE or Platform</p>
+<p>The evaluator shall ensure the TSS describes where the check of validity of the certificates takes place, and that the TSS identifies any of the rules for extendedKeyUsage fields (in FIA_X509_EXT.1.1/ITT/Agent) that are not supported by the TOE or Platform (i.e. where the ST is therefore claiming that they are trivially satisfied). If selected, the TSS shall describe how certificate revocation checking is performed. It is not sufficient to verify the status of a X.509 certificate only when it&#8217;s loaded onto the TOE or Platform.</p>
 </div>
 </div>
 <div class="sect5">
 <h6 id="_operational_guidance_3">3.1.1.1.2. Operational Guidance</h6>
 <div class="paragraph">
-<p>No activities specified</p>
+<p>No activities specified.</p>
 </div>
 </div>
 <div class="sect5">
@@ -958,7 +965,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect5">
 <h6 id="_tss_4">3.1.1.2.1. TSS</h6>
 <div class="paragraph">
-<p>No activities specified.</p>
+<p>The evaluator shall ensure the TSS describes when revocation checking is performed. It is expected that revocation checking is performed when a certificate is used in an authentication step. It is not sufficient to verify the status of a X.509 certificate only when it is loaded onto the device.</p>
 </div>
 </div>
 <div class="sect5">
@@ -1019,17 +1026,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><span id="addenda">[addenda]</span> CC and CEM addenda, Exact Conformance, Selection-Based SFRs, Optional SFRs, Version 0.5, May 2017</p>
 </li>
 <li>
-<p><span id="cPP">[cPP]</span> Collaborative Protection Profile for Application Software, Version 1.0, 2022-04-06</p>
+<p><span id="cPP">[cPP]</span> Collaborative Protection Profile for Application Software, Version 1.1, 2022-08-16</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rationales">Appendix A: Rationales</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_sfr_dependencies_analysis">A.1. SFR Dependencies Analysis</h3>
+<div class="paragraph">
+<p>The dependencies between SFRs implemented by the TOE are addressed as shown in the base PP.</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2022-04-06 12:58:22 -0500
+Version 1.1<br>
+Last updated 2023-08-16 13:35:42 -0500
 </div>
 </div>
 </body>

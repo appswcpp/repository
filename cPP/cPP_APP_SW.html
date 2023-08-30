@@ -459,8 +459,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>collaborative Protection Profile for Application Software</h1>
 <div class="details">
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2022-04-06</span>
+<span id="revnumber">version 1.1,</span>
+<span id="revdate">2023-08-16</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -509,7 +509,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_a_platform">3.2.1. A.PLATFORM</a></li>
 <li><a href="#_a_proper_user">3.2.2. A.PROPER_USER</a></li>
 <li><a href="#_a_proper_admin">3.2.3. A.PROPER_ADMIN</a></li>
-<li><a href="#_a_secure_location">3.2.4. A.SECURE_LOCATION</a></li>
 </ul>
 </li>
 <li><a href="#_organizational_security_policies">3.3. Organizational Security Policies</a></li>
@@ -534,7 +533,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_random_bit_generation_services_fcs_rbg">5.2.1. Random Bit Generation Services (FCS_RBG)</a>
 <ul class="sectlevel4">
-<li><a href="#_fcs_rbg_ext_2_random_bit_generation_services">5.2.1.1. FCS_RBG_EXT.2 Random Bit Generation Services</a></li>
+<li><a href="#_fcs_rbg_ext_1_random_bit_generation_services">5.2.1.1. FCS_RBG_EXT.1 Random Bit Generation Services</a></li>
 </ul>
 </li>
 <li><a href="#_storage_of_credentials_fcs_sto">5.2.2. Storage of Credentials (FCS_STO)</a>
@@ -561,7 +560,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fmt_smf_1_specification_of_management_functions">5.4.1.2. FMT_SMF.1 (Specification of Management Functions)</a></li>
 </ul>
 </li>
-<li><a href="#_fmt_smr_2_protected_authentication_feedback">5.4.2. FMT_SMR.2 Protected authentication feedback</a></li>
 </ul>
 </li>
 <li><a href="#_protection_of_the_tsf_fpt">5.5. Protection of the TSF (FPT)</a>
@@ -628,7 +626,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_cryptographic_key_management_fcs_ckm">A.1.1. Cryptographic Key Management (FCS_CKM)</a>
 <ul class="sectlevel4">
-<li><a href="#_fcs_ckm_1symmetric_cryptographic_key_generation">A.1.1.1. FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation</a></li>
+<li><a href="#_fcs_ckm_ext_1symmetric_cryptographic_key_generation">A.1.1.1. FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation</a></li>
 </ul>
 </li>
 </ul>
@@ -650,14 +648,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_random_bit_generation_extended_fcs_rbg_ext">B.1.1. Random Bit Generation (Extended – FCS_RBG_EXT)</a>
 <ul class="sectlevel4">
-<li><a href="#_fcs_rbg_ext_1_random_bit_generation">B.1.1.1. FCS_RBG_EXT.1 Random Bit Generation</a></li>
+<li><a href="#_fcs_rbg_ext_2_random_bit_generation">B.1.1.1. FCS_RBG_EXT.2 Random Bit Generation</a></li>
 </ul>
 </li>
 <li><a href="#_cryptographic_key_management_fcs_ckm_2">B.1.2. Cryptographic Key Management (FCS_CKM)</a>
 <ul class="sectlevel4">
 <li><a href="#_fcs_ckm_ext_1_cryptographic_key_generation_services">B.1.2.1. FCS_CKM_EXT.1 Cryptographic Key Generation Services</a></li>
-<li><a href="#_fcs_ckm_1asymmetric_cryptographic_key_generation_refinement">B.1.2.2. FCS_CKM_EXT.1/Asymmetric Cryptographic Key Generation (Refinement)</a></li>
-<li><a href="#_fcs_ckm_1_1pbkdf2_password_conditioning">B.1.2.3. FCS_CKM_EXT.1.1/PBKDF2 Password Conditioning</a></li>
+<li><a href="#_fcs_ckm_ext_1asymmetric_cryptographic_key_generation_refinement">B.1.2.2. FCS_CKM_EXT.1/Asymmetric Cryptographic Key Generation (Refinement)</a></li>
+<li><a href="#_fcs_ckm_ext_1_1pbkdf2_password_conditioning">B.1.2.3. FCS_CKM_EXT.1.1/PBKDF2 Password Conditioning</a></li>
 <li><a href="#_fcs_ckm_2_cryptographic_key_establishment_refinement">B.1.2.4. FCS_CKM.2 Cryptographic Key Establishment (Refinement)</a></li>
 </ul>
 </li>
@@ -677,16 +675,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_tls_protocol">B.1.4.2. TLS Protocol</a></li>
-<li><a href="#_ssh_protocol">B.1.4.3. SSH Protocol</a></li>
+<li><a href="#_ssh_protocol">B.1.4.3. SSH Protocol</a>
+<ul class="sectlevel5">
+<li><a href="#_fcs_https_ext_2_https_protocol_with_mutual_authentication">B.1.4.3.1. FCS_HTTPS_EXT.2 HTTPS Protocol with Mutual Authentication</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#_class_identification_and_authentication_fia">B.2. Class: Identification and Authentication (FIA)</a>
 <ul class="sectlevel3">
-<li><a href="#_authentication_failure_fia_afl_ext">B.2.1. Authentication Failure (FIA_AFL_EXT)</a>
+<li><a href="#_authentication_failure_fia_afl">B.2.1. Authentication Failure (FIA_AFL)</a>
 <ul class="sectlevel4">
-<li><a href="#_fia_afl_ext_x_509_authentication_failure_management">B.2.1.1. FIA_AFL_EXT X.509 Authentication Failure Management</a></li>
+<li><a href="#_fia_afl_1_authentication_failure_management">B.2.1.1. FIA_AFL.1 Authentication Failure Management</a></li>
 </ul>
 </li>
 <li><a href="#_external_identity_provider_fia_eip_ext">B.2.2. External Identity Provider (FIA_EIP_EXT)</a>
@@ -703,7 +705,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel4">
 <li><a href="#_fia_uau_ext_2_authentication_mechanism">B.2.4.1. FIA_UAU_EXT.2 Authentication Mechanism</a></li>
 <li><a href="#_fia_uau_ext_5_user_authentication_mechanisms">B.2.4.2. FIA_UAU_EXT.5 User Authentication Mechanisms</a></li>
-<li><a href="#_fia_uau_7_protected_authentication_feedback">B.2.4.3. FIA_UAU.7 Protected authentication feedback</a></li>
+<li><a href="#_fia_uau_7_protected_authentication_feedback">B.2.4.3. FIA_UAU.7 Protected Authentication Feedback</a></li>
 </ul>
 </li>
 <li><a href="#_x_509_certificate_validation_fia_x509_ext">B.2.5. X.509 Certificate Validation (FIA_X509_EXT)</a>
@@ -714,11 +716,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_fta_toe_access">B.3. (FTA) TOE Access</a>
+<li><a href="#_fmt_specification_of_management_functions">B.3. (FMT) Specification of Management Functions</a>
 <ul class="sectlevel3">
-<li><a href="#_default_toe_access_banner_fta_tab">B.3.1. Default TOE Access Banner (FTA_TAB)</a>
+<li><a href="#_fmt_smr_2_restrictions_on_security_roles">B.3.1. FMT_SMR.2 Restrictions on Security Roles</a></li>
+</ul>
+</li>
+<li><a href="#_fta_toe_access">B.4. (FTA) TOE Access</a>
+<ul class="sectlevel3">
+<li><a href="#_default_toe_access_banner_fta_tab">B.4.1. Default TOE Access Banner (FTA_TAB)</a>
 <ul class="sectlevel4">
-<li><a href="#_fta_tab_1_default_toe_access_banner">B.3.1.1. FTA_TAB.1 Default TOE Access Banner</a></li>
+<li><a href="#_fta_tab_1_default_toe_access_banner">B.4.1.1. FTA_TAB.1 Default TOE Access Banner</a></li>
 </ul>
 </li>
 </ul>
@@ -753,8 +760,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_component_levelling_3">C.1.3.2. Component levelling</a></li>
 <li><a href="#_management_fcs_rbg_ext_1_fcs_rbg_ext_2">C.1.3.3. Management: FCS_RBG_EXT.1, FCS_RBG_EXT.2</a></li>
 <li><a href="#_audit_fcs_rbg_ext_1_fcs_rbg_ext_2">C.1.3.4. Audit: FCS_RBG_EXT.1, FCS_RBG_EXT.2</a></li>
-<li><a href="#_fcs_rbg_ext_1_random_bit_generation_2">C.1.3.5. FCS_RBG_EXT.1 Random Bit Generation</a></li>
-<li><a href="#_fcs_rbg_ext_2_random_bit_generation_services_2">C.1.3.6. FCS_RBG_EXT.2 Random Bit Generation Services</a></li>
+<li><a href="#_fcs_rbg_ext_2_random_bit_generation_2">C.1.3.5. FCS_RBG_EXT.2 Random Bit Generation</a></li>
+<li><a href="#_fcs_rbg_ext_2_random_bit_generation_services">C.1.3.6. FCS_RBG_EXT.2 Random Bit Generation Services</a></li>
 </ul>
 </li>
 <li><a href="#_storage_of_credentials_fcs_sto_ext">C.1.4. Storage of Credentials (FCS_STO_EXT)</a>
@@ -810,8 +817,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_management_fia_x509_ext_1_fia_x509_ext_2">C.3.4.3. Management: FIA_X509_EXT.1, FIA_X509_EXT.2</a></li>
 <li><a href="#_audit_fia_x509_ext_1_fia_x509_ext_2">C.3.4.4. Audit: FIA_X509_EXT.1, FIA_X509_EXT.2</a></li>
 <li><a href="#_fia_x509_ext_1_certificate_validation">C.3.4.5. FIA_X509_EXT.1 Certificate Validation</a></li>
-<li><a href="#_fia_x509_ext_1x_509_certificate_validation">C.3.4.6. FIA_X509_EXT.1	X.509 Certificate Validation</a></li>
-<li><a href="#_fia_x509_ext_2x_509_certificate_validation">C.3.4.7. FIA_X509_EXT.2	X.509 Certificate Validation</a></li>
+<li><a href="#_fia_x509_ext_1_x_509_certificate_validation_2">C.3.4.6. FIA_X509_EXT.1 X.509 Certificate Validation</a></li>
+<li><a href="#_fia_x509_ext_2_x_509_certificate_validation">C.3.4.7. FIA_X509_EXT.2 X.509 Certificate Validation</a></li>
 </ul>
 </li>
 </ul>
@@ -846,7 +853,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_component_levelling_10">C.5.2.2. Component levelling</a></li>
 <li><a href="#_management_fpt_api_ext_2">C.5.2.3. Management: FPT_API_EXT.2</a></li>
 <li><a href="#_audit_fpt_api_ext_2">C.5.2.4. Audit: FPT_API_EXT.2</a></li>
-<li><a href="#_fpt_api_ext_2use_of_supported_services_and_apis">C.5.2.5. FPT_API_EXT.2	Use of Supported Services and APIs</a></li>
+<li><a href="#_fpt_api_ext_2_use_of_supported_services_and_apis_2">C.5.2.5. FPT_API_EXT.2 Use of Supported Services and APIs</a></li>
 </ul>
 </li>
 <li><a href="#_integrity_for_installation_and_update_fpt_tud_ext_2">C.5.3. Integrity for Installation and Update (FPT_TUD_EXT)</a>
@@ -862,21 +869,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_data_in_transit_ftp_dit_ext_2">C.5.4. Data in Transit (FTP_DIT_EXT)</a>
-<ul class="sectlevel4">
-<li><a href="#_family_behaviour_12">C.5.4.1. Family Behaviour</a></li>
-<li><a href="#_component_levelling_12">C.5.4.2. Component levelling</a></li>
-<li><a href="#_management_fpt_api_ext_2_2">C.5.4.3. Management: FPT_API_EXT.2</a></li>
-<li><a href="#_audit_fpt_api_ext_2_2">C.5.4.4. Audit: FPT_API_EXT.2</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="#_trust_pathchannel_ftp">C.6. Trust Path/Channel (FTP)</a>
 <ul class="sectlevel3">
-<li><a href="#_ftp_dit_ext_1_data_in_transit_2">C.6.1. FTP_DIT_EXT.1 Data in Transit</a>
+<li><a href="#_data_in_transit_ftp_dit_ext_2">C.6.1. Data in Transit (FTP_DIT_EXT)</a>
 <ul class="sectlevel4">
-<li><a href="#_ftp_dit_ext_1_data_in_transit_3">C.6.1.1. FTP_DIT_EXT.1 Data in Transit</a></li>
+<li><a href="#_family_behaviour_12">C.6.1.1. Family Behaviour</a></li>
+<li><a href="#_component_levelling_12">C.6.1.2. Component levelling</a></li>
+<li><a href="#_management_ftp_dit_ext_2">C.6.1.3. Management: FTP_DIT_EXT.2</a></li>
+<li><a href="#_audit_ftp_dit_ext_2">C.6.1.4. Audit: FTP_DIT_EXT.2</a></li>
+</ul>
+</li>
+<li><a href="#_ftp_dit_ext_1_data_in_transit_2">C.6.2. FTP_DIT_EXT.1 Data in Transit</a>
+<ul class="sectlevel4">
+<li><a href="#_ftp_dit_ext_1_data_in_transit_3">C.6.2.1. FTP_DIT_EXT.1 Data in Transit</a></li>
 </ul>
 </li>
 </ul>
@@ -948,6 +955,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">2022-04-06</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initial release.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-08-16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Incorporated feedback from initial release.</p></td>
+</tr>
 </tbody>
 </table>
 <!-- toc disabled -->
@@ -998,10 +1010,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><span id="CCADD">[CCADD]</span> CC and CEM Addenda: Exact Conformance, Selection-Based SFRs, Optional SFRs CCDB-2017-05-xxx, Version 0.5, May 2017</p>
 </li>
 <li>
-<p><span id="SD">[SD]</span> Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Application Software, Version 1.0, February 2022</p>
+<p><span id="SD">[SD]</span> Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Application Software, Version 1.1, February 2022</p>
 </li>
 <li>
-<p><span id="TLS Package">[TLS Package]</span> Functional Package for Transport Layer Security (TLS) v1.1, March 2019</p>
+<p><span id="TLS Package">[TLS Package]</span> Functional Package for Transport Layer Security (TLS) v2.0, March 2019</p>
 </li>
 <li>
 <p><span id="SSH Package">[SSH Package]</span> Functional Package for SSH Version 1.0, May 2021</p>
@@ -1025,10 +1037,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>PP Reference: collaborative Protection Profile for Application Software</p>
 </li>
 <li>
-<p>PP Version: 1.0</p>
+<p>PP Short Name: cPP_APP_SW_V1.1</p>
 </li>
 <li>
-<p>PP Date: 2022-04-06</p>
+<p>PP Version: 1.1</p>
+</li>
+<li>
+<p>PP Date: 2023-08-16</p>
 </li>
 </ul>
 </div>
@@ -1135,7 +1150,32 @@ applications/sensors</p>
 <div class="sect2">
 <h3 id="_toe_usage">1.4. TOE Usage</h3>
 <div class="paragraph">
-<p>The essence of the requirements for application software TOEs is that they are well behaved and do not compromise the security of their operational environment. Additionally, these requirements ensure that evaluated applications are secure by default, store sensitive data in a secure manner and communicate with external entities using secure well-known protocols. Examples of applications are provided in the section above.  This cPP forms the Base-PP and would be applicable to all applications.</p>
+<p>The essence of the requirements for application software TOEs is that they are well behaved and do not compromise the security of their operational environment.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, these requirements ensure that evaluated applications posses the following security functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Secure by Default</p>
+</li>
+<li>
+<p>Standards based cryptographic implementations</p>
+</li>
+<li>
+<p>Storage of sensitive data in a secure manner</p>
+</li>
+<li>
+<p>Communication with external entities using secure and well-known protocols</p>
+</li>
+<li>
+<p>Secure update mechanisms</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples of applications are provided in the section above.  This cPP forms the Base-PP and would be applicable to all applications.</p>
 </div>
 </div>
 </div>
@@ -1158,7 +1198,10 @@ applications/sensors</p>
 <p>is Part 3 conformant,</p>
 </li>
 <li>
-<p>Functional Package for Transport Layer Security (TLS) v1.1 – augmented</p>
+<p>Functional Package for Transport Layer Security (TLS) v2.0</p>
+</li>
+<li>
+<p>Functional Package for Secure Shell (SSH) v1.0</p>
 </li>
 <li>
 <p>does not claim conformance to any other security functional requirement packages.</p>
@@ -1175,21 +1218,21 @@ applications/sensors</p>
 <p>In order to be conformant to this cPP, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> (these are the mandatory SFRs) of this cPP, and potentially SFRs from <a href="#Consistency Rationale">[Consistency Rationale]</a> (these are selection-based SFRs) and <a href="#_selection_based_requirements">Selection-Based Requirements</a> (these are optional SFRs) of this cPP. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this cPP) are allowed to be included in the ST. Further, no SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> of this cPP are allowed to be omitted.</p>
 </div>
 <div class="paragraph">
-<p>The packages to which exact conformance can be claimed in conjunction with this PP are specified in the ‘Allowed Packages’ list at <a href="https://github.com/appswcpp/cPP" class="bare">https://github.com/appswcpp/cPP</a>. The PP-Modules that are allowed to specify this cPP as a base-PP are specified in the ‘Allowed PP-Modules list at <a href="https://github.com/appswcpp/cPP" class="bare">https://github.com/appswcpp/cPP</a></p>
+<p>The packages and modules to which exact conformance can be claimed in conjunction with this PP are specified in the ‘Allowed With’ list at <a href="https://appswcpp.github.io" class="bare">https://appswcpp.github.io</a>.</p>
+</div>
+<div class="paragraph">
+<p>This Protection Profile does not claim conformance to any other Protection Profile.</p>
 </div>
 <div class="sect2">
 <h3 id="_components_allowed_with_this_cpp_in_a_pp_configuration">2.1. Components allowed with this cPP in a PP-Configuration</h3>
 <div class="paragraph">
-<p>The list of packages, PP-Modules and cPPs that may be used in conjunction with this cPP can be found at: <a href="https://appswcpp.github.io/PP-config.html" class="bare">https://appswcpp.github.io/PP-config.html</a></p>
+<p>The list of packages, PP-Modules and cPPs that may be used in conjunction with this cPP can be found at: <a href="https://appswcpp.github.io/cPP/AppSW_cPP_allowed-with-list.pdf" class="bare">https://appswcpp.github.io/cPP/AppSW_cPP_allowed-with-list.pdf</a></p>
 </div>
 <div class="paragraph">
 <p>The packages to which exact conformance can be claimed in conjunction with this PP are specified in the Allowed Packages list.</p>
 </div>
 <div class="paragraph">
 <p>PP-Modules that are allowed to specify this cPP as a base PP are specified in the Base PP list.</p>
-</div>
-<div class="paragraph">
-<p>Other cPPs that are allowed to be included in a PP-Configuration along with this cPP are specified in the Other cPP list.</p>
 </div>
 </div>
 </div>
@@ -1238,13 +1281,13 @@ applications/sensors</p>
 <div class="ulist">
 <ul>
 <li>
-<p>FMT_CFG_EXT.1 ensures that an attacker cannot gain administrator access via nefarious means.</p>
+<p>FMT_CFG_EXT.1 ensures that an attacker cannot gain administrator access via misconfiguration of the application.</p>
 </li>
 <li>
 <p>FCS_STO_EXT.1 and FCS_CKM_EXT.1/PBKDF2 ensures that if credentials are stored, they are stored in a secure manner to prevent unauthorized access.</p>
 </li>
 <li>
-<p>FIA_AFL_EXT.1, FIA_EIP_EXT.1, FIA_UAU.7, FIA_UAU_EXT.5, FIA_UAU_EXT.2, FIA_UIA_EXT.1, and FTA_TAB.1 ensures that an appropriate mechanism is in place to ensure only an authorized user can interact with the application (if interactive).</p>
+<p>FIA_AFL.1, FIA_EIP_EXT.1, FIA_UAU.7, FIA_UAU_EXT.5, FIA_UAU_EXT.2, FIA_UIA_EXT.1, and FTA_TAB.1 ensures that an appropriate mechanism is in place to ensure only an authorized user can interact with the application (if interactive).</p>
 </li>
 <li>
 <p>FTP_DIT_EXT.1 specifies the use of secure communication channels to protect data in transit.</p>
@@ -1386,15 +1429,6 @@ applications/sensors</p>
 <p><code>[OE.PROPER_ADMIN]</code></p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_a_secure_location">3.2.4. A.SECURE_LOCATION</h4>
-<div class="paragraph">
-<p>For enterprise servers that run enterprise applications, it is assumed that these servers are housed in a physically secure location</p>
-</div>
-<div class="paragraph">
-<p><code>[OE.SECURE_LOCATION]</code></p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_organizational_security_policies">3.3. Organizational Security Policies</h3>
@@ -1418,7 +1452,7 @@ applications/sensors</p>
 <div class="sect3">
 <h4 id="_oe_platform">4.2.1. OE.PLATFORM</h4>
 <div class="paragraph">
-<p>The TOE relies upon the underlying platform for its security and as a result this platform must be trustworthy. It is the organization’s responsibility to ensure that the platform meets the trustworthiness requirements of the organization’s security policies.</p>
+<p>The TOE relies upon the underlying platform for its security and as a result this platform must be trustworthy and appropriately protected. It is the organization’s responsibility to ensure that the platform meets the trustworthiness requirements of the organization’s security policies.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1465,7 +1499,7 @@ applications/sensors</p>
 <p>[text within square brackets] indicates the completion of a selection.</p>
 </li>
 <li>
-<p>Number in parentheses after SFR name, e.g. (1) indicates the completion of an iteration.</p>
+<p>A text descriptor after an SFR name, e.g. "/Asymmetric" indicates the completion of an iteration.</p>
 </li>
 <li>
 <p>Extended SFRs are identified by having a label “EXT” at the end of the SFR name.</p>
@@ -1484,9 +1518,9 @@ applications/sensors</p>
 <div class="sect3">
 <h4 id="_random_bit_generation_services_fcs_rbg">5.2.1. Random Bit Generation Services (FCS_RBG)</h4>
 <div class="sect4">
-<h5 id="_fcs_rbg_ext_2_random_bit_generation_services">5.2.1.1. FCS_RBG_EXT.2 Random Bit Generation Services</h5>
+<h5 id="_fcs_rbg_ext_1_random_bit_generation_services">5.2.1.1. FCS_RBG_EXT.1 Random Bit Generation Services</h5>
 <div class="paragraph">
-<p><strong>FCS_RBG_EXT.2.1</strong> The application shall [<em>selection: use no DRBG functionality, invoke platform-provided DRBG functionality, implement DRBG functionality according to FCS_RBG_EXT.1</em>] for its cryptographic operations.</p>
+<p><strong>FCS_RBG_EXT.1.1</strong> The application shall [<em>selection: use no DRBG functionality, invoke platform-provided DRBG functionality, implement DRBG functionality according to FCS_RBG_EXT.2</em>] for its cryptographic operations.</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note 1:</strong> In this requirement, cryptographic operations include all cryptographic key generation/derivation/agreement, IVs (for certain modes), as well as protocol-specific random values.</p>
@@ -1519,10 +1553,10 @@ applications/sensors</p>
 <div class="sect4">
 <h5 id="_fdp_net_ext_1_network_communications">5.3.1.1. FDP_NET_EXT.1 (Network Communications)</h5>
 <div class="paragraph">
-<p><strong>FDP_NET_EXT.1.1</strong> The TSF shall restrict network communication to: [<em>selection: no network communication, outbound connections, in-bound connections</em>].</p>
+<p><strong>FDP_NET_EXT.1.1</strong> The TSF shall restrict network communication to: [_selection: no network communication, user-initiated communication for [<strong>assignment</strong>: list of functions for which the user can initiate network communication], respond to [<strong>assignment</strong>: list of remotely initiated communication ], [<strong>assignment</strong>: list of application-initiated network communication] ].</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 3:</strong> This requirement is intended to restrict both inbound and outbound network communications to only those required. It does not apply to network communications handled by the platform that may support access to remote filesystems mounted locally by the platform.</p>
+<p><strong>Application Note 3:</strong> This requirement is intended to restrict both inbound and outbound network communications to only those required, or to network communications that are user initiated. It does not apply to network communications in which the application may generically access the filesystem which may result in the platform accessing remotely mounted drives/shares.</p>
 </div>
 </div>
 </div>
@@ -1540,7 +1574,7 @@ applications/sensors</p>
 <p><strong>FMT_CFG_EXT.1.1</strong> Any default credentials supported by the TSF shall be changed [<em>selection: during installation, before application is operational</em>].</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 4:</strong> Manufacturer default credentials are credentials (e.g., passwords, keys) that are automatically (without user interaction) loaded onto the platform during application installation. Credentials generated during or after the installation using requirements laid out in FCS_RBG_EXT.1 are not by definition default credentials.
+<p><strong>Application Note 4:</strong> Manufacturer default credentials are credentials (e.g., passwords, keys) that are automatically (without user interaction) loaded onto the platform during application installation. Credentials generated during or after the installation using requirements laid out in FCS_RBG_EXT.2 are not by definition default credentials.
 An application is considered operational once initial set-up is complete or at first use.</p>
 </div>
 <div class="paragraph">
@@ -1593,38 +1627,6 @@ An application is considered operational once initial set-up is complete or at f
 <div class="paragraph">
 <p><strong>Application Note 6:</strong> This requirement stipulates that an application needs to provide the ability to enable/disable only those functions that it actually implements. The application is not responsible for controlling the behavior of the platform or other applications.</p>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_fmt_smr_2_protected_authentication_feedback">5.4.2. FMT_SMR.2 Protected authentication feedback</h4>
-<div class="paragraph">
-<p><strong>FMT_SMR.2.1</strong> The TSF shall maintain the roles:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Security Administrator.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>FMT_SMR.2.2</strong> The TSF shall be able to associate users with roles.</p>
-</div>
-<div class="paragraph">
-<p><strong>FMT_SMR.2.3</strong> The TSF shall ensure that the conditions [<em>selection:</em></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><em>The Security Administrator role shall be able to administer the TOE locally,</em></p>
-</li>
-<li>
-<p><em>The Security Administrator role shall be able to administer the TOE remotely</em>]</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>are satisfied.</p>
 </div>
 </div>
 </div>
@@ -1726,7 +1728,7 @@ An application is considered operational once initial set-up is complete or at f
 <p><em>not transmit any data,</em></p>
 </li>
 <li>
-<p><em>encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1 in accordance with FCS_CKM.2, TLS as specified in the [TLS Package] in accordance with FCS_CKM.2, DTLS as specified in [TLS Package] in accordance with FCS_CKM.2, SSH as specified in [SSH Package]] in accordance with FCS_CKM.2,</em></p>
+<p><em>encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client, HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server, HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, TLS as a server as defined in the Functional Package for TLS and also supports functionality for [selection: mutual authentication, none], TLS as a client as defined in the Functional Package for TLS, DTLS as a server as defined in the Functional Package for TLS and also supports functionality for [selection: mutual authentication, none], DTLS as a client as defined in the Functional Package for TLS, SSH as defined in the Functional Package for Secure Shell,</em></p>
 </li>
 <li>
 <p><em>invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1 in accordance with FCS_CKM.2, TLS as specified in the [TLS Package] in accordance with FCS_CKM.2, DTLS as specified in [TLS Package] in accordance with FCS_CKM.2, SSH as specified in [SSH Package]] in accordance with FCS_CKM.2</em>]</p>
@@ -1960,9 +1962,9 @@ The selection ‘not transmit any data’ cannot be selected for TOEs being eval
 <div class="sect3">
 <h4 id="_cryptographic_key_management_fcs_ckm">A.1.1. Cryptographic Key Management (FCS_CKM)</h4>
 <div class="sect4">
-<h5 id="_fcs_ckm_1symmetric_cryptographic_key_generation">A.1.1.1. FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation</h5>
+<h5 id="_fcs_ckm_ext_1symmetric_cryptographic_key_generation">A.1.1.1. FCS_CKM_EXT.1/Symmetric Cryptographic Key Generation</h5>
 <div class="paragraph">
-<p><strong>FCS_CKM_EXT.1.1/Symmetric</strong> The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [<em>assignment: cryptographic key generation algorithm</em>] using a Random Bit Generator as specified in FCS_RBG_EXT.1 and specified cryptographic key sizes [<em>selection: 128 bit, 256 bit</em>]. that meet the following: [<em>assignment: list of standards</em>].</p>
+<p><strong>FCS_CKM_EXT.1.1/Symmetric</strong> The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [<em>assignment: cryptographic key generation algorithm</em>] using a Random Bit Generator as specified in FCS_RBG_EXT.2 and specified cryptographic key sizes [<em>selection: 128 bit, 256 bit</em>]. that meet the following: [<em>assignment: list of standards</em>].</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note 15:</strong> Symmetric keys may be used to generate keys along the key chain.</p>
@@ -2004,18 +2006,18 @@ The selection ‘not transmit any data’ cannot be selected for TOEs being eval
 <div class="sect3">
 <h4 id="_random_bit_generation_extended_fcs_rbg_ext">B.1.1. Random Bit Generation (Extended – FCS_RBG_EXT)</h4>
 <div class="sect4">
-<h5 id="_fcs_rbg_ext_1_random_bit_generation">B.1.1.1. FCS_RBG_EXT.1 Random Bit Generation</h5>
+<h5 id="_fcs_rbg_ext_2_random_bit_generation">B.1.1.1. FCS_RBG_EXT.2 Random Bit Generation</h5>
 <div class="paragraph">
-<p><strong>FCS_RBG_EXT.1.1</strong> The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [<em>selection: Hash_DRBG (any) in accordance with FCS_COP.1/Hash, HMAC_DRBG (any) in accordance with FCS_COP.1/KeyedHash, CTR_DRBG (AES) in accordance with FCS_COP.1/DataEncryption]</em>.</p>
+<p><strong>FCS_RBG_EXT.2.1</strong> The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [<em>selection: Hash_DRBG (any) in accordance with FCS_COP.1/Hash, HMAC_DRBG (any) in accordance with FCS_COP.1/KeyedHash, CTR_DRBG (AES) in accordance with FCS_COP.1/DataEncryption]</em>.</p>
 </div>
 <div class="paragraph">
-<p><strong>FCS_RBG_EXT.1.2</strong> The deterministic RBG shall be seeded by at least one entropy sources that accumulates entropy from [<em>selection: [assignment: number of software-based sources] software-based noise source(s), [assignment: number of hardware-based sources] hardware-based noise source(s</em>] with a minimum of [<em>selection: 128 bits, 192 bits, 256 bits</em>] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.</p>
+<p><strong>FCS_RBG_EXT.2.2</strong> The deterministic RBG shall be seeded by at least one entropy sources that accumulates entropy from [<em>selection: [assignment: number of software-based sources] software-based noise source(s), [assignment: number of hardware-based sources] hardware-based noise source(s</em>] with a minimum of [<em>selection: 128 bits, 192 bits, 256 bits</em>] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 17:</strong> This requirement shall be included in STs in which implement DRBG functionality is chosen in FCS_RBG_EXT.2.1.</p>
+<p><strong>Application Note 17:</strong> This requirement shall be included in STs where "implement DRBG functionality" is selected in FCS_RBG_EXT.1.1.</p>
 </div>
 <div class="paragraph">
-<p>For the first selection in FCS_RBG_EXT.1.2, the ST author selects at least one of the types of noise sources. If the TOE contains multiple noise sources of the same type, the ST author fills the assignment with the appropriate number for each type of source (e.g., 2 software-based noise sources, 1 hardware-based noise source). The documentation and tests required in the Evaluation Activity for this element should be repeated to cover each source indicated in the ST.</p>
+<p>For the first selection in FCS_RBG_EXT.2.2, the ST author selects at least one of the types of noise sources. If the TOE contains multiple noise sources of the same type, the ST author fills the assignment with the appropriate number for each type of source (e.g., 2 software-based noise sources, 1 hardware-based noise source). The documentation and tests required in the Evaluation Activity for this element should be repeated to cover each source indicated in the ST.</p>
 </div>
 <div class="paragraph">
 <p>ISO/IEC 18031:2011 contains three different methods of generating random numbers; each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers). The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement. While any of the identified hash functions (SHA-1, SHA-256, SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG, only AES-based implementations for CTR_DRBG are allowed.</p>
@@ -2037,7 +2039,7 @@ The selection ‘not transmit any data’ cannot be selected for TOEs being eval
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_ckm_1asymmetric_cryptographic_key_generation_refinement">B.1.2.2. FCS_CKM_EXT.1/Asymmetric Cryptographic Key Generation (Refinement)</h5>
+<h5 id="_fcs_ckm_ext_1asymmetric_cryptographic_key_generation_refinement">B.1.2.2. FCS_CKM_EXT.1/Asymmetric Cryptographic Key Generation (Refinement)</h5>
 <div class="paragraph">
 <p><strong>FCS_CKM_EXT.1.1/Asymmetric</strong> The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [<em>selection:</em></p>
 </div>
@@ -2053,12 +2055,8 @@ The selection ‘not transmit any data’ cannot be selected for TOEs being eval
 <p><em>FFC schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.1</em></p>
 </li>
 <li>
-<p><em>FFC Schemes using ‘safe-prime’ groups that meet the following: “NIST Special Publication 800-56A Revision 3, Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography” and [selection: RFC 3526, RFC 7919]</em></p>
-<div class="literalblock">
-<div class="content">
-<pre>]</pre>
-</div>
-</div>
+<p><em>FFC Schemes using ‘safe-prime’ groups that meet the following: “NIST Special Publication 800-56A Revision 3, Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography” and [selection: RFC 3526, RFC 7919]</em>
+]</p>
 </li>
 </ul>
 </div>
@@ -2073,7 +2071,7 @@ The selection ‘not transmit any data’ cannot be selected for TOEs being eval
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_ckm_1_1pbkdf2_password_conditioning">B.1.2.3. FCS_CKM_EXT.1.1/PBKDF2 Password Conditioning</h5>
+<h5 id="_fcs_ckm_ext_1_1pbkdf2_password_conditioning">B.1.2.3. FCS_CKM_EXT.1.1/PBKDF2 Password Conditioning</h5>
 <div class="paragraph">
 <p><strong>FCS_CKM_EXT.1.1/PBKDF2</strong> A password/passphrase shall perform [<em>assignment: Password-based Key Derivation Functions</em>] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [<em>assignment: positive integer of 1,000 or more</em>] iterations, and output cryptographic key sizes [<em>selection: 128, 256</em>] that meet the following [NIST SP 800-132].</p>
 </div>
@@ -2227,6 +2225,15 @@ If the TOE implements the TLS protocol, the ST author shall include the requirem
 <p>SSH is not a required component of this cPP. If a TOE implements SSH, a corresponding selection in FTP_DIT_EXT.1 should have been made that defines what the SSH protocol is implemented to protect.
 If the TOE acts as both a client and server and the selections are different, the ST author should iterate using the identifiers FCS_SSH_EXT.1/Server and FCS_SSH_EXT.1/Client in the [SSH Package].</p>
 </div>
+<div class="sect5">
+<h6 id="_fcs_https_ext_2_https_protocol_with_mutual_authentication">B.1.4.3.1. FCS_HTTPS_EXT.2 HTTPS Protocol with Mutual Authentication</h6>
+<div class="paragraph">
+<p><strong>FCS_HTTPS_EXT.2.1</strong> The application shall [<strong>selection</strong>: <em>not establish the connection, establish or not establish the connection based on an administrative or user setting</em>]if the peer certificate is deemed invalid.</p>
+</div>
+<div class="paragraph">
+<p><strong>Application Note 28:</strong> Validity is determined by the certificate path, the expiration date, and the revocation status in accordance with RFC 5280.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2236,14 +2243,14 @@ If the TOE acts as both a client and server and the selections are different, th
 <p>This section defines selection based Identification and Authentication requirements that underlie other security properties of the TOE.</p>
 </div>
 <div class="sect3">
-<h4 id="_authentication_failure_fia_afl_ext">B.2.1. Authentication Failure (FIA_AFL_EXT)</h4>
+<h4 id="_authentication_failure_fia_afl">B.2.1. Authentication Failure (FIA_AFL)</h4>
 <div class="sect4">
-<h5 id="_fia_afl_ext_x_509_authentication_failure_management">B.2.1.1. FIA_AFL_EXT X.509 Authentication Failure Management</h5>
+<h5 id="_fia_afl_1_authentication_failure_management">B.2.1.1. FIA_AFL.1 Authentication Failure Management</h5>
 <div class="paragraph">
-<p><strong>FIA_AFL_EXT.1.1</strong> The TSF shall detect when a configurable positive integer within [<em>assignment: range of acceptable values for each authentication mechanism</em>] of unsuccessful authentication attempts occur related to last successful authentication for each authentication mechanism.</p>
+<p><strong>FIA_AFL.1.1</strong> The TSF shall detect when <strong>a configurable positive integer</strong> [ <em>assignment</em>: range of acceptable values less than 64 <strong>for each password-based authentication mechanism</strong>] of unsuccessful authentication attempts occur related to <strong>last successful authentication for each password-based authentication mechanism.</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>FIA_AFL_EXT.1.2</strong> When the defined number of unsuccessful authentication attempts has been <span class="underline">met</span>, the TSF shall [<em>selection: prevent the offending Administrator from successfully establishing a session using the locked authentication method until [assignment: action to unlock] is taken by an Administrator; prevent the offending Administrator from successfully establishing a session using any authentication method until an Administrator-defined time period has elapsed</em>].</p>
+<p><strong>FIA_AFL.1.2</strong> When the defined number of unsuccessful authentication attempts has been <strong>met</strong>, the TSF shall <strong>[<em>selection: prevent the offending Administrator from successfully establishing a session using the locked authentication method until [assignment: action to unlock] is taken by an Administrator; prevent the offending Administrator from successfully establishing a session using any authentication method until an Administrator-defined time period has elapsed</em>].</strong></p>
 </div>
 </div>
 </div>
@@ -2252,7 +2259,7 @@ If the TOE acts as both a client and server and the selections are different, th
 <div class="sect4">
 <h5 id="_fia_eip_ext_1_external_identity_provider">B.2.2.1. FIA_EIP_EXT.1 External Identity Provider</h5>
 <div class="paragraph">
-<p><strong>FIA_EIP_EXT.1.1</strong> The TSF shall be capable of using [<em>selection: IPsec, TLS, DTLS</em>] to provide a communication channel between itself and an external identity provider.</p>
+<p><strong>FIA_EIP_EXT.1.1</strong> The TSF shall be capable of using [<em>selection: TLS, DTLS</em>] as specified in the [TLS Package] to provide a communication channel between itself and an external identity provider.</p>
 </div>
 <div class="paragraph">
 <p><strong>FIA_EIP_EXT.1.2</strong> The TSF shall provide a [<em>selection: configurable, externally-managed</em>] mechanism to enroll with the external identity provider.</p>
@@ -2292,11 +2299,18 @@ If the TOE acts as both a client and server and the selections are different, th
 <div class="sect4">
 <h5 id="_fia_uau_ext_2_authentication_mechanism">B.2.4.1. FIA_UAU_EXT.2 Authentication Mechanism</h5>
 <div class="paragraph">
-<p><strong>FIA_UAU_EXT.2.1</strong> The TSF shall provide a [<em>selection: password-based, SSH public key-based, certificate-based, [assignment: other authentication mechanism]</em>] authentication mechanism to perform administrative user authentication.</p>
+<p><strong>FIA_UAU_EXT.2.1</strong> The TSF shall provide a [<em>selection: password-based, SSH public key-based as specified in the [SSH Package], certificate-based, [assignment: other authentication mechanism]</em>] authentication mechanism to perform administrative user authentication.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_fia_uau_ext_5_user_authentication_mechanisms">B.2.4.2. FIA_UAU_EXT.5 User Authentication Mechanisms</h5>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Start here next. Do these need to move into the base SFRs?</p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p><strong>FIA_UAU_EXT.5.1</strong> The TSF shall [<em>selection: provide an authentication mechanism, integrate with an external identity provider</em>] to support user authentication.</p>
 </div>
@@ -2304,19 +2318,19 @@ If the TOE acts as both a client and server and the selections are different, th
 <p><strong>FIA_UAU_EXT.5.2</strong> The TSF shall consider [<em>selection: password, SSH Public Key, X.509 certificate, [assignment: other authentication mechanism]</em>] as authentication mechanisms.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 28:</strong> If the TOE implements its own authentication mechanism, “provide an authentication mechanism” should be selected and the following selection-based SFRs must be include in the ST: FIA_AFL_EXT.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2.</p>
+<p><strong>Application Note 29:</strong> If the TOE implements its own authentication mechanism, “provide an authentication mechanism” shall be selected and the following selection-based SFRs shall be include in the ST: FIA_AFL.1, FIA_UAU_EXT.2, FIA_UAU.7, and FMT_SMR.2.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 29:</strong> If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs must be included in the ST: FIA_EIP_EXT.1.</p>
+<p><strong>Application Note 30:</strong> If the TOE connects to an external authentication service, the selection “integrate with an external identity provider” and the following selection-based SFRs shall be included in the ST: FIA_EIP_EXT.1.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fia_uau_7_protected_authentication_feedback">B.2.4.3. FIA_UAU.7 Protected authentication feedback</h5>
+<h5 id="_fia_uau_7_protected_authentication_feedback">B.2.4.3. FIA_UAU.7 Protected Authentication Feedback</h5>
 <div class="paragraph">
 <p><strong>FIA_UAU.7.1</strong> The TSF shall provide only <em>obscured feedback</em> to the administrative user while the authentication is in progress.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 30:</strong> The TSF may permit user interaction to display the input data. However, this may not be the default state and must revert to an obfuscated state after user interaction.</p>
+<p><strong>Application Note 31:</strong> The TSF may permit user interaction to display the input data. However, this may not be the default state and shall revert to an obfuscated state after user interaction.</p>
 </div>
 </div>
 </div>
@@ -2395,19 +2409,19 @@ If the TOE acts as both a client and server and the selections are different, th
 <p><strong>FIA_X509_EXT.1.2/Rev</strong> The TSF shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 31:</strong> This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.</p>
+<p><strong>Application Note 32:</strong> This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_fia_x509_ext_2_x_509_certificate_authentication">B.2.5.2. FIA_X509_EXT.2 X.509 Certificate Authentication</h5>
 <div class="paragraph">
-<p><strong>FIA_X509_EXT.2.1</strong> The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [<em>selection: HTTPS, SSH, TLS, DTLS, code signing for system software updates, code signing for integrity verification, [assignment: other uses]</em>].</p>
+<p><strong>FIA_X509_EXT.2.1</strong> The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [<em>selection: HTTPS, SSH as defined in the [SSH Package], TLS as defined in the [TLS Package], DTLS as defined in the [TLS Package], code signing for system software updates, code signing for integrity verification, [assignment: other uses]</em>].</p>
 </div>
 <div class="paragraph">
 <p><strong>FIA_X509_EXT.2.2</strong> When the TSF cannot establish a connection to determine the validity of a certificate, the TSF shall [selection: allow the Administrator to choose whether to accept the certificate in these cases, accept the certificate, not accept the certificate].</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 32:</strong> In FIA_X509_EXT.2.1, the ST author’s selection includes TLS, or HTTPS if these protocols are included in FTP_DIT_EXT.1.1. SSH should be included if SSH authentication methods include X.509v3. Certificates may optionally be used for trusted updates of system software (FPT_TUD_EXT.1.2).</p>
+<p><strong>Application Note 33:</strong> In FIA_X509_EXT.2.1, the ST author’s selection includes TLS, or HTTPS if these protocols are included in FTP_DIT_EXT.1.1. SSH should be included if SSH authentication methods include X.509v3. Certificates may optionally be used for trusted updates of system software (FPT_TUD_EXT.1.2).</p>
 </div>
 <div class="paragraph">
 <p>Often a connection must be established to check the revocation status of a certificate - either to download a CRL or to perform a lookup using OCSP. In FIA_X509_EXT.2.2 the selection is used to describe the behavior in the event that such a connection cannot be established (for example, due to a network error). If the TOE has determined the certificate is valid according to all other rules in FIA_X509_EXT.1, the behavior indicated in the selection determines the validity. The TOE must not accept the certificate if it fails any of the other validation rules in FIA_X509_EXT.1. If the Administrator-configured option is selected by the ST Author, the ST Author also selects the corresponding function in FMT_SMF.1. The selection should be consistent with the validation requirements in [TLS Package, FCS_TLSC_EXT.1.3].</p>
@@ -2419,16 +2433,51 @@ If the TOE acts as both a client and server and the selections are different, th
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fta_toe_access">B.3. (FTA) TOE Access</h3>
+<h3 id="_fmt_specification_of_management_functions">B.3. (FMT) Specification of Management Functions</h3>
 <div class="sect3">
-<h4 id="_default_toe_access_banner_fta_tab">B.3.1. Default TOE Access Banner (FTA_TAB)</h4>
+<h4 id="_fmt_smr_2_restrictions_on_security_roles">B.3.1. FMT_SMR.2 Restrictions on Security Roles</h4>
+<div class="paragraph">
+<p><strong>FMT_SMR.2.1</strong> The TSF shall maintain the roles:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Security Administrator.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>FMT_SMR.2.2</strong> The TSF shall be able to associate users with roles.</p>
+</div>
+<div class="paragraph">
+<p><strong>FMT_SMR.2.3</strong> The TSF shall ensure that the conditions [<em>selection:</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>The Security Administrator role shall be able to administer the TOE locally,</em></p>
+</li>
+<li>
+<p><em>The Security Administrator role shall be able to administer the TOE remotely</em>]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>are satisfied.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fta_toe_access">B.4. (FTA) TOE Access</h3>
+<div class="sect3">
+<h4 id="_default_toe_access_banner_fta_tab">B.4.1. Default TOE Access Banner (FTA_TAB)</h4>
 <div class="sect4">
-<h5 id="_fta_tab_1_default_toe_access_banner">B.3.1.1. FTA_TAB.1 Default TOE Access Banner</h5>
+<h5 id="_fta_tab_1_default_toe_access_banner">B.4.1.1. FTA_TAB.1 Default TOE Access Banner</h5>
 <div class="paragraph">
 <p><strong>FTA_TAB.1.1</strong> Before establishing an administrative user session the TSF shall display a Security Administrator-specified advisory notice and consent warning message regarding use of the TOE.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 33:</strong> This requirement should be included if the selection for a warning banner is made within FIA_UIA_EXT.1.</p>
+<p><strong>Application Note 34:</strong> This requirement shall be included if the selection for a warning banner is made within FIA_UIA_EXT.1.</p>
 </div>
 </div>
 </div>
@@ -2502,6 +2551,41 @@ If the TOE acts as both a client and server and the selections are different, th
 </div>
 <div class="paragraph">
 <p><strong>FCS_CKM_EXT.1.1</strong> The application shall [<em>selection: generate no asymmetric cryptographic keys, invoke platform-provided functionality for asymmetric key generation, implement asymmetric key generation according to FCS_CKM_EXT.1/Asymmetric</em>].</p>
+</div>
+<div class="paragraph">
+<p><strong>FCS_CKM_EXT.1/Asymmetric</strong></p>
+</div>
+<div class="paragraph">
+<p>The TSF shall generate asymmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm: [<em>selection:</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>RSA schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.3;</em></p>
+</li>
+<li>
+<p><em>ECC schemes using “NIST curves” [selection: P-256, P-384, P-521] that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;</em></p>
+</li>
+<li>
+<p><em>FFC schemes using cryptographic key sizes of 2048-bit or greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.1</em></p>
+</li>
+<li>
+<p><em>FFC Schemes using ‘safe-prime’ groups that meet the following: “NIST Special Publication 800-56A Revision 3, Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography” and [selection: RFC 3526, RFC 7919]</em>
+]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>and specified cryptographic key sizes [<em>assignment: cryptographic key sizes</em>] that meet the following: [<em>assignment: list of standards</em>].</p>
+</div>
+<div class="paragraph">
+<p><strong>FCS_CKM_EXT.1.1/Symmetric</strong> The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm [<em>assignment: cryptographic key generation algorithm</em>] using a Random Bit Generator as specified in FCS_RBG_EXT.2 and specified cryptographic key sizes [<em>selection: 128 bit, 256 bit</em>]. that meet the following: [<em>assignment: list of standards</em>].</p>
+</div>
+<div class="paragraph">
+<p><strong>FCS_CKM_EXT.1.1/PBKDF2</strong> A password/passphrase shall perform [<em>assignment: Password-based Key Derivation Functions</em>] in accordance with a specified cryptographic algorithm as specified in FCS_COP.1/KeyedHash, with [<em>assignment: positive integer of 1,000 or more</em>] iterations, and output cryptographic key sizes [<em>selection: 128, 256</em>] that meet the following [NIST SP 800-132].</p>
+</div>
+<div class="paragraph">
+<p><strong>FCS_CKM_EXT.1.2/PBKDF2</strong> The TSF shall generate salts using a RBG that meets FCS_RGB_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.1.1/PBKDF2.</p>
 </div>
 </div>
 </div>
@@ -2617,7 +2701,7 @@ If the TOE acts as both a client and server and the selections are different, th
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_rbg_ext_1_random_bit_generation_2">C.1.3.5. FCS_RBG_EXT.1 Random Bit Generation</h5>
+<h5 id="_fcs_rbg_ext_2_random_bit_generation_2">C.1.3.5. FCS_RBG_EXT.2 Random Bit Generation</h5>
 <div class="paragraph">
 <p>Hierarchical to: No other components</p>
 </div>
@@ -2625,14 +2709,14 @@ If the TOE acts as both a client and server and the selections are different, th
 <p>Dependencies: No dependencies</p>
 </div>
 <div class="paragraph">
-<p><strong>FCS_RBG_EXT.1.1</strong> The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [<em>selection: Hash_DRBG (any), HMAC_DRBG (any), CTR_DRBG (AES)</em>].</p>
+<p><strong>FCS_RBG_EXT.2.1</strong> The TSF shall perform all deterministic random bit generation services in accordance with ISO/IEC 18031:2011 using [<em>selection: Hash_DRBG (any), HMAC_DRBG (any), CTR_DRBG (AES)</em>].</p>
 </div>
 <div class="paragraph">
-<p><strong>FCS_RBG_EXT.1.2</strong> The deterministic RBG shall be seeded by at least one entropy source that accumulates entropy from [<em>selection: [assignment: number of software-based sources] software-based noise source, [assignment: number of hardware-based sources] hardware-based noise source</em>] with a minimum of [<em>selection: 128 bits, 192 bits, 256 bits</em>] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.</p>
+<p><strong>FCS_RBG_EXT.2.2</strong> The deterministic RBG shall be seeded by at least one entropy source that accumulates entropy from [<em>selection: [assignment: number of software-based sources] software-based noise source, [assignment: number of hardware-based sources] hardware-based noise source</em>] with a minimum of [<em>selection: 128 bits, 192 bits, 256 bits</em>] of entropy at least equal to the greatest security strength, according to ISO/IEC 18031:2011 Table C.1 “Security Strength Table for Hash Functions”, of the keys and hashes that it will generate.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fcs_rbg_ext_2_random_bit_generation_services_2">C.1.3.6. FCS_RBG_EXT.2 Random Bit Generation Services</h5>
+<h5 id="_fcs_rbg_ext_2_random_bit_generation_services">C.1.3.6. FCS_RBG_EXT.2 Random Bit Generation Services</h5>
 <div class="paragraph">
 <p>Hierarchical to: No other components</p>
 </div>
@@ -2823,7 +2907,7 @@ If the TOE acts as both a client and server and the selections are different, th
 <p>Dependencies: FIA_UAU_EXT.5.</p>
 </div>
 <div class="paragraph">
-<p><strong>FIA_EIP_EXT.1.1</strong> The TSF shall be capable of using [<em>selection: IPsec, TLS, DTLS</em>] to provide a communication channel between itself and an external identity provider.</p>
+<p><strong>FIA_EIP_EXT.1.1</strong> The TSF shall be capable of using [<em>selection: TLS, DTLS</em>] to provide a communication channel between itself and an external identity provider.</p>
 </div>
 <div class="paragraph">
 <p><strong>FIA_EIP_EXT.1.2</strong> The TSF shall provide a [<em>selection: configurable, externally-managed</em>] mechanism to enroll with the external identity provider.</p>
@@ -3048,12 +3132,12 @@ If the TOE acts as both a client and server and the selections are different, th
 
 </div>
 <div class="sect4">
-<h5 id="_fia_x509_ext_1x_509_certificate_validation">C.3.4.6. FIA_X509_EXT.1	X.509 Certificate Validation</h5>
+<h5 id="_fia_x509_ext_1_x_509_certificate_validation_2">C.3.4.6. FIA_X509_EXT.1 X.509 Certificate Validation</h5>
 <div class="paragraph">
 <p>Hierarchical to:	No other components</p>
 </div>
 <div class="paragraph">
-<p>Dependencies:		FIA_X509_EXT.2 X.509 Certificate Authentication</p>
+<p>Dependencies: FIA_X509_EXT.2 X.509 Certificate Authentication</p>
 </div>
 <div class="paragraph">
 <p><strong>FIA_X509_EXT.1.1/Rev</strong> The application shall [<em>selection: invoke platform-provided functionality, implement functionality</em>] to validate certificates in accordance with the following rules:</p>
@@ -3127,12 +3211,12 @@ If the TOE acts as both a client and server and the selections are different, th
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fia_x509_ext_2x_509_certificate_validation">C.3.4.7. FIA_X509_EXT.2	X.509 Certificate Validation</h5>
+<h5 id="_fia_x509_ext_2_x_509_certificate_validation">C.3.4.7. FIA_X509_EXT.2 X.509 Certificate Validation</h5>
 <div class="paragraph">
 <p>Hierarchical to:	No other components</p>
 </div>
 <div class="paragraph">
-<p>Dependencies:		FIA_X509_EXT.1 X.509 Certificate Authentication</p>
+<p>Dependencies: FIA_X509_EXT.1 X.509 Certificate Authentication</p>
 </div>
 <div class="paragraph">
 <p><strong>FIA_X509_EXT.2.1</strong> The TSF shall use X.509v3 certificates as defined by RFC 5280 to support authentication for [<em>selection: HTTPS, SSH, TLS, DTLS</em>], and [<em>selection: code signing for system software updates, code signing for integrity verification, [assignment: other uses], no additional uses</em>].</p>
@@ -3216,7 +3300,7 @@ If the TOE acts as both a client and server and the selections are different, th
 <h5 id="_component_levelling_9">C.5.1.2. Component levelling</h5>
 <div id="img-FPT_AEX_EXT" class="imageblock">
 <div class="content">
-<img src="data:image/png;base64,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" alt="FPT AEX EXT" width="640" height="126">
+<img src="data:image/png;base64,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" alt="FPT AEX EXT" width="640" height="126">
 </div>
 <div class="title">Figure 13. Component levelling</div>
 </div>
@@ -3259,7 +3343,14 @@ If the TOE acts as both a client and server and the selections are different, th
 <p>Dependencies:		No other components</p>
 </div>
 <div class="paragraph">
-<p><strong>FPT_AEX_EXT.1.1</strong> The application shall not request to map memory at an explicit address except for [<em>assignment: list of explicit exceptions</em>].</p>
+<p><strong>FPT_AEX_EXT.1.1</strong> The application shall not request to map memory at an explicit address except for [<em>selection:</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>no exceptions, <em>assignment: list of explicit exceptions</em>].</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>FPT_AEX_EXT.1.2</strong> The application shall [<em>selection:</em></p>
@@ -3297,7 +3388,7 @@ If the TOE acts as both a client and server and the selections are different, th
 <h5 id="_component_levelling_10">C.5.2.2. Component levelling</h5>
 <div id="img-FPT_AEX_EXT2" class="imageblock">
 <div class="content">
-<img src="data:image/png;base64,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" alt="FPT AEX EXT" width="640" height="126">
+<img src="data:image/png;base64,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" alt="FPT AEX EXT" width="640" height="126">
 </div>
 <div class="title">Figure 14. Component levelling</div>
 </div>
@@ -3332,7 +3423,7 @@ If the TOE acts as both a client and server and the selections are different, th
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fpt_api_ext_2use_of_supported_services_and_apis">C.5.2.5. FPT_API_EXT.2	Use of Supported Services and APIs</h5>
+<h5 id="_fpt_api_ext_2_use_of_supported_services_and_apis_2">C.5.2.5. FPT_API_EXT.2 Use of Supported Services and APIs</h5>
 <div class="paragraph">
 <p>Hierarchical to:	No other components</p>
 </div>
@@ -3412,16 +3503,19 @@ If the TOE acts as both a client and server and the selections are different, th
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_trust_pathchannel_ftp">C.6. Trust Path/Channel (FTP)</h3>
 <div class="sect3">
-<h4 id="_data_in_transit_ftp_dit_ext_2">C.5.4. Data in Transit (FTP_DIT_EXT)</h4>
+<h4 id="_data_in_transit_ftp_dit_ext_2">C.6.1. Data in Transit (FTP_DIT_EXT)</h4>
 <div class="sect4">
-<h5 id="_family_behaviour_12">C.5.4.1. Family Behaviour</h5>
+<h5 id="_family_behaviour_12">C.6.1.1. Family Behaviour</h5>
 <div class="paragraph">
 <p>Components in this family address requirements to ensure the TOE either doesn’t transmit data or if it does transmit sensitive data such data is transmitted in a secure tunnel.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_component_levelling_12">C.5.4.2. Component levelling</h5>
+<h5 id="_component_levelling_12">C.6.1.2. Component levelling</h5>
 <div id="img-FTP_DIT_EXT" class="imageblock">
 <div class="content">
 <img src="data:image/png;base64,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" alt="FTP DIT EXT" width="500" height="126">
@@ -3433,7 +3527,7 @@ If the TOE acts as both a client and server and the selections are different, th
 </div>
 </div>
 <div class="sect4">
-<h5 id="_management_fpt_api_ext_2_2">C.5.4.3. Management: FPT_API_EXT.2</h5>
+<h5 id="_management_ftp_dit_ext_2">C.6.1.3. Management: FTP_DIT_EXT.2</h5>
 <div class="paragraph">
 <p>The following actions could be considered for the management functions in FPT:</p>
 </div>
@@ -3446,7 +3540,7 @@ If the TOE acts as both a client and server and the selections are different, th
 </div>
 </div>
 <div class="sect4">
-<h5 id="_audit_fpt_api_ext_2_2">C.5.4.4. Audit: FPT_API_EXT.2</h5>
+<h5 id="_audit_ftp_dit_ext_2">C.6.1.4. Audit: FTP_DIT_EXT.2</h5>
 <div class="paragraph">
 <p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:</p>
 </div>
@@ -3459,13 +3553,10 @@ If the TOE acts as both a client and server and the selections are different, th
 </div>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_trust_pathchannel_ftp">C.6. Trust Path/Channel (FTP)</h3>
 <div class="sect3">
-<h4 id="_ftp_dit_ext_1_data_in_transit_2">C.6.1. FTP_DIT_EXT.1 Data in Transit</h4>
+<h4 id="_ftp_dit_ext_1_data_in_transit_2">C.6.2. FTP_DIT_EXT.1 Data in Transit</h4>
 <div class="sect4">
-<h5 id="_ftp_dit_ext_1_data_in_transit_3">C.6.1.1. FTP_DIT_EXT.1 Data in Transit</h5>
+<h5 id="_ftp_dit_ext_1_data_in_transit_3">C.6.2.1. FTP_DIT_EXT.1 Data in Transit</h5>
 <div class="paragraph">
 <p>Hierarchical to:	No other components
 Dependencies:		No other components</p>
@@ -3479,10 +3570,10 @@ Dependencies:		No other components</p>
 <p><em>not transmit any data,</em></p>
 </li>
 <li>
-<p><em>encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]],</em></p>
+<p><em>encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client, HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server, HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, TLS as a server as defined in the Functional Package for TLS and also supports functionality for [selection: mutual authentication, none], TLS as a client as defined in the Functional Package for TLS, DTLS as a server as defined in the Functional Package for TLS and also supports functionality for [selection: mutual authentication, none], DTLS as a client as defined in the Functional Package for TLS, SSH as defined in the Functional Package for Secure Shell,</em></p>
 </li>
 <li>
-<p><em>invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1, TLS as specified in the [TLS Package], DTLS as specified in [TLS Package], SSH as specified in [SSH Package]]</em>]</p>
+<p><em>invoke platform-provided functionality to encrypt all transmitted [selection: sensitive data, data] with [selection: HTTPS as as specified in FCS_HTTPS_EXT.1 in accordance with FCS_CKM.2, TLS as specified in the [TLS Package] in accordance with FCS_CKM.2, DTLS as specified in [TLS Package] in accordance with FCS_CKM.2, SSH as specified in [SSH Package]] in accordance with FCS_CKM.2</em>]</p>
 </li>
 </ul>
 </div>
@@ -3509,9 +3600,7 @@ Dependencies:		No other components</p>
 <p>Documentation shall include the design of each entropy source as a whole, including the interaction of all entropy source components. Any information that can be shared regarding the design should also be included for any third-party entropy sources that are included in the product.</p>
 </div>
 <div class="paragraph">
-<p>The documentation will describe the operation of the entropy source to include how entropy is produced, and how unprocessed (raw) data can be obtained from within the entropy source for testing purposes. The documentation should walk through the entropy source design indicating
-where the entropy comes from, where the entropy output is passed next, any post-processing of the raw outputs (hash, XOR, etc.), if/where it is stored, and finally, how it is output from the entropy source. Any conditions placed on the process (e.g., blocking) should also be described
-in the entropy source design. Diagrams and examples are encouraged.</p>
+<p>The documentation will describe the operation of the entropy source to include how entropy is produced, and how unprocessed (raw) data can be obtained from within the entropy source for testing purposes. The documentation should walk through the entropy source design indicating where the entropy comes from, where the entropy output is passed next, any post-processing of the raw outputs (hash, XOR, etc.), if/where it is stored, and finally, how it is output from the entropy source. Any conditions placed on the process (e.g., blocking) should also be describedin the entropy source design. Diagrams and examples are encouraged.</p>
 </div>
 <div class="paragraph">
 <p>This design must also include a description of the content of the security boundary of the entropy source and a description of how the security boundary ensures that an adversary outside the boundary cannot affect the entropy rate.</p>
@@ -3874,7 +3963,7 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_RBG_EXT.2.1</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_RBG_EXT.1</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">None</p></td>
 <td class="tableblock halign-left valign-middle"></td>
 </tr>
@@ -3895,6 +3984,11 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FMT_SMF.1</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FPT_API_EXT.1</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">None</p></td>
 <td class="tableblock halign-left valign-middle"></td>
 </tr>
@@ -3960,7 +4054,7 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_RBG_EXT.2.1</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM_EXT.1/PBKDF2</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">None</p></td>
 <td class="tableblock halign-left valign-middle"></td>
 </tr>
@@ -4006,6 +4100,31 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 <td class="tableblock halign-left valign-middle"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_RBG_EXT.2</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FIA_EIP_EXT.1</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FIA_UAU_EXT.2</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FIA_UAU_EXT.5</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FIA_UAU_EXT.2</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FIA_UAU_EXT.2 ensures valid implementation of the authentication mechanism.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FIA_UIA_EXT.1</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FIA_X509_EXT.1/Rev</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FIA_X509_EXT.2</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Met</p></td>
@@ -4047,6 +4166,10 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 <dt>Credential</dt>
 <dd>
 <p>Data that establishes the identity of a user, e.g. a cryptographic key or password.</p>
+</dd>
+<dt>Data Execution Prevention</dt>
+<dd>
+<p>DEP is a set of hardware and software technologies that perform additional checks on memory to help protect against malicious code exploits.</p>
 </dd>
 <dt>Operating System</dt>
 <dd>
@@ -4271,8 +4394,8 @@ If cPP-specified security functionality is implemented by the TOE, then differen
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2022-04-06 13:16:54 -0500
+Version 1.1<br>
+Last updated 2023-08-16 13:51:16 -0500
 </div>
 </div>
 </body>

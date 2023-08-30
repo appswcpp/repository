@@ -6,8 +6,8 @@
 :table-caption: Table
 :imagesdir: images
 :icons: font
-:revnumber: 1.0
-:revdate: 2022-04-06
+:revnumber: 1.1
+:revdate: 2023-08-16
 :xrefstyle: full
 
 :iTC-longname: iTC for Application Software
@@ -16,8 +16,8 @@
 :iTC-website: https://appswcpp.github.io/
 :iTC-GitHub: https://github.com/appswcpp/repository/
 :pp-name: collaborative Protection Profile for Application Software
-:pp-version: Version 1.0
-:pp-date: 2022-04-06
+:pp-version: Version 1.1
+:pp-date: 2023-08-16
 
 == Foreword
 
@@ -44,6 +44,10 @@ This Supporting Document was developed by the {iTC-longname} international Techn
 |1.0
 |2022-04-06
 |Initial release.
+
+|1.1
+|2023-08-16
+|Incorporated feedback recevied following initial release.
 
 |===
 

@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="MOD_APP_SERVER_v1.1">
 <title>collaborative PP-Module for Server Applications</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -459,8 +460,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>collaborative PP-Module for Server Applications</h1>
 <div class="details">
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2022-04-06</span>
+<span id="author" class="author">MOD_APP_SERVER_v1.1</span><br>
+<span id="revnumber">version 1.1,</span>
+<span id="revdate">2022-08-16</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -489,7 +491,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_toe_use_cases">1.3. TOE Use Cases</a></li>
 </ul>
 </li>
-<li><a href="#_cc_conformance_claims">2. CC Conformance Claims</a></li>
+<li><a href="#_cc_conformance_claims">2. CC Conformance Claims</a>
+<ul class="sectlevel2">
+<li><a href="#_components_allowed_with_this_cpp_in_a_pp_configuration">2.1. Components allowed with this cPP in a PP-Configuration</a></li>
+</ul>
+</li>
 <li><a href="#_security_problem_definition">3. Security Problem Definition</a>
 <ul class="sectlevel2">
 <li><a href="#_threats">3.1. Threats</a>
@@ -573,6 +579,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
+<li><a href="#_consistency_rationale">Appendix D: Consistency Rationale</a>
+<ul class="sectlevel2">
+<li><a href="#_consistency_of_toe_type">D.1. Consistency of TOE Type</a></li>
+<li><a href="#_sfr_dependencies_analysis">D.2. SFR Dependencies Analysis</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -606,9 +618,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initial Release</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-08-16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Incorporated feedback received following initial release.</p></td>
 </tr>
 </tbody>
 </table>
@@ -698,10 +710,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>PP-Module Reference: collaborative PP-Module for Server Applications</p>
 </li>
 <li>
-<p>PP-Module Version: 1.0</p>
+<p>PP-Module Version: 1.1</p>
 </li>
 <li>
-<p>PP-Module Date: 2022-04-06</p>
+<p>PP-Module Date: 2022-08-16</p>
 </li>
 </ul>
 </div>
@@ -743,7 +755,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>In order to be conformant to this PP-Module, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> (these are the mandatory SFRs) of this PP-Module, and potentially SFRs from <a href="#Consistency Rationale">[Consistency Rationale]</a> (these are selection-based SFRs) and <a href="#_selection_based_requirements">Selection-Based Requirements</a> (these are optional SFRs) of this PP-Module. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this PP-Module) are allowed to be included in the ST. Further, no SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> of this PP-Module are allowed to be omitted.</p>
+<p>In order to be conformant to this PP-Module, a ST shall demonstrate Exact Conformance. Exact Conformance, as a subset of Strict Conformance as defined by the CC, is defined as the ST containing all of the SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> (these are the mandatory SFRs) of this PP-Module, and potentially SFRs from <a href="#_consistency_rationale">Consistency Rationale</a> (these are selection-based SFRs) and <a href="#_selection_based_requirements">Selection-Based Requirements</a> (these are optional SFRs) of this PP-Module. While iteration is allowed, no additional requirements (from the CC parts 2 or 3, or definitions of extended components not already included in this PP-Module) are allowed to be included in the ST. Further, no SFRs in <a href="#_security_functional_requirements">Security Functional Requirements</a> of this PP-Module are allowed to be omitted.</p>
+</div>
+<div class="sect2">
+<h3 id="_components_allowed_with_this_cpp_in_a_pp_configuration">2.1. Components allowed with this cPP in a PP-Configuration</h3>
+<div class="paragraph">
+<p>The list of packages, PP-Modules and cPPs that may be used in conjunction with this Module can be found at: <a href="https://appswcpp.github.io/cPP/AppSW_cPP_allowed-with-list.pdf" class="bare">https://appswcpp.github.io/cPP/AppSW_cPP_allowed-with-list.pdf</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -834,7 +852,7 @@ Additionally attackers may attempt to connect via untrusted entities and use tha
 <div class="sect2">
 <h3 id="_security_objectives_for_the_toe">4.1. Security Objectives for the TOE</h3>
 <div class="paragraph">
-<p>The following subsections describe objectives for the TOE. Since the Collaborative Protection Profile for Application Software does not specify any Objectives for the TOE this section contains only additional Objectives for the TOE related to the PP-Module but independent from the Collaborative Protection Profile for Application Software.</p>
+<p>The following subsections describe objectives for the TOE. Since the Collaborative Protection Profile for Application Software does not specify any Objectives for the TOE. This section contains only additional Objectives for the TOE related to the PP-Module but independent from the Collaborative Protection Profile for Application Software.</p>
 </div>
 <div class="sect3">
 <h4 id="_o_well_behaved_server">4.1.1. O.WELL-BEHAVED_SERVER</h4>
@@ -973,7 +991,7 @@ The TSF shall be capable of performing the following management functions:</p>
 The application shall be compatible with security features provided by the platform vendor.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 2:</strong> This requirement is designed to ensure that platform security features do not need to be disabled in order for the application to run. The assignement in FPT_AEX_EXT.1.3 in the Collaborative Protection Profile for Application Software must be None.</p>
+<p><strong>Application Note 2:</strong> This requirement is designed to ensure that platform security features do not need to be disabled in order for the application to run. The assignment in FPT_AEX_EXT.1.3 in the Collaborative Protection Profile for Application Software must be "no exceptions".</p>
 </div>
 </div>
 </div>
@@ -1032,54 +1050,37 @@ The TSF shall enable a Security Administrator to disable communications between 
 <div class="sect3">
 <h4 id="_fia_x509_ext_1ittcertificate_validationserver">A.2.1. FIA_X509_EXT.1/ITT/Certificate Validation/Server</h4>
 <div class="paragraph">
-<p><strong>FIA_X509_EXT.1.1/ITT/Server</strong>
-The application shall [<em>selection: invoked platform-provided functionality, implement functionality</em>] to validate certificates in accordance with the following rules:</p>
+<p><strong>FIA_X509_EXT.1.1/ITT/Server</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>FIA_X509_EXT.1.1/ITT</strong> The TSF shall validate certificates in accordance with the following rules:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>RFC 5280 certificate validation and certification path validation supporting a minimum path length of two certificates.</p>
+<p>RFC 5280 certificate validation and certification path validation <strong>supporting a minimum path length of two certificates</strong>.</p>
 </li>
 <li>
-<p>The certification path must terminate with a trusted CA certificate.</p>
+<p>The certification path must terminate with a trusted CA certificate designated as a trust anchor.</p>
 </li>
 <li>
 <p>The TSF shall validate a certification path by ensuring that all CA certificates in the certification path contain the basicConstraints extension with the CA flag set to TRUE.</p>
 </li>
 <li>
-<p>The TSF shall validate the revocation status of the certificate using [<em>selection:</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>the Online Certificate Status Protocol (OCSP) as specified in RFC 6960,</em></p>
-</li>
-<li>
-<p><em>Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3,</em></p>
-</li>
-<li>
-<p><em>Certificate Revocation List (CRL) as specified in RFC 5759 Section 5,</em></p>
-</li>
-<li>
-<p><em>an OCSP TLS Status Request Extension (i.e., OCSP stapling) as specified in RFC 6066,</em></p>
-</li>
-<li>
-<p><em>no revocation method</em>].</p>
-</li>
-</ul>
-</div>
+<p>The TSF shall validate the revocation status of the certificate using [selection: <em>the Online Certificate Status Protocol (OCSP) as specified in RFC 6960, a Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3, Certificate Revocation List (CRL) as specified in RFC 5759 Section 5, no revocation method</em>]</p>
 </li>
 <li>
 <p>The TSF shall validate the extendedKeyUsage field according to the following rules:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Server certificates presented for TLS shall have the Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1) in the extendedKeyUsage field.</p>
+<p><em>Server certificates presented for DTLS/TLS shall have the Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1) in the extendedKeyUsage field.</em></p>
 </li>
 <li>
-<p>Client certificates presented for TLS shall have the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field.</p>
+<p><em>Client certificates presented for DTLS/TLS shall have the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field.</em></p>
 </li>
 <li>
-<p>OCSP certificates presented for OCSP responses shall have the OCSP Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9) in the extendedKeyUsage field.</p>
+<p><em>OCSP certificates presented for OCSP responses shall have the OCSP Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9) in the extendedKeyUsage field.</em></p>
 </li>
 </ul>
 </div>
@@ -1087,26 +1088,54 @@ The application shall [<em>selection: invoked platform-provided functionality, i
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 4:</strong> This SFR should be chosen if in FPT_ITT.1/Server protocols selected utilize X.509 certificates for peer authentication. In this case, the use of revocation list checking is optional as there are additional requirements surrounding the enabling and disabling of the ITT channel as defined in FCO_CPC_EXT.1/Server. If revocation checking is not supported, the ST author should select no revocation method. However, if certificate revocation checking is supported, the ST author selects whether this is performed using OCSP or CRLs.</p>
+<p><strong><em>Application Note 4</em></strong></p>
 </div>
 <div class="paragraph">
-<p>It is acceptable for the TOE to depend on the platform for certification checking (as defined in this SFR) however all the evaluation activities must be performed irrespective of whether the TOE performs the certificate checking or passes the responsibility to the platform.</p>
+<p><em>This SFR should be chosen if the TOE is distributed and the protocol(s) selected in FPT_ITT.1 utilize X.509v3 certificates for peer authentication. In this case, the use of revocation list checking is optional as there are additional requirements surrounding the enabling and disabling of the ITT channel as defined in FCO_CPC_EXT.1. If the revocation checking is not supported, the ST author should select “no revocation method”. However, if certificate revocation checking is supported, the ST author must select whether this is performed using OCSP or CRLs.</em></p>
 </div>
 <div class="paragraph">
-<p>The TSF shall be capable of supporting a minimum path length of two certificates. That is, it shall support a certificate hierarchy comprising of at least a self-signed root certificate and a TOE identity certificate.</p>
+<p><em>The TOE must be capable of supporting a minimum path length of two certificates. That is, it must support a certificate hierarchy comprising of at least a self-signed root certificate and a leaf certificate.</em></p>
 </div>
 <div class="paragraph">
-<p>The TSS shall describe when revocation checking is performed. It is expected that revocation checking is performed when a certificate is used in an authentication step. It is not sufficient to verify the status of a X.509 certificate only when it is loaded onto the device.</p>
+<p><em>The certificate chain validation is expected to terminate with a trust anchor. This means the validation can terminate with any trusted CA certificate administratively designated as a trust anchor or default to terminate with a Root CA. If the TOE validates certificates presented by remote endpoints (i.e., external IT entities, remote administrators, or remote parts of the TOE), the CA certificates designated as trust anchors must be loaded into the trust store ('certificate store', ' trusted CA Key Store' or similar) managed by the platform. In such cases, the TOE’s trust store must support loading of multiple hierarchical CA certificates or certificate chains and must clearly indicate all certificates it considers trust anchors. If the TOE only presents its own certificate (e.g., a web server without mutual authentication), implementing the trust store is optional.</em></p>
 </div>
 <div class="paragraph">
-<p>If the TOE does not support functionality that uses any of the certificate types listed in the extendedKeyUsage rules in FIA_X509_EXT.1.1 then this is stated in the TSS and the relevant part of the SFR is considered trivially satisfied. However, if the TOE does support functionality that uses certificates of any of these types then the corresponding rule must of course be satisfied as in the SFR.</p>
+<p><em>The validation of X.509v3 leaf certificates comprises several steps:</em></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><em>A Certificate Revocation Check refers to the process of determining the current revocation status of an otherwise structurally valid certificate. This is optionally performed when a certificate is used for authentication, however this behaviour must be consistent. If this check is performed, it must be performed for each certificate in the chain up to, but not including, the trust anchor. This means that CA certificates that are not trust anchors, and leaf certificates in the chain, must be checked. It is not required to check the revocation status of any CA certificate designated a trust anchor, however if such check is performed it must be handled consistently with how other certificates are checked.</em></p>
+</li>
+<li>
+<p><em>An expiration check must be performed. This check must be conducted for each certificate in the chain, up to and including the trust anchor.</em></p>
+</li>
+<li>
+<p><em>The continuity of the chain must be checked, showing that the signature on each certificate that is presented to the TOE is valid and the chain terminates at the trust anchor.</em></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>If revocation checking is performed, it is expected that it is performed on both leaf and intermediate CA certificates when a leaf certificate is presented to the TOE as part of the certificate chain during authentication. Revocation checking of any CA certificate designated a trust anchor is not required. It is not sufficient to perform a revocation check of an intermediate CA certificate only when it is loaded onto the device.</em></p>
+</div>
+<div class="paragraph">
+<p><em>If the TOE does not support functionality that uses any of the certificate types listed in the extendedKeyUsage rules in FIA_X509_EXT.1.1/ITT then this is stated in the TSS and the relevant part of the SFR is considered trivially satisfied. However, if the TOE does support functionality that uses certificates of any of these types then the corresponding rule must of course be satisfied as in the SFR.</em></p>
+</div>
+<div class="paragraph">
+<p><strong>FIA_X509_EXT.1.2/ITT</strong> The TSF shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Application Note 5</em></strong></p>
+</div>
+<div class="paragraph">
+<p><em>This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.</em></p>
 </div>
 <div class="paragraph">
 <p><strong>FIA_X509_EXT.1.2/ITT/Server</strong>
 The application shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 5:</strong> This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.</p>
+<p><strong>Application Note 6:</strong> This requirement applies to certificates that are used and processed by the TSF and restricts the certificates that may be added as trusted CA certificates.</p>
 </div>
 </div>
 </div>
@@ -1116,10 +1145,10 @@ The application shall only treat a certificate as a CA certificate if the basicC
 <h4 id="_fpt_itt_1server">A.3.1. FPT_ITT.1/Server</h4>
 <div class="paragraph">
 <p><strong>FPT_ITT.1.1/Server</strong>
-The TSF shall protect TSF data from disclosure and detect its modification when it is transmitted between separate parts of the TOE through the use of [<em>selection: SSH, TLS, DTLS, HTTPS</em>].</p>
+The TSF shall protect TSF data from <strong>disclosure and detect its modification</strong> when it is transmitted between separate parts of the TOE <strong>through the use of [<em>selection: SSH, TLS, DTLS, HTTPS</em>]</strong>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note 6:</strong> The data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the selection. The ST author should identify the channels and protocols used by each pair of communicating TOE parts, iterating this SFR as appropriate.</p>
+<p><strong>Application Note 7:</strong> The data passed in this trusted communication channel are encrypted as defined by the protocol chosen in the selection. The ST author should identify the channels and protocols used by each pair of communicating TOE parts, iterating this SFR as appropriate.</p>
 </div>
 <div class="paragraph">
 <p>If certificates are used for authentication in any of the protocols selected above, then FIA_X509_EXT.1/ITT/Server is to be selected.</p>
@@ -1144,10 +1173,7 @@ The TSF shall protect TSF data from disclosure and detect its modification when 
 <h2 id="_extended_component_definitions">Appendix C: Extended Component Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This appendix contains the definitions for the extended requirements that are used in the PP-Module, including those used in <a href="#Consistency Rationale">[Consistency Rationale]</a> and <a href="#_selection_based_requirements">Selection-Based Requirements</a> .</p>
-</div>
-<div class="paragraph">
-<p>(Note: formatting conventions for selections and assignments in this chapter are those in <a href="#CC2">[CC2]</a>.)</p>
+<p>This appendix contains the definitions for the extended requirements that are used in the PP-Module, including those used in <a href="#_consistency_rationale">Consistency Rationale</a> and <a href="#_selection_based_requirements">Selection-Based Requirements</a> .</p>
 </div>
 <div class="sect2">
 <h3 id="_security_management_fmt_2">C.1. Security Management (FMT)</h3>
@@ -1350,11 +1376,28 @@ The TSF shall protect TSF data from disclosure and detect its modification when 
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_consistency_rationale">Appendix D: Consistency Rationale</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_consistency_of_toe_type">D.1. Consistency of TOE Type</h3>
+<div class="paragraph">
+<p>When this PP-Module is used to extend [cPP_APP_SW], the TOE type for the overall TOE is still a generic application. However, one of the functions of the device must be the ability for it to the capability to manage agent applications. The TOE boundary is simply extended to include that functionality.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sfr_dependencies_analysis">D.2. SFR Dependencies Analysis</h3>
+<div class="paragraph">
+<p>The dependencies between SFRs implemented by the TOE are addressed as shown in the base PP.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2022-04-06 12:58:22 -0500
+Version 1.1<br>
+Last updated 2023-08-16 13:35:42 -0500
 </div>
 </div>
 </body>
