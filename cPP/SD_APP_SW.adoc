@@ -3,21 +3,21 @@
 :toc: macro
 :toclevels: 7
 :sectnumlevels: 7
+:doctype: book
 :table-caption: Table
 :imagesdir: images
 :icons: font
-:revnumber: 1.1
-:revdate: 2023-08-16
+:revnumber: 1.0e
+:revdate: 2024-02-15
 :xrefstyle: full
-
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
 :iTC-email: cm-itc-mailing-list@gmail.com
 :iTC-website: https://appswcpp.github.io/
 :iTC-GitHub: https://github.com/appswcpp/repository/
 :pp-name: collaborative Protection Profile for Application Software
-:pp-version: Version 1.1
-:pp-date: 2023-08-16
+:pp-version: Version 1.0e
+:pp-date: 2024-02-15
 
 == Foreword
 
@@ -45,8 +45,8 @@ This Supporting Document was developed by the {iTC-longname} international Techn
 |2022-04-06
 |Initial release.
 
-|1.1
-|2023-08-16
+|1.0e
+|2024-02-15
 |Incorporated feedback recevied following initial release.
 
 |===

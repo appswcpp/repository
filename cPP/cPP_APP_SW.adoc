@@ -4,18 +4,17 @@
 :toclevels: 7
 :sectnums:
 :sectnumlevels: 7
+:doctype: book
 :imagesdir: images
 :icons: font
-:revnumber: 1.1 
-:revdate: 2023-08-16
+:revnumber: 1.0e
+:revdate: 2024-02-15
 :shortname: cPP_APP_SW_V{revnumber}
-
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
 :iTC-email: cm-itc-mailing-list@gmail.com
 :iTC-website: https://appswcpp.github.io/
 :iTC-GitHub: https://github.com/appswcpp/repository/
-
 :sectnums!:
 
 == Acknowledgements
@@ -34,8 +33,8 @@ This collaborative Protection Profile (cPP) was developed by the {iTC-longname} 
 |2022-04-06
 |Initial release.
 
-|1.1
-|2023-08-16
+|1.0e
+|2024-02-15
 |Incorporated feedback from initial release.
 
 |===
