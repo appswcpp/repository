@@ -1,0 +1,17 @@
+# files not to track in git
+output/*.*
+output/css
+output/js
+*~
+input/*.html
+input/schemas.xml
+*.rnc
+tmp
+LocalUser.make
+output/images/diff-first.gif
+output/images/diff-last.gif
+output/images/diff-next.gif
+output/images/diff-previous.gif
+output/images/diffmin.gif
+output/images/diffplus.gif
+output/images/diffunderline.gif

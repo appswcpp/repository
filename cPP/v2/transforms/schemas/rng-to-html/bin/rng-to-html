@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ $# == 1 ]; then
+    IN=$1
+    OUT=${1%%.*}.html
+elif [ $# == 2 ]; then
+    IN=$1
+    OUT=$2
+else
+    echo "Usage: rng-to-html <rng-path> [<output-dir>]"
+    exit 0
+fi
+
+
+
+function findDirectory() {
+    it=$1
+
+    #-- Is it called via the PATH
+    if which $it  1>/dev/null 2>&1 ; then # If it's in the path
+    	it=$(which $it)			  # Get where it is
+    fi					  #
+    #-- Check to see if it's a symlink #
+    if readlink $it >/dev/null; then # If it's a link
+	it=$(readlink $it)	     # Then resolve it
+    fi				     # 
+    #-- Fix it up
+    DIR=${it%/*}		 # Strip off the end
+    if [ "$DIR" == "$it" ]; then # If they're equal (no directories)
+    	DIR="."			 # Set the current directory
+    fi
+    echo $DIR			# Need to echo it
+}
+DIR=$(findDirectory $0)/..
+
+xsltproc $DIR/lib/RngToHtml.xsl $IN > $OUT
+     
+
+

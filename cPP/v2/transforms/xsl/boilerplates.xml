@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<boilerplate xmlns="https://niap-ccevs.org/cc/v1" 
+             xmlns:h="http://www.w3.org/1999/xhtml"
+             xmlns:cc="https://niap-ccevs.org/cc/v1"> 
+  <cc-terms>
+    <term full="Assurance">Grounds for confidence that a TOE meets the SFRs <xref g='CC'/>.</term>
+    <term full="Base Protection Profile" abbr="Base-PP" plural="Base-PPs">Protection Profile used as a basis to build a PP-Configuration.</term>
+    <term full="Collaborative Protection Profile" abbr="cPP" plural="cPPs">A Protection Profile developed by
+    international technical communities and approved by multiple schemes.</term>
+    <term full="Common Criteria" abbr="CC">Common Criteria for Information Technology Security Evaluation (International Standard ISO/IEC 15408).</term>
+    <term full="Common Criteria Testing Laboratory">
+      Within the context of the Common Criteria Evaluation and Validation Scheme (CCEVS), an IT security evaluation facility
+      accredited by the National Voluntary Laboratory Accreditation Program (NVLAP) and approved by the NIAP Validation Body to conduct Common Criteria-based evaluations.
+    </term>
+    <term full="Common Evaluation Methodology" abbr="CEM">Common Evaluation Methodology for Information Technology Security Evaluation.</term>
+	<term full="Direct Rationale">
+		A type of Protection Profile, PP-Module, or Security Target in which the security
+		problem definition (SPD) elements are mapped directly to the SFRs and possibly to the 
+		security objectives for the operational environment. There are no security objectives
+		for the TOE.
+	</term>
+    <term full="Distributed TOE">A TOE composed of multiple components operating as a logical whole.</term>
+    <term full="Extended Package" abbr="EP">A deprecated document form for collecting SFRs that implement a particular protocol, technology,
+	    or functionality. See Functional Packages.</term>
+    <term full="Functional Package" abbr="FP">A document that collects SFRs for a particular protocol, technology,
+	    or functionality.</term>
+    <term full="Operational Environment" abbr="OE">Hardware and software that are outside the TOE boundary that support the TOE functionality and security policy.</term>
+    <term full="Protection Profile" abbr="PP" plural="PPs">An implementation-independent set of security requirements for a category of products.</term>
+    <term full="Protection Profile Configuration" abbr="PP-Configuration">A comprehensive set of security requirements for a product type that consists of at least one Base-PP and at least one PP-Module.</term>
+    <term full="Protection Profile Module" abbr="PP-Module">An implementation-independent statement of security needs for a TOE type complementary to one or more Base-PPs.</term>
+    <term full="Security Functional Requirement" abbr="SFR" plural="SFRs">A requirement for security enforcement by the TOE.</term>
+    <term full="Security Assurance Requirement" abbr="SAR" plural="SARs">A requirement to assure the security of the TOE.</term>
+    <term full="Security Target" abbr="ST" plural="STs">A set of implementation-dependent security requirements for a specific product.</term>
+    <term full="Target of Evaluation" abbr="TOE" plural="TOEs">The product under evaluation. </term>
+    <term full="TOE Security Functionality" abbr="TSF">The security functionality of the product under evaluation.</term>
+    <term full="TSF Interface" abbr="TSFI" plural="TSFIs"/>
+    <term full="TOE Summary Specification" abbr="TSS">A description of how a TOE satisfies the SFRs in an ST.</term>
+  </cc-terms>
+
+  <!-- ############## -->
+   <empty title='Security Requirements'>
+    The following conventions are used for the completion of operations:
+     <ul xmlns="http://www.w3.org/1999/xhtml">
+       <li>
+         <b>Refinement</b> operation (denoted by <b>bold text</b> or <strike>strikethrough
+         text</strike>): Is used to add details to a requirement or to remove part of the requirement that is made irrelevant
+         through the completion of another operation, and thus further restricts a requirement.
+         </li>
+       <li>
+         <b>Selection</b> (denoted by <i>italicized text</i>): Is used to select one or more options
+         provided by the [CC] in stating a requirement.</li>
+       <li>
+         <b>Assignment</b> operation (denoted by <span class="assignable-content">italicized text</span>): Is used to assign a
+         specific value to an unspecified parameter, such as the length of a password. Showing the
+         value in square brackets indicates assignment.</li>
+       <li>
+         <b>Iteration</b> operation: Is indicated by appending the SFR name with a slash and unique identifier
+            suggesting the purpose of the operation, e.g. "/EXAMPLE1."
+       </li>
+     </ul>
+   </empty>
+
+   <empty id="cc-docs">
+      <entry id="bibCC">
+        <tag>CC</tag>
+        <description>Common Criteria for Information Technology Security Evaluation - <h:ul>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
+                1: Introduction and General Model</h:a>, CCMB-2017-04-001, Version 3.1 Revision 5,
+              April 2017.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
+                2: Security Functional Components</h:a>, CCMB-2017-04-002, Version 3.1 Revision 5,
+              April 2017.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
+                3: Security Assurance Components</h:a>, CCMB-2017-04-003, Version 3.1 Revision 5,
+              April 2017.</h:li>
+          </h:ul></description>
+      </entry>
+   </empty>
+
+   <empty id="cc2022-docs">
+      <entry id="bibCC">
+        <tag>CC</tag>
+        <description>Common Criteria for Information Technology Security Evaluation - <h:ul>
+            <h:li><h:a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf">Part 1: 
+				Introduction and general model</h:a>, CCMB-2022-11-001, CC:2022, Revision 1, November 2022.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART2R1.pdf">Part 2: 
+				Security functional requirements</h:a>, CCMB-2022-11-002, CC:2022, Revision 1, November 2022.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART3R1.pdf">Part 3: 
+                Security assurance requirements</h:a>, CCMB-2022-11-003, CC:2022, Revision 1, November 2022.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART4R1.pdf">Part 4: 
+                Framework for the specification of evaluation methods and activities</h:a>, CCMB-2022-11-004, CC:2022, Revision 1, November 2022.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART5R1.pdf">Part 5: 
+                 Pre-defined packages of security requirements</h:a>, CCMB-2022-11-005, CC:2022, Revision 1, November 2022.</h:li>
+          </h:ul></description>
+      </entry>
+   </empty>
+
+   <empty id="cc2022-cem">
+      <entry id="bibCEM">
+        <tag>CEM</tag>
+        <description>Common Methodology for Information Technology Security Evaluation - <h:ul>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">
+                 Evaluation methodology</h:a>, CCMB-2022-11-006, CC:2022, Revision 1, November 2022.</h:li>
+          </h:ul></description>
+      </entry>
+   </empty>
+
+   <empty id="cc2022-err">
+      <entry id="bibERRv10">
+        <tag>ERR</tag>
+        <description><h:a href="https://www.commoncriteriaportal.org/files/ccfiles/CCMB-2024-02-001-v1_0-Final-Errata_Interpretation_CC_CEM_2022_Release%20Candidate.pdf">
+              Errata and Interpretation for CC:2022 (Release 1) and CEM:2022 (Release 1), Version 1.0</h:a>, 
+			  CCMB-2024-02-001, 1 February 2024.
+        </description>
+      </entry>
+      <entry id="bibERRv11">
+        <tag>ERR</tag>
+        <description><h:a href="https://www.commoncriteriaportal.org/files/ccfiles/CCMB-2024-002-v1_1-Errata_Interpretation_CC_CEM_2022.pdf">
+              Errata and Interpretation for CC:2022 (Release 1) and CEM:2022 (Release 1), Version 1.1</h:a>, 
+			  CCMB-2024-02-002, 22 July 2024.
+        </description>
+      </entry>
+   </empty>
+
+ 
+ 	<empty id="cc2022-ppclaim-bp-pp">
+		The functional packages to which the PP conforms may include SFRs that are not mandatory 
+		to claim for the sake of conformance. An ST that claims one or more of these functional 
+		packages may include any non-mandatory SFRs that are appropriate to claim based on the 
+		capabilities of the TSF and on any triggers for their inclusion based inherently on the SFR 
+		selections made. 
+	</empty>
+
+   <empty id="a-group">
+      <a-stuff type="D">Developer action</a-stuff>
+      <a-stuff type="C">Content and presentation</a-stuff>
+      <a-stuff type="E">Evaluator action</a-stuff>
+   </empty>
+
+   <empty id="DCE">
+     <D/><C/><E/>
+   </empty>
+   
+   <empty id="cc-ref-docs">
+	  <doc num="1" name="Introduction and General Model"/>
+   	  <doc num="2" name="Security Functional Components"/>
+   	  <doc num="3" name="Security Assurance Components"/>
+   </empty>
+
+   <empty id="req-types">
+       <mt tp='mandatory'   nice='Mandatory'>
+	 <audit-table-explainer>
+	   <h:p> The auditable events in the table below must be included in a Security Target.</h:p>
+	 </audit-table-explainer>
+       </mt>
+
+       <mt tp='optional'   nice='Strictly Optional'>
+		   <audit-table-explainer>
+<h:p> The auditable events in the table below are included in a Security Target if both the associated requirement is included and the incorporating PP or PP-Module supports audit event reporting through FAU_GEN.1 and any other criteria in the incorporating PP or PP-Module are met.</h:p>
+		   </audit-table-explainer>   
+       </mt>
+       <mt tp='objective'  nice='Objective'>
+		   <audit-table-explainer>
+<h:p> The auditable events in the table below are included in a Security Target if both the associated requirement is included and the incorporating PP or PP-Module supports audit event reporting through FAU_GEN.1 and any other criteria in the incorporating PP or PP-Module are met.</h:p>
+		   </audit-table-explainer>   
+       </mt>
+       <mt tp='feat-based' nice='Implementation-dependent'>
+	   <audit-table-explainer><h:p>The auditable events in the table below are included in a Security Target if both the associated requirement is included and the incorporating PP or PP-Module supports audit event reporting through FAU_GEN.1 and any other criteria in the incorporating PP or PP-Module are met.</h:p></audit-table-explainer>   
+	   </mt>
+       <mt tp='sel-based'  nice='Selection-based'>
+		 <description>
+	<h:p>As indicated in the introduction to this <cc:doctype-short/>,
+        the baseline requirements
+        (those that must be performed by the TOE or its underlying platform)
+        are contained in the body of this <cc:doctype-short/>.
+        There are additional requirements based on selections in the body of 
+        the <cc:doctype-short/>:
+        if certain selections are made, then additional requirements below must be included.
+ 	</h:p>
+		 </description>
+         <audit-table-explainer>
+         <h:p>The auditable events in the table below are included in a Security Target if both the associated requirement is included and the incorporating PP or PP-Module supports audit event reporting through FAU_GEN.1 and any other criteria in the incorporating PP or PP-Module are met.</h:p>
+         </audit-table-explainer>
+	   </mt>
+		   
+		   
+  </empty>
+ 
+  <mod-appendix>
+<!-- Explainer text is not needed since the reader should know all of it from the base-PP: so says NIAP.-->
+    <opt-sfrs level="2" name="Strictly Optional"/>
+    <obj-sfrs level="2" name="Objective"/>
+<!--
+    This section is reserved for requirements that are not currently prescribed by this PP-Module
+    but are expected to be included in future versions of the PP-Module.
+    Vendors planning on having evaluations performed against future products are encouraged
+    to plan for these objective requirements to be met. <br/><br/>
+-->
+    <impl-dep-sfrs level="2" name="Implementation-dependent"/>
+<!--:
+    This section contains requirements that depend on the TOE implementing certain product features or use cases.
+-->	
+    <sel-sfrs level="1" name="Selection-based"/><!--
+      As indicated in the introduction to this PP-Module, the baseline requirements are 
+      contained in the body of this PP-Module.
+      There are additional requirements based on selections in the body of the PP-Module:
+      if certain selections are made, then additional requirements
+      below will need to be included. 
+    </sel-sfrs>-->
+  </mod-appendix>
+
+  <policy-mapping>
+    <assumptions>Assumptions</assumptions>
+    <cclaims>Conformance Claims</cclaims>
+    <threats>Threats</threats>
+    <OSPs>Organizational Security Policies</OSPs>
+    <SOs>Security Objectives</SOs>
+    <SOEs>Security Objectives for the Operational Environment</SOEs>
+  </policy-mapping>
+</boilerplate>

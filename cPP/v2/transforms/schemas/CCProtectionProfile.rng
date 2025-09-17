@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="https://niap-ccevs.org/cc/v1"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         xmlns:htm="http://www.w3.org/1999/xhtml"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+         >
+
+<!-- ################################# -->
+<!--            START                  -->
+<!-- ################################# -->
+  <start>
+    <element name="PP">
+      <a:documentation>Root element for Protection Profile XML document</a:documentation>
+      <ref name="pp-attributes-pat"/>
+      <ref name="cPP-flag"/>
+      <ref name="project-notes"/>
+      <ref name="PPReference"/>
+      <ref name="RevisionHistory"/>
+      <ref name="Foreword"/>
+      <ref name="packages"/>
+      <ref name="modules"/>
+      <ref name="PreferencesEtc"/>
+      <ref name="Introduction"/>
+      <ref name="CClaimsChapter"/>
+      <ref name="Chapters"/>
+      <ref name="SecProbDesChapter"/>
+      <ref name="SecObjChapter"/>
+      <ref name="SecurityRequirementsChapter"/>
+      <ref name="Chapters"/>
+      <ref name="appendices-pat"/>
+<!--      <ref name="implements-pat"/> -->  <!-- Features should be specified in Intro, not appendix -->
+      <ref name="bibliography"/>
+      <!-- This is where we can store extra css -->
+      <optional>
+        <element name="extra-css">
+          <text/>
+        </element>
+      </optional>
+    </element>
+  </start>
+
+  
+
+  <include href="StrictCommons.rng">
+    <define name="custom-basic-content-pat">
+      <choice>
+	<element name="if-opt-app">
+          <a:documentation>
+	    Content that only appears if the optional appendices exist.
+          </a:documentation>
+          <ref name="basic-content-pat"/>
+	</element>
+	<ref name="external-doc"/>
+      </choice>
+      
+    </define>
+
+   <!--
+    <define name="xref-content">
+      <choice>
+        <ref name="to-attr"/>
+        <attribute name="ref">
+         <choice>
+            <value>ref-strict-optional</value>
+            <value>sel-based-reqs</value>
+            <value>obj-reqs</value>
+            <value>impl-reqs</value>
+          </choice>
+        </attribute>
+      </choice>
+    </define>-->
+  </include>
+
+
+  
+  <define name="modules">
+    <a:documentation> Defines modules that can be used with the Protection Profile.</a:documentation>
+    <!-- This thing is an abomination -->
+    <optional> <element name="modules">
+      <!-- The following will have to be redone -->
+      <optional><attribute name="required"/></optional>
+      <zeroOrMore>
+	<element name="module"><ref name="external-document-pat"/></element>
+      </zeroOrMore>
+    </element></optional>
+  </define>
+  
+  <define name="SecurityRequirementsChapter">
+    <choice>
+      <element name="section">
+        <attribute name="title"><value>Security Requirements</value></attribute>
+        <attribute name="id"/>
+      	<optional><ref name="description"/></optional>
+        <ref name="sec-req-content"/>
+      </element>   
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName>
+          <except>
+            <nsName ns="https://niap-ccevs.org/cc/v1"/>
+            <nsName ns="http://www.w3.org/1999/xhtml"/>
+          </except>
+        </anyName>
+        <attribute name="title"><value>Security Requirements</value></attribute>
+	<optional><ref name="description"/></optional>
+        <ref name="sec-req-content"/>
+      </element>
+      <element name="sec:Security_Requirements">
+	<optional><ref name="description"/></optional>
+         <ref name="sec-req-content"/>
+      </element>
+    </choice>
+  </define>
+
+  <define name="cPP-flag">
+    <a:documentation>Denotes that this PP is a collaborative PP (cPP)</a:documentation>
+    <optional><element name="cPP"><empty/></element></optional>
+  </define>
+
+  <define name="sec-req-content">
+    <ref name="boilerplate-no-attr"/>
+    <ref name="basic-content-pat"/>
+    <zeroOrMore><ref name="section"/></zeroOrMore>
+    <ref name="sfr-section"/>
+    <choice>
+      <element name="section">
+        <attribute name="title"><value>Security Assurance Requirements</value></attribute>
+        <attribute name="id"/>
+        <ref name="sar-content"/>
+      </element>   
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName>
+          <except>
+            <nsName ns="https://niap-ccevs.org/cc/v1"/>
+            <nsName ns="http://www.w3.org/1999/xhtml"/>
+          </except>
+        </anyName>
+        <attribute name="title"><value>Security Assurance Requirements</value></attribute>
+        <ref name="sar-content"/>
+      </element>
+      <element name="sec:Security_Assurance_Requirements">
+        <ref name="sar-content"/>
+      </element>
+    </choice>
+  </define>
+
+  <define name="sar-content">
+    <ref name="basic-content-pat"/>
+    <oneOrMore><choice>
+      <element name="section">
+        <attribute name="title"/>
+        <attribute name="id"/>
+        <ref name="basic-content-pat"/>
+        <zeroOrMore><ref name="a-component-pattern"/></zeroOrMore>
+      </element>   
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName>
+          <except>
+            <nsName ns="https://niap-ccevs.org/cc/v1"/>
+            <nsName ns="http://www.w3.org/1999/xhtml"/>
+          </except>
+        </anyName>
+        <attribute name="title"/>
+        <ref name="basic-content-pat"/>
+        <zeroOrMore><ref name="a-component-pattern"/></zeroOrMore>
+      </element>
+    </choice></oneOrMore>
+  </define>
+  
+
+<!-- <choice>
+      <element name="section">
+        <attribute name="title"><value>Security Functional Requirements</value></attribute>
+        <optional><attribute name="id"/></optional>
+	<optional><ref name="description"/></optional>
+        <ref name="sfr-content"/>	
+      </element>
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName>
+          <except>
+            <nsName ns="https://niap-ccevs.org/cc/v1"/>
+            <nsName ns="http://www.w3.org/1999/xhtml"/>
+          </except>
+        </anyName>
+        <attribute name="title"><value>Security Functional Requirements</value></attribute>
+        <optional><ref name="description"/></optional>
+        <ref name="sfr-content"/>	
+      </element>
+      <element name="sec:Security_Functional_Requirements">
+        <optional><ref name="description"/></optional>
+        <ref name="sfr-content"/>	
+      </element>
+    </choice>
+  </define>
+-->
+<!--
+  <define name="sfr-content"> 
+    <oneOrMore>
+	  <element name="subsection">
+	    <attribute name="title"/>
+	    <attribute name="id"/>
+	    <ref name="basic-content-pat"/>
+	    <oneOrMore>
+	      <choice>
+		     <ref name="audit-table-pat"/>
+        	     <ref name="f-component-pattern"/>
+		     <ref name="ext-comp-def-pat"/>
+	      </choice>
+	    </oneOrMore>
+	  </element>
+	</oneOrMore>
+      </element>
+      <element name="section">
+	<attribute name="title"><value>Security Assurance Requirements</value></attribute>
+	<optional><attribute name="id"/></optional>
+	<ref name="basic-content-pat"/>
+	<oneOrMore>
+	  <element name="subsection">
+	    <attribute name="title"/>
+	    <attribute name="id"/>
+	    <ref name="basic-content-pat"/>
+	    <zeroOrMore>
+              <ref name="a-component-pattern"/>
+	    </zeroOrMore>
+	  </element>
+	</oneOrMore>
+      </element>
+    </element>
+  </define>
+-->  
+<!--
+  <define name="appendix-pat">
+    <a:documentation>
+      Pattern for title attribute.
+    </a:documentation>
+    <oneOrMore>
+      <element name="appendix">
+        <a:documentation>
+          Element that defines an appendix.
+        </a:documentation>
+        <ref name="id-attr"/>
+        <ref name="title-attr"/>
+        <ref name="boilerplate-no-attr"/>
+        <oneOrMore><choice>
+            <ref name="basic-content-pat"/>
+            <ref name="section"/>
+            <ref name="acronyms"/>
+            <ref name="bibliography"/>
+        </choice></oneOrMore>
+      </element>
+    </oneOrMore>
+  </define>
+-->
+<!--
+  <define name="section">
+    <element name="section">
+      <a:documentation>
+        A block smaller than a chapter.
+      </a:documentation>
+      <ref name="id-attr"/>
+      <ref name="title-attr"/>
+      <oneOrMore>
+        <choice>
+          <ref name="basic-content-pat"/>
+          <ref name="subsection-pattern"/>
+-->
+         <!--  <ref name="OSPs"/> -->
+         <!--  <element name="SOEs"> -->
+         <!--    <a:documentation> -->
+         <!--      Grouping for Security Objectives for the Operational environment. -->
+         <!--    </a:documentation> -->
+         <!--    <oneOrMore> -->
+         <!--      <element name="SOE"> -->
+         <!--        <a:documentation> -->
+         <!--          Security Objective for the Operational environment. -->
+         <!--        </a:documentation> -->
+         <!--        <optional><ref name="id-attr"/></optional> -->
+         <!--        <attribute name="name"> -->
+         <!--          <data type="string"> -->
+         <!--            <param name="pattern">OE.[A-Z_]+</param> -->
+         <!--          </data> -->
+         <!--        </attribute> -->
+         <!--        <ref name="description"/> -->
+         <!--      </element> -->
+         <!--    </oneOrMore> -->
+         <!--  </element> -->
+         <!--  <ref name="SOs"/> -->
+         <!--  <ref name="assumptions"/> -->
+         <!--  <ref name="threats"/> -->
+<!--        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+-->
+
+<!--
+ <define name="usecases-section">
+    <element name="section">
+      <a:documentation>
+        Section specific for use cases.
+      </a:documentation>
+      <ref name="id-attr"/>
+      <ref name="title-attr"/>
+      
+      <ref name="basic-content-pat"/>
+      <element name="usecases">
+        <a:documentation>
+          Wrapper element for uses cases.
+        </a:documentation>
+        <oneOrMore>
+          <element name="usecase">
+            <a:documentation>
+              A referrable section on how the protection profiled item is used.
+            </a:documentation>
+            <ref name="id-attr"/>
+            <ref name="title-attr"/>
+            <ref name="description"/>
+            <optional><ref name="config"/></optional>
+          </element>
+        </oneOrMore>
+      </element>
+    </element>
+  </define>
+-->
+  
+  <define name="a-elements">
+    <oneOrMore>
+      <element name="a-element">
+        <a:documentation>
+          Defines a functional requirement.
+        </a:documentation>
+        <optional>
+          <attribute name="id">
+            <a:documentation>
+              A document-wide unique ID 
+            </a:documentation>
+            <data type="string">
+              <param name="pattern">[\-a-zA-Z0-9]+</param>
+            </data>
+          </attribute>
+        </optional>
+        <attribute name="type">
+          <data type="string">
+            <param name="pattern">[DCE]</param>
+          </data>
+        </attribute>
+        <ref name="f-element-title"/>
+        <optional>
+          <ref name="note"/>
+        </optional>
+<!--
+        <optional>
+          <ref name="aactivity-sar"/>
+        </optional>-->
+        <optional>
+          <element name="aactivity">
+            <a:documentation>An Evaluation Activity for that applies to this requirement or possibly all previous requirements in this component.</a:documentation>
+            <ref name="basic-content-pat"/>
+          </element>
+        </optional>
+      </element>
+    </oneOrMore>
+  </define>
+
+   <define name="a-component-pattern">
+    <element name="a-component">
+      <a:document>
+        Specifies a component under Security Assurance Requirements section.
+      </a:document>
+      <attribute name="cc-id">
+        <data type="string">
+           <param name="pattern">a[a-z]{2}_[a-z0-9]{2,10}(_ext)?\.[0-9]</param>
+        </data>
+      </attribute>
+      <optional><ref name="id-attr"/></optional>
+      <attribute name="name">
+        <a:document>
+          A readable title for this component
+        </a:document>
+      </attribute>
+		<optional><attribute name="status"><value>optional</value></attribute></optional>
+		<ref name="basic-content-pat"/>
+      <optional>
+        <element name="summary">
+          <a:documentation>
+            Summary of this component.
+          </a:documentation>
+          <ref name="basic-content-pat"/>
+        </element>
+      </optional>
+
+      <oneOrMore>
+        <ref name="a-elements"/>
+      </oneOrMore>
+    </element>
+  </define>
+
+  <define name="glossary-section">
+    <element name="glossary">
+      <a:documentation>
+        Section to define terms.
+      </a:documentation>
+      <oneOrMore>
+        <ref name="entry-el"/>
+      </oneOrMore>
+    </element>
+  </define>
+
+  <define name="Foreword">
+    <optional>
+      <element name="foreword">
+        <a:documentation>Flexible section for a foreword.</a:documentation>
+        <zeroOrMore><choice><ref name="html-element"/>
+			<ref name="section"/></choice></zeroOrMore>
+      </element>
+    </optional>
+  </define>
+  
+ 
+  <define name="PPReference">
+      <element name="PPReference">
+        <a:documentation>
+          A wrapper element for document meta-data.
+        </a:documentation>
+
+        <element name="ReferenceTable">
+          <a:documentation>
+            A second wrapper element for document meta-data.
+          </a:documentation>
+          <element name="PPTitle">
+            <a:documentation>Title of this document</a:documentation>
+            <text/>
+          </element>
+          <element name="PPVersion">
+            <a:documentation>
+
+Version of Common Criteria this document follows.
+It should be the version listed in the CCPart1/2/3 files consulted.
+
+            </a:documentation>
+            <data type="NMTOKEN"/>
+          </element>
+          <element name="PPAuthor">
+            <a:documentation>
+              Organization that developed this PP (e.g. National Information Assurance Partnership)
+            </a:documentation>
+            <text/>
+          </element>
+          <element name="PPPubDate">
+            <a:documentation>
+              Date of publication for this PP.
+            </a:documentation>
+            <data type="date"/>
+          </element>
+<!--		  <optional><element name="dateTimeStamp"><empty/></element></optional>  -->
+          <optional>
+		    <element name="Keywords">
+              <a:documentation>
+                NOT USED. A list of keywords associated with this document.
+              </a:documentation>
+              <text/>
+            </element>
+		   </optional>
+        </element>
+      </element>
+  </define> 
+</grammar>

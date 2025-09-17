@@ -1,0 +1,9 @@
+schemas/*.rnc
+/**/#*
+/**/.#*
+/**/*~
+/**/*.html
+/**/__pycache__
+/**/*.swp
+tmp
+temp

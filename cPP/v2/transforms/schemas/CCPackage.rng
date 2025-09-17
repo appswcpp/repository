@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="https://niap-ccevs.org/cc/v1"
+         xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         xmlns:htm="http://www.w3.org/1999/xhtml"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+         >
+
+
+<!-- ################################# -->
+<!--            START                  -->
+<!-- ################################# -->
+  <start>
+    <element name="Package">
+      <a:documentation>Root element for Protection Profile XML document</a:documentation>
+      <ref name="pp-attributes"/>
+      <ref name="project-notes"/>
+      <ref name="PPReference"/>
+      <ref name="RevisionHistory"/>
+      <ref name="Foreword"/>
+      <ref name="PreferencesEtc"/>
+      <ref name="IntroductionChapter"/>
+      <ref name="CClaimsChapter"/>
+      <ref name="Chapters"/>
+      <optional>
+	     <ref name="SecProbDesChapter"/>
+         <ref name="SecObjChapter"/>
+	  </optional>
+      <ref name="sfr-section"/>
+      <ref name="Chapters"/>
+      <ref name="appendices-pat"/>
+      <ref name="bibliography"/>
+   </element>
+  </start>
+
+  <include href="Commons.rng">
+    <define name="custom-basic-content-pat">
+      <choice>
+        <element name="componentsneeded">
+          <oneOrMore>
+            <element name="componentneeded">
+              <optional><ref name="id-attr"/></optional>
+              <element name="componentid">
+                <ref name="comp-id-upper-respat"/>
+              </element>
+              <ref name="depends-pat"/> 
+              <element name="notes">
+                <ref name="basic-content-pat"/>
+              </element>
+            </element>
+          </oneOrMore>
+        </element>
+     </choice>
+    </define>
+
+   
+  <!-- Get rid of the status attribute. It seems like it is duplicative. -->
+  <define name="f-component-pattern">
+    <element name="f-component">
+      <a:document>
+        Specifies a component under Security Functional Requirements section..
+      </a:document>
+      <ref name="f-comp-content-pat"/>
+      <choice>
+	      
+        <!-- Choice of status -->
+        <!-- If the status is objective, it must have a targetdate(?) -->
+        <group>
+          <optional>
+            <attribute name="targetdate">
+              <a:documentation>
+                Target date that the requirements under this component become
+                manandory. It only makes sense for _objective_ components.
+              </a:documentation>
+              <data type="date"/>
+            </attribute>
+          </optional>
+          <attribute name="status">
+            <a:documentation>
+              Denotes the status of a requirement.
+            </a:documentation>
+            <value>objective</value>
+          </attribute>
+        </group>
+        <!-- If the status is selection-based, it must have dependencies -->
+        <group>
+          <attribute name="status">
+            <a:documentation>
+              Denotes the status of a requirement.
+            </a:documentation>
+            <choice>
+              <value>sel-based</value>
+              <value>feat-based</value>
+            </choice>
+          </attribute>
+          <oneOrMore>
+            <ref name="depends-pat"/>
+          </oneOrMore>
+        </group>
+        <!-- The status could also be optional or nothing (which is indicated here) -->
+        <optional>
+          <attribute name="status">
+            <a:documentation>
+              Denotes the status of a requirement.
+            </a:documentation>
+            <choice>
+              <value>optional</value>
+              <value>invisible</value>
+            </choice>
+          </attribute>
+        </optional>
+      </choice>
+<!--      <ref name="depends-pat"/>   -->
+      <optional><ref name="note"/></optional>
+      <optional><ref name="consistency-rationale"/></optional>
+      <optional><ref name="ext-comp-extra-pat"/></optional>
+      <optional><ref name="description"/></optional>	
+      <ref name="f-elements-pat"/>
+      <ref name="audit-events-pat"/>
+      <zeroOrMore><ref name="audit-table-pat"/></zeroOrMore>
+    </element>
+  </define> 
+ </include>
+
+
+
+  <define name="PreferencesEtc">
+  <a:documentation>A place for declarations and preferences</a:documentation>
+    <optional> <ref name="pp-preferences-pat"/> </optional>
+  </define>
+  
+<define name="IntroductionChapter">
+      <element name="sec:Introduction">
+        <ref name="boilerplate-no-attr"/>
+        <ref name="section"/>
+        <ref name="tech-terms"/>
+        <zeroOrMore> <ref name="section"/> </zeroOrMore>
+        <optional><ref name="usecases-section"/></optional>
+        <zeroOrMore> <ref name="section"/></zeroOrMore>
+      </element>
+  </define>
+
+ <define name="usecases-section">
+   <choice>
+     <element name="section">
+       <attribute name="title"/>
+       <optional><attribute name="id"/></optional>
+        <ref name="usecases-section-content"/>
+      </element>   
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName>
+          <except>
+            <nsName ns="https://niap-ccevs.org/cc/v1"/>
+            <nsName ns="http://www.w3.org/1999/xhtml"/>
+          </except>
+        </anyName>
+        <optional><attribute name="title"/></optional>
+        <ref name="usecases-section-content"/>
+      </element>
+    </choice>
+  </define>
+
+  <define name="usecases-section-content">
+    <ref name="basic-content-pat"/>
+    <element name="usecases">
+      <a:documentation>
+        Wrapper element for uses cases.
+      </a:documentation>
+      <oneOrMore>
+        <element name="usecase">
+          <a:documentation>
+            A referrable section on how the protection profiled item is used.
+          </a:documentation>
+          <ref name="id-attr"/>
+          <ref name="title-attr"/>
+          <ref name="description"/>
+          <optional><ref name="config"/></optional>
+        </element>
+      </oneOrMore>
+    </element>
+  </define>
+
+ 
+
+ <define name="glossary-section">
+    <element name="glossary">
+      <a:documentation>
+        Section to define terms.
+      </a:documentation>
+      <oneOrMore>
+        <ref name="entry-el"/>
+      </oneOrMore>
+    </element>
+  </define>
+
+ <define name="Foreword">
+    <optional>
+      <element name="foreword">
+        <a:documentation>Flexible section for a foreword.</a:documentation>
+        <zeroOrMore><ref name="html-element"/></zeroOrMore>
+      </element>
+    </optional>
+  </define>
+  
+  <define name="pp-attributes">
+      <attribute name="name">
+        <a:documentation> The title of this document.</a:documentation>
+      </attribute>
+  </define>
+    
+   <define name="pp-preferences-pat">
+    <element name="pp-preferences">
+      <a:documentation>
+         A place to define preferences for PP output.
+      </a:documentation>
+      <interleave>
+        <optional><element name="display-audit-with-sfrs"><empty/></element></optional>  
+        <optional><element name="audit-events-in-sfrs"   ><empty/></element></optional>
+        <optional><element name="suppress-niap-logo"><empty/></element></optional>
+      </interleave>
+    </element>
+  </define> 
+         
+  <define name="PPReference">
+      <element name="PPReference">
+        <a:documentation>
+          A wrapper element for document meta-data.
+        </a:documentation>
+
+        <element name="ReferenceTable">
+          <a:documentation>
+            A second wrapper element for document meta-data.
+          </a:documentation>
+          <element name="PPTitle">
+            <a:documentation>Title of this document</a:documentation>
+            <text/>
+          </element>
+          <element name="PPVersion">
+            <a:documentation>
+
+Version of Common Criteria this document follows.
+It should be the version listed in the CCPart1/2/3 files consulted.
+
+            </a:documentation>
+            <data type="NMTOKEN"/>
+          </element>
+          <element name="PPAuthor">
+            <a:documentation>
+              Organization that developed this PP (e.g. National Information Assurance Partnership)
+            </a:documentation>
+            <text/>
+          </element>
+          <element name="PPPubDate">
+            <a:documentation>
+              Date of publication for this PP.
+            </a:documentation>
+            <data type="date"/>
+          </element>
+<!--		<optional><element name="dateTimeStamp"><empty/></element></optional>  -->
+          <element name="Keywords">
+            <a:documentation>
+              NOT USED. A list of keywords associated with this document.
+            </a:documentation>
+            <text/>
+          </element>
+        </element>
+      </element>
+  </define> 
+</grammar>

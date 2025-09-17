@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+    xmlns:h="http://www.w3.org/1999/xhtml" 
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="https://niap-ccevs.org/cc/v1" 
+    >
+  <include href="Commons.rng"/>
+
+  <start>
+    <element name="technical-decisions">
+      <oneOrMore>
+	<ref name="technical-decision"/>
+      </oneOrMore>
+    </element>
+  </start>
+
+  <define name="technical-decision">
+    <element name="decision">
+      <attribute name="url">
+        <a:documentation>Location where more information about this can be found.</a:documentation>
+        <data type="anyURI"/>
+      </attribute>
+      <attribute name="id">
+        <data type="decimal"/>
+      </attribute>
+      <attribute name="date">
+        <a:documentation>Date it was made.</a:documentation>
+      </attribute>
+      <element name="Issue_Description">
+	<ref name="pure-html"/>
+      </element>
+      <element name="Resolution">
+	<ref name="pure-html"/>
+      </element>
+      <element name="Justification">
+	<ref name="pure-html"/>
+      </element>
+      <element name="Other_References">
+	<ref name="pure-html"/>
+      </element>
+      <optional>
+	<element name="notes">
+          <a:documentation>Any notes about it.</a:documentation>
+	  <ref name="pure-html"/>
+	</element>
+      </optional>
+      <element name="Protection_Profiles">
+	<element name="Protection_Profile">
+          <a:documentation>Specifies a document this bunch applies to.</a:documentation>
+          <attribute name="name">
+            <a:documentation>Name of the Protection Profile or Module</a:documentation>
+          </attribute>
+          <attribute name="max-inclusive">
+            <a:documentation>The maximum version this bunch applies to</a:documentation>
+            <data type="decimal"/>
+          </attribute>
+	  <oneOrMore>
+	    <element name="replace">
+	      <choice>
+		<ref name="f-element"/>
+		<element name="xpath-specified">
+		  <a:documentation>
+		    Wrapper for content to replace an existing element
+		  </a:documentation>
+		  <attribute name="xpath">
+		    <a:documentation>
+		      Specifies an XPath expression to the element that should be replaced.
+		    </a:documentation>
+		  </attribute>
+		  <choice>
+		    <group>
+		      <!-- <optional><attribute name="reuse-id"/></optional> -->
+		      <ref name="anything"/>
+		    </group>
+		    <attribute name="reuse-ref">
+		      <a:documentation>
+			This is used to point to a previously defined xpath-specified section by
+			specifying that section's reuse-id. Note: It will only reuse the content
+			and not the previously defined xpath.
+		      </a:documentation>
+		    </attribute>
+		  </choice>
+		</element>
+	      </choice>
+	    </element>
+          </oneOrMore>
+	</element>
+      </element>
+    </element>
+  </define>
+
+  <define name="pure-html">
+    <!-- This doesn't seem to limit it to xhtml -->
+    <zeroOrMore>
+      <choice>
+	<text/>
+	<element ns="http://www.w3.org/1999/xhtml">
+	  <anyName>
+	    <!-- 
+		 Explicitly disallow cc elements. This shouldn't be needed
+		 but the above refinement doesn't seem to be working
+		 and this will stop the most obvious mistakes.
+	    -->
+	    <except><nsName ns="https://niap-ccevs.org/cc/v1"/></except>
+	  </anyName>
+	  <zeroOrMore>
+	    <attribute>
+	      <anyName/>
+	    </attribute>
+	  </zeroOrMore>
+	  <ref name="pure-html"/>
+	</element>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name="anything">
+    <zeroOrMore>
+      <choice>
+	<text/>
+	<element>
+	  <anyName/>
+	  <zeroOrMore>
+	    <attribute><anyName/></attribute>
+	  </zeroOrMore>
+	  <ref name="anything"/>
+	</element>
+      </choice>
+    </zeroOrMore>
+  </define>
+</grammar>

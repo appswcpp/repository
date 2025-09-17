@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+          ns="https://niap-ccevs.org/cc/v1"
+          xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+          xmlns:h="http://www.w3.org/1999/xhtml"
+          xmlns="http://relaxng.org/ns/structure/1.0"
+>
+<!--############################## -->
+<!--      START                    -->
+<!--############################## -->
+  <start>
+    <element name="Module">
+      <a:documentation>
+	Root element for a Protection Profile Module.
+      </a:documentation>
+      <attribute name="name"/>
+      <ref name="pp-attributes-pat"/>
+      <ref name="PPRefAndRevision"/>
+      <ref name="packages"/>
+      <ref name="PreferencesEtc"/>
+      <ref name="Introduction"/>
+      <ref name="CClaimsChapter"/>
+      <ref name="SecProbDesChapter"/>
+      <ref name="SecObjChapter"/>
+      <ref name="sec-req"/>
+      <ref name="appendices-pat"/>
+<!--      <ref name="implements-pat"/>  -->
+      <ref name="bibliography"/>
+    </element>
+  </start>
+
+
+  <include href="StrictCommons.rng">
+    <define name="origin-pat">
+      <choice>
+        <group>
+          <ref name="description"/>
+          <optional><ref name="consistency-rationale"/></optional>
+        </group>
+        <group>
+			<oneOrMore><ref name="from"/></oneOrMore>
+			<optional><ref name="description"/></optional>
+		</group>
+      </choice>
+    </define>
+    
+    <define name="custom-basic-content-pat">
+      <element name="replace">
+	<optional><element name="suppress-text"><empty/></element></optional>
+	<!-- <oneOrMore> -->
+	<!--   <choice> -->
+	    <ref name="depends-pat"/>
+	    <!-- <ref name="f-elements-pat"/> -->
+	<!--   </choice> -->
+	<!-- </oneOrMore> -->
+      </element>
+    </define>
+
+    <define name="SOs"><element name="SOs">
+      <a:documentation>
+        Grouping for Security Objective entries.
+      </a:documentation>
+      <zeroOrMore>
+        <ref name="SO"/>
+      </zeroOrMore>
+    </element></define>
+
+    <define name="threats">
+      <element name="threats">
+        <a:documentation>
+        </a:documentation>
+        <zeroOrMore>
+          <ref name="threat"/>
+        </zeroOrMore>
+      </element>
+    </define>
+    <define name="f-comp-sel-based-parts">
+    <group>
+      <oneOrMore>
+        <ref name="depends-pat"/>
+      </oneOrMore>
+    </group>
+    </define>
+ 
+ 
+ </include>
+
+
+
+  <define name="man-sfrs">
+    <element name="man-sfrs">
+      <a:documentation>
+	Mandatory SFRs. These apply to all configurations regardless of base PPs.
+      </a:documentation>
+      <optional>
+         <ref name="description"/>
+      </optional>
+      <ref name="sfr_content-pat"/>
+    </element>
+  </define>
+	
+  <define name="mod-sars">
+    <element name="mod-sars">
+      <a:documentation>
+	SARs. This section is usually either absent from Modules, or is just an explanation of why there are no SARs.
+	But it is theorietically possible that a Module introduce additional SARs, I suppose.
+      </a:documentation>
+      <optional>
+         <ref name="description"/>
+      </optional>
+      <optional><ref name="mod-sar-content"/></optional>
+    </element>
+  </define>
+	
+<define name="mod-sar-content">
+    <ref name="basic-content-pat"/>
+    <zeroOrMore>
+     <choice>
+      <element name="section">
+        <attribute name="title"/>
+        <attribute name="id"/>
+        <ref name="basic-content-pat"/>
+<!--        <zeroOrMore><ref name="a-component-pattern"/></zeroOrMore>  -->
+      </element>   
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName>
+          <except>
+            <nsName ns="https://niap-ccevs.org/cc/v1"/>
+            <nsName ns="http://www.w3.org/1999/xhtml"/>
+          </except>
+        </anyName>
+        <attribute name="title"/>
+        <ref name="basic-content-pat"/>
+<!--        <zeroOrMore><ref name="a-component-pattern"/></zeroOrMore>  -->
+      </element>
+    </choice>
+   </zeroOrMore>
+  </define>	
+
+  <define name="obj-sfrs">
+    <element name="obj-sfrs">
+      <a:documentation>
+	Objective SFRs. These apply to all configurations regardless of base PPs.
+      </a:documentation>
+      <optional><ref name="sfr_content-pat"/></optional>
+      <!-- <ref name="f-components-pat"/> -->
+    </element>
+  </define>
+
+  <define name="impl-dep-sfrs">
+    <element name="impl-dep-sfrs">
+      <a:documentation>
+	Implementation-dependent SFRs. These may or may not apply to all configurations regardless of base PPs.
+	(See VVOIP for an example of how painful this will be to implement.
+      </a:documentation>
+      <optional><ref name="sfr_content-pat"/></optional>
+      <!-- <ref name="f-components-pat"/> -->
+    </element>
+  </define>
+
+	
+  <define name="opt-sfrs">
+    <element name="opt-sfrs">
+      <a:documentation>
+	Optional SFRs. These could apply to all configurations regardless of base PPs.
+      </a:documentation>
+      <optional><ref name="sfr_content-pat"/></optional>
+    </element>
+  </define>
+
+  <define name="sel-sfrs">
+    <element name="sel-sfrs">
+      <a:documentation>
+	Selection-based SFRs. These can apply to any configuration regardless of base PPs.
+      </a:documentation>
+      <optional><ref name="sfr_content-pat"/></optional>
+      <!-- <ref name="f-components-pat"/> -->
+      <!--
+	   This is probably the right way to do it, but
+	   it's too drastic of a change currently (and
+	   removing the selection-depends elements from
+	   inside the f-components).
+      -->
+      <!--   <zeroOrMore> -->
+      <!-- 	<element name="dependency"> -->
+      <!-- 	  <attribute name="ids"> -->
+      <!-- 	  </attribute> -->
+      <!-- 	  <ref name="f-component"/> -->
+      <!-- 	</element> -->
+      <!--   </zeroOrMore> -->
+    </element>
+
+  </define>
+
+
+
+ <!--  <define name="f-components-pat"> -->
+ <!--    <zeroOrMore><choice> -->
+ <!--      <element ns="https://niap-ccevs.org/cc/v1/section"> -->
+ <!--        <anyName><except> -->
+ <!--          <nsName ns="https://niap-ccevs.org/cc/v1"/> -->
+ <!--          <nsName ns="http://www.w3.org/1999/xhtml"/> -->
+ <!--        </except></anyName> -->
+ <!--        <attribute name="title"/> -->
+ <!--        <ref name="f-comp-pat-content"/> -->
+ <!--      </element> -->
+ <!--      <element name="section"> -->
+ <!--        <a:documentation> -->
+ <!--          Defines SFRs that pertain to specific base. -->
+ <!--        </a:documentation> -->
+ <!--        <ref name="title-attr"/> -->
+ <!--        <ref name="id-attr"/> -->
+ <!--        <ref name="f-comp-pat-content"/> -->
+ <!--      </element> -->
+ <!--    </choice></zeroOrMore> -->
+ <!--  </define> -->
+
+ <!-- <define name="f-comp-pat-content"> -->
+ <!--    <optional><ref name="basic-content-pat"/></optional> -->
+ <!--    <zeroOrMore> -->
+ <!--      <choice> -->
+ <!-- 	      <ref name="audit-table-pat"/> -->
+ <!-- 	      <ref name="ext-comp-def-pat"/> -->
+ <!--      	       <ref name="f-component"/> -->
+ <!--       </choice> -->
+ <!--    </zeroOrMore> -->
+ <!--  </define> -->
+
+ <!--  <define name="f-component"> -->
+ <!--    <element name="f-component"> -->
+ <!--      <a:document> -->
+ <!-- 	Specifies a component under Security Functional Requirements section.. -->
+ <!--      </a:document> -->
+ <!--      <ref name="f-comp-content-pat"/> -->
+ <!--      <optional> -->
+ <!--        <attribute name="status"> -->
+ <!--          <choice> -->
+ <!--            <value>optional</value> -->
+ <!--            <value>objective</value> -->
+ <!--            <value>sel-based</value> -->
+ <!--            <value>feat-based</value> -->
+ <!--            <value>invisible</value> -->
+ <!--         </choice> -->
+ <!--       </attribute> -->
+ <!--      </optional>     -->
+ <!--      <!-\- Would like to remove this -\-> -->
+ <!--      <zeroOrMore> -->
+ <!--     	  <ref name="depends-pat"/> -->
+ <!--      </zeroOrMore> -->
+ <!--      <ref name="consistency-rationale"/> -->
+ <!--      <ref name="ext-comp-extra-pat"/> -->
+ <!--      <ref name="f-elements-pat"/> -->
+ <!--      <ref name="audit-events-pat"/> -->
+ <!--    </element> -->
+ <!--  </define> -->
+
+   <define name="base-pp">
+    <element name="base-pp">
+      <a:documentation>
+	Holds information specifict to a base PP.
+      </a:documentation>
+		<ref name="base-pp-document-pat"/>
+<!--    <ref name="external-document-pat"/>  -->
+	<optional><element name="cPP"><empty/></element></optional>
+    <optional>
+         <element name="sec-func-req-dir">
+           <a:documentation>
+Content for the intro to Security Function Requirements Direction section. Replaces boilerplate content.
+           </a:documentation>
+           <ref name="basic-content-pat"/>
+        </element>
+
+      </optional>
+      <optional>
+        <element name="app-unmod-sfrs">
+           <a:documentation>
+Content for the Applicable Unmodified SFRs section. Replaces boilerplate content.
+           </a:documentation>
+           <ref name="basic-content-pat"/>
+        </element>
+      </optional>
+
+      <element name="modified-sfrs">
+		<a:documentation>
+			SFRs that modify SFRs from the base PP.
+			For now we allow both the old way and the new way.
+		</a:documentation>
+		<choice>
+			<zeroOrMore><ref name="base-sfr-modification-class-pat"/></zeroOrMore>
+			<ref name="base-specific-sfrs"/>
+		</choice>
+      </element>
+
+      <element name="additional-sfrs">
+	<a:documentation>
+	  SFRs that are added specifically for configurations that use this base PP.
+	</a:documentation>
+	<ref name="base-specific-sfrs"/>
+      </element>
+      <element name="con-toe">
+	<a:documentation>
+	  Consistency argument for why this module does not violate the TOE of the base PP.
+	</a:documentation>
+	<ref name="basic-content-pat"/>
+      </element>
+      <element name="con-sec-prob">
+	<a:documentation>
+	  Consistency argument for why this module does not violate the security problem described by the base PP.
+	</a:documentation>
+	<ref name="basic-content-pat"/>
+      </element>
+      <optional><element name="con-obj">
+	<a:documentation>
+	  Consistency argument for why this module does not violate the objectives described by the base PP.
+	</a:documentation>
+	<ref name="basic-content-pat"/>
+      </element></optional>
+      <element name="con-op-en">
+	<a:documentation>
+	  Consistency argument for why this module does not violate the objectives for the optional environmnet described by the base PP.
+	</a:documentation>
+	<ref name="basic-content-pat"/>
+      </element>
+      <zeroOrMore>
+        <element name="con-mod">
+        	<a:documentation>
+Consistency Rationale Modification. Allows a base to specify rationale that is specific to itself. Linked via the ID attribute.
+	        </a:documentation>
+
+          <attribute name="ref">
+        	<a:documentation>
+The name or cc-id of the aspect that is being overwritten by the content of this element.
+        	</a:documentation>
+          </attribute>
+          <ref name="iteration-pat"/>
+          <ref name="basic-content-pat"/>
+        </element>
+      </zeroOrMore>
+    </element>
+  </define>
+
+<!-- Pattern for defining the Base PP in Modules -->
+  <!-- Attributes are now required -->
+  <!-- The git element should be used for the recognized XML case, which is the normal case -->
+  <!--   it should be omitted only for non-NIAP documents like NDcPP -->
+  <!-- The got element refers to the github repo and the current released branch. -->
+  <!-- The url element referes to the document on the NIAP website -->
+  <define name="base-pp-document-pat">
+	<ref name="id-attr"/>
+	<attribute name="name"/>
+	<attribute name="short"/>
+	<attribute name="product"/>
+	<attribute name="version"/>
+	<optional><attribute name="plural"/></optional>
+    <optional><element name="git">
+       <element name="url"><data type="string"></data></element>
+       <element name="branch"><data type="string"></data></element>
+    </element></optional>
+    <element name="url"><text/></element>
+  </define>
+
+
+
+  <define name="base-specific-sfrs">
+    <zeroOrMore><choice>
+      <element name="section">
+        <attribute name="title"/>
+        <ref name="optional-id"/>
+        <ref name="base-specific-sfrs-content"/>
+      </element>
+      <element name="section">     <!-- 20231211 rmc to allow audit table -->
+        <attribute name="title"/>
+        <ref name="optional-id"/>
+  	    <ref name="audit-table-pat"/>   
+      </element>
+      <element>
+        <anyName><except>
+          <nsName ns="https://niap-ccevs.org/cc/v1"/>
+          <nsName ns="http://www.w3.org/1999/xhtml"/>
+        </except></anyName>
+        <optional><attribute name="title"/></optional>
+        <ref name="base-specific-sfrs-content"/>
+      </element>
+    </choice></zeroOrMore>
+  </define>
+
+  <define name="base-specific-sfrs-content">
+        <ref name="ext-comp-def-pat"/>
+        <oneOrMore>
+          <element name="f-component">
+	    <a:document>
+	      Specifies a component under Security Functional Requirements section..
+            </a:document>
+            <optional><attribute name="notnew">
+              <a:document>Inclusion of this attribute signifies that this item should be omitted from the extended component definitions.</a:document>
+              <value>true</value>
+            </attribute></optional>
+   				<optional>
+					<attribute name="status">						
+						<choice>
+							<value>optional</value>
+							<value>objective</value>
+							<value>feat-based</value>
+							<value>sel-based</value>
+						</choice>	
+					</attribute>
+				</optional>
+            <ref name="f-comp-content-pat"/>
+	    <ref name="depends-pat"/>
+	    <optional><ref name="note"/></optional>
+            <ref name="consistency-rationale"/>
+            <ref name="ext-comp-extra-pat"/>
+	    <optional><ref name="description"/></optional>
+            <ref name="f-elements-pat"/>
+            <ref name="audit-events-pat"/>
+	  </element>
+	</oneOrMore>
+        
+ </define>
+ 
+ <define name="base-sfr-modification-class-pat">
+	<a:documentation>
+		Per Class. Section header is required with title and ID
+		Followed by one or more modified SFRs.
+	</a:documentation>
+    <element name="section">
+        <attribute name="title"/>
+        <ref name="id-attr"/>
+		<oneOrMore>
+			<ref name="base-sfr-modification-pat"/>
+		</oneOrMore>
+    </element>
+</define>
+
+
+ <define name="base-sfr-modification-pat">
+	<a:documentation>
+		An element for specifying modifications to a base-PP sfr from a Module.
+	</a:documentation>
+	<element name="base-sfr-spec">
+		<a:documentation>
+			ref attribute is id of f-component in the base-pp.
+			This shouldn't need to be an external reference since we alreay know the basepp.
+		</a:documentation>
+		<attribute name="cc-id">
+	        <data type="string">
+				<param name="pattern">f[a-z]{2}_[a-z0-9]{2,10}(_ext)?\.[0-9]</param>
+			</data>
+		</attribute>
+		<optional>
+			<attribute name="iteration">
+				<data type="string">
+				  <param name="pattern">[A-Za-z0-9_]+</param>
+				</data>
+			</attribute>
+		</optional>
+		<attribute name="title"/>
+		<ref name="id-attr"/>
+		
+		<!-- Reference to document containing the SFR if it not the base PP -->
+		<!-- This is likely to be a Functional Package -->
+		<!-- Though I suppose it could be a catalog -->
+		<optional>
+			<element name="from-pkg">
+				<ref name="from-pkg-ref-pat"/>
+			</element>
+		</optional>
+
+		<!-- Consistency rationale is required -->
+		<ref name="consistency-rationale"/>
+		
+		<a:documentation>
+			Text description of the modification.
+			Only leave it out if it is a complete replacement.
+		</a:documentation>
+		<element name="description">
+			<ref name="pure-html"/>
+		</element>
+		<oneOrMore>
+			<ref name="sfr-modification-pat"/>
+		</oneOrMore>
+	</element>
+</define>
+
+
+<define name="sfr-modification-pat">
+	<choice>
+		<element name="replace">
+			<element name="xpath-specified">
+				<attribute name="xpath">
+					<a:documentation>
+						Specifies an XPath expression to the element that should be replaced or whatever.
+					</a:documentation>
+				</attribute>
+				<ref name="anything"/>
+			</element>
+		</element>
+
+		<element name="delete">
+			<element name="xpath-specified">
+				<attribute name="xpath">
+					<a:documentation>
+						Specifies an XPath expression to the element that should be replaced or whatever.
+					</a:documentation>
+				</attribute>
+			</element>
+		</element>
+
+		<element name="insert-before">
+			<element name="xpath-specified">
+				<attribute name="xpath">
+					<a:documentation>
+						Specifies an XPath expression to the element that should be replaced or whatever.
+					</a:documentation>
+				</attribute>
+				<ref name="anything"/>
+			</element>
+		</element>
+
+		<element name="insert-after">
+			<element name="xpath-specified">
+				<attribute name="xpath">
+					<a:documentation>
+						Specifies an XPath expression to the element that should be replaced or whatever.
+					</a:documentation>
+				</attribute>
+				<ref name="anything"/>
+			</element>
+		</element>
+		
+		<element name="set-status">
+			<attribute name="status"> 
+				<choice>
+					<value>mandatory</value>
+					<value>optional</value>
+					<value>objective</value>
+					<value>feat-based</value>
+					<value>sel-based</value>
+				</choice>	
+			</attribute>
+		</element>
+
+		<element name="no-change">
+			<a:documentation>
+				Specifies that there are no changes to the SFR. Essentially a comment or no-op.
+			</a:documentation>
+			<empty/>
+		</element>
+
+	</choice>
+</define>
+
+ 
+<define name="pure-html">
+    <!-- This doesn't seem to limit it to xhtml -->
+    <zeroOrMore>
+		<choice>
+			<text/>
+			<element ns="http://www.w3.org/1999/xhtml">
+				<anyName>
+					<!-- 
+					 Explicitly disallow cc elements. This shouldn't be needed
+					 but the above refinement doesn't seem to be working
+					 and this will stop the most obvious mistakes.
+					-->
+					<except><nsName ns="https://niap-ccevs.org/cc/v1"/></except>
+				</anyName>
+				<zeroOrMore>
+					<attribute>
+						<anyName/>
+					</attribute>
+				</zeroOrMore>
+				<ref name="pure-html"/>
+			</element>
+		</choice>
+	</zeroOrMore>
+</define>
+
+<define name="anything">
+    <zeroOrMore>
+		<choice>
+			<text/>
+			<element>
+				<anyName/>
+				<zeroOrMore>
+					<attribute><anyName/></attribute>
+				</zeroOrMore>
+				<ref name="anything"/>
+			</element>
+		</choice>
+    </zeroOrMore>
+</define>
+
+
+  <define name="from">
+    <a:documentation>
+		For specifying the base-pp origin of a threat addressed in a module.
+	</a:documentation>
+    <element name="from">
+       <attribute name="base"/>
+       <optional><ref name="description"/></optional>
+    </element>
+  </define>
+
+  <define name="base-name">
+    <element name="base-name">
+      <a:documentation>	Variable that references the base name of the PP </a:documentation>
+      <empty/>
+    </element>
+  </define>
+
+
+  <define name="boilerplate-pat">
+    <optional>
+      <attribute name="boilerplate">
+	<value>yes</value>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+  <define name="PPRefAndRevision">
+    <element name="PPReference">
+      <a:documentation>
+      </a:documentation>
+      <element name="ReferenceTable">
+	<a:documentation>
+	</a:documentation>
+        <element name="PPVersion">
+	  <a:documentation>
+	  </a:documentation>
+          <data type="token">
+             <param name="pattern">[0-9]+\.[0-9](-Draft)?</param>
+           </data>
+          <!-- <data type="decimal"/> -->
+        </element>
+        <element name="PPAuthor">
+	  <a:documentation>
+	  </a:documentation>
+          <text/>
+        </element>
+        <element name="PPPubDate">
+	  <a:documentation>
+	    Date of publication for this PP.
+	  </a:documentation>
+          <data type="date"/>
+        </element>
+<!--		<optional><element name="dateTimeStamp"><empty/></element></optional>  -->
+        <element name="Keywords">
+	  <a:documentation>
+	  </a:documentation>
+          <text/>
+        </element>
+      </element>
+    </element>
+    <ref name="RevisionHistory"/>
+  </define>
+
+
+
+  <define name="sec-req">
+    <choice>
+      <element name="section">
+        <attribute name="title"><value>Security Requirements</value></attribute>
+        <ref name="optional-id"/>
+        <ref name="sec-req-content"/>
+      </element>
+      <element name="sec:Security_Requirements">
+        <ref name="sec-req-content"/>
+      </element>
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName><except>
+          <nsName ns="https://niap-ccevs.org/cc/v1"/>
+          <nsName ns="http://www.w3.org/1999/xhtml"/>
+        </except></anyName>
+        <attribute name="title"><value>Security Requirements</value></attribute>
+        <ref name="sec-req-content"/>
+      </element>
+    </choice>
+  </define>
+
+
+  <define name="sec-req-content">
+      <a:documentation>
+	The chapter for security requirements.
+      </a:documentation>
+      <ref name="basic-content-pat"/>
+      <oneOrMore>
+	<ref name="base-pp"/>
+      </oneOrMore>
+      <ref name="man-sfrs"/>
+      <optional><ref name="mod-sars"/></optional>
+      <ref name="opt-sfrs"/>
+      <ref name="sel-sfrs"/>
+      <ref name="obj-sfrs"/>
+      <ref name="impl-dep-sfrs"/>
+  </define>
+
+
+</grammar>

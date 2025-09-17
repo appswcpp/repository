@@ -1,0 +1,142 @@
+== Protection Profile for Application Software
+
+[cols="1,1,1,1,1,1,1,1"]
+|===
+8+|application
+| https://github.com/commoncriteria/application/tree/master[master] 
+a| https://commoncriteria.github.io/application/master/application-release.html[📄]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/master/ValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/master/validation.svg[Validation]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/master/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/master/warnings.svg[SanityChecks]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/master/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/master/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/master/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/master/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/master/transforms.svg[transforms,150]
+a| [link=https://github.com/commoncriteria/application/blob/gh-pages/master/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/master/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/application/blob/gh-pages/master/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/master/pdf_count.svg[PDF Count]
+
+| https://github.com/commoncriteria/application/tree/release-1.4[release-1.4] 
+a| https://commoncriteria.github.io/application/release-1.4/application-release.html[📄]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/release-1.4/ValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-1.4/validation.svg[Validation]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/release-1.4/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-1.4/warnings.svg[SanityChecks]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/release-1.4/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-1.4/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/release-1.4/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-1.4/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-1.4/transforms.svg[transforms,150]
+a| [link=https://github.com/commoncriteria/application/blob/gh-pages/release-1.4/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-1.4/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/application/blob/gh-pages/release-1.4/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-1.4/pdf_count.svg[PDF Count]
+
+| https://github.com/commoncriteria/application/tree/release-2.0[release-2.0] 
+a| https://commoncriteria.github.io/application/release-2.0/application-release.html[📄]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/release-2.0/ValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-2.0/validation.svg[Validation]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/release-2.0/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-2.0/warnings.svg[SanityChecks]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/release-2.0/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-2.0/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/commoncriteria/application/blob/gh-pages/release-2.0/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-2.0/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-2.0/transforms.svg[transforms,150]
+a| [link=https://github.com/commoncriteria/application/blob/gh-pages/release-2.0/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-2.0/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/application/blob/gh-pages/release-2.0/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/application/gh-pages/release-2.0/pdf_count.svg[PDF Count]
+|===
+
+https://github.com/commoncriteria/application/issues[image:https://img.shields.io/github/issues/commoncriteria/application.svg?maxAge=2592000[GitHub
+issues Open]]
+
+This repository hosts the draft version of the Protection Profile for
+Application Software based on the
+https://commoncriteria.github.io/pp/application/application-esr.html[Essential
+Security Requirements (ESR)] for this technology class of products. This
+repository is used to facilitate collaboration and development on the
+draft document. See the link:#Release-Version[release] section if you
+are looking for the officially released version for evaluations. A list
+of products that have passed evaluation against this Protection Profile
+can be found https://www.niap-ccevs.org/Product/PCL.cfm?ID624=74[here].
+
+=== Draft Version
+
+* https://commoncriteria.github.io/application/master/application-release.html[Protection
+Profile for Application Software] (html)
+
+=== Release branch
+* https://commoncriteria.github.io/application/release-2.0/application-release.html[Protection
+Profile for Application Software 2.0] (html)
+* https://commoncriteria.github.io/application/release-2.0/application-release.html.pdf[Protection
+Profile for Application Software 2.0] (pdf)
+
+
+=== Release Version
+
+* https://www.niap-ccevs.org/Profile/Info.cfm?PPID=429&id=429[Protection
+Profile for Application Software v1.3]
+* https://www.niap-ccevs.org/Profile/Info.cfm?PPID=429&id=462[Protection
+Profile for Application Software v1.4]
+
+=== Contributing
+
+If you are interested in contributing directly to future versions the
+this Protection Profile, please consider joining the NIAP technical
+community. *
+https://www.niap-ccevs.org/NIAP_Evolution/tech_communities.cfm[How to
+join the NIAP Technical Community (Mailing list and updates)]
+
+=== Feedback
+
+Questions, comments, and fixes can be submitted to the
+https://github.com/commoncriteria/application/issues[repository issue
+tracker]
+
+=== Quickstart
+
+To clone this project along with its _transforms_ submodule run:
+
+....
+  git clone --recursive git@github.com:commoncriteria/application.git
+....
+
+To pull updates from the upstream _transforms_ submodule and commit them
+run:
+
+....
+ git submodule update --remote transforms
+ git add transforms
+ git commit
+....
+
+==== Development Info
+
+* https://github.com/commoncriteria/transforms/wiki/Working-with-Transforms-as-a-Submodule[Help
+working with Transforms Submodule]
+
+=== Repository Content
+
+* input - Contains the `meat' of the project. It’s the input content (in
+XML form) that gets transformed to readable html.
+* output - The output directory where the html is placed after
+transformation.
+* output/images - The directory where images are stored
+* transforms - Points to the transform subproject which is really a
+repository for resources shared amongst many Common Criteria projects.
+
+=== Links
+
+* https://www.niap-ccevs.org/[National Information Assurance Partnership
+(NIAP)]
+* https://www.commoncriteriaportal.org/[Common Criteria Portal]
+
+=== License
+
+See link:./LICENSE[License]
+

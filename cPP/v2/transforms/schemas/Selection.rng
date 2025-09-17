@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    ns="https://niap-ccevs.org/cc/v1" 
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+    <a:documentation>
+      This file defines things common to both Strict and Loose types of Functional Packages,
+      Protection Profiles, and Modules.
+    </a:documentation>
+
+  <define name="selectables">
+    <choice>
+       <ref name="selectables-classic"/>
+       <ref name="selectables-table"/>
+     </choice>
+  </define> 
+
+
+  <define name="selectables_classic_content">
+     <optional>
+        <attribute name="linebreak">
+          <a:documentation>
+            Indicates that new lines should be appended to every selectable.
+          </a:documentation>
+          <choice><value>yes</value></choice>
+        </attribute>
+      </optional>
+      <ref name="selectable-group"/>
+  </define>
+
+  <define name="selectables_table_content">
+    <element name="tabularize">
+      <optional><attribute name="id"/></optional>
+      <optional><attribute name="title"/></optional>
+<!--      <element name="keycol"><attribute name="assign"/><text/></element>  -->
+      <oneOrMore><choice>
+<!--	<element name="reqtext"><text/></element>   -->
+	<element name="reqtext">
+		<oneOrMore>
+			<choice>
+				<text/>
+		        <ref name="html-element"/>
+			</choice>
+		</oneOrMore>
+	</element>
+	<element name="assigncol"><text/></element>
+    <element name="selectcol"><ref name="basic-content-pat"/></element>
+	<element name="textcol"><text/></element>
+      </choice></oneOrMore>
+    </element>
+    <oneOrMore>
+      <element name="selectable">
+	<optional><attribute name="id"/></optional>
+<!--	<element name="key"><text/></element>  -->
+	<oneOrMore>
+	  <element name="col">
+	    <ref name="basic-content-pat"/>
+	  </element>
+	</oneOrMore>
+      </element>
+    </oneOrMore>
+  </define>
+
+  <define name="selectables-table">
+     <element name="selectables">
+       <element name="tabularize">
+          <attribute name="id"/>
+          <attribute name="title"/>
+<!--          <element name="keycol"><text/></element> -->
+          <oneOrMore> <choice>
+<!--              <element name="reqtext"><text/></element>  -->
+              <element name="reqtext"><ref name="basic-content-pat"/></element>
+              <element name="assigncol"><text/></element>
+<!--              <element name="keycol"><text/></element>  -->
+              <element name="selectcol"><ref name="basic-content-pat"/></element>
+              <element name="textcol"><text/></element>
+          </choice></oneOrMore>
+        </element>
+      <oneOrMore>
+        <element name="selectable">
+            <attribute name="id"/>
+             <optional><element name="deprecated"><empty/></element></optional>
+<!--            <element name="key"><text/></element>  -->
+            <oneOrMore>
+              <element name="col"><ref name="basic-content-pat"/></element>
+            </oneOrMore>
+        </element>
+      </oneOrMore>
+     </element>
+  </define>
+
+  <define name="selectables-classic">
+    <element name="selectables">
+      <a:documentation>
+        A grouping of selectable elements.
+      </a:documentation>
+      <optional>
+		<choice>
+			<attribute name="onlyone">
+			  <a:documentation>
+				Designates that only one item may be selected.
+			  </a:documentation>
+			  <choice><value>yes</value></choice>
+			</attribute>
+			<attribute name="choose-one-of">
+			  <choice><value>yes</value></choice>
+			</attribute>
+		</choice>
+      </optional>
+      <choice>
+	<ref name="selectables_classic_content"/>
+	<ref name="selectables_table_content"/>
+      </choice>
+    </element>
+  </define>
+
+  <define name="not-selectable">
+    <element name="not-selectable">
+      <ref name="basic-content-pat"/>
+    </element>
+  </define>
+
+  <define name="selectable-single">
+      <element name="selectable">
+      <a:documentation>
+        Denotes the start of a selectable in a selectables section.
+      </a:documentation>
+      <optional>
+        <attribute name="style">
+          <a:documentation>
+          Style attributes that are passsed on to the *li* element.
+          </a:documentation>
+         </attribute>
+      </optional>
+      <optional>
+        <attribute name="exclusive"><choice><value>yes</value></choice></attribute>
+      </optional>
+      <optional> <ref name="id-attr"/> </optional>
+      <optional><element name="deprecated"><empty/></element></optional>
+      <optional><element name="readable">
+	<a:documentation>
+	  If this element is defined, when referencing the selection this text will be shown.
+	</a:documentation>
+	<text/>
+      </element></optional>
+      <ref name="basic-content-pat"/>
+    </element>
+  </define>
+
+  <define name="selectable-group">
+    <zeroOrMore><ref name="not-selectable"/></zeroOrMore>
+    <ref name="selectable-single"/>
+    <oneOrMore>
+      <zeroOrMore><ref name="not-selectable"/></zeroOrMore>
+      <ref name="selectable-single"/>
+    </oneOrMore>
+  </define>
+</grammar>

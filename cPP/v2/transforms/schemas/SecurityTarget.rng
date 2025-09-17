@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	 xmlns:cc="https://niap-ccevs.org/cc/pp/report/v1"
+	 xmlns="http://relaxng.org/ns/structure/1.0"
+ 	 ns="http://www.w3.org/1999/xhtml"
+	 datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="cc:report">
+      <ref name="cc.MetaData"/>
+      <oneOrMore>
+        <element name="cc:section">
+          <ref name="cc.name"/>
+          <oneOrMore>
+            <element name="cc:component">
+              <optional>
+                <element name="cc:source">
+                  <a:documentation>
+What document this component came from (TD, Module). No source means it came from the base PP.
+                  </a:documentation>
+		  <choice>
+                    <element name="cc:technical-decision">
+		      <attribute name="td-id"/>
+                    </element>
+                    <element name="cc:module">
+		      <attribute name="name"/>
+                    </element>
+                    <element name="cc:package">
+		      <attribute name="name"/>
+                    </element>
+		  </choice>
+                </element>
+              </optional>
+              <ref name="cc.name"/>
+              <oneOrMore>
+                <element name="cc:requirement">
+                  <ref name="cc.name"/>
+		  <ref name="basic-content-pat"/>
+                  <optional>
+                    <element name="cc:aactivity">
+		      <ref name="basic-content-pat"/>
+                    </element>
+                  </optional>
+                </element>
+              </oneOrMore>
+            </element>
+          </oneOrMore>
+        </element>
+      </oneOrMore>
+    </element>
+  </start>
+
+  <define name="cc.MetaData">
+      <element name="cc:Name"><text/></element>
+      <element name="cc:Version"><text/></element>
+      <element name="cc:ReportCompletionDate"><text/></element>
+      <element name="cc:Vendor">
+        <ref name="contacts-pat"/>
+      </element>  
+      <element name="cc:Evaluator">
+        <ref name="contacts-pat"/>
+      </element>  
+  </define>
+
+  <define name="contacts-pat">
+    <element name="cc:Name"><text/></element>
+    <element name="cc:Address"><text/></element>
+    <element name="cc:PhoneNumber"><text/></element>
+    <element name="cc:URL"><text/></element>
+  </define>
+
+
+  <define name="cc.name">
+    <element name="cc:name">
+      <text/>
+    </element>
+  </define>
+
+  <define name="cc.management-function-table">
+    <element name="cc:management-function-table">
+      <oneOrMore>
+	<element name="cc:row">
+          <oneOrMore>
+            <element name="cc:val">
+              <oneOrMore>
+		<choice>
+		  <ref name="basic-content-pat"/>
+		</choice>
+              </oneOrMore>
+            </element>
+          </oneOrMore>
+	</element>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="cc.assignment">
+    <element name="cc:assignment">
+      <empty/>
+    </element>
+  </define>
+
+  <define name="cc.selectables">
+    <element name="cc:selectables">
+      <optional>
+        <choice>
+	  <element name="UL" ns="http://www.w3.org/1999/xhtml">
+	    <oneOrMore>
+	      <element name="LI" ns="http://www.w3.org/1999/xhtml">
+		<optional>
+		  <ref name="cc.selectable"/>
+		</optional>
+	      </element>
+	    </oneOrMore>
+	  </element>
+          <ref name="cc.selectable"/>
+        </choice>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="cc.selectable">
+    <element name="cc:selectable">
+      <attribute name="index">
+        <data type="integer"/>
+      </attribute>
+      <ref name="basic-content-pat"/>
+    </element>
+  </define>
+
+  <define name="basic-content-pat">
+    <zeroOrMore>
+      <choice>
+	<text/>
+	<ref name="cc.assignment"/>
+	<ref name="cc.selectables"/>
+	<ref name="cc.management-function-table"/>
+	<ref name="html-element"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  
+  <define name="html-element">
+    <a:documentation>
+      Pattern defines the html-element, which is any element in the xhtml namespace.
+      They have no knowledge of the CC element, and so cannot have any CC descendants.
+    </a:documentation>
+    <element ns="http://www.w3.org/1999/xhtml">
+      <anyName>
+	<except>
+	  <nsName ns="https://niap-ccevs.org/cc/pp/report/v1"/>
+	</except>
+      </anyName>
+      <a:documentation>
+	Defines all html-elements with an optional number of html attributes and descendants.
+      </a:documentation>
+      <zeroOrMore>
+	<attribute>
+	  <anyName/>
+	</attribute>
+      </zeroOrMore>
+      <ref name="basic-content-pat"/>
+    </element>
+  </define>
+
+</grammar>

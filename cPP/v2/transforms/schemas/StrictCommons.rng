@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+    xmlns:sec="https://niap-ccevs.org/cc/v1/section" 
+    xmlns:h="http://www.w3.org/1999/xhtml" 
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    ns="https://niap-ccevs.org/cc/v1" 
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+    <a:documentation>
+      This file defines things common to Strict Functional Packages, 
+      Protection Profiles, and Modules.
+    </a:documentation>
+
+  <include href="Commons.rng">
+  </include>
+
+<define name="PreferencesEtc">
+  <a:documentation>A place for declarations and preferences</a:documentation>
+    <optional> <ref name="pp-preferences-pat"/> </optional>
+  </define>
+     
+   <define name="pp-preferences-pat">
+    <element name="pp-preferences">
+      <a:documentation>
+         A place to define preferences for PP output.
+      </a:documentation>
+      <interleave>
+        <optional><element name="display-audit-with-sfrs"><empty/></element></optional>  
+        <optional><element name="audit-events-in-sfrs"><empty/></element></optional>
+        <optional><element name="suppress-niap-logo"><empty/></element></optional>
+      </interleave>
+    </element>
+  </define> 
+
+
+   <define name="Introduction">
+     <choice>
+       <element name="section">
+         <attribute name="title"><value>Introduction</value></attribute>
+         <attribute name="id"/>
+        <ref name="introduction-content"/>
+      </element>   
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName>
+          <except>
+            <nsName ns="https://niap-ccevs.org/cc/v1"/>
+            <nsName ns="http://www.w3.org/1999/xhtml"/>
+          </except>
+        </anyName>
+        <attribute name="title"><value>Introduction</value></attribute>
+        <ref name="introduction-content"/>
+      </element>
+      <element name="sec:Introduction">
+        <ref name="introduction-content"/>
+      </element>
+    </choice>
+  </define>
+
+  <define name="introduction-content">
+        <ref name="boilerplate-no-attr"/>
+        <ref name="section"/>
+	<ref name="cc-terms"/>
+        <ref name="tech-terms"/>
+        <zeroOrMore> <ref name="section"/> </zeroOrMore>
+        <optional> <ref name="usecases-section"/> </optional>
+		<optional> <ref name="features-section"/> </optional>
+        <zeroOrMore> <ref name="section"/> </zeroOrMore>
+  </define>
+
+ <define name="usecases-section">
+   <choice>
+     <element name="section">
+       <attribute name="title"/>
+       <optional><attribute name="id"/></optional>
+        <ref name="usecases-section-content"/>
+      </element>   
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName>
+          <except>
+            <nsName ns="https://niap-ccevs.org/cc/v1"/>
+            <nsName ns="http://www.w3.org/1999/xhtml"/>
+          </except>
+        </anyName>
+        <optional><attribute name="title"/></optional>
+        <ref name="usecases-section-content"/>
+      </element>
+    </choice>
+  </define>
+
+  <define name="usecases-section-content">
+    <ref name="basic-content-pat"/>
+    <element name="usecases">
+      <a:documentation>
+        Wrapper element for uses cases.
+      </a:documentation>
+      <oneOrMore>
+        <element name="usecase">
+          <a:documentation>
+            A referrable section on how the protection profiled item is used.
+          </a:documentation>
+          <ref name="id-attr"/>
+          <ref name="title-attr"/>
+          <ref name="description"/>
+          <optional><ref name="config"/></optional>
+        </element>
+      </oneOrMore>
+    </element>
+  </define>
+  
+   <define name="features-section">
+   <choice>
+     <element name="section">
+       <attribute name="title"/>
+       <optional><attribute name="id"/></optional>
+        <ref name="features-section-content"/>
+      </element>   
+      <element ns="https://niap-ccevs.org/cc/v1/section">
+        <anyName>
+          <except>
+            <nsName ns="https://niap-ccevs.org/cc/v1"/>
+            <nsName ns="http://www.w3.org/1999/xhtml"/>
+          </except>
+        </anyName>
+        <optional><attribute name="title"/></optional>
+        <ref name="features-section-content"/>
+      </element>
+    </choice>
+  </define>
+
+  <define name="features-section-content">
+    <ref name="basic-content-pat"/>
+	<element name="implements">
+		<a:documentation>
+			Wrapper element for features. Features are product capabilities that cause implementation-dependent 
+			SFRs to be included in the ST if the TOE implements them. These are called optional SFRs in CC2022,
+			but we distinguish these truly (strictly) optional SFRs.
+			Implementation-dependent SFRs should have a dependency on one or more of the features listed below.
+		</a:documentation>
+		<oneOrMore>
+			<element name="feature">
+				<ref name="id-attr"/>
+				<ref name="title-attr"/>
+				<ref name="description"/>
+			</element>
+		</oneOrMore>
+    </element>
+  </define>
+
+  
+  
+  
+</grammar>

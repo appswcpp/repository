@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="https://niap-ccevs.org/configannex/v1"
+	 xmlns:h="http://www.w3.org/1999/xhtml"
+	 xmlns="http://relaxng.org/ns/structure/1.0"
+	 datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+	 xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+  <start>
+    <element name="ConfigAnnex">
+      <attribute name="name"/>
+      <element name="ConfigAnnexReference">
+        <attribute name="title"/>
+        <element name="PPType">       <text/>             </element>
+        <element name="PPTechnology"> <text/>             </element>
+        <element name="Subtitle">     <text/>             </element>
+        <element name="Release">   <data type="integer"/> </element>
+        <element name="PPVersion"> <data type="decimal"/> </element>
+        <element name="Author">       <text/>             </element>
+        <element name="PubDate">      <text/>             </element>
+      </element>
+      <oneOrMore>
+        <element name="chapter">
+          <attribute name="id"><data type="NCName"/></attribute>
+          <attribute name="title"/>
+
+          <oneOrMore>
+            <choice>
+	      <ref name="html-content"/>
+	      <ref name="configtable-pat"/>
+
+	      <element name="audiencetable">
+                <oneOrMore>
+                  <element name="audience">
+                    <element name="audiencename">    <text/>  </element>
+                    <element name="audiencepurpose"> <text/>  </element>
+                  </element>
+                </oneOrMore>
+              </element>
+
+              <element name="bibliography">
+                <oneOrMore>
+                  <element name="entry">
+                    <attribute name="id">
+                      <data type="NCName"/>
+                    </attribute>
+                    <element name="tag">
+                      <data type="NCName"/>
+                    </element>
+                    <element name="description">
+		      <ref name="html-content"/>
+                    </element>
+                  </element>
+                </oneOrMore>
+              </element>
+              <element name="cite">
+                <attribute name="linkend">
+                  <data type="NCName"/>
+                </attribute>
+              </element>
+              <element name="section">
+                <attribute name="id">
+                  <data type="NCName"/>
+                </attribute>
+                <attribute name="title"/>
+		<ref name="html-content"/>
+              </element>
+
+            </choice>
+          </oneOrMore>
+        </element>
+      </oneOrMore>
+    </element>
+  </start>
+
+
+
+
+  <define name="configtable-pat">
+    <element name="configtable">
+      <oneOrMore>
+        <element name="config">
+          <element name="configtitle">
+            <oneOrMore>
+	      <ref name="html-content"/>
+            </oneOrMore>
+          </element>
+          <element name="references">
+            <oneOrMore>
+              <element name="reference">
+                <attribute name="ref"/>
+                <optional>
+                  <attribute name="rev">
+                    <data type="NMTOKEN"/>
+                  </attribute>
+                </optional>
+		<ref name="html-content"/>
+              </element>
+            </oneOrMore>
+          </element>
+        </element>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  
+  <define name="html-content">
+    <a:documentation>
+      Pattern defines the html-element, which is any element in the xhtml namespace.
+      They have no knowledge of the CC element, and so cannot have any CC descendants.
+    </a:documentation>
+    <oneOrMore>
+    <choice>
+      <text/>
+      <!-- This isn't working as I expect. Thats why we have the except." -->
+      <element ns="http://www.w3.org/1999/xhtml">
+	<anyName>
+	  <except><nsName ns="https://niap-ccevs.org/configannex/v1"/></except>
+	</anyName>
+	<a:documentation>
+	  Defines all html-elements with an optional number of html attributes and descendants.
+	</a:documentation>
+	<zeroOrMore>
+	  <attribute>
+	    <anyName/>
+	  </attribute>
+	</zeroOrMore>
+	<!-- This lets us embedded cc items inside-->
+	<ref name="html-content"/>
+      </element>
+    </choice>
+    </oneOrMore>
+  </define>
+</grammar>
