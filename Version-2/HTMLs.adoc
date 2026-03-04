@@ -1,0 +1,4 @@
+* https://appswcpp.github.io/repository/Version-2/application-release-linkable.html[application-release-linkable.html]
+* https://appswcpp.github.io/repository/Version-2/application-release.html[application-release.html]
+* https://appswcpp.github.io/repository/Version-2/application.html[application.html]
+* https://appswcpp.github.io/repository/Version-2/diff-v1.4.html[diff-v1.4.html]
