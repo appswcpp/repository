@@ -1,3 +1,4 @@
+BASE=application
 DIFF_TAGS=v1.4
 TRANS?=transforms
 
