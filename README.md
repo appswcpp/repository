@@ -7,7 +7,7 @@ This repository hosts the collaborative Protection Profile (cPP) for Application
 
 ## Draft Version
 
-- [collaborative Protection Profile for Application Software](https://appswcpp.github.io/repository/Version-2/repository-release.html) (HTML)
+- [collaborative Protection Profile for Application Software](https://appswcpp.github.io/repository/Version-2/application-release.html) (HTML)
 
 ## Archived Versions
 

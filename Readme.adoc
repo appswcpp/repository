@@ -4,7 +4,7 @@
 |===
 8+|repository
 | https://github.com/appswcpp/repository/tree/Version-2[Version-2]
-a| https://appswcpp.github.io/repository/Version-2/repository-release.html[📄]
+a| https://appswcpp.github.io/repository/Version-2/application-release.html[📄]
 a|[link=https://github.com/appswcpp/repository/blob/gh-pages/Version-2/ValidationReport.txt]
 image::https://raw.githubusercontent.com/appswcpp/repository/gh-pages/Version-2/validation.svg[Validation]
 a|[link=https://github.com/appswcpp/repository/blob/gh-pages/Version-2/SanityChecksOutput.md]
@@ -31,7 +31,7 @@ are looking for the officially released version for evaluations.
 
 === Draft Version
 
-* https://appswcpp.github.io/repository/Version-2/repository-release.html[collaborative
+* https://appswcpp.github.io/repository/Version-2/application-release.html[collaborative
 Protection Profile for Application Software] (html)
 
 === PP-Modules
