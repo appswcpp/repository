@@ -1,0 +1,107 @@
+== collaborative Protection Profile for Application Software
+
+[cols="1,1,1,1,1,1,1,1"]
+|===
+8+|repository
+| https://github.com/appswcpp/repository/tree/Version-2[Version-2]
+a| https://appswcpp.github.io/repository/Version-2/repository-release.html[📄]
+a|[link=https://github.com/appswcpp/repository/blob/gh-pages/Version-2/ValidationReport.txt]
+image::https://raw.githubusercontent.com/appswcpp/repository/gh-pages/Version-2/validation.svg[Validation]
+a|[link=https://github.com/appswcpp/repository/blob/gh-pages/Version-2/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/appswcpp/repository/gh-pages/Version-2/warnings.svg[SanityChecks]
+a|[link=https://github.com/appswcpp/repository/blob/gh-pages/Version-2/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/appswcpp/repository/gh-pages/Version-2/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/appswcpp/repository/blob/gh-pages/Version-2/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/appswcpp/repository/gh-pages/Version-2/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/appswcpp/repository/gh-pages/Version-2/transforms.svg[transforms,150]
+a| [link=https://github.com/appswcpp/repository/blob/gh-pages/Version-2/HTMLs.adoc]
+image::https://raw.githubusercontent.com/appswcpp/repository/gh-pages/Version-2/html_count.svg[HTML Count]
+[link=https://github.com/appswcpp/repository/blob/gh-pages/Version-2/PDFs.adoc]
+image::https://raw.githubusercontent.com/appswcpp/repository/gh-pages/Version-2/pdf_count.svg[PDF Count]
+|===
+
+https://github.com/appswcpp/repository/issues[image:https://img.shields.io/github/issues/appswcpp/repository.svg?maxAge=2592000[GitHub
+issues Open]]
+
+This repository hosts the draft version of the collaborative Protection Profile for
+Application Software developed by the AppSW-iTC. This
+repository is used to facilitate collaboration and development on the
+draft document. See the link:#Release-Version[release] section if you
+are looking for the officially released version for evaluations.
+
+=== Draft Version
+
+* https://appswcpp.github.io/repository/Version-2/repository-release.html[collaborative
+Protection Profile for Application Software] (html)
+
+=== PP-Modules
+
+==== Agent PP-Module
+* https://appswcpp.github.io/repository/Version-2/Modules/Agent/Agent-release.html[PP-Module for Application Software Agent] (html)
+* https://appswcpp.github.io/repository/Version-2/Modules/Agent/Agent-sd.html[Supporting Document for Agent PP-Module] (html)
+
+==== Server PP-Module
+* https://appswcpp.github.io/repository/Version-2/Modules/Server/Server-release.html[PP-Module for Application Software Server] (html)
+* https://appswcpp.github.io/repository/Version-2/Modules/Server/Server-sd.html[Supporting Document for Server PP-Module] (html)
+
+=== Previous Versions (Archived)
+
+The previous version (v1.0e) of the cPP, Supporting Document, and PP-Modules
+(Agent and Server) are available in the link:Archive/[Archive] directory.
+
+=== Contributing
+
+If you are interested in contributing directly to future versions of
+this collaborative Protection Profile, please consider joining the
+AppSW-iTC. Visit https://appswcpp.github.io/ for more information.
+
+=== Feedback
+
+Questions, comments, and fixes can be submitted to the
+https://github.com/appswcpp/repository/issues[repository issue
+tracker]
+
+=== Quickstart
+
+To clone this project along with its _transforms_ submodule run:
+
+....
+  git clone --recursive git@github.com:appswcpp/repository.git
+....
+
+To pull updates from the upstream _transforms_ submodule and commit them
+run:
+
+....
+ git submodule update --remote transforms
+ git add transforms
+ git commit
+....
+
+==== Development Info
+
+* https://github.com/commoncriteria/transforms/wiki/Working-with-Transforms-as-a-Submodule[Help
+working with Transforms Submodule]
+
+=== Repository Content
+
+* input - Contains the `meat' of the project. It's the input content (in
+XML form) that gets transformed to readable html.
+* output - The output directory where the html is placed after
+transformation.
+* output/images - The directory where images are stored
+* transforms - Points to the transform subproject which is really a
+repository for resources shared amongst many Common Criteria projects.
+* Archive - Contains the previous version (v1.0e) of the cPP, SD, and PP-Modules.
+* Modules - PP-Module directories (Agent, Server) for future XML-based builds.
+
+=== Links
+
+* https://appswcpp.github.io/[AppSW-iTC Website]
+* https://www.niap-ccevs.org/[National Information Assurance Partnership
+(NIAP)]
+* https://www.commoncriteriaportal.org/[Common Criteria Portal]
+
+=== License
+
+See link:./LICENSE[License]
