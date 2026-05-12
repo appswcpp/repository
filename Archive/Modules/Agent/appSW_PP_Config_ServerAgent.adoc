@@ -301,6 +301,8 @@ The following table defines the expected allocation for the Server and Agent PP-
 
 If an operational environment component, such as a container orchestration platform, container runtime, service mesh infrastructure, ingress infrastructure, cluster networking, or platform-provided secret or configuration store, is relied upon to support a claimed SFR, the ST shall identify the dependency. The evaluator assesses the TOE's use of the dependency and the required configuration guidance, but the environmental component is not included in the TOE boundary unless explicitly claimed.
 
+If a TOE container receives credentials, keys, tokens, certificates, or other secrets from an operational environment mechanism, such as a platform secret store, mounted secret volume, injected environment variable, or external secrets provider, the ST shall identify the mechanism, the TOE components that consume the secrets, the purpose of each secret, and whether the TOE persists, transforms, caches, or re-exports the secret. If the TOE persists or manages the secret after receipt, the applicable base cPP requirements, including FCS_STO_EXT.1, FDP_DAR_EXT.1, FMT_MEC_EXT.1, and related cryptographic requirements, apply to the TOE component performing that function.
+
 == Conformance Claims
 
 === CC Statement
