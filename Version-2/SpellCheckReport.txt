@@ -6,6 +6,7 @@ output/application-release-linkable.html: EDR
 output/application-release-linkable.html: Encaps
 output/application-release-linkable.html: KeyGen
 output/application-release-linkable.html: LMSOTS
+output/application-release-linkable.html: Microservices
 output/application-release-linkable.html: SPD
 output/application-release-linkable.html: TSM
 output/application-release-linkable.html: XCU
@@ -17,6 +18,7 @@ output/application-release-linkable.html: iPadOS
 output/application-release-linkable.html: iPads
 output/application-release-linkable.html: iTC
 output/application-release-linkable.html: lity
+output/application-release-linkable.html: microservices
 output/application-release-linkable.html: reinstantiating
 output/application-release-linkable.html: rminations
 output/application-release-linkable.html: uninstantiating
@@ -28,6 +30,7 @@ output/application-release.html: EDR
 output/application-release.html: Encaps
 output/application-release.html: KeyGen
 output/application-release.html: LMSOTS
+output/application-release.html: Microservices
 output/application-release.html: SPD
 output/application-release.html: TSM
 output/application-release.html: XCU
@@ -38,6 +41,7 @@ output/application-release.html: iPadOS
 output/application-release.html: iPads
 output/application-release.html: iTC
 output/application-release.html: implem
+output/application-release.html: microservices
 output/application-release.html: pecific
 output/application-release.html: reinstantiating
 output/application-release.html: uninstantiating
@@ -49,6 +53,7 @@ output/application.html: EDR
 output/application.html: Encaps
 output/application.html: KeyGen
 output/application.html: LMSOTS
+output/application.html: Microservices
 output/application.html: SPD
 output/application.html: TSM
 output/application.html: XCU
@@ -59,6 +64,7 @@ output/application.html: iPadOS
 output/application.html: iPads
 output/application.html: iTC
 output/application.html: implem
+output/application.html: microservices
 output/application.html: pecific
 output/application.html: reinstantiating
 output/application.html: uninstantiating
