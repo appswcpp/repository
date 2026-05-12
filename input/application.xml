@@ -191,6 +191,11 @@
         </usecase>
       </usecases>
     </sec:Use_Cases>
+    <section title="Distributed and Microservices TOE Architectures" id="sec-distributed-microservices">
+      <h:p>A TOE may consist of multiple separately deployed application components that collectively provide the TOE security functionality. Examples include server-agent products, clustered application deployments, and microservices-based applications composed of multiple application payloads. If a TOE is distributed across multiple TOE components, the ST shall identify each TOE component, describe the role of each TOE component, identify which components implement each claimed SFR, describe all communications between TOE components, and distinguish TOE components from operational environment components.</h:p>
+      <h:p>For containerized or microservices TOEs, the TOE consists of the application payloads and TOE-provided application components identified in the ST. The container orchestration platform, container runtime, operating system, service mesh infrastructure, ingress infrastructure, cluster networking, and platform-provided secret or configuration stores are part of the operational environment unless explicitly included in the TOE boundary. The PP does not require these operational environment components to be included in the TOE boundary solely because the TOE depends on them for execution, scheduling, networking, isolation, credential storage, configuration storage, or time services.</h:p>
+      <h:p>When the TOE relies on operational environment components to provide services used by the TOE, the ST shall identify the dependency and the guidance shall describe the required environmental configuration. Inter-component communication between TOE parts shall be identified in the ST. Where the TOE claims conformance to a PP-Configuration that includes Server and Agent application modules, the ST shall use the module requirements to address authorization or registration of TOE components before communication is permitted and protection of security-relevant data transmitted between TOE components. The ST shall provide an SFR allocation rationale that identifies whether each claimed requirement is satisfied by all TOE components, by applicable TOE components that perform the relevant function, by at least one TOE component, by the TOE as a whole, or by an allowed operational environment dependency.</h:p>
+    </section>
     <section title="Platforms with Specific EAs" id="sec-platforms"><choice prefix="Platforms:"><h:p>
 	This PP includes platform-specific EAs for the below-listed operating system platforms. For "bare-metal" applications, 
 	applications that run on other OS platforms, and applications that run in software-based execution environments, 
@@ -216,6 +221,8 @@
         <Mod-cc-ref>PP-Module for Endpoint Detection and Response (EDR), Version 2.0</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for File Encryption, Version 2.0</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 2.0</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for Application Software Agent, Version 2.0</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for Application Software Server, Version 2.0</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for Host Agent, Version 2.0</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for Redaction Tools, Version 1.0</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for Voice and Video over IP (VVoIP), Version 2.0</Mod-cc-ref>
