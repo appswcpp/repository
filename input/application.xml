@@ -4,9 +4,9 @@
 <PP boilerplate="yes" target-product="Application Software" target-products="Application Software" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" short="App">
   <PPReference>
     <ReferenceTable>
-      <PPTitle>collaborative Protection Profile for Application Software</PPTitle>
+      <PPTitle>Collaborative Protection Profile for Application Software</PPTitle>
       <PPVersion>2.0</PPVersion>
-      <PPAuthor>AppSW-iTC</PPAuthor>
+      <PPAuthor>Application Software International Technical Community (AppSW-iTC)</PPAuthor>
       <PPPubDate>2025-06-16</PPPubDate>
       <Keywords>application; software</Keywords>
     </ReferenceTable>
@@ -41,7 +41,7 @@
     <entry>
       <version>v 2.0</version>
       <date>2025-06-16</date>
-      <subject>CC:2022 conversion<h:br/>Updating for TLS FP, SSH FP, and X.509 FP<h:br/>TDs and GitHub Issues<h:br/>CNSA 2.0 updates<h:br/>ALC FLR Updates<h:br/>Converted to collaborative Protection Profile maintained by AppSW-iTC<h:br/></subject>
+      <subject>Rebaselined from the NIAP Protection Profile for Application Software, Version 2.0, as the source baseline rather than revising the prior collaborative Protection Profile for Application Software Version 1.4<h:br/>Converted to collaborative Protection Profile maintained by the Application Software International Technical Community (AppSW-iTC)<h:br/>CC:2022 conversion<h:br/>Updating for TLS FP, SSH FP, and X.509 FP<h:br/>TDs and GitHub Issues<h:br/>CNSA 2.0 updates<h:br/>ALC FLR Updates<h:br/></subject>
     </entry>
   </RevisionHistory>
   <include-pkg id="pkg-ssh">
@@ -77,7 +77,10 @@
     </git>
     <url>https://commoncriteria.github.io/vpnclient/master/vpnclient.html</url>
   </include-pkg>
-  <pp-preferences><!--    <using-cc2022/>     --></pp-preferences>
+  <pp-preferences>
+    <suppress-niap-logo/>
+<!--    <using-cc2022/>     -->
+  </pp-preferences>
   <sec:Introduction >
     <sec:Overview>The scope of this Protection Profile (PP) is to describe the security functionality of application software in terms of <xref g="CC"/> and to define functional and assurance requirements for such software. In recent years, software attacks have shifted from targeting operating systems to targeting applications. This has been the natural response to improvements in operating system security and development processes. As a result, it is paramount that the security of applications be improved to reduce the risk of compromise.</sec:Overview>
     <tech-terms>
