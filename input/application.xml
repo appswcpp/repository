@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="..\transformspp2html.xsl"?>
 <?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCProtectionProfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <PP boilerplate="yes" target-product="Application Software" target-products="Application Software" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" short="App">
+  <cPP/>
   <PPReference>
     <ReferenceTable>
       <PPTitle>Collaborative Protection Profile for Application Software</PPTitle>
