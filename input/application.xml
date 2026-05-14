@@ -79,7 +79,6 @@
     <url>https://commoncriteria.github.io/vpnclient/master/vpnclient.html</url>
   </include-pkg>
   <pp-preferences>
-    <suppress-niap-logo/>
 <!--    <using-cc2022/>     -->
   </pp-preferences>
   <sec:Introduction >
