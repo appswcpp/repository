@@ -92,10 +92,19 @@ For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
 
 ==== Compliant Targets of Evaluation
 
-This is a Collaborative Protection Profile (cPP) Module whose Target of Evaluation (TOE) is Enterprise Server Applications. This PP-Module is compatible with the cPP for Application Software. 
+This is a Collaborative Protection Profile (cPP) Module whose Target of Evaluation (TOE) is Enterprise Server Applications. This PP-Module is compatible with the cPP for Application Software.
+
+For a distributed TOE, the Server Application is the TOE component, or set of TOE components, that provides management, coordination, policy, API-facing, or other server-side functionality for the TOE. In a microservices architecture, a Server Application component may be a service or application payload that coordinates, exposes, or controls TOE functionality. The container orchestration platform, container runtime, operating system, service mesh infrastructure, ingress infrastructure, cluster networking, and platform-provided secret or configuration stores are part of the operational environment unless explicitly included in the TOE boundary.
 
 === TOE Use Cases
 All use cases of Enterprise Server applications defined in the {base-pp} are applicable to this PP-Module.
+
+=== Distributed and Microservices TOE Configurations
+This PP-Module may be used in a PP-Configuration with the PP-Module for Agent Applications to evaluate distributed application software. Distributed application software includes server-agent deployments, clustered server deployments, and microservices architectures composed of multiple application payload components.
+
+For a distributed TOE, the ST shall identify each TOE component, describe the role of each TOE component, identify which components implement each claimed SFR, and describe all communications between TOE components. The ST shall also distinguish TOE components from operational environment components. Operational environment components may include container orchestration, container runtimes, operating systems, service mesh infrastructure, ingress infrastructure, cluster networking, platform-provided secret or configuration stores, and other infrastructure services not explicitly included in the TOE boundary.
+
+If the TOE relies on operational environment components for execution, scheduling, networking, isolation, credential storage, configuration storage, time services, or protection of inter-component communications, the ST shall identify the dependency and the guidance shall describe the required environmental configuration.
 
 == CC Conformance Claims
 As defined by the references <<CC1>>, <<CC2>> and <<CC3>>, this PP-Module:
@@ -205,7 +214,7 @@ The TSF shall be capable of performing the following management functions:
 
 * configuration of communication with other trusted IT entities
 * [_selection:_ 
-** _configuration of communication with Agent according to FCO_CPC_EXT.1/Server and FPT_ITT.1/Server_
+** _configuration of communication with other TOE components according to FCO_CPC_EXT.1/Server and FPT_ITT.1/Server_
 ** _allow/disallow the enrollment of a TOE agent by administrative function or policy,_
 ** _query agent version,_
 ** _provide update functionality to agent,_
@@ -215,7 +224,7 @@ The TSF shall be capable of performing the following management functions:
 ** _configure number of authentication attempts and failed authentication behavior,_
 ** _[assignment: Other management functions]_]
 
-*Application Note {counter:appnote}:* Functions that relate to management of agents is intended to be used in conjuction with the Agent module, however, it can be used with third party agents that aren't necessarily within the TOE boundary.
+*Application Note {counter:appnote}:* Functions that relate to management of agents or other separately deployed TOE components are intended to be used in conjunction with the Agent module. The same functions may also be used with third-party entities that are in the operational environment and are not within the TOE boundary.
 
 === Protection of the TSF (FPT)
 
@@ -231,7 +240,7 @@ This PP-Module does not define any additional assurance requirements above and b
 
 [appendix]
 == Selection-Based Requirements
-These SFRs apply if and only if an Agent Module is included in the evaluation.
+These SFRs apply when the TOE includes separately deployed TOE parts that communicate with one another as part of a PP-Configuration that includes the Agent Module. For microservices architectures, these SFRs apply to the communication relationships between Server Application components and Agent Application components as those components are identified in the ST. The ST author should iterate these SFRs as needed for different component pairs or communication mechanisms.
 
 === Communication (FCO)
 ==== FCO_CPC_EXT.1/Server
@@ -419,7 +428,7 @@ This is a new component within the FCO class used to define high-level constrain
             +---------------------------------------+     +-----+
 ....
 
-FCO_CPC_EXT.1/Server Component Registration Channel Definition, requires the TSF to support a registration channel for joining together server and agent TOE parts, and to ensure that the availability of this channel is under the control of an Administrator. It also requires statement of the type of channel used (allowing specification of further lower-level security requirements by reference to other SFRs). 
+FCO_CPC_EXT.1/Server Component Registration Channel Definition, requires the TSF to support a registration channel for joining together server and agent TOE parts or other distributed application TOE components, and to ensure that the availability of this channel is under the control of an Administrator. It also requires statement of the type of channel used (allowing specification of further lower-level security requirements by reference to other SFRs). 
 
 *Management: FCO_CPC_EXT.1/Server*
 

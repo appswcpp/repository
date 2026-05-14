@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../transforms/esr2html.xsl"?>
+
+<ESR xmlns="http://common-criteria.rhcloud.com/ns/esr" name="Operating System Fundamentals">
+
+	<intro>
+		<esrtitle>Application Software Essential Security Requirements</esrtitle>
+		<maintainer>National Information Assurance Partnership (NIAP)</maintainer>
+		<identifier>42</identifier>
+		<version>1.0</version>
+		<status>draft</status>
+		<issuedate>29 Aug 2015</issuedate>
+		<approver></approver>
+		<supercedes>none</supercedes>
+	</intro>
+
+	<section title="Status" id="status">
+		The following is an Essential Security Requirements (ESR) document
+		for application software.
+		The creation of an ESR is a necessary
+		prerequisite to develop an Application Software cPP, and this
+		document represents material provided by NIAP for that purpose.
+	</section>
+
+    <section title="Background and Purpose" id="purpose">
+		<!-- This section sets the context for not only the ESR, but what is
+			expected of the resulting Protection Profile (PP). The intent is
+			that the remaining sections provide succinct statements that
+			highlight the relevant aspects to be addressed by the Technical
+			Community (TC) constructing the PP. Here, the authors provide a
+			narrative that introduces the reader to the problem being solved,
+			and presents key aspects that support or guide the TC, and may
+			elaborate on subtleties not apparent in the “bulleted” high level
+			statements.
+		-->
+    	This document describes a core set of security requirements
+    	for application software.	These requirements cover basic security behavior for
+	application software.  Evaluation against the resulting Protection Profile
+	ensures that this fundamental set of requirements is met.  These fundamental
+	requirements must be extended to adequately cover the functionality of many
+	types of applications.
+	<note>This is not a declaration that all software should be evaluated through the
+	Common Criteria.  Although it depends on the national market, Common Criteria
+	evaluation generally focuses on providing assurance for products which provide security
+	functionality.  Many applications without security functionality, particularly on
+	mobile platforms, now receive some type of evaluation (often called vetting).
+	This occurs because software without
+	security functionality, when flawed, has security consequences.
+	This document is offered as a reference for those activities, in addition to
+	its role in the Common Criteria.
+	The goal is to establish a consistent set of expectations for all application software
+	developers, independent of the evaluation methodology.
+	</note>
+	<p/>
+        The vast majority of application software should satisfy
+	this core set of requirements, yet a very small set of extremely specialized
+	software may not do so.  The requirements for such exceptional software
+	may be specified in Protection Profiles which do not extend the requirements
+	described here.
+        <p/>
+	Application software in the context of this document is software that runs on
+	a platform and performs tasks on behalf of the user or owner of the
+	system.  The platform for the application is an operating system, an execution
+	environment, or some combination of these.
+	<p/>
+	</section>
+
+	<section title="Use Cases" id="usecases">
+		<!--
+			This section is intended to provide the initial scope/bound of the
+			security problem by providing the reader with concise statements
+			regarding the scenarios in which the technology is being used. The
+			intended usage presented here should lay the groundwork for the
+			identifying the resources to be protected, and what threats must be
+			considered in the drafting of the Essential Security Requirements
+			(ESR) and for the TC to consider when writing the PP.
+		-->
+			Application software is used in innumerable specific use cases.
+			<p/>
+			However, in formal Common Criteria evaluations we seek evaluation only of applications
+			which provide security functionality (which are called IA or IA-enabled in
+			some markets).  Such applications include thin clients and host-based security agents.
+			Other applications will be covered by Extended Packages of the
+			resulting Protection Profile (email client, web browser, VPN client, MDM agent).
+
+<!--			The following broad categories are not all-inclusive, nor are they
+			even mutually exclusive - they are provided simply to convey
+			the broadness of scope:
+			<ul>
+				<li>
+					<b>Content creation.</b> A user or system application process creates or modifies
+					content that is saved as a file system object.  This could
+					includes documents for general business processes.
+				</li>
+				<li>
+					<b>Content consumption/processing.</b> A user or system application process
+					reads file system object data into the
+					application in order for some operation
+					to be performed that uses the data.
+					This allows a user to consume content,
+					retrieving it from either local or
+					remote storage. It also includes system-level
+					applications that gather system information for
+					enterprise reporting.
+				</li>
+				<li>
+					<b>Communications.</b> A user or system application process uses the application
+					to communicate with other users or systems over an
+					external communications channel.
+				</li>
+			</ul> -->
+	</section>
+
+	<section title="Resources to be protected" id="resourcesprotected">
+		<!--
+    		This section is intended to provide the initial scope/bound of the
+    		security problem by providing the reader with concise statements
+    		regarding the scenarios in which the technology is being used. The
+    		intended usage presented here should lay the groundwork for the
+    		identifying the resources to be protected, and what threats must be
+    		considered in the drafting of the Essential Security Requirements
+    		(ESR) and for the TC to consider when writing the PP.
+    	-->
+		<p>
+			<ul>
+				<li>
+					Sensitive data in transit.
+				</li>
+				<li>
+					Sensitive data stored locally by the application.
+				</li>
+				<li>
+					Application code and configuration parameters.
+				</li>
+			</ul>
+			The application should also not require security features in the
+			platform be disabled, as this weakens the underlying platform.
+		</p>
+	</section>
+
+	<section title="Attacker access" id="attackeraccess">
+		<ul>
+			<li>
+				An attacker is assumed to attempt attacks from the following
+				vantage points:
+				<ul>
+					<li>
+						The network across which the application engages
+						in communication, both actively and passively.
+					</li>
+					<li>
+						The platform on which the application is
+						installed, though as an unprivileged subject.
+					</li>
+				</ul>
+			</li>
+			<li>
+				An attacker has an arbitrary amount of time to analyze the
+				behavior of the application, its interaction with its host
+				device or platform, and/or the data it transmits over the
+				network.
+			</li>
+		</ul>
+	</section>
+
+	<section title="Evaluation Boundary" id="boundary">
+		<ul>
+			<li>
+				The application consists of the software
+				provided by its vendor.
+				Any software in the application
+				installation package is potentially in scope
+				during evaluation.  This includes those pieces that may
+				extend the functionality of the underlying
+				platform, such as kernel drivers.  The
+				application exists both as an object that is
+				stored on the file system of the host platform
+				as well as a runtime object that exists during
+				its execution.  The application
+				code may execute directly on a microprocessor,
+				or it may be script or bytecode interpreted by
+				a runtime environment.
+			</li>
+			<li>
+				Shared libraries (static or dynamically loaded)
+				from third parties that convey with the
+				application are also in scope.
+			</li>
+		</ul>
+	</section>
+
+	<section title="Essential Security Requirements" id="requirements">
+		<!--
+        	This is where the authors present an initial set of English
+        	requirements that specify security functionality, rather than
+        	design and/or implementation characteristics. These requirements
+        	will provide the foundation for which the detailed set of
+        	requirements is derived. It is important that the requirements
+        	captured here make an attempt to fully address the categories
+        	(e.g., access control, identification and authentication,
+        	management capabilities, roles of administration, secure
+        	communications, and audit). That's not to say the requirements are
+        	fully specified or detailed enough to simply translate to Common
+        	Criteria security functional requirements. The goal is that there
+        	is enough information contained here, as well as the other sections
+        	of this document, to provide the TC enough information to ensure
+        	they have an understanding of what is minimally required in breath.
+        -->
+			<p/>
+			Functionality-related requirements are:
+			<ul>
+				<li>
+					Limit network connectivity to necessary communications, and
+					encrypt sensitive data that is transmitted remotely
+					using a trusted communications channel.
+				</li>
+				<li>
+					Leverage the platform to protect any
+					sensitive data at rest stored in non-volatile memory, such
+					as credentials.
+				</li>
+				<li>
+					Require initial assignment of credentials by the end user whenever the
+					application is shipped with default credentials or no credentials.
+				</li>
+				<li>
+					Restrict access to those platform resources which are necessary to achieve
+					its stated functionality.
+				</li>
+				<li>
+					Properly implement, or leverage the platform, for cryptographic operations such as
+					key generation, encryption and decryption, random bit generation, hashing, signing,
+					and keyed-hash message authentication.
+				</li>
+				<li>
+					Leverage the platform's exploit mitigation features, and never engage
+					in behavior that undermines the platform's security features.
+				</li>
+				<!--, such as
+				<ul>
+					<li>
+						issuing requests to map memory at an explicit
+			 			address, as this undermines ASLR
+					</li>
+					<li>
+						allocating memory with both write and execute permissions,
+						as this undermines DEP
+					</li>
+					<li>
+						requiring disablement of any platform security features
+					</li>
+					</ul>
+
+				</li> -->
+				<!--<li>
+					Be compiled with stack-based buffer overflow protection
+					enabled.
+				</li> -->
+				<li>
+					Be distributed only in the format supported by the
+					platform's package manager, and ensure trusted update.
+				</li>
+			</ul>
+		Assurance-related requirements are:
+		<ul>
+		<li>
+			Timely patching of any publicly-disclosed vulnerabilities,
+			including those in 3rd party components that convey with the
+			application.
+		</li>
+		<li>
+			Use of anti-exploitation options provided in the development
+			toolchain.
+		</li>
+		</ul>
+	</section>
+
+	<section title="Assumptions" id="assumptions">
+		<!--
+			Simply put, this section presents the aspects of the product and
+			its	intended environment that can be assumed to hold true. This
+			will provide additional scope on the resulting PP.
+		-->
+		<!-- The following assumptions are made for the application and its operational
+		environment:  -->
+		<ul>
+			<li>
+				The application relies upon a trustworthy computing platform
+				for its execution. This includes the underlying platform and
+				whatever runtime environment it provides to the application.
+			</li>
+			<li>
+				The user of the application software is not willfully negligent
+				or hostile, and uses the software in compliance with the
+				applied enterprise security policy.
+			</li>
+			<li>
+				The administrator of the underlying platform or application software is not careless,
+				willfully negligent or hostile, and administers the software
+				within compliance of the approved enterprise security policy.
+			</li>
+		</ul>
+	</section>
+
+	<section title="Optional Extensions" id="extensions">
+<!--		The following requirements may already be realized in some products in
+		this technology class, but the ESR is not mandating these capabilities.
+		The resulting PP may permit their evaluation: -->
+		<ul>
+			<li>
+				Client authentication to remote
+				peers using X.509v3 certificates.
+			</li>
+		</ul>
+	<!--	<p>
+			The following requirements are selection based so their inclusion
+			is conditional on the application implementing mandatory
+			requirements in a certain manner:
+			<ul>
+				<li>
+					If the application collects random bit data from the host
+					platform, the application shall invoke a mechanism
+					recommended by the platform vendor for performing this
+					collection.
+				</li>
+				<li>
+					If the application provides its own method for generating
+					random bit data, the application shall:
+					<ul>
+						<li>
+							Use an ISO/IEC 18031:2011 or X9.31 compliant DRBG,
+							and;
+						</li>
+						<li>
+							Seed its DRBG with an amount of entropy that is at
+							minimum equal to the greatest strength of the keys
+							and hashes that are generated by the DRBG.
+						</li>
+					</ul>
+				</li>
+				<li>
+					If the application provides its own mechanism for computing
+					cryptographic hashes, the application shall use an
+					implementation that is conformant with SHA-1 and optionally
+					members of the SHA-2 family.
+				</li>
+				<li>
+					If the application provides its own mechanism for
+					performing signature generation and verification, the
+					application shall use an RSA or ECDSA implementation that
+					is conformant with ISO/IEC 19790:2012.
+				</li>
+				<li>
+					If the application establishes a trusted channel for secure
+					remote communications, the application shall:
+					<ul>
+						<li>
+							Use or implement TLS 1.2 as defined by RFC 5246.
+						</li>
+						<li>
+							Use or implement DTLS 1.2 as defined by RFC 6347.
+						</li>
+						<li>
+							Use or implement HTTPS as defined by RFC 2818.
+						</li>
+					</ul>
+				</li>
+				<li>
+					If the application provides its own mechanism for
+					implementing the TLS and/or DTLS 1.2 protocols, the
+					application shall, for each implemented protocol:
+					<ul>
+						<li>
+							Support the TLS_RSA_WITH_AES_128_CBC_SHA
+							cipher suite, and optionally additional
+							cipher suites;
+						</li>
+						<li>
+							Verify that the reference identifier presented by
+							any peer certificates matches the defined
+							reference identifier;
+						</li>
+						<li>
+							Establish a trusted channel only if the presented
+							peer certificate is valid;
+						</li>
+						<li>
+							Present the Elliptic Curves Extension in the Client
+							Hello message with one or more of P-256, P-384, and
+							P-521 if ECC is performed.
+						</li>
+					</ul>
+				</li>
+				<li>
+					If the application provides its own mechanism for
+					implementing the HTTPS, the application shall:
+					<ul>
+						<li>
+							Implement HTTPS using TLS 1.2 as described in the
+							ESRs pertaining to TLS 1.2;
+						</li>
+						<li>
+							Present a notification and potentially perform
+							other actions if the peer certificate is determined
+							to be invalid.
+						</li>
+					</ul>
+				</li>
+				<li>
+					If the application is capable of certificate validation,
+					the application shall:
+					<ul>
+						<li>
+							Validate certificates in accordance with RFC 5280.
+						</li>
+						<li>
+							Ensure that all certificate paths terminate with a
+							trusted CA certificate.
+						</li>
+						<li>
+							Only treat a certificate as a CA certificate if the
+							basicConstraints extension exists and is set to
+							“CA == TRUE”.
+						</li>
+						<li>
+							Validate the status of certificates using either a
+							Certificate Revocation List (CRL) or the Online
+							Certificate Status Protocol (OCSP).
+						</li>
+						<li>
+							Validate for each certificate that the
+							extendedKeyUsage field is set to a value
+							appropriate to the intended use of the certificate.
+						</li>
+					</ul>
+				</li>
+				<li>
+					If the application is capable of performing certificate
+					authentication, the application shall:
+					<ul>
+						<li>
+							Use X.509v3 certificates as defined by RFC 5280 to
+							support certificate authentication for one or more
+							trusted channel protocols.
+						</li>
+						<li>
+							Take some defined action in the event that the
+							validity of a received certificate cannot be
+							determined.
+						</li>
+					</ul>
+				</li>
+			</ul>-->
+	</section>
+
+	<section title="Objective Requirements" id="objective">
+<!--		<p>
+			Requirements captured in this section specify security-relevant
+			behaviour that is not expected to be realized currently in products
+			of this type, but they are capabilities that may be mandated in
+			future versions of the ESR and resulting cPPs.
+		</p> -->
+		<ul>
+		<!--	<li>
+				The application shall use the signature_algorithms extension of
+				TLS 1.2 to require remote peers to use a hashing algorithm with
+				a digest size of 256 bits or larger.
+			</li>
+			<li>
+				The application shall have the ability to use libraries
+				provided by the underlying platform to parse objects that are
+				formatted in one or more IANA MIME media types.
+			</li> -->
+			<li>
+				Use of Software ID (SWID) tags to enable software inventory
+				as defined by ISO/IEC 19770-2:2009.
+			</li>
+		</ul>
+	</section>
+
+	<section title="Outside the Scope of Evaluation" id="outsidescope">
+		<!--
+			This is where the authors explicitly state things they do not want
+			to be considered for inclusion in an evaluation against a
+			resulting PP.  Items expressed here could include threats,
+			functions or capabilities that would require assurance activities
+			that are too subjective, or specific expertise not available in the
+			evaluation facilities expected to assess products against the PP
+			(e.g., assessing anti-tamper measures).
+		-->
+		<ul>
+			<li>
+				The hardware or firmware of the underlying platform.
+			</li>
+			<li>
+				The host operating system or runtime environment on which the
+				application executes.
+			</li>
+			<li>
+				Specific functional behavior that is not global to all
+				applications.
+			</li>
+		</ul>
+	</section>
+</ESR>

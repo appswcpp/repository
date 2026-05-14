@@ -8,8 +8,3 @@ input/schemas.xml
 tmp
 LocalUser.make
 output/images/diff-*.gif
-.DS_Store
-.venv-build/pyvenv.cfg
-.venv-build/bin/python3.12
-.venv-build/bin/python3
-.venv-build/bin/python
