@@ -153,7 +153,7 @@ base_changes = [
             [
                 (
                     "insert",
-                    "When the TOE relies on operational environment components to provide services used by the TOE, the ST shall identify the dependency and the guidance shall describe the required environmental configuration. Inter-component communication between TOE parts shall be identified in the ST. Where the TOE claims conformance to a PP-Configuration that includes Server and Agent application modules, the ST shall use the module requirements to address authorization or registration of TOE components before communication is permitted and protection of security-relevant data transmitted between TOE components. The ST shall provide an SFR allocation rationale that identifies whether each claimed requirement is satisfied by all TOE components, by applicable TOE components that perform the relevant function, by at least one TOE component, by the TOE as a whole, or by an allowed operational environment dependency.",
+                    "When the TOE relies on operational environment components to provide services used by the TOE, the ST shall identify the dependency and the guidance shall describe the required environmental configuration. Inter-component communication between TOE components shall be identified in the ST. Where the TOE claims conformance to a PP-Configuration that includes Server and Agent application modules, the ST shall use the module requirements to address authorization or registration of TOE components before communication is permitted and FTP_DIT_EXT.1 to address protection of data transmitted between TOE components. The ST shall provide an SFR allocation rationale that identifies whether each claimed requirement is satisfied by all TOE components, by applicable TOE components that perform the relevant function, by at least one TOE component, as a feature dependent requirement, or by an allowed operational environment dependency.",
                 )
             ],
         ],
@@ -210,14 +210,14 @@ server_changes = [
                 ("delete", "if and only if an Agent Module is included in the evaluation."),
                 (
                     "insert",
-                    "when the TOE includes separately deployed TOE parts that communicate with one another as part of a PP-Configuration that includes the Agent Module. For microservices architectures, these SFRs apply to the communication relationships between Server Application components and Agent Application components as those components are identified in the ST. The ST author should iterate these SFRs as needed for different component pairs or communication mechanisms.",
+                    "when the TOE includes separately deployed TOE components that communicate with one another as part of a PP-Configuration that includes the Agent Module. For microservices architectures, these SFRs apply to the communication relationships between Server Application components and Agent Application components as those components are identified in the ST. The ST author should iterate these SFRs as needed for different component pairs or communication mechanisms.",
                 ),
             ],
             [
                 ("normal", "configuration of communication with "),
                 ("delete", "Agent"),
                 ("insert", "other TOE components"),
-                ("normal", " according to FCO_CPC_EXT.1/Server and FPT_ITT.1/Server"),
+                ("normal", " according to FMT_SMF.1/Server and FTP_DIT_EXT.1"),
             ],
         ],
     ),
@@ -230,13 +230,13 @@ agent_changes = [
             [
                 (
                     "normal",
-                    "This is a Collaborative Protection Profile (cPP) Module whose Target of Evaluation (TOE) is Enterprise Agent Applications. This PP-Module is compatible with the cPP for Application Software and collaborative PP-Module for Server Applications. ",
+                    "This is a Collaborative Protection Profile (cPP) Module whose Target of Evaluation (TOE) is Agent Applications. This PP-Module is compatible with the cPP for Application Software and collaborative PP-Module for Server Applications. ",
                 )
             ],
             [
                 (
                     "insert",
-                    "For purposes of a PP-Configuration, an Agent Application is any separately deployed TOE application component that communicates with another TOE component under the control, coordination, policy, enrollment, or trust relationship established by the TOE. This may include endpoint agents, worker services, peer services, microservice payloads, subordinate application services, or other application components that are identified as TOE parts in the ST.",
+                    "For purposes of a PP-Configuration, an Agent Application is any separately deployed TOE component that communicates with another TOE component under the control, coordination, policy, enrollment, or trust relationship established by the TOE. This may include endpoint agents, worker services, peer services, microservice payloads, subordinate application services, or other application components that are identified as TOE components in the ST.",
                 )
             ],
             [
@@ -274,7 +274,7 @@ agent_changes = [
                     "insert",
                     "An Agent can communicate with a Server, another Agent, or another separately deployed TOE component identified in the ST. In a microservices architecture, this may include communication between application payload services.",
                 ),
-                ("normal", " This SFR can be iterated if the registration method varies depending on what TOE parts are communicating."),
+                ("normal", " This SFR can be iterated if the registration method varies depending on which TOE components are communicating."),
             ]
         ],
     ),
@@ -305,7 +305,7 @@ config_changes = [
             [
                 (
                     "insert",
-                    "For this PP-Configuration, a distributed TOE consists of multiple separately deployed application components that collectively provide the TOE security functionality. Each TOE component shall be identified in the ST and mapped to the base PP, Server Module, Agent Module, or a combination of those components, as applicable.",
+                    "For this PP-Configuration, a distributed TOE consists of multiple separately deployed TOE components that collectively provide the TOE security functionality. A TOE component is a separately deployed portion of the TOE that is identified in the ST and mapped to the base cPP and relevant SFRs. Each TOE component shall be identified in the ST and mapped to the base cPP and, where applicable, to the Server Module, Agent Module, or both according to the role or roles performed by that TOE component.",
                 )
             ],
             [
@@ -317,7 +317,7 @@ config_changes = [
             [
                 (
                     "insert",
-                    "The ST shall provide an SFR allocation rationale that identifies whether each claimed requirement is satisfied by all TOE components, by applicable TOE components that perform the relevant function, by at least one TOE component, by the TOE as a whole, or by an allowed operational environment dependency. The ST shall describe all inter-component TOE communications and identify the mechanisms used to authorize and protect those communications.",
+                    "The ST shall provide an SFR allocation rationale that identifies whether each claimed requirement is satisfied by all TOE components, by applicable TOE components that perform the relevant function, by at least one TOE component, as a feature dependent requirement, or by an allowed operational environment dependency. The ST shall describe all inter-component TOE communications and identify the mechanisms used to authorize and protect those communications.",
                 )
             ],
         ],
