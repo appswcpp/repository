@@ -523,7 +523,7 @@
           <depends on-sel="toe-lms"/>
           <depends on-sel="toe-xmss"/>
           <f-element id="fel-xof">
-            <title>The application shall perform [<h:i>extendable-output function</h:i>] in accordance with a specified cryptographic algorithm <selectables linebreak="yes"><selectable id="fcs_cop.1.1_XOF_1">SHAKE</selectable></selectables> and parameters <selectables linebreak="yes"><selectable id="fcs_cop.1.1_XOF_2">SHAKE256</selectable></selectables> that meet the following: [<h:i>NIST FIPS PUB 202 Section 6.2 [SHAKE]</h:i>].</title>
+            <title>The application shall perform [<h:i>extendable-output function</h:i>] in accordance with a specified cryptographic algorithm <h:b>SHAKE</h:b> and parameters <h:b>SHAKE256</h:b> that meet the following: [<h:i>NIST FIPS PUB 202 Section 6.2 [SHAKE]</h:i>].</title>
             <note role="application"><h:p>In accordance with CNSA 2.0, SHAKE is permitted to be used only as a component of LMS or XMSS. Therefore this component is claimed only if LMS or XMSS is claimed in FCS_COP.1/SigVer and they use SHAKE.</h:p></note>
             <aactivity level="component">
               <TSS><h:p>There are no additional TSS evaluation activities for this component.</h:p></TSS>
