@@ -45,24 +45,24 @@ The purpose of a PP-Configuration is to combine Protection Profiles (PPs) and PP
 
 This PP-Configuration is for enterprise server applications.
 
-A TOE that includes multiple distinct, separately deployed application component types that collectively provide the TOE security functionality shall use the PP-Configuration for Enterprise Server Applications and Agent/Application Component(s) when its component relationships satisfy the Agent Module's registration, enablement, disablement, and protected-communication model. Multiple Runtime Replicas of the same TOE Component Type, as defined by the base cPP, do not, by themselves, trigger this requirement. This Server-only PP-Configuration does not define an alternative distributed-TOE allocation path; a distributed product that does not fit the Agent Module control model requires another approved PP-Configuration or iTC guidance.
+A TOE with separately deployed instances of multiple distinct TOE Components that collectively provide the TOE security functionality shall use the PP-Configuration for Enterprise Server Applications and Agent/Application Component(s) when its component relationships satisfy the Agent Module's registration, enablement, disablement, and protected-communication model. Multiple deployed instances of the same TOE Component are Runtime Replicas when they meet the base cPP definition and do not, by themselves, trigger this requirement. This Server-only PP-Configuration does not define an alternative distributed-TOE allocation path; a distributed product that does not fit the Agent Module control model requires another approved PP-Configuration or iTC guidance.
 
 .Base cPP terminology used in Figures 1 and 2
-* A _TOE component_ is a separately deployed portion of the TOE that is identified in the ST and mapped to the base cPP and relevant SFRs (Section 1.5, _Distributed and Microservices TOE Architectures_).
-* _TOE Component Type_, _Runtime Replica_, and _Communication Relationship Type_ are defined in Section 1.2.2, _Technical Terms_.
-* In Figure 2, each S-1 through S-n or A-1 through A-n box is a deployed TOE component; its connected Component Type box identifies the TOE Component Type; identical deployed copies of that type are Runtime Replicas; and R1 denotes a Communication Relationship Type.
+* A _TOE Component_ is a named, logical, separately deployable portion of the TOE that is identified in the ST and mapped to the base cPP, applicable PP-Modules, and relevant SFRs (Section 1.2.2, _Technical Terms_, and Section 1.5, _Distributed and Microservices TOE Architectures_).
+* _TOE Component Instance_, _Runtime Replica_, and _Communication Relationship Type_ are defined in Section 1.2.2, _Technical Terms_.
+* In Figure 2, each S-1 through S-n or A-1 through A-n box is a TOE Component Instance; its connected TOE Component box identifies the logical TOE Component; qualifying instances of the same TOE Component are Runtime Replicas; and R1 denotes a Communication Relationship Type.
 
 The following figures illustrate this applicability rule. They are explanatory; the conformance text and the requirements in the claimed PP-Configuration components control.
 
 [[fig-pp-configuration-selection]]
-.PP-Configuration selection for separately deployed component types
+.PP-Configuration selection for TOE Components and deployed instances
 image::pp-configuration-selection.svg[Decision flow for selecting the Server-only or Server and Agent PP-Configuration,pdfwidth=100%,align=center]
 
-[[fig-component-types-runtime-replicas]]
-.TOE Component Types compared with Runtime Replicas
-image::component-types-and-runtime-replicas.svg[Examples contrasting one component type with multiple runtime replicas and distinct Server and Agent component types,pdfwidth=100%,align=center]
+[[fig-toe-components-runtime-replicas]]
+.TOE Components compared with their deployed instances
+image::toe-components-and-runtime-replicas.svg[Examples contrasting one TOE Component with multiple Runtime Replicas and distinct Server and Agent TOE Components,pdfwidth=100%,align=center]
 
-NOTE: Only components inside the TOE boundary count toward this applicability decision. Server and Agent are PP-Configuration roles; they do not imply communication direction, hosting relationship, or privilege. One relationship line in the topology figure represents a Communication Relationship Type rather than every runtime connection between replicas.
+NOTE: Only TOE Components inside the TOE boundary count toward this applicability decision. Server and Agent are PP-Configuration roles; they do not imply communication direction, hosting relationship, or privilege. One relationship line in the topology figure represents a Communication Relationship Type rather than every runtime connection between replicas.
 
 A Server Application payload executing in a Linux container remains subject to the base cPP and Supporting Document guidance for Linux Running-Payload Activities, including separate artifact, update-lifecycle, runtime or orchestrator dependency, and external-interface or channel coverage at the layer stated by each EA.
 

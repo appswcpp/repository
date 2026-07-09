@@ -94,9 +94,9 @@ For more see the http://www.commoncriteriaportal.org/[Common Criteria Portal].
 
 This is a Collaborative Protection Profile (cPP) Module whose Target of Evaluation (TOE) is Agent Applications. This PP-Module is compatible with the cPP for Application Software and collaborative PP-Module for Server Applications.
 
-For purposes of a PP-Configuration, an Agent Application is any separately deployed TOE component that communicates with another TOE component under the control, coordination, policy, enrollment, or trust relationship established by the TOE. This may include endpoint agents, worker services, peer services, microservice payloads, subordinate application services, or other application components that are identified as TOE components in the ST.
+For purposes of a PP-Configuration, an Agent Application is any TOE Component whose deployed TOE Component Instances communicate with instances of another TOE Component under the control, coordination, policy, enrollment, or trust relationship established by the TOE. This may include endpoint agents, worker services, peer services, microservice payloads, subordinate application services, or other application components that are identified as TOE Components in the ST.
 
-The terms Server Application and Agent Application describe TOE component roles for purposes of a PP-Configuration. They do not imply network client/server directionality, hosting relationship, privilege model, deployment topology, or that communication is initiated by one role rather than the other. A TOE component may perform one or both roles if identified in the ST.
+The terms Server Application and Agent Application describe TOE Component roles for purposes of a PP-Configuration. They do not imply network client/server directionality, hosting relationship, privilege model, deployment topology, or that communication is initiated by one role rather than the other. A TOE Component may perform one or both roles if identified in the ST.
 
 For containerized or microservices TOEs, the TOE consists of the application payload components identified in the ST. The container orchestration platform, container runtime, host operating-system kernel, platform-provided operating-system services or userland not delivered as part of a TOE image, service mesh infrastructure, ingress infrastructure, cluster networking, platform-provided secret or configuration stores, managed runtimes, and application frameworks are part of the operational environment unless explicitly included in the TOE boundary. Vendor-delivered executable content in a TOE image remains subject to the base cPP's TOE-boundary and composition rules.
 
@@ -106,13 +106,13 @@ All use cases of Agent applications defined in the {base-pp} are applicable to t
 === Distributed and Microservices TOE Configurations
 This PP-Module may be used in a PP-Configuration with the PP-Module for Server Applications to evaluate distributed application software. Distributed application software includes server-agent deployments, clustered server deployments, and microservices architectures composed of multiple application payload components.
 
-The ST shall identify each Agent Application component type, describe the role of each component type, identify which claimed SFRs are implemented by each component type, and describe all distinct communication relationship types between Agent Application components and other TOE components. Repeated relationships may be represented using an unambiguous topology pattern rather than by enumerating every runtime component pair. The ST shall also distinguish TOE components from operational environment components. If the TOE relies on operational environment components for execution, scheduling, networking, isolation, credential storage, configuration storage, time services, or protection of inter-component communications, the ST shall identify the dependency and the guidance shall describe the required environmental configuration.
+The ST shall identify each Agent Application TOE Component, describe the role of each TOE Component, identify which claimed SFRs are implemented by each TOE Component, and describe all distinct Communication Relationship Types involving Agent Application TOE Components, including a relationship between instances of the same TOE Component where applicable. Repeated relationships may be represented using an unambiguous topology pattern rather than by enumerating every TOE Component Instance pair. The ST shall also distinguish TOE Components and their instances from operational environment components. If the TOE relies on operational environment components for execution, scheduling, networking, isolation, credential storage, configuration storage, time services, or protection of intra-TOE communications, the ST shall identify the dependency and the guidance shall describe the required environmental configuration.
 
 For a TOE application payload executing in a Linux container, an EA whose subject is behavior of the running payload shall use the Linux-specific method defined by the base cPP and Supporting Document. This does not satisfy or make inapplicable an activity whose subject is the container image or update artifact, installation or update workflow, runtime or orchestrator configuration or dependency, or an externally exposed interface or channel; each such activity shall be performed at the artifact, platform, lifecycle, interface, or channel layer stated by the activity. An operational-environment service may satisfy a claimed SFR only where that SFR expressly permits platform-provided functionality.
 
-The ST need not iterate an SFR solely because it is allocated to more than one TOE component. A single completion of the SFR, including one iteration when needed, and a common TSS description may be mapped to multiple TOE component types or communication relationship types when the operations and claimed security-relevant behavior are the same. The ST shall identify all mapped component and relationship types and shall use separate iterations when different operations are needed to express the claims.
+The ST need not iterate an SFR solely because it is allocated to more than one TOE Component. A single completion of the SFR, including one iteration when needed, and a common TSS description may be mapped to multiple TOE Components or Communication Relationship Types when the operations and claimed security-relevant behavior are the same. The ST shall identify all mapped TOE Components and Communication Relationship Types and shall use separate iterations when different operations are needed to express the claims.
 
-For evaluation, named SFR Implementation Instances used by mapped TOE component types may be placed in Component Implementation-Equivalence Classes as specified in the Supporting Document. A class may list multiple SFR iterations and implementation-specific portions of Evaluation Activities when its member SFR Implementation Instances and equivalence basis are identical for the listed scope. Interfaces and communication relationships remain separate coverage targets. Class membership does not change SFR applicability: every component to which an SFR applies shall satisfy it. Component implementation equivalence within one distributed TOE is distinct from Product Equivalence and Platform Equivalence under the base-PP equivalency guidance.
+For evaluation, named SFR Implementation Instances used by mapped TOE Components and identified security-relevant configurations, where applicable, may be placed in Component Implementation-Equivalence Classes as specified in the Supporting Document. A class may list multiple SFR iterations and implementation-specific portions of Evaluation Activities when its member SFR Implementation Instances and equivalence basis are identical for the listed scope. Interfaces and communication relationships remain separate coverage targets. Class membership does not change SFR applicability: every TOE Component to which an SFR applies shall satisfy it, and every TOE Component Instance shall exhibit the claimed behavior of its TOE Component in its identified configuration. Component implementation equivalence within one distributed TOE is distinct from Product Equivalence and Platform Equivalence under the base-PP equivalency guidance.
 
 == CC Conformance Claims
 As defined by the references <<CC1>>, <<CC2>> and <<CC3>>, this PP-Module:
@@ -139,7 +139,7 @@ Additionally attackers may attempt to connect via untrusted entities and use tha
 SFR Rationale:
 
 * FCO_CPC_EXT.1/Agent SFR ensures that only trusted entities connect with each other.
-* FTP_DIT_EXT.1 in the {base-pp} ensures that communication between TOE components is protected using well known protocols.
+* FTP_DIT_EXT.1 in the {base-pp} ensures that communication between TOE Component Instances is protected using well known protocols.
 
 === Assumptions
 
@@ -184,10 +184,10 @@ Extended SFRs are identified by having a label “EXT” at the end of the SFR n
 === Communication (FCO)
 ==== FCO_CPC_EXT.1/Agent
 *FCO_CPC_EXT.1.1/Agent*
-The TSF shall require a Security Administrator to enable communications between any pair of TOE components before such communication can take place.
+The TSF shall require a Security Administrator to enable a permitted communication pairing before communication governed by that pairing can take place. Each endpoint identity shall represent either an unambiguous set of one or more TOE Component Instances of one TOE Component that share a TOE Component identity, including any Runtime Replicas, or one separately managed TOE Component Instance.
 
 *FCO_CPC_EXT.1.2/Agent*
-The TSF shall implement a registration process in which TOE components establish and use a communications channel that uses [_selection:_
+The TSF shall implement a registration process in which TOE Component Instances represented by an enabled communication pairing establish and use a communications channel that uses [_selection:_
 
 * _a channel protected according to FTP_DIT_EXT.1,_
 
@@ -195,14 +195,14 @@ The TSF shall implement a registration process in which TOE components establish
 
 ].
 
-*Application Note {counter:appnote}:* An Agent can communicate with a Server, another Agent, or another separately deployed TOE component identified in the ST. In a microservices architecture, this may include communication between application payload services. One completed iteration may cover multiple component pairs that use the same registration selection and completed operations. The ST shall map every applicable pair or unambiguous set of pairs to an iteration and shall use a separate iteration when the registration selection or another completed operation differs. Sharing an SFR iteration does not, by itself, establish that test evidence may be reused; representative testing is governed by the Supporting Document. Protection of data transmitted between TOE components is addressed by FTP_DIT_EXT.1 in the base cPP. "No channel" is selected if the registration is performed via out-of-band manual means.
+*Application Note {counter:appnote}:* A communication pairing is the administrative control object for a permitted relationship, while communication is realized between the TOE Component Instances represented by its endpoint identities. Either endpoint identity may represent an unambiguous set of one or more TOE Component Instances of one TOE Component that share a TOE Component identity, including any Runtime Replicas, or one separately managed TOE Component Instance, so a pairing may use either model at each endpoint. A control applied to a shared TOE Component identity applies to every instance represented by that identity and permitted topology; it need not enumerate each Runtime Replica. The TSF may disable a pairing directly or by disabling an endpoint identity, provided the result prevents all communication authorized solely by that pairing. The ST shall describe the administrative-identity model, the set of TOE Component Instances represented by each endpoint identity, and the effect of disabling a pairing or endpoint identity. It shall map each pairing to its Communication Relationship Type or Types and applicable FCO_CPC_EXT.1/Agent iteration, map every applicable identity model, and use a separate iteration when the registration selection or another completed operation differs. In a microservices architecture, a pairing may govern communication between application payload services having Server Application, Agent Application, or other roles identified in the ST. Sharing an SFR iteration does not, by itself, establish that test evidence may be reused; representative testing is governed by the Supporting Document. Protection of data transmitted between TOE Component Instances is addressed by FTP_DIT_EXT.1 in the base cPP. "No channel" is selected if the registration is performed via out-of-band manual means.
 
 *FCO_CPC_EXT.1.3/Agent*
-The TSF shall enable a Security Administrator to disable communications between any pair of TOE components.
+The TSF shall enable a Security Administrator to disable any enabled communication pairing.
 
 === Protection of the TSF (FPT)
 
-This PP-Module does not define separate FPT_ITT requirements. Protection of data transmitted between TOE components is addressed by FTP_DIT_EXT.1 in the base cPP.
+This PP-Module does not define separate FPT_ITT requirements. Protection of data transmitted between TOE Component Instances is addressed by FTP_DIT_EXT.1 in the base cPP.
 
 == Security Assurance Requirements
 
@@ -240,7 +240,7 @@ This is a new component within the FCO class used to define high-level constrain
             +---------------------------------------+     +-----+
 ....
 
-FCO_CPC_EXT.1/Agent Component Registration Channel Definition, requires the TSF to support a registration channel for joining together server and agent TOE components or other distributed application TOE components, and to ensure that the availability of this channel is under the control of an Administrator. It also requires statement of whether the channel is protected according to FTP_DIT_EXT.1 or performed through an out-of-band manual process.
+FCO_CPC_EXT.1/Agent Component Registration Channel Definition requires the TSF to support a registration channel for TOE Component Instances represented by an administrator-enabled communication pairing and to ensure that each pairing can be disabled by an Administrator. It also requires a statement of whether the channel is protected according to FTP_DIT_EXT.1 or established through an out-of-band manual process.
 
 *Management: FCO_CPC_EXT.1/Agent*
 
@@ -253,8 +253,8 @@ The following actions could be considered for the management functions in FPT:
 
 The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
 [loweralpha]
-. Enabling communications between a pair of TOE components as in FCO_CPC_EXT.1.1/Agent (including identities of the endpoints).
-. Disabling communications between a pair of TOE components as in FCO_CPC_EXT.1.3/Agent (including identity of the endpoint that is disabled).
+. Enabling a communication pairing as in FCO_CPC_EXT.1.1/Agent, including each endpoint identity and whether it represents a set of one or more TOE Component Instances sharing a TOE Component identity or one separately managed TOE Component Instance.
+. Disabling a communication pairing as in FCO_CPC_EXT.1.3/Agent, including the endpoint identities and whether the pairing or an endpoint identity was disabled.
 
 *FCO_CPC_EXT.1/Agent*
 
@@ -262,9 +262,9 @@ Hierarchical to:	No other components
 
 Dependencies:		No other components
 
-*FCO_CPC_EXT.1.1/Agent* The TSF shall require a Security Administrator to enable communications between any pair of TOE components before such communication can take place.
+*FCO_CPC_EXT.1.1/Agent* The TSF shall require a Security Administrator to enable a permitted communication pairing before communication governed by that pairing can take place. Each endpoint identity shall represent either an unambiguous set of one or more TOE Component Instances of one TOE Component that share a TOE Component identity, including any Runtime Replicas, or one separately managed TOE Component Instance.
 
-*FCO_CPC_EXT.1.2/Agent* The TSF shall implement a registration process in which TOE components establish and use a communications channel that uses [_selection:_
+*FCO_CPC_EXT.1.2/Agent* The TSF shall implement a registration process in which TOE Component Instances represented by an enabled communication pairing establish and use a communications channel that uses [_selection:_
 
 ** _a channel protected according to FTP_DIT_EXT.1,_
 
@@ -272,7 +272,7 @@ Dependencies:		No other components
 
 ].
 
-*FCO_CPC_EXT.1.3/Agent* The TSF shall enable a Security Administrator to disable communications between any pair of TOE components.
+*FCO_CPC_EXT.1.3/Agent* The TSF shall enable a Security Administrator to disable any enabled communication pairing.
 
 [appendix]
 == Consistency Rationale
