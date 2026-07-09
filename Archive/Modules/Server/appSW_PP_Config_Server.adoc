@@ -47,6 +47,11 @@ This PP-Configuration is for enterprise server applications.
 
 A TOE that includes multiple distinct, separately deployed application component types that collectively provide the TOE security functionality shall use the PP-Configuration for Enterprise Server Applications and Agent/Application Component(s) when its component relationships satisfy the Agent Module's registration, enablement, disablement, and protected-communication model. Multiple Runtime Replicas of the same TOE Component Type, as defined by the base cPP, do not, by themselves, trigger this requirement. This Server-only PP-Configuration does not define an alternative distributed-TOE allocation path; a distributed product that does not fit the Agent Module control model requires another approved PP-Configuration or iTC guidance.
 
+.Base cPP terminology used in Figures 1 and 2
+* A _TOE component_ is a separately deployed portion of the TOE that is identified in the ST and mapped to the base cPP and relevant SFRs (Section 1.5, _Distributed and Microservices TOE Architectures_).
+* _TOE Component Type_, _Runtime Replica_, and _Communication Relationship Type_ are defined in Section 1.2.2, _Technical Terms_.
+* In Figure 2, each S-1 through S-n or A-1 through A-n box is a deployed TOE component; its connected Component Type box identifies the TOE Component Type; identical deployed copies of that type are Runtime Replicas; and R1 denotes a Communication Relationship Type.
+
 The following figures illustrate this applicability rule. They are explanatory; the conformance text and the requirements in the claimed PP-Configuration components control.
 
 [[fig-pp-configuration-selection]]
