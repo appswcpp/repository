@@ -125,6 +125,24 @@ The evaluator uses these criteria to determine whether the EA has demonstrated t
 +
 Specific reporting requirements that support transparency and reproducibility of the Pass/Fail judgement are defined here.
 
+=== Representative Execution for Distributed TOE Components
+
+For a distributed TOE, every TOE component to which an SFR is allocated shall satisfy that requirement, and every applicable artifact, interface, communication relationship, configuration, and deployment context shall be covered by the EAs at their stated scope. A Component Implementation-Equivalence Class groups named SFR Implementation Instances used by TOE component types; it does not group or eliminate coverage of interfaces or communication relationships. An SFR Implementation Instance is a unique use of an implementation by a component type, independent of runtime replica count. Representative execution with complete class-membership verification is not sampling.
+
+The ST shall provide concise traceability from each TOE component type to its SFR iteration and, where evidence reuse is claimed, to a class identifier and common TSS description. The ST may identify unambiguous sets of component types and need not map components to individual EAs. The developer shall provide an implementation-equivalence rationale, which may be separate from the ST, identifying the class members, all SFR iterations covered, and the exact implementation-specific EA paragraphs or test identifiers for which reuse is proposed.
+
+Class members shall have the same security-relevant implementation and version, wrapper or integration behavior, security-relevant build options, implementation configuration and values relevant to the reused activities, role and exercised code path, cryptographic provider where applicable, and immediate platform services and interfaces relevant to the reused activities. Channel-specific certificates, keys, trust-anchor values, endpoint identities, addresses, and similar deployed values may differ when they do not alter the reused implementation behavior and are covered by retained interface- or channel-specific activities. The rationale shall identify peripheral differences reasonably capable of affecting the scoped results and explain why they cannot do so. A common base image, runtime, library name, source repository, or build pipeline alone is not sufficient. When the prerequisites or the effect of a relevant peripheral difference cannot be substantiated, the affected SFR Implementation Instances may not share representative execution for that scope.
+
+The evaluator shall examine objective evidence for every claimed class member and select one or more representatives that collectively expose all behavior relevant to the identified activities. Objective evidence may include artifact identifiers or hashes, dependency manifests, software bills of materials, build records, configuration records, or observed invocation paths. If the selected representatives do not expose all relevant behavior, the evaluator shall require additional execution or determine that the class is not substantiated for that scope.
+
+The base cPP Supporting Document's general guidance for Linux-container application payloads applies to every Running-Payload Activity portion of an EA in this Supporting Document. Image, runtime, and orchestrator differences are evaluated separately when they are outside the scope of a running-payload activity. If one of those differences can affect a proposed reused running-payload result, it is also a class-relevant difference and shall be addressed by the implementation-equivalence rationale.
+
+Representative execution eliminates only duplicate execution of the same implementation-specific activity across class members. It does not reduce any test count, parameter combination, supported algorithm, protocol role, configuration, certificate case, negative test, artifact, interface, channel, communication relationship, deployment context, or end-to-end coverage required by the originating EA. A single execution may be cited for more than one SFR Implementation Instance, SFR, or EA only when it demonstrates every applicable objective and the evaluator preserves a separate coverage mapping and verdict for each.
+
+The evaluation report shall identify each class, the membership evidence examined, the representative or representatives selected, the activities performed, the repetitions not performed, and the artifact-, interface-, channel-, configuration-, deployment-, and end-to-end checks performed separately. Use of this procedure does not deem an EA inapplicable or transfer compliance from one component to another.
+
+For TLS and similar trusted-channel testing, multiple component types may share the complete protocol-implementation test suite only when the SFR Implementation Instances of their substantiated TLS implementation meet the class prerequisites above. Every distinct interface and channel remains subject to the required connection, credential, trust, identity, traffic-protection, interruption, recovery, and integration checks, and all internal repetitions required by the protocol EA shall be performed on the representative. TLS termination performed by an operational-environment service mesh or ingress component is an environmental dependency, not a shared TOE implementation, unless that component is explicitly included in the TOE boundary. An operational-environment termination point cannot be credited as satisfying FTP_DIT_EXT.1 or another TOE-implemented channel requirement unless the applicable SFR expressly permits platform-provided functionality.
+
 === Justification for EAs for SFRs
 
 EAs in this SD provide specific or more detailed guidance to evaluate the _type of_ system, however, it is the CEM work units based on which the evaluator shall perform evaluations.
@@ -147,6 +165,8 @@ Assessment Strategy for ATE_IND requires the evaluator to conduct testing that t
 
 The evaluator shall review the TSS to identify where the application's configuration data is stored. The evaluator shall also verify that the TSS identifies who has read and write access to the configuration data. 
 
+For a Linux-container application payload, the TSS shall distinguish configuration baked into the image from configuration supplied through mounted files or volumes, injected environment or command-line values, runtime APIs, and orchestrator-managed configuration objects. It shall identify the effective path or interface used by the running payload and the source or attachment layer that controls each value.
+
 ====== Operational Guidance
 
 No activities specified.
@@ -155,13 +175,13 @@ No activities specified.
 
 The evaluator shall run the following tests:
 
-* Test 1: The evaluator shall verify that the access rules for the configuration files align with the read and write access identified in the TSS.  
+* Test 1: The evaluator shall verify that the access rules for the configuration files and other configuration sources or attachment mechanisms align with the read and write access identified in the TSS.
 
-* Test 2: The evaluator shall run the application while monitoring it with the following platform specific tools and make changes to its configuration. The evaluator shall verify that the tool logs show corresponding changes to the locations identified in the TSS for storage of configuration data. The following platform specific tools and procedures must be used:
+* Test 2: The evaluator shall exercise the application's mutable configuration while monitoring it with the following platform-specific tools. For configuration that is immutable or supplied only at launch, the evaluator shall exercise the documented restart or replacement workflow and verify the resulting effective configuration. The following platform-specific tools and procedures must be used:
 ** Windows: SystInternal tool ProcMon
 *** The evaluator shall run the application while monitoring it with the SysInternal tool ProcMon and make changes to its configuration. The evaluator shall verify that ProcMon logs show corresponding changes to the locations identified in the TSS for storage of configuration data.
 ** Linux or macOS: strace (or equivalent utility)
-*** The evaluator shall run the application while monitoring it with the utility strace. The evaluator shall make security-related changes to its configuration. The evaluator shall verify that strace logs corresponding changes to configuration files that reside in /etc (for system-specific configuration) or in the user's home directory (for user-specific configuration).
+*** The evaluator shall run the application while monitoring it with the utility strace and make security-related changes to mutable configuration. For a Linux-container payload, the evaluator shall apply the base cPP running-payload method to the actual process and shall not treat /etc or the user's home directory as exhaustive. For mutable files, volumes, or runtime APIs, the evaluator shall verify the corresponding access or change at every effective location identified in the TSS. For image-baked configuration or launch-time environment, command-line, mounted, or injected values, the evaluator shall examine the exact image, source, and attachment mechanism; cause the documented restart or replacement; and verify the resulting effective configuration in the replacement TOE process. When the value originates from a runtime or orchestrator object, the evaluator shall also trace and assess that source or attachment at the operational-environment layer. An in-process change is not required for a value that is immutable or consumed only at process launch.
 
 
 ==== Specification of Management Functions (FMT_SMF)
@@ -198,7 +218,7 @@ No activities specified.
 The evaluator shall configure the platform in the ascribed manner and carry out one of the prescribed tests:
 
 * Test 1: [conditional] If the application is being tested on Windows, the evaluator shall ensure that the application can run successfully with Windows Defender Exploit Guard Exploit Protection configured with the following minimum mitigations enabled; Control Flow Guard (CFG), Randomize memory allocations (Bottom-Up ASLR), Export address filtering (EAF), Import address filtering (IAF), and Data Execution Prevention (DEP). The following link describes how to enable Exploit Protection, https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/enable-exploit-protection. 
-* Test 2: [conditional] If the application is being tested on Linux, the evaluator shall ensure that the application can successfully run on a system with SELinux (or equivalent platform vendor recommended security features) enabled and enforcing.
+* Test 2: [conditional] If the application is being tested on Linux, including as a Linux-container payload, the evaluator shall ensure that the application can successfully run while the relevant Linux host or kernel security control, such as SELinux or AppArmor or an equivalent platform-vendor-recommended feature, is enabled and enforcing and the evaluated runtime or orchestrator profile is applied. The running-payload execution does not replace assessment of the runtime or orchestrator configuration and environmental dependency through which that control is applied.
 * Test 3: [conditional] If the application is being tested on macOS, the evaluator shall ensure that the application can successfully run on a system without disabling System Integrity Protection (SIP).
 
 == Evaluation Activities for Selection-Based Requirements

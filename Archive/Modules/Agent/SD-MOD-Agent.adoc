@@ -122,6 +122,24 @@ The evaluator uses these criteria to determine whether the EA has demonstrated t
 +
 Specific reporting requirements that support transparency and reproducibility of the Pass/Fail judgement are defined here.
 
+=== Representative Execution for Distributed TOE Components
+
+For a distributed TOE, every TOE component to which an SFR is allocated shall satisfy that requirement, and every applicable artifact, interface, communication relationship, configuration, and deployment context shall be covered by the EAs at their stated scope. A Component Implementation-Equivalence Class groups named SFR Implementation Instances used by TOE component types; it does not group or eliminate coverage of interfaces or communication relationships. An SFR Implementation Instance is a unique use of an implementation by a component type, independent of runtime replica count. Representative execution with complete class-membership verification is not sampling.
+
+The ST shall provide concise traceability from each TOE component type to its SFR iteration and, where evidence reuse is claimed, to a class identifier and common TSS description. The ST may identify unambiguous sets of component types and need not map components to individual EAs. The developer shall provide an implementation-equivalence rationale, which may be separate from the ST, identifying the class members, all SFR iterations covered, and the exact implementation-specific EA paragraphs or test identifiers for which reuse is proposed.
+
+Class members shall have the same security-relevant implementation and version, wrapper or integration behavior, security-relevant build options, implementation configuration and values relevant to the reused activities, role and exercised code path, cryptographic provider where applicable, and immediate platform services and interfaces relevant to the reused activities. Channel-specific certificates, keys, trust-anchor values, endpoint identities, addresses, and similar deployed values may differ when they do not alter the reused implementation behavior and are covered by retained interface- or channel-specific activities. The rationale shall identify peripheral differences reasonably capable of affecting the scoped results and explain why they cannot do so. A common base image, runtime, library name, source repository, or build pipeline alone is not sufficient. When the prerequisites or the effect of a relevant peripheral difference cannot be substantiated, the affected SFR Implementation Instances may not share representative execution for that scope.
+
+The evaluator shall examine objective evidence for every claimed class member and select one or more representatives that collectively expose all behavior relevant to the identified activities. Objective evidence may include artifact identifiers or hashes, dependency manifests, software bills of materials, build records, configuration records, or observed invocation paths. If the selected representatives do not expose all relevant behavior, the evaluator shall require additional execution or determine that the class is not substantiated for that scope.
+
+The base cPP Supporting Document's general guidance for Linux-container application payloads applies to every Running-Payload Activity portion of an EA in this Supporting Document. Image, runtime, and orchestrator differences are evaluated separately when they are outside the scope of a running-payload activity. If one of those differences can affect a proposed reused running-payload result, it is also a class-relevant difference and shall be addressed by the implementation-equivalence rationale.
+
+Representative execution eliminates only duplicate execution of the same implementation-specific activity across class members. It does not reduce any test count, parameter combination, supported algorithm, protocol role, configuration, certificate case, negative test, artifact, interface, channel, communication relationship, deployment context, or end-to-end coverage required by the originating EA. A single execution may be cited for more than one SFR Implementation Instance, SFR, or EA only when it demonstrates every applicable objective and the evaluator preserves a separate coverage mapping and verdict for each.
+
+The evaluation report shall identify each class, the membership evidence examined, the representative or representatives selected, the activities performed, the repetitions not performed, and the artifact-, interface-, channel-, configuration-, deployment-, and end-to-end checks performed separately. Use of this procedure does not deem an EA inapplicable or transfer compliance from one component to another.
+
+For TLS and similar trusted-channel testing, multiple component types may share the complete protocol-implementation test suite only when the SFR Implementation Instances of their substantiated TLS implementation meet the class prerequisites above. Every distinct interface and channel remains subject to the required connection, credential, trust, identity, traffic-protection, interruption, recovery, and integration checks, and all internal repetitions required by the protocol EA shall be performed on the representative. TLS termination performed by an operational-environment service mesh or ingress component is an environmental dependency, not a shared TOE implementation, unless that component is explicitly included in the TOE boundary. An operational-environment termination point cannot be credited as satisfying FTP_DIT_EXT.1 or another TOE-implemented channel requirement unless the applicable SFR expressly permits platform-provided functionality.
+
 === Justification for EAs for SFRs
 
 EAs in this SD provide specific or more detailed guidance to evaluate the _type of_ system, however, it is the CEM work units based on which the evaluator shall perform evaluations.
@@ -163,15 +181,15 @@ As background for the examination of the registration channel description, it is
 ====== Test
 The evaluator shall carry out the following tests:
 
-* Test 1.1: The evaluator shall confirm that an Agent application that is not currently a member of the TOE cannot communicate with any TOE component until the non-member entity is enabled by a Security Administrator for each of the non-equivalent TOE components with which it is required to communicate.
+* Test 1.1: The evaluator shall confirm that an Agent application that is not currently a member of the TOE cannot communicate with any TOE component until the non-member entity is enabled by a Security Administrator. The evaluator shall perform the test for every distinct combination of communication-control role, registration or enablement interface, mechanism, and communication-relationship type with which the Agent is required to communicate.
 
 * Test 1.2: The evaluator shall confirm that after enablement, an Agent application can communicate only with the TOE component that it has been enabled for. This includes testing that the enabled communication is successful for the enabled pair, and that communication remains unsuccessful with any other TOE component for which communication has not been explicitly enabled.
 
 Some TOEs may set up the registration channel before the enablement step is carried out, but in such a case the channel must not allow communications until after the enablement step has been completed.
 
-The evaluator shall repeat Tests 1.1 and 1.2 for each different type of enablement process that can be used in the TOE.
+The evaluator shall repeat Tests 1.1 and 1.2 for every distinct combination above and for each different type of enablement process that can be used in the TOE. The tests need not be repeated solely for identical runtime replicas of the same component type and relationship when the replicas have no separately managed identity, configuration, interface, or behavior that can affect the result.
 
-* Test 2: The evaluator shall separately disable each TOE component in turn and ensure that the other TOE components cannot then communicate with the disabled component, whether by attempting to initiate communications with the disabled component or by responding to communication attempts from the disabled component.
+* Test 2: The evaluator shall separately disable a TOE component for every distinct combination of component type, administrative-identity model, communication-control interface, mechanism, and communication-relationship type, and ensure that the other TOE components cannot then communicate with the disabled component, whether by attempting to initiate communications with it or by responding to its communication attempts. Identical runtime replicas need not each be tested unless a separately managed identity, configuration, interface, or behavior can affect the result.
 
 * Test 3: The evaluator shall carry out the following tests according to those that apply to the values of the selection made in the ST for FCO_CPC_EXT.1.2/Agent.
 
@@ -181,6 +199,8 @@ The evaluator shall repeat Tests 1.1 and 1.2 for each different type of enableme
 * Test 4 [conditional]: If _a channel protected according to FTP_DIT_EXT.1_ is selected in FCO_CPC_EXT.1.2/Agent, the evaluator shall perform one of the following tests, according to the TOE characteristics identified in its TSS and operational guidance:
 ** If the registration channel is not subsequently used for communication between TOE components, then the evaluator shall confirm that the registration channel can no longer be used after the registration process has completed, by attempting to use the channel to communicate with each of the endpoints after registration has completed.
 ** If the registration channel is subsequently used for communication between TOE components then the evaluator shall confirm that any aspects identified in the operational guidance as necessary to meet the requirements for a steady-state inter-component channel (as in FTP_DIT_EXT.1) can indeed be carried out (e.g. there might be a requirement to replace the default key pair and/or public key certificate).
+
+The evaluator shall repeat Test 4 for every distinct registration-channel interface and every distinct post-registration teardown or conversion behavior. The test need not be repeated solely for identical Runtime Replicas when the interface, identity, trust, configuration, and behavior are the same.
 
 
 

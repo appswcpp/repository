@@ -44,6 +44,10 @@ The purpose of a PP-Configuration is to combine Protection Profiles (PPs) and PP
 
 This PP-Configuration is for enterprise server applications.
 
+A TOE that includes multiple distinct, separately deployed application component types that collectively provide the TOE security functionality shall use the PP-Configuration for Enterprise Server Applications and Agent/Application Component(s) when its component relationships satisfy the Agent Module's registration, enablement, disablement, and protected-communication model. Multiple runtime replicas of the same component artifact and configuration do not, by themselves, trigger this requirement. This Server-only PP-Configuration does not define an alternative distributed-TOE allocation path; a distributed product that does not fit the Agent Module control model requires another approved PP-Configuration or iTC guidance.
+
+A Server Application payload executing in a Linux container remains subject to the base cPP and Supporting Document guidance for Linux Running-Payload Activities, including separate artifact, update-lifecycle, runtime or orchestrator dependency, and external-interface or channel coverage at the layer stated by each EA.
+
 === PP-Configuration Reference
 
 This PP-Configuration is identified as follows:

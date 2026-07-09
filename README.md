@@ -5,6 +5,8 @@
 
 This repository hosts the collaborative Protection Profile (cPP) for Application Software, maintained by the Application Software international Technical Community (AppSW-iTC).
 
+The v2 base cPP and its Supporting Document are both generated from `input/application.xml`. Evaluation Activities embedded in that XML are projected into `output/application-sd.html`; `Archive/cPP/SD_APP_SW.adoc` is the historical v1.0e SD and is not a v2 production source.
+
 ## Draft Version
 
 - [collaborative Protection Profile for Application Software](https://appswcpp.github.io/repository/Version-2/application-release.html) (HTML)
@@ -44,7 +46,7 @@ git commit
 
 | Directory | Description |
 |-----------|-------------|
-| `input/` | Source XML content that gets transformed to HTML |
+| `input/` | Authoritative v2 XML source for both the base cPP and generated base SD |
 | `output/` | Generated HTML output |
 | `transforms/` | Shared Common Criteria build transforms (submodule) |
 | `Modules/` | PP-Module directories (Agent, Server) |
