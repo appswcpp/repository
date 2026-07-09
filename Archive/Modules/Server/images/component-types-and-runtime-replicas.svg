@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">TOE Component Types compared with Runtime Replicas</title>
+  <desc id="desc">Panel A shows one server component type with multiple identical runtime replicas. Panel B shows distinct Server and Agent component types whose relationship follows the Agent Module control model.</desc>
+  <style>
+    .panel-title { font: 700 23px Arial, Helvetica, sans-serif; fill: #ffffff; }
+    .type-title { font: 700 21px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .replica { font: 700 18px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .body { font: 18px Arial, Helvetica, sans-serif; fill: #243b53; }
+    .small { font: 16px Arial, Helvetica, sans-serif; fill: #334e68; }
+    .outcome { font: 700 19px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .boundary { fill: #ffffff; stroke: #486581; stroke-width: 3; stroke-dasharray: 10 8; }
+  </style>
+
+  <rect width="1200" height="680" fill="#ffffff"/>
+
+  <rect x="20" y="20" width="560" height="640" rx="18" fill="#f7fafc" stroke="#829ab1" stroke-width="3"/>
+  <rect x="20" y="20" width="560" height="68" rx="18" fill="#0b3a67"/>
+  <rect x="20" y="70" width="560" height="18" fill="#0b3a67"/>
+  <text x="300" y="48" class="panel-title" text-anchor="middle">
+    <tspan x="300" dy="0">Server-only topology</tspan>
+    <tspan x="300" dy="27">one Component Type, multiple Runtime Replicas</tspan>
+  </text>
+
+  <rect x="48" y="112" width="504" height="405" rx="14" class="boundary"/>
+  <text x="68" y="140" class="small">TOE boundary</text>
+
+  <rect x="110" y="158" width="380" height="72" rx="12" fill="#b9e3ea" stroke="#087e8b" stroke-width="3"/>
+  <text x="300" y="188" class="type-title" text-anchor="middle">
+    <tspan x="300" dy="0">TOE Component Type S</tspan>
+    <tspan x="300" dy="26">Enterprise Server Application</tspan>
+  </text>
+
+  <path d="M300 230 L300 270 M155 270 L445 270 M155 270 L155 292 M300 270 L300 292 M445 270 L445 292" fill="none" stroke="#087e8b" stroke-width="4"/>
+
+  <rect x="95" y="292" width="120" height="70" rx="10" fill="#e1f3f6" stroke="#087e8b" stroke-width="2"/>
+  <rect x="240" y="292" width="120" height="70" rx="10" fill="#e1f3f6" stroke="#087e8b" stroke-width="2"/>
+  <rect x="385" y="292" width="120" height="70" rx="10" fill="#e1f3f6" stroke="#087e8b" stroke-width="2"/>
+  <text x="155" y="322" class="replica" text-anchor="middle"><tspan x="155">Runtime</tspan><tspan x="155" dy="22">Replica S-1</tspan></text>
+  <text x="300" y="322" class="replica" text-anchor="middle"><tspan x="300">Runtime</tspan><tspan x="300" dy="22">Replica S-2</tspan></text>
+  <text x="445" y="322" class="replica" text-anchor="middle"><tspan x="445">Runtime</tspan><tspan x="445" dy="22">Replica S-n</tspan></text>
+
+  <rect x="85" y="390" width="430" height="98" rx="11" fill="#f0f4f8" stroke="#829ab1" stroke-width="2"/>
+  <text x="300" y="417" class="body" text-anchor="middle">
+    <tspan x="300" dy="0">Same artifact, security-relevant configuration,</tspan>
+    <tspan x="300" dy="24">role, and relevant platform interface</tspan>
+    <tspan x="300" dy="24">as required by the Runtime Replica definition</tspan>
+  </text>
+
+  <rect x="62" y="542" width="476" height="86" rx="13" fill="#e9f7ef" stroke="#287d52" stroke-width="3"/>
+  <text x="300" y="574" class="outcome" text-anchor="middle">
+    <tspan x="300" dy="0">One TOE Component Type</tspan>
+    <tspan x="300" dy="26">scaling alone does not trigger the Agent Module</tspan>
+  </text>
+
+  <rect x="620" y="20" width="560" height="640" rx="18" fill="#f7fafc" stroke="#829ab1" stroke-width="3"/>
+  <rect x="620" y="20" width="560" height="68" rx="18" fill="#0b3a67"/>
+  <rect x="620" y="70" width="560" height="18" fill="#0b3a67"/>
+  <text x="900" y="48" class="panel-title" text-anchor="middle">
+    <tspan x="900" dy="0">Server + Agent topology</tspan>
+    <tspan x="900" dy="27">distinct Component Types with a controlled relationship</tspan>
+  </text>
+
+  <rect x="648" y="112" width="504" height="405" rx="14" class="boundary"/>
+  <text x="668" y="140" class="small">TOE boundary</text>
+
+  <rect x="670" y="158" width="210" height="82" rx="12" fill="#b9e3ea" stroke="#087e8b" stroke-width="3"/>
+  <rect x="920" y="158" width="210" height="82" rx="12" fill="#fbd5a6" stroke="#a86600" stroke-width="3"/>
+  <text x="775" y="188" class="type-title" text-anchor="middle"><tspan x="775">Component Type S</tspan><tspan x="775" dy="27">Server role</tspan></text>
+  <text x="1025" y="188" class="type-title" text-anchor="middle"><tspan x="1025">Component Type A</tspan><tspan x="1025" dy="27">Agent role</tspan></text>
+
+  <line x1="880" y1="199" x2="920" y2="199" stroke="#0b3a67" stroke-width="4"/>
+  <polygon points="920,199 904,189 904,209" fill="#0b3a67"/>
+  <polygon points="880,199 896,189 896,209" fill="#0b3a67"/>
+  <text x="900" y="183" class="small" text-anchor="middle">R1</text>
+
+  <path d="M775 240 L775 252 M717 252 L833 252 M717 252 L717 264 M833 252 L833 264" fill="none" stroke="#087e8b" stroke-width="3"/>
+  <path d="M1025 240 L1025 252 M967 252 L1083 252 M967 252 L967 264 M1083 252 L1083 264" fill="none" stroke="#a86600" stroke-width="3"/>
+
+  <rect x="670" y="264" width="94" height="54" rx="8" fill="#e1f3f6" stroke="#087e8b" stroke-width="2"/>
+  <rect x="786" y="264" width="94" height="54" rx="8" fill="#e1f3f6" stroke="#087e8b" stroke-width="2"/>
+  <text x="717" y="296" class="replica" text-anchor="middle">S-1</text>
+  <text x="833" y="296" class="replica" text-anchor="middle">S-n</text>
+
+  <rect x="920" y="264" width="94" height="54" rx="8" fill="#fff0dd" stroke="#a86600" stroke-width="2"/>
+  <rect x="1036" y="264" width="94" height="54" rx="8" fill="#fff0dd" stroke="#a86600" stroke-width="2"/>
+  <text x="967" y="296" class="replica" text-anchor="middle">A-1</text>
+  <text x="1083" y="296" class="replica" text-anchor="middle">A-n</text>
+
+  <rect x="682" y="370" width="436" height="118" rx="11" fill="#fff6dd" stroke="#a86600" stroke-width="2"/>
+  <text x="900" y="397" class="body" text-anchor="middle">
+    <tspan x="900" dy="0">Agent Module control model</tspan>
+    <tspan x="900" dy="24">registration using the selected permitted method</tspan>
+    <tspan x="900" dy="24">administrator enablement and disablement</tspan>
+    <tspan x="900" dy="24">applicable FTP_DIT_EXT.1 communication protection</tspan>
+  </text>
+
+  <rect x="662" y="542" width="476" height="86" rx="13" fill="#e9f7ef" stroke="#287d52" stroke-width="3"/>
+  <text x="900" y="574" class="outcome" text-anchor="middle">
+    <tspan x="900" dy="0">Distinct TOE Component Types + Agent-model relationship</tspan>
+    <tspan x="900" dy="26">use the Server + Agent PP-Configuration</tspan>
+  </text>
+</svg>
