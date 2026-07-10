@@ -50,7 +50,7 @@ This PP-Configuration is for enterprise server applications and their agent or a
 This PP-Configuration is identified as follows:
 
 * PP-Configuration for Enterprise Server Applications and Agent/Application Component(s), Version {revnumber}, {revdate}
-* As a shorthand reference, it can be identified as "CFG_APP-Server-Agent_V{revnumber}""
+* As a shorthand reference, it can be identified as "CFG_APP-Server-Agent_V{revnumber}"
 
 === PP-Configuration Components
 
@@ -123,7 +123,10 @@ The terms _TOE Component_, _TOE Component Instance_, _Runtime Replica_, _Communi
 |Identify it as the delivery or authorized-source dependency. Every TOE image or package, applicable signature or integrity check, installation or replacement path, and required removal behavior remains subject to the applicable trusted-update activities. Document any supported rollback behavior without treating it as an additional requirement unless a completed SFR or EA requires it.
 |===
 
+[%unbreakable]
+--
 The ST shall provide an SFR allocation rationale that identifies whether each claimed requirement is satisfied by all TOE Components, by applicable TOE Components that perform the relevant function, by at least one TOE Component, as a feature dependent requirement, or by an allowed operational environment dependency. The ST shall describe all distinct intra-TOE Communication Relationship Types and identify the mechanisms used to authorize and protect those communications. Repeated relationships may be represented using an unambiguous topology pattern rather than by enumerating every TOE Component Instance pair. Communication between TOE Component Instances that uses a network interface or network protocol stack is treated as transmitted data for FTP_DIT_EXT.1 regardless of whether the route is loopback, same-host virtual networking, container networking, a LAN, or a WAN. Non-network local inter-process communication, such as named pipes, Unix domain sockets, shared memory, platform-brokered IPC, or equivalent mechanisms, shall be identified in the ST and mapped to the applicable base cPP controls, platform access controls, object permissions, isolation mechanisms, configuration controls, or operational guidance.
+--
 
 ==== SFR Allocation for Distributed TOEs
 For a distributed TOE, the SFRs are satisfied by the TOE as a whole; however, not every SFR is necessarily implemented by every TOE Component. The ST author shall use the following allocation categories to identify how each SFR is satisfied by the distributed TOE. Every deployed TOE Component Instance shall exhibit the claimed SFR behavior allocated to its TOE Component in its identified configuration; deployment multiplicity does not permit one instance to satisfy an allocated requirement on behalf of another instance.
@@ -422,6 +425,7 @@ The Management API, Policy Service, and Update Coordinator are assigned both Ser
 
 The ST describes five TOE Components and a permitted instance topology rather than repeating the same SFR text twelve times. Multiple instances of a TOE Component are Runtime Replicas when they meet the base cPP definition. An instance with a different image is not a Runtime Replica and shall be separately identified as a TOE Component or explicitly identified configuration, as appropriate. An instance with another difference in security-relevant values, role, interface, identity model, or relevant platform service that can affect an SFR or EA is also not a Runtime Replica and shall be represented separately in the same manner.
 
+[%unbreakable]
 .Illustrative Allocation Extract
 [cols="2,3,5",options="header"]
 |===
@@ -453,6 +457,8 @@ The ST describes five TOE Components and a permitted instance topology rather th
 |Applicable Components
 |Each distinct image and every applicable verification, delivery, replacement, failure, and required removal path remain in the trusted-update matrix. Any supported rollback behavior is documented but is not an additional requirement unless a completed SFR or EA requires it.
 |===
+
+<<<
 
 .Illustrative Communication-Relationship Coverage
 [cols="2,2,2,4",options="header"]
@@ -502,6 +508,7 @@ Runtime Replicas do not create additional Communication Relationship Types solel
 
 The Update Coordinator's own update is shown as a bootstrap or self-update artifact lifecycle in the matrix below. It is not an additional intra-TOE Communication Relationship Type unless another TOE Component Instance performs that update-control communication.
 
+[%unbreakable]
 .Illustrative Trusted-Update Matrix Extract
 [cols="2,2,3,3",options="header"]
 |===

@@ -189,6 +189,8 @@ Some TOEs may set up the registration channel before the enablement step is carr
 
 The evaluator shall repeat Tests 1.1 and 1.2 for every distinct combination above and for each different type of enablement process that can be used in the TOE. The tests need not be repeated solely for additional Runtime Replicas or additional instance-specific identity values that use the same administrative-identity model when the differences cannot affect the result. Every distinct administrative-identity model, interface, configuration, or behavior that can affect the result remains covered.
 
+<<<
+
 * Test 2: The evaluator shall disable an enabled communication pairing for every distinct combination of TOE Components, administrative-identity model, communication-control interface, mechanism, and Communication Relationship Type. The evaluator shall ensure that no TOE Component Instance represented by one endpoint identity can then communicate under that pairing with an instance represented by the other endpoint identity, whether by attempting to initiate communications or by responding to communication attempts. If the TSF disables the pairing by disabling an endpoint identity, the evaluator shall confirm the documented effect on every other pairing that uses that identity. The test need not be repeated solely for additional Runtime Replicas or additional instance-specific identity values when the differences cannot affect the result.
 
 * Test 3: The evaluator shall carry out the following tests according to those that apply to the values of the selection made in the ST for FCO_CPC_EXT.1.2/Agent.

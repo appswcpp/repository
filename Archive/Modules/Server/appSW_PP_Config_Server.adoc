@@ -71,7 +71,7 @@ A Server Application payload executing in a Linux container remains subject to t
 This PP-Configuration is identified as follows:
 
 * PP-Configuration for Enterprise Server Applications, Version {revnumber}, {revdate}
-* As a shorthand reference, it can be identified as "CFG_APP-Server_V{revnumber}""
+* As a shorthand reference, it can be identified as "CFG_APP-Server_V{revnumber}"
 
 === PP-Configuration Components
 

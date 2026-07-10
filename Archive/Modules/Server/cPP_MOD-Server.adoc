@@ -168,6 +168,8 @@ All Assumptions of the {base-pp} apply also to this PP-Module.
 
 There are no OSPs for applications.
 
+<<<
+
 == Security Objectives 
 
 === Security Objectives for the TOE
@@ -271,6 +273,8 @@ There are currently no Optional requirements. Following section may be applicabl
 == Extended Component Definitions
 This appendix contains the definitions for the extended requirements that are used in the PP-Module, including those used in <<Consistency Rationale>> and <<Selection-Based Requirements>> . 
 
+<<<
+
 === Security Management (FMT)
 
 ==== Family Behaviour
@@ -322,6 +326,7 @@ This is a new component within the FPT class which addresses requirements to ens
 [#img-FPT-AEX-EXT]
 .Component leveling
 [ditaa, FPT_AEX_EXT, png]
+[%unbreakable]
 ....
             +---------------------------------------+     +-----+
             |    FPT_AEX_EXT Anti-Exploitation      |-----|  2  |
