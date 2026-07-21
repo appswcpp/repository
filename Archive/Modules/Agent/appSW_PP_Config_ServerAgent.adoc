@@ -3,8 +3,8 @@
 :toc:
 :table-caption: Table
 :icons: font
-:revnumber: 1.0e
-:revdate: 2024-02-15
+:revnumber: 2.0
+:revdate: 2026-07-21
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -34,6 +34,10 @@ This PP-Configuration was developed by the {iTC-longname} international Technica
 |2024-02-15
 |Incorporated feedback received following initial release.
 
+|2.0
+|2026-07-21
+|Draft-review updates.
+
 
 |===
 
@@ -60,13 +64,13 @@ This PP-Configuration includes the following components:
 [cols="1,3"]
 |===
 |[base PP] 
-|cPP_APP_SW_V1.1
+|cPP_APP_SW_V2.0
 
 |[PP-Module 1] 
-|MOD_Server_v1.1
+|MOD_Server_v2.0
 
 |[PP-Module 2] 
-|MOD_Agent_v1.1
+|MOD_Agent_v2.0
 
 |===
 
@@ -125,7 +129,7 @@ The terms _TOE Component_, _TOE Component Instance_, _Runtime Replica_, _Communi
 
 [%unbreakable]
 --
-The ST shall provide an SFR allocation rationale that identifies whether each claimed requirement is satisfied by all TOE Components, by applicable TOE Components that perform the relevant function, by at least one TOE Component, as a feature dependent requirement, or by an allowed operational environment dependency. The ST shall describe all distinct intra-TOE Communication Relationship Types and identify the mechanisms used to authorize and protect those communications. Repeated relationships may be represented using an unambiguous topology pattern rather than by enumerating every TOE Component Instance pair. Communication between TOE Component Instances that uses a network interface or network protocol stack is treated as transmitted data for FTP_DIT_EXT.1 regardless of whether the route is loopback, same-host virtual networking, container networking, a LAN, or a WAN. Non-network local inter-process communication, such as named pipes, Unix domain sockets, shared memory, platform-brokered IPC, or equivalent mechanisms, shall be identified in the ST and mapped to the applicable base cPP controls, platform access controls, object permissions, isolation mechanisms, configuration controls, or operational guidance.
+The ST shall provide an SFR allocation rationale that identifies the allocation category and any feature-dependent condition for each claimed requirement: all TOE Components, applicable TOE Components that perform the relevant function, at least one TOE Component, or an allowed operational environment dependency. The ST shall describe all distinct intra-TOE Communication Relationship Types and identify the mechanisms used to authorize and protect those communications. Repeated relationships may be represented using an unambiguous topology pattern rather than by enumerating every TOE Component Instance pair. Communication between TOE Component Instances that uses a network interface or network protocol stack is treated as transmitted data for FTP_DIT_EXT.1 regardless of whether the route is loopback, same-host virtual networking, container networking, a LAN, or a WAN. For non-network local inter-process communication, such as named pipes, Unix domain sockets, shared memory, platform-brokered IPC, or equivalent mechanisms, the ST shall identify the mechanism and the architectural protection relied upon, such as platform isolation, endpoint access control, or object permissions. Detailed implementation or configuration information is required only where an applicable SFR or Evaluation Activity requires it.
 --
 
 ==== SFR Allocation for Distributed TOEs
@@ -140,13 +144,19 @@ Every TOE Component that performs the relevant function shall satisfy the requir
 At Least One Component::
 At least one TOE Component shall satisfy the requirement on behalf of the TOE. The ST shall identify the component or components that satisfy the requirement and describe how this satisfies the TOE-level claim.
 
-Feature Dependent::
-The requirement applies only when the feature, selection, or objective requirement is claimed for the distributed TOE. The ST shall identify the TOE Component or components that perform the relevant function, make the relevant selection, or rely on the relevant platform functionality.
+Feature Dependent (condition of applicability)::
+The requirement applies only when the feature, selection, or objective requirement is claimed for the distributed TOE. This condition does not itself allocate the requirement or reduce evaluation coverage. When a feature-dependent requirement is claimed, the allocation in the applicable table controls which TOE Components have concrete implementation obligations. The ST shall identify the TOE Component or components that perform the relevant function, make the relevant selection, or rely on the relevant platform functionality.
 
 Operational Environment Dependency::
 The TOE relies on the operational environment for the function, where allowed by the base cPP or PP-Module. The ST shall identify the environmental dependency and the guidance shall describe the required environmental configuration.
 
-The allocation category is controlled by the following tables and the SFR's operations and application notes; the ST shall not freely reclassify an SFR. _At Least One Component_, _Feature Dependent_, and _Operational Environment Dependency_ may be used only where the applicable table or requirement expressly permits that category. Allocation shall be stated at the SFR-element level when different elements have different responsible TOE Components, update actors, or permitted platform dependencies.
+The allocation category and any feature-dependent condition are controlled by the following tables and the SFR's operations and application notes; the ST shall not freely reclassify an SFR. _At Least One Component_ and _Operational Environment Dependency_ may be used only where the applicable table or requirement expressly permits that category. Allocation shall be stated at the SFR-element level when different elements have different responsible TOE Components, update actors, or permitted platform dependencies. Evaluation evidence shall cover every TOE Component, artifact, communication path, or function allocated as responsible. Evidence for one TOE Component may be reused only where the ST demonstrates that the relevant implementation, configuration, and execution context are equivalent.
+
+===== Non-Normative Example: Conditional Update Selection and Component Coverage
+
+Consider a distributed TOE containing a Server Application image and an Agent Application package. The trusted-update selection in FPT_TUD_EXT.2 is feature dependent: if the selection is not claimed, the requirement is not applicable. If the selection is claimed, the table's _Applicable Components_ allocation applies. The ST identifies every TOE Component that performs update verification, delivery, replacement, or installation integrity functions, together with its artifact and path.
+
+For example, the Server Application may verify and install the Server image while the Agent Application verifies and installs the Agent package. The ST allocates the relevant FPT_TUD_EXT.2 elements to those responsible TOE Components. The Server evidence need not prove the Agent package verification or installation element, and the Agent evidence need not prove the Server image element; together, the evidence covers all allocated elements. A passing Server-image test, common registry, build pipeline, base image, or package format does not by itself satisfy the Agent update path unless the ST demonstrates equivalent security-relevant implementation, configuration, and execution context. This example does not alter the requirement or its Evaluation Activities.
 
 The following table defines the expected allocation for the base cPP SFRs in a distributed TOE.
 

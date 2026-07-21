@@ -4,8 +4,8 @@
 :table-caption: Table
 :imagesdir: images
 :icons: font
-:revnumber: 1.0e
-:revdate: 2023-02-15
+:revnumber: 2.0
+:revdate: 2026-07-21
 :xrefstyle: full
 
 :iTC-longname: iTC for Application Software
@@ -16,8 +16,8 @@
 :base-pp: Collaborative Protection Profile for Application Software
 :pp-name: Collaborative Protection Profile for Application Software
 :pp-module-name: collaborative PP-Module for Agent Applications
-:pp-version: Version 1.1
-:pp-date: 2022-08-16
+:pp-version: Version 2.0
+:pp-date: 2026-07-21
 :short name: SD_APP_AGENT_v{revnumber}
 
 = Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile Module for Agent Applications
@@ -26,7 +26,7 @@
 
 == Foreword
 
-This is a Supporting Document, intended to complement the Common Criteria (CC) version 3 and the associated Common Evaluation Methodology for Information Technology Security Evaluation.
+This is a Supporting Document, intended to complement the Common Criteria (CC) version 3.1 Revision 5 and the associated Common Evaluation Methodology for Information Technology Security Evaluation.
 
 Supporting Documents may be "Guidance Documents", that highlight specific approaches and application of the standard to areas where no mutual recognition of its application is required, and as such, are not of normative nature, or "Mandatory Technical Documents", whose application is mandatory for evaluations whose scope is covered by that of the Supporting Document. The usage of the latter class is not only mandatory, but certificates issued as a result of their application are recognized under the CCRA.
 
@@ -49,6 +49,10 @@ This Supporting Document was developed by the {iTC-longname} international Techn
 |1.0e
 |2024-02-15
 |Incorporated feedback received following initial release.
+
+|2.0
+|2026-07-21
+|Draft-review updates.
 
 |===
 
@@ -153,24 +157,24 @@ Assessment Strategy for AGD_OPE/ADV_FSP requires the evaluator to examine that t
 Assessment Strategy for ATE_IND requires the evaluator to conduct testing that the iTC has determined that those testing of the TOE in the context of the associated SFR is necessary. While the evaluator is expected to develop tests, there may be instances where it is more practical for the developer to construct tests, or where the developer may have existing tests. Therefore, it is acceptable for the evaluator to witness developer-generated tests in lieu of executing the tests. In this case, the evaluator must ensure the developer's tests are executing both in the manner declared by the developer and as mandated by the EA. The CEM work units that derive those EAs are: ATE_IND.1-3, ATE_IND.1-4, ATE_IND.1-5, ATE_IND.1-6, and ATE_IND.1-7.
 
 === Communication (FCO)
-==== Component Registration Channel Definition (FCO_CPC_EXT.1/Agent)
-===== FCO_CPC_EXT.1/Agent
+==== Component Registration Channel Definition (FCO_CPC_EXT.1)
+===== FCO_CPC_EXT.1
 
 ====== TSS
 
 The evaluator shall examine the TSS to confirm it:
 
-* Describes each permitted communication pairing, its Communication Relationship Type or Types and applicable FCO_CPC_EXT.1/Agent iteration, the method by which a Security Administrator enables and disables it, each endpoint identity, whether that identity represents an unambiguous set of one or more TOE Component Instances sharing a TOE Component identity (including any Runtime Replicas) or one separately managed TOE Component Instance, and the set of TOE Component Instances represented by the identity
-* Describes the relevant details according to the type of channel in the main selection made in FCO_CPC_EXT.1.2/Agent:
-** First type: the TSS identifies the relevant SFR iteration, if present, that specifies the channel used.
-** Second type: the TSS describes details of the channel and the mechanisms that it uses.
+* Describes each permitted communication pairing, its Communication Relationship Type or Types, the method by which a Security Administrator enables and disables it, each endpoint identity, whether that identity represents an unambiguous set of one or more TOE Component Instances sharing a TOE Component identity (including any Runtime Replicas) or one separately managed TOE Component Instance, and the set of TOE Component Instances represented by the identity
+* If a channel protected according to FTP_DIT_EXT.1 is selected in FCO_CPC_EXT.1.2, identifies the registration channel, the Communication Relationship Type it supports, the applicable FTP_DIT_EXT.1 claim, and the protocol, endpoint identities, authentication data, and protection mechanisms used.
 
 ====== Operational Guidance
 The evaluator shall examine the guidance documentation to confirm that it contains instructions for enabling and disabling every supported communication pairing. If the TSF implements pair disablement by disabling an endpoint identity, the guidance shall describe that behavior and its effect on other pairings. The evaluator shall confirm that disabling a pairing prevents every TOE Component Instance represented by one endpoint identity from communicating under that pairing with instances represented by the other endpoint identity, whether by attempting to initiate communications or by responding to communication attempts.
 
 The evaluator shall examine the guidance documentation to confirm that it includes recovery instructions should a connection be unintentionally broken during the registration process.
 
-If the TOE uses a registration channel for registering components to the TOE (i.e. where the ST author selects a channel protected according to FTP_DIT_EXT.1 in FCO_CPC_EXT.1.2/Agent) then the evaluator shall examine the Preparative Procedures to confirm that they:
+A registration channel selected as protected according to FTP_DIT_EXT.1 may be used over any untrusted network. This PP-Module makes no assumption that the registration network is trusted.
+
+If the TOE uses a registration channel for registering components to the TOE (i.e. where the ST author selects a channel protected according to FTP_DIT_EXT.1 in FCO_CPC_EXT.1.2) then the evaluator shall examine the Preparative Procedures to confirm that they:
 
 * describe the security characteristics of the registration channel (e.g. the protocol, keys and authentication data on which it is based).
 * identify any dependencies between the configuration of the registration channel and the security of the subsequent intra-TOE communications (e.g. where AES-256 intra-TOE communications depend on transmitting 256 bit keys between TOE Component Instances and therefore rely on the registration channel being configured to use an equivalent key length).
@@ -183,7 +187,7 @@ The evaluator shall carry out the following tests:
 
 * Test 1.1: For a required communication pairing that has not been enabled, the evaluator shall confirm that no Agent Application TOE Component Instance represented by one endpoint identity can communicate under that pairing with a TOE Component Instance represented by the other endpoint identity. The evaluator shall then enable the pairing as a Security Administrator. The evaluator shall perform the test for every distinct combination of communication-control role, administrative-identity model, registration or enablement interface, mechanism, and Communication Relationship Type.
 
-* Test 1.2: After enablement, the evaluator shall confirm that communication governed by the tested pairing succeeds between TOE Component Instances represented by its enabled endpoint identities and remains unsuccessful under that pairing for instances not represented by those identities.
+* Test 1.2: After enablement, the evaluator shall confirm that communication governed by the tested pairing succeeds between TOE Component Instances represented by its enabled endpoint identities and remains unsuccessful under that pairing for any TOE Component Instance for which communication is possible but has not been explicitly enabled.
 
 Some TOEs may set up the registration channel before the enablement step is carried out, but in such a case the channel must not allow communications until after the enablement step has been completed.
 
@@ -191,18 +195,12 @@ The evaluator shall repeat Tests 1.1 and 1.2 for every distinct combination abov
 
 <<<
 
-* Test 2: The evaluator shall disable an enabled communication pairing for every distinct combination of TOE Components, administrative-identity model, communication-control interface, mechanism, and Communication Relationship Type. The evaluator shall ensure that no TOE Component Instance represented by one endpoint identity can then communicate under that pairing with an instance represented by the other endpoint identity, whether by attempting to initiate communications or by responding to communication attempts. If the TSF disables the pairing by disabling an endpoint identity, the evaluator shall confirm the documented effect on every other pairing that uses that identity. The test need not be repeated solely for additional Runtime Replicas or additional instance-specific identity values when the differences cannot affect the result.
+* Test 2: The evaluator shall disable an enabled communication pairing for every distinct combination of TOE Components, administrative-identity model, communication-control interface, mechanism, and Communication Relationship Type. The evaluator shall ensure that no TOE Component Instance represented by one endpoint identity can then communicate under that pairing with an instance represented by the other endpoint identity, whether by attempting to initiate communications or by responding to communication attempts. If the TSF disables the pairing by disabling an endpoint identity, the evaluator shall confirm the documented effect on every other pairing that uses that identity. In situations where one component acts as the "Server" for all other components, the test would involve disabling the components in turn on the Server and ensuring that the TOE no longer communicates with disabled components. The test need not be repeated solely for additional Runtime Replicas or additional instance-specific identity values when the differences cannot affect the result.
 
-* Test 3: The evaluator shall carry out the following tests according to those that apply to the values of the selection made in the ST for FCO_CPC_EXT.1.2/Agent.
+* Test 3: The evaluator shall carry out the following tests according to those that apply to the values of the selection made in the ST for FCO_CPC_EXT.1.2.
 
-** If the ST uses the first type of communication channel in the selection in FCO_CPC_EXT.1.2/Agent then the evaluator tests the channel via the Evaluation Activities for FTP_DIT_EXT.1 in the base cPP.
+** If the ST selects a channel protected according to FTP_DIT_EXT.1 in FCO_CPC_EXT.1.2, the evaluator tests the channel via the Evaluation Activities for FTP_DIT_EXT.1 in the base cPP.
 ** If the ST uses the ‘no channel’ selection, then no test is required.
-
-* Test 4 [conditional]: If _a channel protected according to FTP_DIT_EXT.1_ is selected in FCO_CPC_EXT.1.2/Agent, the evaluator shall perform one of the following tests, according to the TOE characteristics identified in its TSS and operational guidance:
-** If the registration channel is not subsequently used for communication between TOE Component Instances, then the evaluator shall confirm that the registration channel can no longer be used after the registration process has completed, by attempting to use the channel to communicate with each of the endpoints after registration has completed.
-** If the registration channel is subsequently used for communication between TOE Component Instances then the evaluator shall confirm that any aspects identified in the operational guidance as necessary to meet the requirements for a steady-state intra-TOE channel (as in FTP_DIT_EXT.1) can indeed be carried out (e.g. there might be a requirement to replace the default key pair and/or public key certificate).
-
-The evaluator shall repeat Test 4 for every distinct registration-channel interface and every distinct post-registration teardown or conversion behavior. The test need not be repeated solely for additional Runtime Replicas or additional instance-specific deployed values when the differences cannot affect the result; retained interface- and channel-specific checks remain applicable at their stated scope.
 
 
 

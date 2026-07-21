@@ -4,8 +4,8 @@
 :sectnumlevels: 7
 :imagesdir: images
 :icons: font
-:revnumber: 1.0e
-:revdate: 2023-02-15
+:revnumber: 2.0
+:revdate: 2026-07-21
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -40,6 +40,10 @@ This collaborative Protection Profile Module (PP-Module) was developed by the {i
 |1.0e
 |2023-02-15
 |Incorporated feedback received following initial release.
+
+|2.0
+|2026-07-21
+|Draft-review updates.
 
 |===
 
@@ -141,7 +145,7 @@ Additionally attackers may attempt to connect via untrusted entities and use tha
 
 SFR Rationale:
 
-* FCO_CPC_EXT.1/Agent SFR ensures that only trusted entities connect with each other.
+* FCO_CPC_EXT.1 SFR ensures that only trusted entities connect with each other.
 * FTP_DIT_EXT.1 in the {base-pp} ensures that communication between TOE Component Instances is protected using well known protocols.
 
 === Assumptions
@@ -179,7 +183,7 @@ The following conventions are used for the completion of operations:
 
 * Number in parentheses after SFR name, e.g. (1) indicates the completion of an iteration.
 
-* '/Agent' has been added to every SFR in this module to distinguish SFRs added from Server modules.
+* '/Agent' has been added to every SFR in this module, except FCO_CPC_EXT.1, to distinguish SFRs added from Server modules.
 
 Extended SFRs are identified by having a label “EXT” at the end of the SFR name.
 
@@ -187,11 +191,11 @@ Extended SFRs are identified by having a label “EXT” at the end of the SFR n
 <<<
 
 === Communication (FCO)
-==== FCO_CPC_EXT.1/Agent
-*FCO_CPC_EXT.1.1/Agent*
+==== FCO_CPC_EXT.1
+*FCO_CPC_EXT.1.1*
 The TSF shall require a Security Administrator to enable a permitted communication pairing before communication governed by that pairing can take place. Each endpoint identity shall represent either an unambiguous set of one or more TOE Component Instances of one TOE Component that share a TOE Component identity, including any Runtime Replicas, or one separately managed TOE Component Instance.
 
-*FCO_CPC_EXT.1.2/Agent*
+*FCO_CPC_EXT.1.2*
 The TSF shall implement a registration process in which TOE Component Instances represented by an enabled communication pairing establish and use a communications channel that uses [_selection:_
 
 * _a channel protected according to FTP_DIT_EXT.1,_
@@ -200,9 +204,11 @@ The TSF shall implement a registration process in which TOE Component Instances 
 
 ].
 
-*Application Note {counter:appnote}:* A communication pairing is the administrative control object for a permitted relationship, while communication is realized between the TOE Component Instances represented by its endpoint identities. Either endpoint identity may represent an unambiguous set of one or more TOE Component Instances of one TOE Component that share a TOE Component identity, including any Runtime Replicas, or one separately managed TOE Component Instance, so a pairing may use either model at each endpoint. A control applied to a shared TOE Component identity applies to every instance represented by that identity and permitted topology; it need not enumerate each Runtime Replica. The TSF may disable a pairing directly or by disabling an endpoint identity, provided the result prevents all communication authorized solely by that pairing. The ST shall describe the administrative-identity model, the set of TOE Component Instances represented by each endpoint identity, and the effect of disabling a pairing or endpoint identity. It shall map each pairing to its Communication Relationship Type or Types and applicable FCO_CPC_EXT.1/Agent iteration, map every applicable identity model, and use a separate iteration when the registration selection or another completed operation differs. In a microservices architecture, a pairing may govern communication between application payload services having Server Application, Agent Application, or other roles identified in the ST. Sharing an SFR iteration does not, by itself, establish that test evidence may be reused; representative testing is governed by the Supporting Document. Protection of data transmitted between TOE Component Instances is addressed by FTP_DIT_EXT.1 in the base cPP. "No channel" is selected if the registration is performed via out-of-band manual means.
+*Application Note {counter:appnote}:* A communication pairing is the administrative control object for a permitted relationship, while communication is realized between the TOE Component Instances represented by its endpoint identities. Either endpoint identity may represent an unambiguous set of one or more TOE Component Instances of one TOE Component that share a TOE Component identity, including any Runtime Replicas, or one separately managed TOE Component Instance, so a pairing may use either model at each endpoint. A control applied to a shared TOE Component identity applies to every instance represented by that identity and permitted topology; it need not enumerate each Runtime Replica. The TSF may disable a pairing directly or by disabling an endpoint identity, provided the result prevents all communication authorized solely by that pairing. The ST shall describe the administrative-identity model, the set of TOE Component Instances represented by each endpoint identity, and the effect of disabling a pairing or endpoint identity. It shall map each pairing to its Communication Relationship Type or Types and every applicable identity model. In a microservices architecture, a pairing may govern communication between application payload services having Server Application, Agent Application, or other roles identified in the ST. Protection of data transmitted between TOE Component Instances is addressed by FTP_DIT_EXT.1 in the base cPP. "No channel" is selected if the registration is performed via out-of-band manual means.
 
-*FCO_CPC_EXT.1.3/Agent*
+*Application Note {counter:appnote}:* A registration channel protected according to FTP_DIT_EXT.1 may be used over any untrusted network. This PP-Module makes no assumption that the registration network is trusted.
+
+*FCO_CPC_EXT.1.3*
 The TSF shall enable a Security Administrator to disable any enabled communication pairing.
 
 === Protection of the TSF (FPT)
@@ -247,12 +253,12 @@ This is a new component within the FCO class used to define high-level constrain
 
 [%unbreakable]
 --
-FCO_CPC_EXT.1/Agent Component Registration Channel Definition requires the TSF to support a registration channel for TOE Component Instances represented by an administrator-enabled communication pairing and to ensure that each pairing can be disabled by an Administrator. It also requires a statement of whether the channel is protected according to FTP_DIT_EXT.1 or established through an out-of-band manual process.
+FCO_CPC_EXT.1 Component Registration Channel Definition requires the TSF to support a registration channel for TOE Component Instances represented by an administrator-enabled communication pairing and to ensure that each pairing can be disabled by an Administrator. It also requires a statement of whether the channel is protected according to FTP_DIT_EXT.1 or established through an out-of-band manual process.
 --
 
 [%unbreakable]
 --
-*Management: FCO_CPC_EXT.1/Agent*
+*Management: FCO_CPC_EXT.1*
 
 The following actions could be considered for the management functions in FPT:
 
@@ -260,22 +266,22 @@ The following actions could be considered for the management functions in FPT:
 . There are no management activities foreseen
 --
 
-*Audit: FCO_CPC_EXT.1/Agent*
+*Audit: FCO_CPC_EXT.1*
 
 The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
 [loweralpha]
-. Enabling a communication pairing as in FCO_CPC_EXT.1.1/Agent, including each endpoint identity and whether it represents a set of one or more TOE Component Instances sharing a TOE Component identity or one separately managed TOE Component Instance.
-. Disabling a communication pairing as in FCO_CPC_EXT.1.3/Agent, including the endpoint identities and whether the pairing or an endpoint identity was disabled.
+. Enabling a communication pairing as in FCO_CPC_EXT.1.1, including each endpoint identity and whether it represents a set of one or more TOE Component Instances sharing a TOE Component identity or one separately managed TOE Component Instance.
+. Disabling a communication pairing as in FCO_CPC_EXT.1.3, including the endpoint identities and whether the pairing or an endpoint identity was disabled.
 
-*FCO_CPC_EXT.1/Agent*
+*FCO_CPC_EXT.1*
 
 Hierarchical to:	No other components 
 
 Dependencies:		No other components
 
-*FCO_CPC_EXT.1.1/Agent* The TSF shall require a Security Administrator to enable a permitted communication pairing before communication governed by that pairing can take place. Each endpoint identity shall represent either an unambiguous set of one or more TOE Component Instances of one TOE Component that share a TOE Component identity, including any Runtime Replicas, or one separately managed TOE Component Instance.
+*FCO_CPC_EXT.1.1* The TSF shall require a Security Administrator to enable a permitted communication pairing before communication governed by that pairing can take place. Each endpoint identity shall represent either an unambiguous set of one or more TOE Component Instances of one TOE Component that share a TOE Component identity, including any Runtime Replicas, or one separately managed TOE Component Instance.
 
-*FCO_CPC_EXT.1.2/Agent* The TSF shall implement a registration process in which TOE Component Instances represented by an enabled communication pairing establish and use a communications channel that uses [_selection:_
+*FCO_CPC_EXT.1.2* The TSF shall implement a registration process in which TOE Component Instances represented by an enabled communication pairing establish and use a communications channel that uses [_selection:_
 
 ** _a channel protected according to FTP_DIT_EXT.1,_
 
@@ -283,7 +289,7 @@ Dependencies:		No other components
 
 ].
 
-*FCO_CPC_EXT.1.3/Agent* The TSF shall enable a Security Administrator to disable any enabled communication pairing.
+*FCO_CPC_EXT.1.3* The TSF shall enable a Security Administrator to disable any enabled communication pairing.
 
 [appendix]
 == Consistency Rationale
