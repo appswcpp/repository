@@ -13,3 +13,6 @@ output/images/diff-*.gif
 .venv-build/bin/python3.12
 .venv-build/bin/python3
 .venv-build/bin/python
+Comments/_collation/node_modules/
+outputs/bah_comment_collation/*.inspect.ndjson
+outputs/bah_comment_collation/*_preview.png
