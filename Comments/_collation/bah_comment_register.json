@@ -91,8 +91,8 @@
     "status": "Resolved",
     "disposition": "Accept with adaptation",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Retained Applicable Components for component allocation. Feature Dependent is now explicitly a condition of applicability, not an alternative allocation that can narrow coverage.",
-    "source_update": "Server-Agent configuration, allocation definitions and worked example"
+    "resolution_notes": "Retained Applicable Components for component allocation and added a plain-language rationale. Feature Dependent explains why an SFR is included in the ST; Applicable Components identifies every component that must demonstrate its allocated SFR element once it is included. The configuration now separates claim condition, component allocation, and permitted operational-environment contribution so a claim condition cannot narrow component coverage.",
+    "source_update": "Server-Agent configuration, allocation rationale, required ST mapping, and worked example"
   },
   {
     "id": "BAH-006",
@@ -110,8 +110,8 @@
     "status": "Resolved",
     "disposition": "Accept with adaptation",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Clarified the two-stage model: a feature or selection determines whether an SFR is claimed; Applicable Components identifies every component with a concrete obligation once it is claimed.",
-    "source_update": "Server-Agent configuration, allocation definitions and worked example"
+    "resolution_notes": "Clarified the two-stage model with a worked update example and a required ST mapping: a feature, selection, or objective claim determines whether an SFR is included; Applicable Components identifies the components responsible for the allocated elements. It is not a new SFR type or an additional optionality mechanism.",
+    "source_update": "Server-Agent configuration, allocation rationale, ST mapping, and worked example"
   },
   {
     "id": "BAH-007",
@@ -129,8 +129,8 @@
     "status": "Resolved",
     "disposition": "Accept with adaptation",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Reframed the allocation rationale around allocation category plus feature-dependent condition, retained network-stack coverage independent of locality, and limited non-network IPC documentation to architecture-level protection unless an SFR or EA needs more detail.",
-    "source_update": "Server-Agent configuration, distributed TOE rationale"
+    "resolution_notes": "Reframed the allocation rationale around allocation category plus feature-dependent condition and retained network-stack coverage independent of locality. The non-network IPC documentation and protection rationale is now addressed by the objective FPT_IPC_EXT.1 rather than by a mandatory allocation rule.",
+    "source_update": "Server-Agent configuration and base cPP, distributed TOE rationale"
   },
   {
     "id": "BAH-008",
@@ -148,8 +148,8 @@
     "status": "Resolved",
     "disposition": "Accept with adaptation",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Specified element-level allocation. Components need satisfy only the SFR elements they implement, while the evaluation evidence jointly covers every allocated element and cannot be satisfied by a representative component without demonstrated equivalence.",
-    "source_update": "Server-Agent configuration, allocation rule and FPT_TUD_EXT.2 example"
+    "resolution_notes": "Specified element-level allocation and added a plain-language update example. Components satisfy only the SFR elements they implement, while the evaluation evidence jointly covers every allocated element; a Server-image test does not satisfy an Agent update path without demonstrated equivalent implementation, configuration, and execution context. Permitted Runtime Replica scale-out is now tied to a minimum evaluated configuration, with separate coverage for new connections or security-relevant differences.",
+    "source_update": "Server-Agent configuration, allocation rationale, minimum evaluated configuration, and FPT_TUD_EXT.2 example"
   },
   {
     "id": "BAH-009",
@@ -889,8 +889,8 @@
     "status": "Resolved",
     "disposition": "Accept with adaptation",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Retained the base cPP obligation to identify non-network IPC and clarified in the Server-Agent configuration that the description is limited to the mechanism and architecture-level protection relied upon. Detailed implementation or configuration information is required only when an SFR or EA requires it.",
-    "source_update": "Base cPP and Server-Agent configuration, distributed-TOE IPC guidance"
+    "resolution_notes": "Moved the non-network IPC identification and protection rationale from the mandatory FTP_DIT_EXT.1 application note to the objective FPT_IPC_EXT.1. The Server-Agent configuration directs non-network IPC protection to that objective; its Evaluation Activities identify the mechanism and architecture-level protection relied upon.",
+    "source_update": "Base cPP FPT_IPC_EXT.1 and Server-Agent configuration, distributed-TOE IPC guidance"
   },
   {
     "id": "BAH-048",
@@ -908,7 +908,7 @@
     "status": "Resolved",
     "disposition": "Clarify with reviewer",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Confirmed the intended outcome: a database service reached through a network stack, including loopback, is a transmitted-data endpoint. The ST identifies it as a TOE Component Instance or selected trusted IT product; in-process calls and direct local storage remain outside FTP_DIT_EXT.1. A loopback path is explicitly exercised where present.",
+    "resolution_notes": "Confirmed the intended outcome: a database service reached through a network interface or protocol stack, including loopback, is a transmitted-data endpoint for FTP_DIT_EXT.1. The ST identifies it as a TOE Component Instance or selected trusted IT product. The operational-environment platform assumption concerns provision and secure configuration of platform security services; it is not an assumption that local users, processes, or localhost traffic are trusted. The threat model includes an attacker acting through unprivileged software on the same platform, so locality alone does not justify omitting transmitted-data protection. In-process calls and direct local storage remain outside FTP_DIT_EXT.1; non-network IPC is addressed by the FPT_IPC_EXT.1 objective. A loopback path is explicitly exercised where present.",
     "source_update": "Base cPP, FTP_DIT_EXT.1 target selection and EA"
   },
   {
