@@ -908,7 +908,7 @@
     "status": "Resolved",
     "disposition": "Clarify with reviewer",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Confirmed the intended outcome: a database service reached through a network interface or protocol stack, including loopback, is a transmitted-data endpoint for FTP_DIT_EXT.1. The ST identifies it as a TOE Component Instance or selected trusted IT product. The operational-environment platform assumption concerns provision and secure configuration of platform security services; it is not an assumption that local users, processes, or localhost traffic are trusted. The threat model includes an attacker acting through unprivileged software on the same platform, so locality alone does not justify omitting transmitted-data protection. In-process calls and direct local storage remain outside FTP_DIT_EXT.1; non-network IPC is addressed by the FPT_IPC_EXT.1 objective. A loopback path is explicitly exercised where present.",
+    "resolution_notes": "Aligned the cPP with the confirmed NIAP AppSW v2.0 scope: a database service reached only through the platform loopback interface is not an FTP_DIT_EXT.1 transmitted-data endpoint and is not separately tested. This boundary does not assume that local users, processes, or localhost traffic are trusted; it only does not create an evaluated trusted-channel claim in this cPP version. In-scope network-mediated communications to a trusted IT product or TOE Component Instance remain covered. In-process calls and direct local storage remain outside FTP_DIT_EXT.1; non-network IPC is addressed by the FPT_IPC_EXT.1 objective.",
     "source_update": "Base cPP, FTP_DIT_EXT.1 target selection and EA"
   },
   {
