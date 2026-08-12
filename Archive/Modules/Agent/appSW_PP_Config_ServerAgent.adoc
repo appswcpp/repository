@@ -5,6 +5,7 @@
 :icons: font
 :revnumber: 2.0
 :revdate: 2026-07-21
+:imagesdir: images
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -159,6 +160,10 @@ Permitted Operational-Environment Contribution (not an allocation category)::
 The TOE may rely on the operational environment for a function only where the base cPP or PP-Module expressly permits it. The ST shall identify the environmental service, the TOE Component and SFR element that invoke or rely on it, and the required configuration. This does not remove the TOE Component from the SFR mapping or allow the environmental component to satisfy a TOE-implemented requirement.
 
 The claim condition and component allocation are controlled by the following tables and the SFR's operations and application notes; the ST shall not freely reclassify an SFR. _At Least One Component_ and a permitted operational-environment contribution may be used only where the applicable table or requirement expressly permits them. Allocation shall be stated at the SFR-element level when different elements have different responsible TOE Components, update actors, or permitted platform dependencies. Evaluation evidence shall cover every TOE Component, artifact, communication path, or function allocated as responsible. Evidence for one TOE Component may be reused only where the ST demonstrates that the relevant implementation, configuration, and execution context are equivalent.
+
+[[fig-allocation-coverage-guardrail]]
+.Illustrative claim, allocation, mapping, and retained Evaluation Activity coverage
+image::allocation-coverage-guardrail.svg[Claim condition, component allocation, ST mapping, evidence reuse, and retained coverage,pdfwidth=100%,align=center]
 
 ===== Rationale: Why Applicable Components is Retained
 
@@ -465,6 +470,10 @@ An illustrative TOE has twelve simultaneously deployed TOE Component Instances r
 The Management API, Policy Service, and Update Coordinator are assigned both Server Application and Agent Application roles because the example applies the Agent Module control model to their communication pairings. These role assignments do not imply network directionality or hosting relationships.
 
 The ST describes five TOE Components and a permitted instance topology rather than repeating the same SFR text twelve times. Multiple instances of a TOE Component are Runtime Replicas when they meet the base cPP definition. An instance with a different image is not a Runtime Replica and shall be separately identified as a TOE Component or explicitly identified configuration, as appropriate. An instance with another difference in security-relevant values, role, interface, identity model, or relevant platform service that can affect an SFR or EA is also not a Runtime Replica and shall be represented separately in the same manner.
+
+[[fig-twelve-container-topology]]
+.Illustrative twelve-container TOE topology and Communication Relationship Types
+image::twelve-container-topology.svg[Five TOE Components, twelve deployed TOE Component Instances, and relationship types in the non-normative worked example,pdfwidth=100%,align=center]
 
 [%unbreakable]
 .Illustrative Allocation Extract

@@ -158,6 +158,11 @@ Assessment Strategy for ATE_IND requires the evaluator to conduct testing that t
 
 === Communication (FCO)
 ==== Component Registration Channel Definition (FCO_CPC_EXT.1)
+
+[#fig-fco-cpc-lifecycle-ea]
+.Illustrative FCO_CPC_EXT.1 communication-pairing lifecycle
+image::fco-cpc-lifecycle.svg[Administrative pairing enablement, registration, permitted communication, and disablement,pdfwidth=100%,align=center]
+
 ===== FCO_CPC_EXT.1
 
 ====== TSS

@@ -192,6 +192,11 @@ Extended SFRs are identified by having a label “EXT” at the end of the SFR n
 
 === Communication (FCO)
 ==== FCO_CPC_EXT.1
+
+[#fig-fco-cpc-lifecycle]
+.Illustrative FCO_CPC_EXT.1 communication-pairing lifecycle
+image::fco-cpc-lifecycle.svg[Administrative pairing enablement, registration, permitted communication, and disablement,pdfwidth=100%,align=center]
+
 *FCO_CPC_EXT.1.1*
 The TSF shall require a Security Administrator to enable a permitted communication pairing before communication governed by that pairing can take place. Each endpoint identity shall represent either an unambiguous set of one or more TOE Component Instances of one TOE Component that share a TOE Component identity, including any Runtime Replicas, or one separately managed TOE Component Instance.
 

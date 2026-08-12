@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative Linux-container evaluation activity layers</title>
+  <desc id="desc">An explanatory diagram showing that the Linux method applies to the running payload only, while artifact, lifecycle, runtime, configuration, and interface activities remain independently applicable at their own layers.</desc>
+  <style>
+    .title { font: 700 29px Arial, Helvetica, sans-serif; fill: #ffffff; }
+    .subtitle { font: 17px Arial, Helvetica, sans-serif; fill: #dbeafe; }
+    .section { font: 700 23px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .label { font: 700 20px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .body { font: 18px Arial, Helvetica, sans-serif; fill: #243b53; }
+    .small { font: 16px Arial, Helvetica, sans-serif; fill: #334e68; }
+    .toe { fill: #f7fbff; stroke: #0b3a67; stroke-width: 3; stroke-dasharray: 12 8; }
+    .payload { fill: #d9f1f5; stroke: #087e8b; stroke-width: 3; }
+    .running { fill: #e9f7ef; stroke: #287d52; stroke-width: 3; }
+    .oe { fill: #f1f5f9; stroke: #64748b; stroke-width: 2; }
+    .retained { fill: #fff8e7; stroke: #a86600; stroke-width: 2; }
+    .arrow { fill: none; stroke: #0b3a67; stroke-width: 3; }
+  </style>
+
+  <rect width="1400" height="760" fill="#ffffff"/>
+  <rect x="0" y="0" width="1400" height="80" fill="#0b3a67"/>
+  <text x="48" y="37" class="title">Illustrative Linux-container evaluation activity layers</text>
+  <text x="48" y="64" class="subtitle">Explanatory only: the activity subject determines the layer; the Linux method does not displace other coverage.</text>
+
+  <rect x="35" y="112" width="610" height="505" rx="18" class="toe"/>
+  <text x="63" y="146" class="section">Exact deployed TOE payload instance</text>
+  <text x="63" y="172" class="small">A container image or package can carry TOE content, but packaging alone does not decide the TOE boundary.</text>
+
+  <rect x="83" y="208" width="514" height="106" rx="13" class="payload"/>
+  <text x="340" y="246" class="label" text-anchor="middle">TOE artifact / image</text>
+  <text x="340" y="274" class="body" text-anchor="middle">payload plus any delivered library, helper, or SFR-supporting sidecar</text>
+  <rect x="132" y="349" width="416" height="146" rx="13" class="running"/>
+  <text x="340" y="389" class="label" text-anchor="middle">Running TOE application payload</text>
+  <text x="340" y="418" class="body" text-anchor="middle">running Linux userspace behavior</text>
+  <text x="340" y="449" class="small" text-anchor="middle">Linux-specific Evaluation Activity method applies here</text>
+  <text x="340" y="474" class="small" text-anchor="middle">using the exact deployed instance and effective execution context</text>
+  <path d="M340 314 L340 349" class="arrow"/>
+  <polygon points="340,349 330,332 350,332" fill="#0b3a67"/>
+  <text x="63" y="547" class="body">The evaluator may enter or instrument this payload only as the applicable activity permits.</text>
+  <text x="63" y="576" class="body">The method does not alter the deployment or establish Product or Platform Equivalence.</text>
+
+  <rect x="35" y="647" width="610" height="80" rx="12" class="oe"/>
+  <text x="340" y="681" class="label" text-anchor="middle">Operational environment beneath or beside the payload</text>
+  <text x="340" y="707" class="small" text-anchor="middle">container runtime, host kernel, orchestrator, mesh or ingress, mounts, and platform stores</text>
+
+  <text x="702" y="142" class="section">Activity portions that remain independently applicable</text>
+  <text x="702" y="168" class="small">Each is assessed at the artifact, lifecycle, configuration, platform, interface, or channel layer stated by the EA.</text>
+
+  <rect x="702" y="207" width="302" height="157" rx="13" class="retained"/>
+  <text x="853" y="240" class="label" text-anchor="middle">Artifact and image</text>
+  <text x="853" y="270" class="body" text-anchor="middle">identity, composition, SBOM,</text>
+  <text x="853" y="296" class="body" text-anchor="middle">signature and authorized source</text>
+  <text x="853" y="330" class="small" text-anchor="middle">not a Running-Payload Activity</text>
+
+  <rect x="1043" y="207" width="302" height="157" rx="13" class="retained"/>
+  <text x="1194" y="240" class="label" text-anchor="middle">Lifecycle and update</text>
+  <text x="1194" y="270" class="body" text-anchor="middle">installation, replacement,</text>
+  <text x="1194" y="296" class="body" text-anchor="middle">removal, recovery, and rollback</text>
+  <text x="1194" y="330" class="small" text-anchor="middle">at the stated lifecycle scope</text>
+
+  <rect x="702" y="408" width="302" height="157" rx="13" class="retained"/>
+  <text x="853" y="441" class="label" text-anchor="middle">Runtime and configuration</text>
+  <text x="853" y="471" class="body" text-anchor="middle">runtime/orchestrator controls,</text>
+  <text x="853" y="497" class="body" text-anchor="middle">mounts, injected values, stores</text>
+  <text x="853" y="531" class="small" text-anchor="middle">effective source and attachment layer</text>
+
+  <rect x="1043" y="408" width="302" height="157" rx="13" class="retained"/>
+  <text x="1194" y="441" class="label" text-anchor="middle">Interfaces and channels</text>
+  <text x="1194" y="471" class="body" text-anchor="middle">network policy, external interfaces,</text>
+  <text x="1194" y="497" class="body" text-anchor="middle">identities, protection, and trust</text>
+  <text x="1194" y="531" class="small" text-anchor="middle">channel-specific coverage is retained</text>
+
+  <rect x="702" y="612" width="643" height="115" rx="13" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="726" y="647" class="label">Coverage rule</text>
+  <text x="726" y="677" class="body">The Linux method is limited to the running payload. It does not make a distinct artifact, lifecycle, runtime,</text>
+  <text x="726" y="704" class="body">configuration, interface, or channel activity inapplicable.</text>
+</svg>

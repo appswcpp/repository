@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative distributed TOE boundary and evaluation mapping</title>
+  <desc id="desc">An explanatory diagram showing logical TOE Components, their deployed Component Instances and Runtime Replicas, communication relationship types, and operational-environment dependencies outside the TOE boundary.</desc>
+  <style>
+    .title { font: 700 29px Arial, Helvetica, sans-serif; fill: #ffffff; }
+    .subtitle { font: 17px Arial, Helvetica, sans-serif; fill: #dbeafe; }
+    .section { font: 700 23px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .label { font: 700 20px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .body { font: 18px Arial, Helvetica, sans-serif; fill: #243b53; }
+    .small { font: 16px Arial, Helvetica, sans-serif; fill: #334e68; }
+    .tiny { font: 14px Arial, Helvetica, sans-serif; fill: #334e68; }
+    .toe { fill: #f7fbff; stroke: #0b3a67; stroke-width: 3; stroke-dasharray: 12 8; }
+    .component { fill: #d9f1f5; stroke: #087e8b; stroke-width: 3; }
+    .instance { fill: #f0fbfd; stroke: #087e8b; stroke-width: 2; }
+    .relation { fill: none; stroke: #a86600; stroke-width: 4; }
+    .dependency { fill: none; stroke: #64748b; stroke-width: 3; stroke-dasharray: 7 6; }
+    .oe { fill: #f1f5f9; stroke: #64748b; stroke-width: 2; }
+    .callout { fill: #fff8e7; stroke: #a86600; stroke-width: 2; }
+  </style>
+
+  <rect width="1400" height="800" fill="#ffffff"/>
+  <rect x="0" y="0" width="1400" height="80" fill="#0b3a67"/>
+  <text x="48" y="37" class="title">Illustrative distributed TOE boundary and evaluation mapping</text>
+  <text x="48" y="64" class="subtitle">Explanatory only: normative text, SFR allocations, and Evaluation Activities control.</text>
+
+  <rect x="28" y="108" width="925" height="635" rx="18" class="toe"/>
+  <text x="52" y="142" class="section">TOE boundary</text>
+  <text x="52" y="168" class="small">Named logical TOE Components are mapped to claims. Their deployed occurrences are TOE Component Instances.</text>
+
+  <rect x="64" y="202" width="250" height="112" rx="13" class="component"/>
+  <text x="189" y="238" class="label" text-anchor="middle">TOE Component A</text>
+  <text x="189" y="266" class="body" text-anchor="middle">named application payload</text>
+  <text x="189" y="291" class="small" text-anchor="middle">allocated SFR elements</text>
+  <path d="M189 314 L189 345 M113 345 L265 345 M113 345 L113 366 M265 345 L265 366" fill="none" stroke="#087e8b" stroke-width="3"/>
+  <rect x="68" y="367" width="90" height="65" rx="9" class="instance"/>
+  <rect x="220" y="367" width="90" height="65" rx="9" class="instance"/>
+  <text x="113" y="393" class="small" text-anchor="middle"><tspan x="113">Instance</tspan><tspan x="113" dy="20">A-1</tspan></text>
+  <text x="265" y="393" class="small" text-anchor="middle"><tspan x="265">Instance</tspan><tspan x="265" dy="20">A-n</tspan></text>
+  <text x="189" y="457" class="tiny" text-anchor="middle">same claimed behavior and relevant configuration: Runtime Replicas</text>
+
+  <rect x="366" y="202" width="250" height="112" rx="13" class="component"/>
+  <text x="491" y="238" class="label" text-anchor="middle">TOE Component B</text>
+  <text x="491" y="266" class="body" text-anchor="middle">named application payload</text>
+  <text x="491" y="291" class="small" text-anchor="middle">allocated SFR elements</text>
+  <path d="M491 314 L491 345 M415 345 L567 345 M415 345 L415 366 M567 345 L567 366" fill="none" stroke="#087e8b" stroke-width="3"/>
+  <rect x="370" y="367" width="90" height="65" rx="9" class="instance"/>
+  <rect x="522" y="367" width="90" height="65" rx="9" class="instance"/>
+  <text x="415" y="393" class="small" text-anchor="middle"><tspan x="415">Instance</tspan><tspan x="415" dy="20">B-1</tspan></text>
+  <text x="567" y="393" class="small" text-anchor="middle"><tspan x="567">Instance</tspan><tspan x="567" dy="20">B-n</tspan></text>
+
+  <rect x="668" y="202" width="250" height="112" rx="13" class="component"/>
+  <text x="793" y="236" class="label" text-anchor="middle">TOE-provided support</text>
+  <text x="793" y="263" class="body" text-anchor="middle">sidecar, helper, or library</text>
+  <text x="793" y="290" class="small" text-anchor="middle">inside TOE if it supports a claimed SFR</text>
+  <rect x="748" y="366" width="90" height="65" rx="9" class="instance"/>
+  <text x="793" y="393" class="small" text-anchor="middle"><tspan x="793">Instance</tspan><tspan x="793" dy="20">C-1</tspan></text>
+
+  <line x1="314" y1="258" x2="366" y2="258" class="relation"/>
+  <polygon points="332,258 345,249 345,267" fill="#a86600"/>
+  <polygon points="348,258 335,249 335,267" fill="#a86600"/>
+  <text x="340" y="237" class="tiny" text-anchor="middle">R1 relationship type</text>
+  <line x1="616" y1="258" x2="668" y2="258" class="relation"/>
+  <polygon points="634,258 647,249 647,267" fill="#a86600"/>
+  <polygon points="650,258 637,249 637,267" fill="#a86600"/>
+  <text x="642" y="237" class="tiny" text-anchor="middle">R2 relationship type</text>
+  <text x="491" y="486" class="small" text-anchor="middle">Communication relationship types are identified separately from individual runtime connections.</text>
+
+  <rect x="64" y="526" width="854" height="178" rx="13" class="callout"/>
+  <text x="90" y="560" class="label">Required mapping and retained coverage</text>
+  <text x="90" y="590" class="body">The ST maps each claimed SFR element to the responsible logical TOE Component or Components.</text>
+  <text x="90" y="619" class="body">Replica count alone does not change allocation. Every relevant interface, channel, configuration, artifact,</text>
+  <text x="90" y="647" class="body">and end-to-end behavior remains an Evaluation Activity coverage target at its stated scope.</text>
+  <text x="90" y="681" class="small">A vendor-delivered component that performs the TSF stays in the TOE even when packaged as a container sidecar or helper.</text>
+
+  <rect x="990" y="108" width="382" height="635" rx="18" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>
+  <text x="1018" y="142" class="section">Operational environment</text>
+  <text x="1018" y="168" class="small">Boundary classification is not a trust conclusion.</text>
+  <rect x="1020" y="205" width="322" height="78" rx="11" class="oe"/>
+  <text x="1181" y="236" class="label" text-anchor="middle">Container runtime and host kernel</text>
+  <text x="1181" y="262" class="small" text-anchor="middle">execution and isolation services</text>
+  <rect x="1020" y="312" width="322" height="78" rx="11" class="oe"/>
+  <text x="1181" y="343" class="label" text-anchor="middle">Orchestrator, mesh, and ingress</text>
+  <text x="1181" y="369" class="small" text-anchor="middle">platform services and network infrastructure</text>
+  <rect x="1020" y="419" width="322" height="78" rx="11" class="oe"/>
+  <text x="1181" y="450" class="label" text-anchor="middle">Secret or configuration store</text>
+  <text x="1181" y="476" class="small" text-anchor="middle">source and attachment mechanism</text>
+  <rect x="1020" y="526" width="322" height="78" rx="11" class="oe"/>
+  <text x="1181" y="557" class="label" text-anchor="middle">Registry or update service</text>
+  <text x="1181" y="583" class="small" text-anchor="middle">authorized-source and delivery dependency</text>
+  <text x="1018" y="644" class="body">The TOE documents each dependency, required configuration,</text>
+  <text x="1018" y="670" class="body">and failure behavior. It may use an OE service only where</text>
+  <text x="1018" y="696" class="body">the applicable SFR expressly permits platform functionality.</text>
+
+  <path d="M918 409 C962 409 966 352 1020 352" class="dependency"/>
+  <path d="M838 409 C955 409 952 244 1020 244" class="dependency"/>
+  <path d="M838 399 C954 399 957 458 1020 458" class="dependency"/>
+  <text x="954" y="394" class="tiny" text-anchor="middle">declared dependency</text>
+</svg>
