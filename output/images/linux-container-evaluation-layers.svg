@@ -43,8 +43,8 @@
   <text x="340" y="681" class="label" text-anchor="middle">Operational environment beneath or beside the payload</text>
   <text x="340" y="707" class="small" text-anchor="middle">container runtime, host kernel, orchestrator, mesh or ingress, mounts, and platform stores</text>
 
-  <text x="702" y="142" class="section">Activity portions that remain independently applicable</text>
-  <text x="702" y="168" class="small">Each is assessed at the artifact, lifecycle, configuration, platform, interface, or channel layer stated by the EA.</text>
+  <text x="702" y="140" class="section">Independently applicable activity portions</text>
+  <text x="702" y="165" class="small">Assess each at the layer stated by the EA.</text>
 
   <rect x="702" y="207" width="302" height="157" rx="13" class="retained"/>
   <text x="853" y="240" class="label" text-anchor="middle">Artifact and image</text>
@@ -72,6 +72,6 @@
 
   <rect x="702" y="612" width="643" height="115" rx="13" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
   <text x="726" y="647" class="label">Coverage rule</text>
-  <text x="726" y="677" class="body">The Linux method is limited to the running payload. It does not make a distinct artifact, lifecycle, runtime,</text>
-  <text x="726" y="704" class="body">configuration, interface, or channel activity inapplicable.</text>
+  <text x="726" y="677" class="body">The Linux method is limited to the running payload.</text>
+  <text x="726" y="704" class="body">Artifact, lifecycle, runtime, configuration, interface, and channel activities remain applicable.</text>
 </svg>

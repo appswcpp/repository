@@ -5,7 +5,7 @@
   <style>
     .title { font: 700 29px Arial, Helvetica, sans-serif; fill: #ffffff; }
     .subtitle { font: 17px Arial, Helvetica, sans-serif; fill: #dbeafe; }
-    .section { font: 700 23px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .section { font: 700 20px Arial, Helvetica, sans-serif; fill: #102a43; }
     .label { font: 700 20px Arial, Helvetica, sans-serif; fill: #102a43; }
     .body { font: 18px Arial, Helvetica, sans-serif; fill: #243b53; }
     .small { font: 16px Arial, Helvetica, sans-serif; fill: #334e68; }
@@ -22,7 +22,7 @@
   <text x="48" y="37" class="title">Illustrative evidence reuse with complete retained coverage</text>
   <text x="48" y="64" class="subtitle">Explanatory only: representative execution is not sampling and does not reduce Evaluation Activity coverage.</text>
 
-  <text x="46" y="126" class="section">1. Name the SFR Implementation Instances</text>
+  <text x="46" y="119" class="section">1. Name SFR Implementation Instances</text>
   <rect x="46" y="153" width="275" height="86" rx="12" class="instance"/>
   <text x="184" y="185" class="label" text-anchor="middle">Component A, configuration X</text>
   <text x="184" y="214" class="small" text-anchor="middle">SFR Implementation Instance A</text>
@@ -32,12 +32,12 @@
   <rect x="46" y="375" width="275" height="86" rx="12" class="instance"/>
   <text x="184" y="407" class="label" text-anchor="middle">Component A, replica A-n</text>
   <text x="184" y="436" class="small" text-anchor="middle">additional deployed occurrence only</text>
-  <text x="46" y="499" class="body">A Runtime Replica does not become a separate class member merely because it is an added occurrence.</text>
+  <text x="46" y="499" class="body">A Runtime Replica is not a separate class member merely because it is an added occurrence.</text>
 
   <path d="M321 245 L390 245" class="arrow"/>
   <polygon points="390,245 372,234 372,256" fill="#0b3a67"/>
 
-  <text x="420" y="126" class="section">2. Substantiate class membership for every member</text>
+  <text x="390" y="119" class="section">2. Substantiate class membership</text>
   <rect x="390" y="153" width="431" height="348" rx="15" class="class"/>
   <text x="606" y="188" class="label" text-anchor="middle">Component Implementation-Equivalence Class</text>
   <text x="420" y="227" class="body">Same security-relevant implementation and version</text>
@@ -53,29 +53,29 @@
   <path d="M821 245 L877 245" class="arrow"/>
   <polygon points="877,245 859,234 859,256" fill="#0b3a67"/>
 
-  <text x="906" y="126" class="section">3. Reuse only the identified implementation-specific portion</text>
+  <text x="877" y="119" class="section">3. Reuse identified implementation-specific activity</text>
   <rect x="877" y="153" width="477" height="172" rx="15" class="execution"/>
   <text x="1115" y="188" class="label" text-anchor="middle">Representative execution</text>
   <text x="1115" y="219" class="body" text-anchor="middle">Exercise one or more exact deployed Component Instances</text>
   <text x="1115" y="247" class="body" text-anchor="middle">for the expressly identified implementation-specific EA portions.</text>
   <text x="1115" y="282" class="small" text-anchor="middle">Preserve the class mapping, membership evidence, and a separate verdict for each applicable requirement.</text>
 
-  <text x="906" y="370" class="section">Still independently covered at the stated EA scope</text>
+  <text x="877" y="362" class="section">Retained coverage at the stated EA scope</text>
   <rect x="877" y="397" width="225" height="94" rx="11" class="retained"/>
   <rect x="1129" y="397" width="225" height="94" rx="11" class="retained"/>
   <rect x="877" y="518" width="225" height="94" rx="11" class="retained"/>
   <rect x="1129" y="518" width="225" height="94" rx="11" class="retained"/>
-  <text x="990" y="430" class="label" text-anchor="middle">Artifacts and update paths</text>
-  <text x="990" y="458" class="small" text-anchor="middle">identity, delivery, verification</text>
-  <text x="1242" y="430" class="label" text-anchor="middle">Interfaces and channels</text>
-  <text x="1242" y="458" class="small" text-anchor="middle">trust, identity, traffic, recovery</text>
-  <text x="990" y="551" class="label" text-anchor="middle">Configurations and deployment</text>
-  <text x="990" y="579" class="small" text-anchor="middle">platform and topology differences</text>
-  <text x="1242" y="551" class="label" text-anchor="middle">End-to-end behavior</text>
-  <text x="1242" y="579" class="small" text-anchor="middle">integration and every required test</text>
+  <text x="990" y="425" class="label" text-anchor="middle">Artifacts / updates</text>
+  <text x="990" y="453" class="small" text-anchor="middle">identity, delivery, verification</text>
+  <text x="1242" y="425" class="label" text-anchor="middle">Interfaces / channels</text>
+  <text x="1242" y="453" class="small" text-anchor="middle">trust, identity, traffic, recovery</text>
+  <text x="990" y="546" class="label" text-anchor="middle">Configuration / deployment</text>
+  <text x="990" y="574" class="small" text-anchor="middle">platform and topology differences</text>
+  <text x="1242" y="546" class="label" text-anchor="middle">End-to-end behavior</text>
+  <text x="1242" y="574" class="small" text-anchor="middle">integration and required testing</text>
 
   <rect x="46" y="652" width="1308" height="72" rx="12" class="guard"/>
   <text x="76" y="684" class="label">Guardrail:</text>
-  <text x="194" y="684" class="body">Class membership does not transfer compliance, remove a component from the TOE boundary, or make an artifact, interface, channel, configuration, deployment, or end-to-end activity inapplicable.</text>
-  <text x="76" y="710" class="small">Representative execution removes only duplicate execution of the same substantiated implementation-specific activity.</text>
+  <text x="194" y="684" class="body">Class membership does not transfer compliance or remove a Component from the TOE boundary.</text>
+  <text x="76" y="710" class="small">Representative execution removes only duplicate implementation-specific activity; other stated coverage remains.</text>
 </svg>

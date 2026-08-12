@@ -37,7 +37,10 @@
   <rect x="220" y="367" width="90" height="65" rx="9" class="instance"/>
   <text x="113" y="393" class="small" text-anchor="middle"><tspan x="113">Instance</tspan><tspan x="113" dy="20">A-1</tspan></text>
   <text x="265" y="393" class="small" text-anchor="middle"><tspan x="265">Instance</tspan><tspan x="265" dy="20">A-n</tspan></text>
-  <text x="189" y="457" class="tiny" text-anchor="middle">same claimed behavior and relevant configuration: Runtime Replicas</text>
+  <text x="189" y="456" class="tiny" text-anchor="middle">
+    <tspan x="189" dy="0">same claimed behavior and</tspan>
+    <tspan x="189" dy="18">relevant configuration: Runtime Replicas</tspan>
+  </text>
 
   <rect x="366" y="202" width="250" height="112" rx="13" class="component"/>
   <text x="491" y="238" class="label" text-anchor="middle">TOE Component B</text>
@@ -59,19 +62,22 @@
   <line x1="314" y1="258" x2="366" y2="258" class="relation"/>
   <polygon points="332,258 345,249 345,267" fill="#a86600"/>
   <polygon points="348,258 335,249 335,267" fill="#a86600"/>
-  <text x="340" y="237" class="tiny" text-anchor="middle">R1 relationship type</text>
+  <rect x="326" y="230" width="28" height="20" rx="5" fill="#a86600"/>
+  <text x="340" y="245" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">R1</text>
   <line x1="616" y1="258" x2="668" y2="258" class="relation"/>
   <polygon points="634,258 647,249 647,267" fill="#a86600"/>
   <polygon points="650,258 637,249 637,267" fill="#a86600"/>
-  <text x="642" y="237" class="tiny" text-anchor="middle">R2 relationship type</text>
-  <text x="491" y="486" class="small" text-anchor="middle">Communication relationship types are identified separately from individual runtime connections.</text>
+  <rect x="628" y="230" width="28" height="20" rx="5" fill="#a86600"/>
+  <text x="642" y="245" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">R2</text>
+  <text x="491" y="502" class="small" text-anchor="middle">Relationship types are identified separately from individual runtime connections.</text>
 
-  <rect x="64" y="526" width="854" height="178" rx="13" class="callout"/>
-  <text x="90" y="560" class="label">Required mapping and retained coverage</text>
-  <text x="90" y="590" class="body">The ST maps each claimed SFR element to the responsible logical TOE Component or Components.</text>
-  <text x="90" y="619" class="body">Replica count alone does not change allocation. Every relevant interface, channel, configuration, artifact,</text>
-  <text x="90" y="647" class="body">and end-to-end behavior remains an Evaluation Activity coverage target at its stated scope.</text>
-  <text x="90" y="681" class="small">A vendor-delivered component that performs the TSF stays in the TOE even when packaged as a container sidecar or helper.</text>
+  <rect x="64" y="517" width="854" height="202" rx="13" class="callout"/>
+  <text x="90" y="551" class="label">Required mapping and retained coverage</text>
+  <text x="90" y="580" class="body">The ST maps each claimed SFR element to its responsible logical TOE Component(s).</text>
+  <text x="90" y="608" class="body">Replica count alone does not change allocation.</text>
+  <text x="90" y="636" class="body">Interfaces, channels, configurations, artifacts, and end-to-end behavior</text>
+  <text x="90" y="664" class="body">remain Evaluation Activity coverage targets at their stated scope.</text>
+  <text x="90" y="697" class="small">A delivered component that performs the TSF stays in the TOE, even as a sidecar or helper.</text>
 
   <rect x="990" y="108" width="382" height="635" rx="18" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>
   <text x="1018" y="142" class="section">Operational environment</text>
