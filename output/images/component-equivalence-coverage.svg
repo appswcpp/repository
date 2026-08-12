@@ -5,7 +5,7 @@
   <style>
     .title { font: 700 29px Arial, Helvetica, sans-serif; fill: #ffffff; }
     .subtitle { font: 17px Arial, Helvetica, sans-serif; fill: #dbeafe; }
-    .section { font: 700 20px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .section { font: 700 18px Arial, Helvetica, sans-serif; fill: #102a43; }
     .label { font: 700 20px Arial, Helvetica, sans-serif; fill: #102a43; }
     .body { font: 18px Arial, Helvetica, sans-serif; fill: #243b53; }
     .small { font: 16px Arial, Helvetica, sans-serif; fill: #334e68; }
@@ -22,7 +22,7 @@
   <text x="48" y="37" class="title">Illustrative evidence reuse with complete retained coverage</text>
   <text x="48" y="64" class="subtitle">Explanatory only: representative execution is not sampling and does not reduce Evaluation Activity coverage.</text>
 
-  <text x="46" y="119" class="section">1. Name SFR Implementation Instances</text>
+  <text x="46" y="119" class="section">1. Name implementation instances</text>
   <rect x="46" y="153" width="275" height="86" rx="12" class="instance"/>
   <text x="184" y="185" class="label" text-anchor="middle">Component A, configuration X</text>
   <text x="184" y="214" class="small" text-anchor="middle">SFR Implementation Instance A</text>
@@ -32,33 +32,36 @@
   <rect x="46" y="375" width="275" height="86" rx="12" class="instance"/>
   <text x="184" y="407" class="label" text-anchor="middle">Component A, replica A-n</text>
   <text x="184" y="436" class="small" text-anchor="middle">additional deployed occurrence only</text>
-  <text x="46" y="499" class="body">A Runtime Replica is not a separate class member merely because it is an added occurrence.</text>
+  <text x="46" y="493" class="small">A Runtime Replica is not a separate class member merely because it is an added occurrence.</text>
 
   <path d="M321 245 L390 245" class="arrow"/>
   <polygon points="390,245 372,234 372,256" fill="#0b3a67"/>
 
-  <text x="390" y="119" class="section">2. Substantiate class membership</text>
+  <text x="390" y="119" class="section">2. Establish class membership</text>
   <rect x="390" y="153" width="431" height="348" rx="15" class="class"/>
-  <text x="606" y="188" class="label" text-anchor="middle">Component Implementation-Equivalence Class</text>
-  <text x="420" y="227" class="body">Same security-relevant implementation and version</text>
-  <text x="420" y="258" class="body">Same wrapper/integration behavior and exercised code path</text>
-  <text x="420" y="289" class="body">Same relevant build options and configuration values</text>
-  <text x="420" y="320" class="body">Same provider, role, platform service, and interface</text>
-  <text x="420" y="351" class="body">Peripheral differences identified and shown not to affect scope</text>
-  <line x1="420" y1="379" x2="791" y2="379" stroke="#829ab1" stroke-width="2"/>
-  <text x="420" y="413" class="small">Evidence for every member: artifacts or hashes, dependency manifests,</text>
-  <text x="420" y="438" class="small">build and configuration records, and observed invocation paths.</text>
-  <text x="420" y="474" class="small">If the prerequisites are not substantiated, representative execution is not available.</text>
+  <text x="606" y="184" class="label" text-anchor="middle">Implementation-equivalence class</text>
+  <text x="420" y="218" class="small">Same security-relevant implementation and version</text>
+  <text x="420" y="244" class="small">Same wrapper, integration, role, and exercised path</text>
+  <text x="420" y="270" class="small">Same relevant build options and configuration</text>
+  <text x="420" y="296" class="small">Same provider, platform service, and interface</text>
+  <text x="420" y="322" class="small">Peripheral differences shown not to affect scope</text>
+  <line x1="420" y1="345" x2="791" y2="345" stroke="#829ab1" stroke-width="2"/>
+  <text x="420" y="376" class="small">Evidence for every member:</text>
+  <text x="420" y="399" class="small">artifact or hash; dependency manifest;</text>
+  <text x="420" y="422" class="small">build/configuration record; observed path.</text>
+  <text x="420" y="460" class="small">Without prerequisites, representative</text>
+  <text x="420" y="483" class="small">execution is not available.</text>
 
   <path d="M821 245 L877 245" class="arrow"/>
   <polygon points="877,245 859,234 859,256" fill="#0b3a67"/>
 
-  <text x="877" y="119" class="section">3. Reuse identified implementation-specific activity</text>
+  <text x="877" y="119" class="section">3. Reuse only scoped execution</text>
   <rect x="877" y="153" width="477" height="172" rx="15" class="execution"/>
-  <text x="1115" y="188" class="label" text-anchor="middle">Representative execution</text>
-  <text x="1115" y="219" class="body" text-anchor="middle">Exercise one or more exact deployed Component Instances</text>
-  <text x="1115" y="247" class="body" text-anchor="middle">for the expressly identified implementation-specific EA portions.</text>
-  <text x="1115" y="282" class="small" text-anchor="middle">Preserve the class mapping, membership evidence, and a separate verdict for each applicable requirement.</text>
+  <text x="1115" y="184" class="label" text-anchor="middle">Representative execution</text>
+  <text x="1115" y="214" class="small" text-anchor="middle">Exercise one or more exact deployed instances</text>
+  <text x="1115" y="238" class="small" text-anchor="middle">for identified implementation-specific EA portions.</text>
+  <text x="1115" y="272" class="small" text-anchor="middle">Keep class mapping and membership evidence.</text>
+  <text x="1115" y="295" class="small" text-anchor="middle">Record a verdict for each applicable requirement.</text>
 
   <text x="877" y="362" class="section">Retained coverage at the stated EA scope</text>
   <rect x="877" y="397" width="225" height="94" rx="11" class="retained"/>

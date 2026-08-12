@@ -44,7 +44,6 @@
   <text x="340" y="707" class="small" text-anchor="middle">container runtime, host kernel, orchestrator, mesh or ingress, mounts, and platform stores</text>
 
   <text x="702" y="140" class="section">Independently applicable activity portions</text>
-  <text x="702" y="165" class="small">Assess each at the layer stated by the EA.</text>
 
   <rect x="702" y="207" width="302" height="157" rx="13" class="retained"/>
   <text x="853" y="240" class="label" text-anchor="middle">Artifact and image</text>
@@ -70,8 +69,9 @@
   <text x="1194" y="497" class="body" text-anchor="middle">identities, protection, and trust</text>
   <text x="1194" y="531" class="small" text-anchor="middle">channel-specific coverage is retained</text>
 
-  <rect x="702" y="612" width="643" height="115" rx="13" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <rect x="702" y="606" width="643" height="121" rx="13" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
   <text x="726" y="647" class="label">Coverage rule</text>
-  <text x="726" y="677" class="body">The Linux method is limited to the running payload.</text>
-  <text x="726" y="704" class="body">Artifact, lifecycle, runtime, configuration, interface, and channel activities remain applicable.</text>
+  <text x="726" y="675" class="body">The Linux method is limited to the running payload.</text>
+  <text x="726" y="701" class="body">Artifact, lifecycle, runtime, and configuration activities remain applicable.</text>
+  <text x="726" y="724" class="body">Interface and channel activities remain applicable.</text>
 </svg>
