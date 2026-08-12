@@ -32,7 +32,8 @@
   <rect x="46" y="375" width="275" height="86" rx="12" class="instance"/>
   <text x="184" y="407" class="label" text-anchor="middle">Component A, replica A-n</text>
   <text x="184" y="436" class="small" text-anchor="middle">additional deployed occurrence only</text>
-  <text x="46" y="493" class="small">A Runtime Replica is not a separate class member merely because it is an added occurrence.</text>
+  <text x="46" y="493" class="small">Runtime Replicas are added occurrences,</text>
+  <text x="46" y="515" class="small">not separate class members.</text>
 
   <path d="M321 245 L390 245" class="arrow"/>
   <polygon points="390,245 372,234 372,256" fill="#0b3a67"/>
@@ -72,7 +73,7 @@
   <text x="990" y="453" class="small" text-anchor="middle">identity, delivery, verification</text>
   <text x="1242" y="425" class="label" text-anchor="middle">Interfaces / channels</text>
   <text x="1242" y="453" class="small" text-anchor="middle">trust, identity, traffic, recovery</text>
-  <text x="990" y="546" class="label" text-anchor="middle">Configuration / deployment</text>
+  <text x="990" y="546" fill="#102a43" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle">Configuration / deployment</text>
   <text x="990" y="574" class="small" text-anchor="middle">platform and topology differences</text>
   <text x="1242" y="546" class="label" text-anchor="middle">End-to-end behavior</text>
   <text x="1242" y="574" class="small" text-anchor="middle">integration and required testing</text>
