@@ -89,10 +89,10 @@
     "initial_topic": "TOE architecture / communication",
     "analysis_group": "Distributed TOE allocation, IPC, and loopback scope",
     "status": "Resolved",
-    "disposition": "Accept with adaptation",
+    "disposition": "Accept",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Retained Applicable Components for component allocation and added a plain-language rationale. Feature Dependent explains why an SFR is included in the ST; Applicable Components identifies every component that must demonstrate its allocated SFR element once it is included. The configuration now separates claim condition, component allocation, and permitted operational-environment contribution so a claim condition cannot narrow component coverage.",
-    "source_update": "Server-Agent configuration, allocation rationale, required ST mapping, and worked example"
+    "resolution_notes": "Adopted the NDcPP distributed-TOE allocation vocabulary. The configuration now uses only All Components, At Least One Component, and Feature Dependent. A Feature Dependent SFR element is fulfilled where its feature is implemented; the ST maps every implementing component to its element. A separate claim condition records inclusion without narrowing component coverage.",
+    "source_update": "Base cPP and Server-Agent configuration, allocation rationale, required ST mapping, and worked example"
   },
   {
     "id": "BAH-006",
@@ -108,10 +108,10 @@
     "initial_topic": "Clarification / rationale",
     "analysis_group": "Distributed TOE allocation, IPC, and loopback scope",
     "status": "Resolved",
-    "disposition": "Accept with adaptation",
+    "disposition": "Accept",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Clarified the two-stage model with a worked update example and a required ST mapping: a feature, selection, or objective claim determines whether an SFR is included; Applicable Components identifies the components responsible for the allocated elements. It is not a new SFR type or an additional optionality mechanism.",
-    "source_update": "Server-Agent configuration, allocation rationale, ST mapping, and worked example"
+    "resolution_notes": "Replaced Applicable Components with the NDcPP Feature Dependent allocation. The required element-level mapping, evaluation coverage, and evidence-reuse controls remain; Feature Dependent is not an additional optionality mechanism.",
+    "source_update": "Base cPP and Server-Agent configuration, allocation rationale, ST mapping, and worked example"
   },
   {
     "id": "BAH-007",
@@ -129,7 +129,7 @@
     "status": "Resolved",
     "disposition": "Accept with adaptation",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Reframed the allocation rationale around allocation category plus feature-dependent condition and retained network-stack coverage independent of locality. The non-network IPC documentation and protection rationale is now addressed by the objective FPT_IPC_EXT.1 rather than by a mandatory allocation rule.",
+    "resolution_notes": "Aligned the allocation rationale to the NDcPP All Components, At Least One Component, and Feature Dependent terminology while retaining the independent loopback and non-network IPC resolution. Non-network IPC identification and protection are addressed by the objective FPT_IPC_EXT.1 rather than by a mandatory allocation rule.",
     "source_update": "Server-Agent configuration and base cPP, distributed TOE rationale"
   },
   {
@@ -146,10 +146,10 @@
     "initial_topic": "Requirement alignment",
     "analysis_group": "Distributed TOE allocation, IPC, and loopback scope",
     "status": "Resolved",
-    "disposition": "Accept with adaptation",
+    "disposition": "Accept",
     "owner": "AppSW-iTC",
-    "resolution_notes": "Specified element-level allocation and added a plain-language update example. Components satisfy only the SFR elements they implement, while the evaluation evidence jointly covers every allocated element; a Server-image test does not satisfy an Agent update path without demonstrated equivalent implementation, configuration, and execution context. Permitted Runtime Replica scale-out is now tied to a minimum evaluated configuration, with separate coverage for new connections or security-relevant differences.",
-    "source_update": "Server-Agent configuration, allocation rationale, minimum evaluated configuration, and FPT_TUD_EXT.2 example"
+    "resolution_notes": "Adopted Feature Dependent and explicitly maps multi-element SFRs at the element level. Each component satisfies only the elements it implements, and the mapped elements collectively satisfy the TOE-level SFR. The FCO_CPC example maps enablement, registration, and disablement separately; evaluation evidence jointly covers every mapped element, without relying on a Server test to prove a distinct Agent path absent demonstrated equivalent implementation, configuration, and execution context.",
+    "source_update": "Base cPP and Server-Agent configuration, allocation rationale, FCO_CPC mapping, and FPT_TUD_EXT.2 example"
   },
   {
     "id": "BAH-009",

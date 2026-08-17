@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
   <title id="title">Distributed TOE allocation and evaluation-coverage guardrail</title>
-  <desc id="desc">A flow from a Feature Dependent claim through allocation, Statement of Requirements mapping, and Evaluation Activity coverage. It shows that evidence reuse is considered only after coverage is identified, and only for implementation-specific activity portions while artifact, configuration, interface, channel, relationship, and end-to-end coverage remain.</desc>
+  <desc id="desc">A flow from deciding whether an SFR is claimed, through the All, One, and Feature Dependent allocation categories, Statement of Requirements element-level mapping, and Evaluation Activity coverage. It shows that evidence reuse is considered only after coverage is identified, and only for implementation-specific activity portions while artifact, configuration, interface, channel, relationship, and end-to-end coverage remain.</desc>
   <defs>
     <marker id="arrow-navy" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
       <path d="M0,0 L11,5.5 L0,11 Z" fill="#0b3a67"/>
@@ -15,6 +15,8 @@
     .body { font: 17px Arial, Helvetica, sans-serif; fill: #243b53; }
     .small { font: 15px Arial, Helvetica, sans-serif; fill: #334e68; }
     .tiny { font: 14px Arial, Helvetica, sans-serif; fill: #334e68; }
+    .coverage-title { font: 700 16px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .coverage-detail { font: 14px Arial, Helvetica, sans-serif; fill: #334e68; }
     .inverse { font: 700 17px Arial, Helvetica, sans-serif; fill: #ffffff; }
     .accent { font: 700 16px Arial, Helvetica, sans-serif; fill: #0b3a67; }
     .line { fill: none; stroke: #0b3a67; stroke-width: 4; marker-end: url(#arrow-navy); }
@@ -29,40 +31,41 @@
 
   <!-- Claim condition -->
   <rect x="40" y="145" width="245" height="143" rx="14" fill="#fff6dd" stroke="#a86600" stroke-width="3"/>
-  <text x="162" y="177" class="card-title" text-anchor="middle">Feature Dependent</text>
+  <text x="162" y="177" class="card-title" text-anchor="middle">Claim condition</text>
   <text x="162" y="206" class="body" text-anchor="middle">
-    <tspan x="162" dy="0">Is the feature, selection,</tspan>
-    <tspan x="162" dy="22">or objective claimed?</tspan>
+    <tspan x="162" dy="0">Does a selection, feature,</tspan>
+    <tspan x="162" dy="22">or objective claim the SFR?</tspan>
   </text>
-  <text x="162" y="264" class="small" text-anchor="middle">Answers why the SFR is in the ST.</text>
+  <text x="162" y="264" class="small" text-anchor="middle">Determines SFR inclusion.</text>
 
   <path d="M285 216 L320 216" class="line"/>
 
   <!-- Allocation -->
   <rect x="320" y="145" width="495" height="143" rx="14" fill="#eaf4f8" stroke="#0b3a67" stroke-width="3"/>
   <text x="567" y="171" class="card-title" text-anchor="middle">Allocation</text>
-  <text x="567" y="193" class="small" text-anchor="middle">Which TOE Components have concrete obligations?</text>
-  <rect x="340" y="204" width="142" height="63" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
-  <rect x="496" y="204" width="142" height="63" rx="9" fill="#e1f3f6" stroke="#087e8b" stroke-width="2"/>
-  <rect x="652" y="204" width="142" height="63" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
-  <text x="411" y="226" class="accent" text-anchor="middle">All</text>
-  <text x="411" y="246" class="tiny" text-anchor="middle">every identified</text><text x="411" y="261" class="tiny" text-anchor="middle">TOE Component</text>
-  <text x="567" y="226" class="accent" text-anchor="middle">Applicable</text>
-  <text x="567" y="246" class="tiny" text-anchor="middle">Component performs</text><text x="567" y="261" class="tiny" text-anchor="middle">relevant function</text>
-  <text x="723" y="226" class="accent" text-anchor="middle">One</text>
-  <text x="723" y="246" class="tiny" text-anchor="middle">only where expressly</text><text x="723" y="261" class="tiny" text-anchor="middle">permitted</text>
+  <text x="567" y="193" class="small" text-anchor="middle">How are responsibility and coverage allocated?</text>
+  <rect x="340" y="200" width="90" height="74" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
+  <rect x="442" y="200" width="112" height="74" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
+  <rect x="566" y="200" width="228" height="74" rx="9" fill="#e1f3f6" stroke="#087e8b" stroke-width="2"/>
+  <text x="385" y="220" class="accent" text-anchor="middle">All</text>
+  <text x="385" y="246" class="tiny" text-anchor="middle">each</text><text x="385" y="262" class="tiny" text-anchor="middle">Component</text>
+  <text x="498" y="220" class="accent" text-anchor="middle">One</text>
+  <text x="498" y="246" class="tiny" text-anchor="middle">expressly</text><text x="498" y="262" class="tiny" text-anchor="middle">permitted</text>
+  <text x="680" y="220" class="accent" text-anchor="middle">Feature Dependent</text>
+  <text x="680" y="239" class="tiny" text-anchor="middle">each Component</text><text x="680" y="254" class="tiny" text-anchor="middle">implements feature</text><text x="680" y="269" class="tiny" text-anchor="middle">or allocated SFR element</text>
 
   <path d="M815 216 L850 216" class="line"/>
 
   <!-- ST mapping -->
   <rect x="850" y="145" width="310" height="143" rx="14" fill="#e9f7ef" stroke="#287d52" stroke-width="3"/>
   <text x="1005" y="176" class="card-title" text-anchor="middle">ST mapping</text>
-  <text x="1005" y="204" class="body" text-anchor="middle">
-    <tspan x="1005" dy="0">Map at SFR-element level:</tspan>
-    <tspan x="1005" dy="22">Component(s), artifact, configuration;</tspan>
-    <tspan x="1005" dy="22">interface / path, and iteration.</tspan>
+  <text x="1005" y="198" class="body" text-anchor="middle">
+    <tspan x="1005" dy="0">Map each allocated SFR element:</tspan>
+    <tspan x="1005" dy="22">responsible Component(s), artifact,</tspan>
+    <tspan x="1005" dy="22">configuration, interface / path,</tspan>
+    <tspan x="1005" dy="22">and iteration.</tspan>
   </text>
-  <text x="1005" y="267" class="tiny" text-anchor="middle">Identify OE contribution only where expressly allowed.</text>
+  <text x="1005" y="282" class="tiny" text-anchor="middle">OE only where expressly allowed.</text>
 
   <path d="M1005 288 L1005 329" class="line"/>
 
@@ -74,63 +77,73 @@
   <text x="70" y="441" class="section">Evaluation Activity coverage follows the allocated responsibility</text>
   <text x="70" y="466" class="small">Every allocated Component exhibits the claimed behavior in its identified configuration; deployment multiplicity does not let one</text>
   <text x="70" y="485" class="small">instance satisfy another's obligation.</text>
-  <rect x="68" y="501" width="188" height="61" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
-  <rect x="270" y="501" width="188" height="61" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
-  <rect x="472" y="501" width="188" height="61" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
-  <rect x="674" y="501" width="188" height="61" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
-  <rect x="876" y="501" width="256" height="61" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
-  <text x="162" y="528" class="card-title" text-anchor="middle">TOE Component</text>
-  <text x="162" y="550" class="tiny" text-anchor="middle">and allocated SFR element</text>
-  <text x="364" y="528" class="card-title" text-anchor="middle">Artifact</text>
-  <text x="364" y="550" class="tiny" text-anchor="middle">and lifecycle / implementation</text>
-  <text x="566" y="528" class="card-title" text-anchor="middle">Configuration</text>
-  <text x="566" y="550" class="tiny" text-anchor="middle">and deployed context</text>
-  <text x="768" y="528" class="card-title" text-anchor="middle">Interface / channel</text>
-  <text x="768" y="550" class="tiny" text-anchor="middle">and communication relationship</text>
-  <text x="1004" y="528" class="card-title" text-anchor="middle">Integration / end-to-end</text>
-  <text x="1004" y="550" class="tiny" text-anchor="middle">behavior at the activity's stated scope</text>
+  <rect x="68" y="497" width="188" height="78" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
+  <rect x="270" y="497" width="188" height="78" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
+  <rect x="472" y="497" width="188" height="78" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
+  <rect x="674" y="497" width="188" height="78" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
+  <rect x="876" y="497" width="256" height="78" rx="9" fill="#ffffff" stroke="#829ab1" stroke-width="2"/>
+  <text x="162" y="523" class="coverage-title" text-anchor="middle">TOE Component</text>
+  <text x="162" y="546" class="coverage-detail" text-anchor="middle"><tspan x="162" dy="0">allocated SFR</tspan><tspan x="162" dy="17">element</tspan></text>
+  <text x="364" y="523" class="coverage-title" text-anchor="middle">Artifact</text>
+  <text x="364" y="546" class="coverage-detail" text-anchor="middle"><tspan x="364" dy="0">lifecycle /</tspan><tspan x="364" dy="17">implementation</tspan></text>
+  <text x="566" y="523" class="coverage-title" text-anchor="middle">Configuration</text>
+  <text x="566" y="554" class="coverage-detail" text-anchor="middle">deployed context</text>
+  <text x="768" y="523" class="coverage-title" text-anchor="middle">Interface / channel</text>
+  <text x="768" y="546" class="coverage-detail" text-anchor="middle"><tspan x="768" dy="0">communication</tspan><tspan x="768" dy="17">relationship</tspan></text>
+  <text x="1004" y="523" class="coverage-title" text-anchor="middle">Integration</text>
+  <text x="1004" y="554" class="coverage-detail" text-anchor="middle">end-to-end behavior</text>
 
   <!-- Equivalence and retained scope -->
   <rect x="40" y="620" width="338" height="208" rx="14" fill="#fff6dd" stroke="#a86600" stroke-width="3"/>
-  <text x="209" y="653" class="card-title" text-anchor="middle">Implementation-equivalence gate</text>
-  <text x="209" y="682" class="body" text-anchor="middle">
-    <tspan x="209" dy="0">Can the exact, scoped implementation</tspan>
-    <tspan x="209" dy="22">and execution context be substantiated</tspan>
-    <tspan x="209" dy="22">as equivalent?</tspan>
+  <text x="209" y="648" class="card-title" text-anchor="middle"><tspan x="209" dy="0">Implementation-</tspan><tspan x="209" dy="21">equivalence gate</tspan></text>
+  <text x="209" y="700" class="body" text-anchor="middle">
+    <tspan x="209" dy="0">Can the scoped implementation</tspan>
+    <tspan x="209" dy="22">and execution context be</tspan>
+    <tspan x="209" dy="22">substantiated as equivalent?</tspan>
   </text>
-  <text x="209" y="762" class="tiny" text-anchor="middle">
-    <tspan x="209" dy="0">Same security-relevant implementation, version,</tspan>
-    <tspan x="209" dy="19">configuration, role/code path, and relevant services</tspan>
-    <tspan x="209" dy="19">and interfaces are prerequisites.</tspan>
+  <text x="209" y="773" class="tiny" text-anchor="middle">
+    <tspan x="209" dy="0">Same security-relevant implementation</tspan>
+    <tspan x="209" dy="18">and version; configuration;</tspan>
+    <tspan x="209" dy="18">role/code path; services; interfaces.</tspan>
   </text>
 
   <path d="M378 724 L426 724" class="line"/>
 
   <rect x="426" y="620" width="338" height="208" rx="14" fill="#e1f3f6" stroke="#087e8b" stroke-width="3"/>
   <text x="595" y="653" class="card-title" text-anchor="middle">Representative execution</text>
-  <text x="595" y="682" class="body" text-anchor="middle">
-    <tspan x="595" dy="0">May reuse only the exact,</tspan>
-    <tspan x="595" dy="22">implementation-specific EA paragraph</tspan>
-    <tspan x="595" dy="22">or test portion that is substantiated.</tspan>
+  <text x="595" y="687" class="body" text-anchor="middle">
+    <tspan x="595" dy="0">Reuse only a substantiated</tspan>
+    <tspan x="595" dy="22">implementation-specific EA</tspan>
+    <tspan x="595" dy="22">paragraph or test portion.</tspan>
   </text>
-  <text x="595" y="765" class="small" text-anchor="middle">
+  <text x="595" y="765" class="small" text-anchor="middle" display="none">
     <tspan x="595" dy="0">It can eliminate duplicate execution of that</tspan>
     <tspan x="595" dy="21">implementation-specific activity—nothing more.</tspan>
+  </text>
+
+  <text x="595" y="772" class="small" text-anchor="middle">
+    <tspan x="595" dy="0">Eliminates duplicate execution only for</tspan>
+    <tspan x="595" dy="21">that scoped activity.</tspan>
   </text>
 
   <path d="M764 724 L812 724" class="line"/>
 
   <rect x="812" y="620" width="348" height="208" rx="14" fill="#f0f4f8" stroke="#486581" stroke-width="3"/>
   <text x="986" y="653" class="card-title" text-anchor="middle">Coverage that remains</text>
-  <text x="986" y="683" class="body" text-anchor="middle">
+  <text x="986" y="681" class="body" text-anchor="middle">
     <tspan x="986" dy="0">No evidence-reuse claim changes allocation</tspan>
-    <tspan x="986" dy="22">or removes required coverage for:</tspan>
+    <tspan x="986" dy="22">or removes required coverage.</tspan>
   </text>
-  <text x="986" y="744" class="small" text-anchor="middle">
+  <text x="986" y="744" class="small" text-anchor="middle" display="none">
     <tspan x="986" dy="0">artifacts • configurations • interfaces • channels</tspan>
     <tspan x="986" dy="22">relationships • topology / deployment • end-to-end</tspan>
   </text>
-  <text x="986" y="797" class="accent" text-anchor="middle">Evidence reuse is not a test-coverage escape.</text>
+  <text x="986" y="735" class="small" text-anchor="middle">
+    <tspan x="986" dy="0">artifacts • configurations</tspan>
+    <tspan x="986" dy="19">interfaces • channels • relationships</tspan>
+    <tspan x="986" dy="19">topology / deployment • end-to-end</tspan>
+  </text>
+  <text x="986" y="800" class="accent" text-anchor="middle"><tspan x="986" dy="0">Evidence reuse is not a</tspan><tspan x="986" dy="18">test-coverage escape.</tspan></text>
 
   <line x1="40" y1="858" x2="1160" y2="858" class="soft-line"/>
   <text x="600" y="884" class="small" text-anchor="middle">Explanatory; normative text, allocation tables, and Evaluation Activities control.</text>

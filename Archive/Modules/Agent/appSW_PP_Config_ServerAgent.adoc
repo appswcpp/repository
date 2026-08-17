@@ -138,38 +138,35 @@ The operational guidance shall describe how to add a permitted Runtime Replica c
 
 [%unbreakable]
 --
-The ST shall provide an SFR allocation rationale that separately identifies the claim condition, component allocation, and any permitted operational-environment contribution for each claimed requirement. Component allocation is expressed as all TOE Components, applicable TOE Components that perform the relevant function, or at least one TOE Component. The ST shall describe all distinct intra-TOE Communication Relationship Types. For an in-scope network-mediated Communication Relationship Type, the ST shall identify the mechanisms used to authorize and protect the communication. Repeated relationships may be represented using an unambiguous topology pattern rather than by enumerating every TOE Component Instance pair. A connection limited to the platform loopback interface is not in scope for FTP_DIT_EXT.1 in this version of the cPP and does not require a trusted-channel claim or a separate FTP_DIT_EXT.1 test. This scope boundary does not assert that local users or processes are trusted. For FPT_IPC_EXT.1, the ST shall identify each non-network local inter-process communication mechanism, such as named pipes, Unix domain sockets, shared memory, platform-brokered IPC, or an equivalent mechanism, and the architectural protection relied upon, such as platform isolation, endpoint access control, or object permissions. Detailed implementation or configuration information is required only where an applicable SFR or Evaluation Activity requires it.
+The ST shall provide an SFR allocation rationale that separately identifies the claim condition, where relevant; component allocation; and any permitted operational-environment contribution for each claimed requirement. Component allocation is expressed as _All Components_, _Feature Dependent_, or _At Least One Component_. A _Feature Dependent_ allocation is fulfilled only where the relevant feature is implemented by a distributed TOE Component; the ST shall map every TOE Component that implements the relevant SFR element. The ST shall describe all distinct intra-TOE Communication Relationship Types. For an in-scope network-mediated Communication Relationship Type, the ST shall identify the mechanisms used to authorize and protect the communication. Repeated relationships may be represented using an unambiguous topology pattern rather than by enumerating every TOE Component Instance pair. A connection limited to the platform loopback interface is not in scope for FTP_DIT_EXT.1 in this version of the cPP and does not require a trusted-channel claim or a separate FTP_DIT_EXT.1 test. This scope boundary does not assert that local users or processes are trusted. For FPT_IPC_EXT.1, the ST shall identify each non-network local inter-process communication mechanism, such as named pipes, Unix domain sockets, shared memory, platform-brokered IPC, or an equivalent mechanism, and the architectural protection relied upon, such as platform isolation, endpoint access control, or object permissions. Detailed implementation or configuration information is required only where an applicable SFR or Evaluation Activity requires it.
 --
 
 ==== SFR Allocation for Distributed TOEs
-For a distributed TOE, the SFRs are satisfied by the TOE as a whole; however, not every SFR is necessarily implemented by every TOE Component. The ST author shall separately identify the claim condition, component allocation, and permitted operational-environment contribution for every claimed SFR element. Every deployed TOE Component Instance shall exhibit the claimed SFR behavior allocated to its TOE Component in its identified configuration. For an _All Components_ or _Applicable Components_ allocation, deployment multiplicity does not permit one instance to satisfy an allocated requirement on behalf of another instance.
+For a distributed TOE, the SFRs are satisfied by the TOE as a whole; however, not every SFR is necessarily implemented by every TOE Component. The ST author shall separately identify the claim condition, where relevant; component allocation; and permitted operational-environment contribution for every claimed SFR element. Every deployed TOE Component Instance shall exhibit the claimed SFR behavior allocated to its TOE Component in its identified configuration. For an _All Components_ or _Feature Dependent_ allocation, deployment multiplicity does not permit one instance to satisfy an allocated requirement on behalf of another instance.
 
 All Components ("All")::
 Every TOE Component shall independently satisfy the requirement.
 
-Applicable Components::
-For a claimed SFR, every TOE Component that performs a security-relevant function governed by an SFR element shall satisfy that allocated element. The ST shall identify the components and elements to which the requirement applies. This category does not exclude other TOE Components from the base cPP; it identifies the TOE Components that have concrete implementation obligations because they perform the relevant function, make the relevant selection, or rely on the relevant platform functionality. It does not require every identified component to satisfy every element of a multi-element SFR.
-
 At Least One Component ("One")::
 At least one TOE Component shall satisfy the requirement on behalf of the TOE. The ST shall identify the component or components that satisfy the requirement and describe how this satisfies the TOE-level claim.
 
-Feature Dependent (condition of applicability)::
-Feature Dependent describes why an SFR is included in the ST: the distributed TOE claims the relevant feature or selection. An objective SFR is included when the ST claims that objective. This condition does not itself allocate the requirement or reduce evaluation coverage. Once the SFR is included, the allocation in the applicable table controls which TOE Components have concrete implementation obligations. The ST shall identify the TOE Component or components that perform the relevant function, make the relevant selection, or rely on the relevant platform functionality.
+Feature Dependent ("Feature Dependent")::
+A _Feature Dependent_ SFR or SFR element is fulfilled only where the relevant feature is implemented by a distributed TOE Component. If a _Feature Dependent_ SFR or element is included in the ST, at least one TOE Component shall implement the relevant feature. The ST shall map every TOE Component that implements the feature to the SFR element or elements it implements. Where different TOE Components implement different elements of a multi-element SFR, each TOE Component shall satisfy only its mapped elements; the mapped elements collectively satisfy the TOE-level requirement. A feature, selection, or objective claim that controls inclusion of the SFR shall be recorded separately in the ST mapping and shall not be used to omit an implementing TOE Component or reduce required coverage.
 
 Permitted Operational-Environment Contribution (not an allocation category)::
 The TOE may rely on the operational environment for a function only where the base cPP or PP-Module expressly permits it. The ST shall identify the environmental service, the TOE Component and SFR element that invoke or rely on it, and the required configuration. This does not remove the TOE Component from the SFR mapping or allow the environmental component to satisfy a TOE-implemented requirement.
 
-The claim condition and component allocation are controlled by the following tables and the SFR's operations and application notes; the ST shall not freely reclassify an SFR. _At Least One Component_ and a permitted operational-environment contribution may be used only where the applicable table or requirement expressly permits them. Allocation shall be stated at the SFR-element level when different elements have different responsible TOE Components, update actors, or permitted platform dependencies. Evaluation evidence shall cover every TOE Component, artifact, communication path, or function allocated as responsible. Evidence for one TOE Component may be reused only where the ST demonstrates that the relevant implementation, configuration, and execution context are equivalent.
+The claim condition, where relevant, and component allocation are controlled by the following tables and the SFR's operations and application notes; the ST shall not freely reclassify an SFR. _At Least One Component_ and a permitted operational-environment contribution may be used only where the applicable table or requirement expressly permits them. Allocation shall be stated at the SFR-element level when different elements have different responsible TOE Components, update actors, or permitted platform dependencies. A _Feature Dependent_ allocation or claim condition shall not be used to omit a TOE Component that performs the mapped function. Evaluation evidence shall cover every TOE Component, artifact, communication path, or function allocated as responsible. Evidence for one TOE Component may be reused only where the ST demonstrates that the relevant implementation, configuration, and execution context are equivalent.
 
 [[fig-allocation-coverage-guardrail]]
 .Illustrative claim, allocation, mapping, and retained Evaluation Activity coverage
 image::allocation-coverage-guardrail.svg[Claim condition, component allocation, ST mapping, evidence reuse, and retained coverage,pdfwidth=100%,align=center]
 
-===== Rationale: Why Applicable Components is Retained
+===== Rationale: NDcPP-Aligned Feature Dependent Allocation
 
-_Feature Dependent_ and _Applicable Components_ answer different questions. _Feature Dependent_ says why a requirement is present in the ST: the TOE claims a feature, makes a selection, or claims an objective. _Applicable Components_ says which TOE Components must demonstrate the claimed requirement after it is present. Retaining both terms prevents the claim decision from being mistaken for the component-allocation decision.
+This configuration uses the _All Components_, _At Least One Component_, and _Feature Dependent_ allocation terms used by the NDcPP distributed-TOE model. A claim condition, where relevant, explains whether a feature, selection, or objective brings an SFR into the ST. _Feature Dependent_ then identifies the TOE Components in which the claimed behavior is implemented. The ST records both facts in its mapping, but they are not separate allocation categories.
 
-_Applicable Components_ is not a new SFR type and does not broaden a claimed SFR. It is a component-mapping instruction used to make the standard feature-dependent result explicit: every TOE Component that implements an allocated SFR element is identified and covered. A TOE Component that does not implement that element is not treated as its implementer; conversely, a component that does implement it cannot be omitted merely because another component implements a similar function. The TOE as a whole must still satisfy every claimed SFR, and evidence for one component can be reused only when equivalent security-relevant implementation, configuration, and execution context are demonstrated.
+The required element-level mapping prevents a coverage shortcut. A TOE Component that does not implement an element is not treated as its implementer; conversely, a component that does implement it cannot be omitted merely because another component implements a similar function. The TOE as a whole must still satisfy every claimed SFR. Evidence for one component can be reused only when equivalent security-relevant implementation, configuration, and execution context are demonstrated; shared infrastructure, a common base image, or similar function names are not by themselves equivalent.
 
 ===== Required ST Allocation Mapping
 
@@ -177,7 +174,7 @@ The ST shall include a mapping for every claimed SFR element or unambiguous set 
 
 * the SFR element and completed iteration, where applicable;
 * the claim condition, including a feature or selection, or an objective claim, where applicable;
-* the component allocation: _All Components_, _Applicable Components_, or _At Least One Component_;
+* the component allocation: _All Components_, _Feature Dependent_, or _At Least One Component_;
 * the TOE Component or unambiguous set of TOE Components responsible for the element, together with the performed security-relevant function;
 * the relevant artifact, security-relevant configuration, interface, communication relationship, or update path where it affects the claim; and
 * any permitted operational-environment contribution and the required guidance reference.
@@ -186,9 +183,9 @@ The mapping may reference a common TSS description for identically completed SFR
 
 ===== Non-Normative Example: Conditional Update Selection and Component Coverage
 
-Consider a distributed TOE containing a Server Application image and an Agent Application package. The trusted-update selection in FPT_TUD_EXT.2 is feature dependent: if the selection is not claimed, the requirement is not included in the ST. If the selection is claimed, the table's _Applicable Components_ allocation applies. The ST identifies every TOE Component that performs update verification, delivery, replacement, or installation integrity functions, together with its artifact and path.
+Consider a distributed TOE containing a Server Application image and an Agent Application package. The trusted-update selection in FPT_TUD_EXT.2 is the claim condition: if it is not claimed, the requirement is not included in the ST. If it is claimed, the requirement uses the _Feature Dependent_ allocation, and every TOE Component that performs update verification, delivery, replacement, or installation-integrity functions fulfills its mapped SFR element. The ST identifies each such TOE Component together with its artifact and path.
 
-In plain terms, a successful test of the Server image does not prove that the Agent package is protected. If the Server verifies and installs its own image while the Agent verifies and installs its package, each component is applicable only to the update elements it performs. The Server evidence need not prove the Agent's element, and the Agent evidence need not prove the Server's element; together, the evidence must cover all allocated elements. A common registry, build pipeline, base image, or package format does not by itself make the two paths equivalent. This example does not alter the requirement or its Evaluation Activities.
+In plain terms, a successful test of the Server image does not prove that the Agent package is protected. If the Server verifies and installs its own image while the Agent verifies and installs its package, each component is mapped only to the update elements it performs. The Server evidence need not prove the Agent's element, and the Agent evidence need not prove the Server's element; together, the evidence must cover all allocated elements. A common registry, build pipeline, base image, or package format does not by itself make the two paths equivalent. This example does not alter the requirement or its Evaluation Activities.
 
 The following table defines the expected allocation for the base cPP SFRs in a distributed TOE.
 
@@ -200,91 +197,91 @@ The following table defines the expected allocation for the base cPP SFRs in a d
 |Distributed TOE guidance
 
 |FCS_CKM.1/AK
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that invokes or implements asymmetric key generation.
 
 |FCS_CKM.1/SK
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that generates symmetric keys.
 
 |FCS_CKM.2
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that performs key establishment.
 
 |FCS_CKM_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that invokes or implements key generation services.
 
 |FCS_COP.1/Hash
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that performs hashing for a claimed function.
 
 |FCS_COP.1/KeyedHash
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that performs keyed-hash functions for a claimed function.
 
 |FCS_COP.1/SigGen
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that generates digital signatures.
 
 |FCS_COP.1/SigVer
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that verifies digital signatures, including update verification if performed by that component.
 
 |FCS_COP.1/XOF
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that implements SHAKE as a component of LMS or XMSS signature verification.
 
 |FCS_COP.1/SKC
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that performs encryption or decryption.
 
 |FCS_HTTPS_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that implements HTTPS as a client, server, or server with mutual authentication.
 
 |FCS_HTTPS_EXT.2
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that implements HTTPS with peer certificate authentication behavior covered by this requirement.
 
 |FCS_PBKDF_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that performs password conditioning.
 
 |FCS_RBG.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that implements RBG functionality.
 
 |FCS_RBG.2
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that implements RBG functionality using external seeding.
 
 |FCS_RBG.3
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that implements RBG functionality using a single internal noise source.
 
 |FCS_RBG.4
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that implements RBG functionality using multiple internal noise sources.
 
 |FCS_RBG.5
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that implements RBG functionality using combined noise sources.
 
 |FCS_RBG_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that invokes platform-provided RBG services, implements RBG functionality, or claims no RBG functionality.
 
 |FCS_SNI_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that creates or uses salts, nonces, or initialization vectors for claimed cryptographic functions.
 
 |FCS_STO_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that persistently stores credentials.
 
 |FDP_DAR_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that stores sensitive application data at rest.
 
 |FDP_DEC_EXT.1
@@ -300,15 +297,15 @@ The following table defines the expected allocation for the base cPP SFRs in a d
 |Each TOE Component shall satisfy secure-by-default and file-permission requirements for its installed binaries, data, and default credentials.
 
 |FMT_MEC_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that stores or manages configuration options.
 
 |FMT_SMF.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that provides security management functions. At least one component shall be identified if management functions are claimed for the TOE.
 
 |FPR_ANO_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that transmits personally identifiable information.
 
 |FPT_AEX_EXT.1
@@ -320,15 +317,15 @@ The following table defines the expected allocation for the base cPP SFRs in a d
 |Each TOE Component shall use only documented and supported platform APIs.
 
 |FPT_API_EXT.2
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that parses IANA MIME media types covered by the objective requirement.
 
 |FPT_IPC_EXT.1 (Objective)
-|Applicable Components
+|Feature Dependent
 |When the objective is claimed, applies to each TOE Component that uses non-network local inter-process communication with another TOE Component Instance. The ST maps each mechanism, the participating TOE Components, and the architectural protection relied upon.
 
 |FPT_FLS.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that must preserve a secure state for the selected failure conditions.
 
 |FPT_IDV_EXT.1
@@ -340,19 +337,19 @@ The following table defines the expected allocation for the base cPP SFRs in a d
 |Each TOE Component shall identify its third-party libraries.
 
 |FPT_TST.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that performs TSF self-tests or integrity verification covered by the requirement.
 
 |FPT_TUD_EXT.1
-|Applicable Components
+|Feature Dependent
 |The TOE shall provide trusted update support. The ST shall identify how each separately versioned TOE Component and each distinct container image, package, or update artifact is checked, obtained from an authorized source, delivered, verified, installed or replaced, reported in TOE version information, and removed or rolled back where supported. Running-payload execution does not discharge artifact or lifecycle coverage.
 
 |FPT_TUD_EXT.2
-|Applicable Components
+|Feature Dependent
 |Applies to every distinct TOE Component, image, package, update artifact, and delivery or verification path that performs installation or update integrity functions covered by this selection-based requirement. A common registry, build pipeline, base image, or package format alone does not justify representative update-artifact testing.
 
 |FTP_DIT_EXT.1
-|Applicable Components
+|Feature Dependent
 |Applies to each TOE Component that transmits data or sensitive data to another trusted IT product or TOE Component Instance in an in-scope network-mediated relationship, or invokes platform-provided functionality where the SFR permits that protection. A connection limited to the platform loopback interface is not an FTP_DIT_EXT.1 relationship in this version of the cPP and does not require a trusted-channel claim or a separate FTP_DIT_EXT.1 test. This scope boundary does not assert that local users or processes are trusted. If an operational-environment ingress, proxy, or mesh terminates an in-scope connection, the payload-side TOE interface and environmental dependency remain in scope; the public-facing interface is TOE behavior only when the terminating component is in the TOE boundary. Non-network local inter-process communication is addressed by the FPT_IPC_EXT.1 objective.
 |===
 
@@ -366,20 +363,20 @@ The following table defines the expected allocation for the Server and Agent PP-
 |Distributed TOE guidance
 
 |FMT_MEC_EXT.1/Server
-|Applicable Components
+|Feature Dependent
 |Applies to each Server Application TOE Component that stores or manages server configuration data.
 
 |FMT_SMF.1/Server
-|Applicable Components
+|Feature Dependent
 |Applies to each Server Application TOE Component that provides management functions. The ST shall identify which TOE Component or Components manage intra-TOE communications, enrollment, or policy.
 
 |FPT_AEX_EXT.2/Server
-|Applicable Components
+|Feature Dependent
 |Each Server Application TOE Component shall be compatible with security features provided by its platform vendor.
 
-|FCO_CPC_EXT.1/Agent
-|Applicable Components
-|Applies to each Agent Application TOE Component whose instances are represented by endpoint identities in communication pairings that are enabled, disabled, registered, authorized, or otherwise controlled under FCO_CPC_EXT.1/Agent.
+|FCO_CPC_EXT.1
+|Feature Dependent
+|The ST shall map FCO_CPC_EXT.1.1 (enablement), FCO_CPC_EXT.1.2 (registration), and FCO_CPC_EXT.1.3 (disablement) to the TOE Component or Components that implement them. A TOE Component that provides an enablement or disablement function, and a TOE Component that performs registration, shall satisfy only its mapped element or elements; the mapped elements collectively satisfy FCO_CPC_EXT.1. The ST shall identify the affected endpoint identities and Communication Relationship Types.
 |===
 
 If an operational environment component, such as a container orchestration platform, container runtime, service mesh infrastructure, ingress infrastructure, cluster networking, platform-provided secret or configuration store, managed runtime, or application framework, is relied upon to support a claimed SFR, the ST shall identify the dependency. The evaluator assesses the TOE's use of the dependency and the required configuration guidance, but the environmental component is not included in the TOE boundary unless explicitly claimed. The ST shall provide an operational-environment dependency matrix that identifies the service and relevant version or API, affected TOE Components and SFR elements, trust assumption, failure behavior, credentials and configuration, and corresponding guidance requirement. An environmental component may satisfy an SFR only where that SFR expressly permits platform-provided functionality.
@@ -484,27 +481,27 @@ image::twelve-container-topology.svg[Five TOE Components, twelve deployed TOE Co
 |Illustrative treatment
 
 |FPT_AEX_EXT.1, FPT_API_EXT.1, FPT_LIB_EXT.1
-|All five TOE Components
+|All Components (all five in this example)
 |Each distinct payload artifact satisfies the requirement. A Linux Running-Payload Activity is executed using at least one exact TOE Component Instance representing each TOE Component and each of its identified security-relevant configurations, where applicable, unless a narrower implementation-specific portion is covered by a substantiated class; artifact-specific binary and library evidence remains separate.
 
 |FDP_NET_EXT.1
-|All five TOE Components
+|All Components (all five in this example)
 |The ST identifies each payload-side inbound and outbound interface. The operational-environment ingress dependency is described separately.
 
 |FCO_CPC_EXT.1 and FTP_DIT_EXT.1
-|FCO_CPC_EXT.1: TOE Components assigned an Agent Application role; FTP_DIT_EXT.1: transmitting TOE Components
-|The ST maps each Communication Relationship Type below to the applicable iteration and retains relationship-, identity-, and channel-specific testing.
+|Feature Dependent
+|FCO_CPC_EXT.1 is mapped to the TOE Components assigned an Agent Application role, and FTP_DIT_EXT.1 is mapped to the transmitting TOE Components. The ST maps each Communication Relationship Type below to the applicable iteration and retains relationship-, identity-, and channel-specific testing.
 
 |FPT_IDV_EXT.1
-|All five TOE Components
+|All Components (all five in this example)
 |When claimed, the completed identification mechanism records the version identifier or digest of all five separately versioned TOE Components. Querying or reporting those values as part of update behavior is addressed by FPT_TUD_EXT.1.2.
 
 |FPT_TUD_EXT.1
-|Applicable Components
-|The Update Coordinator may perform discovery for the updateable TOE Components when mapped as the responsible component. The ST allocates element-level responsibilities, including how FPT_TUD_EXT.1.2 reports the version of each separately versioned TOE Component, without changing the controlling Applicable Components category.
+|Feature Dependent
+|The Update Coordinator may perform discovery for the updateable TOE Components when mapped as the responsible component. The ST allocates element-level responsibilities, including how FPT_TUD_EXT.1.2 reports the version of each separately versioned TOE Component, without changing the controlling Feature Dependent allocation.
 
 |FPT_TUD_EXT.2
-|Applicable Components
+|Feature Dependent
 |Each distinct image and every applicable verification, delivery, replacement, failure, and required removal path remain in the trusted-update matrix. Any supported rollback behavior is documented but is not an additional requirement unless a completed SFR or EA requires it.
 |===
 

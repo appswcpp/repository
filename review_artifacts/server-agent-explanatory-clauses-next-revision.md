@@ -48,9 +48,9 @@ Suggested clause:
 
 > The implementation table provides guidance for consistently applying base cPP and module SFRs across separately deployed TOE components. It does not create a separate conformance model and does not permit any TOE component to bypass the base cPP.
 
-Suggested Applicable Components explanation:
+Suggested Feature Dependent explanation:
 
-> "Applicable Components" means that all TOE components remain subject to the base cPP, but the concrete implementation obligation for the identified SFR applies to each TOE component that performs the relevant function, makes the relevant selection, or relies on the corresponding platform-provided functionality.
+> A "Feature Dependent" SFR or SFR element is fulfilled only where the relevant feature is implemented by a distributed TOE component. If it is included in the ST, the ST maps every implementing component to the SFR element or elements it implements. A feature, selection, or objective condition may control inclusion, but does not omit an implementing component from required coverage.
 
 ## FTP_DIT_EXT.1 and FPT_ITT.1 Replacement
 
@@ -126,8 +126,8 @@ Implement now:
 
 * Keep `FCO_CPC_EXT.1` focused on control of component participation and communication relationships.
 * Remove or avoid transport-protection language that duplicates `FTP_DIT_EXT.1`.
-* Remove `FCO_CPC_EXT.1/Server` entirely and keep component participation control solely in the Agent iteration because the Agent components are the iterated participation points.
-* Update the implementation mapping to remove the Server iteration and retain only `FCO_CPC_EXT.1/Agent`.
+* Do not represent `FCO_CPC_EXT.1` as a Server or Agent iteration; component participation control is addressed by the single SFR and mapped to responsible TOE Components.
+* Update the implementation mapping to list `FCO_CPC_EXT.1` and map its enablement, registration, and disablement elements separately.
 
 ### 5. X.509 Module Removal
 
@@ -152,11 +152,11 @@ Implement now:
 Implement now:
 
 * Reframe the table as implementation guidance for applying the base cPP plus module composition model, not as a separate distributed TOE conformance model.
-* Ensure optional, objective, and selection-based SFRs use `Applicable Components` or `Feature Dependent` so they are not accidentally made mandatory.
+* Record the feature, selection, objective, or other claim condition separately so that it controls whether the SFR is included in the ST; when included, use the NDcPP `Feature Dependent` allocation where the relevant feature is implemented.
 * Remove `justify why the requirement does not apply to other TOE components`.
-* Explain that `Applicable Components` does not exclude a TOE component from the base cPP; it identifies which components perform the relevant function, make the relevant selection, or rely on the relevant platform functionality.
+* Explain that `Feature Dependent` does not exclude a TOE component from the base cPP; it identifies each component that implements the relevant feature or SFR element, makes the relevant selection, or relies on the relevant platform functionality.
 * Revisit `TOE as a Whole` entries, especially `FPT_IDV_EXT.1` and `FPT_TUD_EXT.1`, to ensure they do not obscure per-component versioning and update expectations.
-* Review `FCS_` allocations and clarify that they are `Applicable Components` because cryptographic behavior follows the component that performs, invokes, or claims the cryptographic function.
+* Review `FCS_` allocations and clarify that they are `Feature Dependent` because cryptographic behavior follows the component that performs, invokes, or claims the cryptographic function.
 * For mandatory base SFRs with `no` selections, clarify whether each TOE component claims the SFR with the relevant selection or whether the mapping guidance identifies the SFR as not concretely implemented by components that do not perform the function.
 
 ### 8. Supporting Documents
