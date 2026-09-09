@@ -1,0 +1,3 @@
+/home/runner/work/repository/repository/input/application.xml:229:203: error: attribute "width" not allowed here; expected attribute "max-width" or "pre"
+/home/runner/work/repository/repository/input/application.xml:246:185: error: attribute "width" not allowed here; expected attribute "max-width" or "pre"
+/home/runner/work/repository/repository/input/application.xml:2385:190: error: attribute "width" not allowed here; expected attribute "max-width" or "pre"
