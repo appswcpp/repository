@@ -1,94 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
   <title id="title">PP-Configuration selection for TOE Components and deployed instances</title>
-  <desc id="desc">Decision flow distinguishing a server-only TOE with one TOE Component and Runtime Replicas, a distributed TOE governed by the Agent Module control model, and a distributed TOE that requires another approved PP-Configuration or iTC guidance.</desc>
-  <style>
-    .heading { font: 700 25px Arial, Helvetica, sans-serif; fill: #ffffff; }
-    .question { font: 700 23px Arial, Helvetica, sans-serif; fill: #102a43; }
-    .outcome { font: 700 22px Arial, Helvetica, sans-serif; fill: #102a43; }
-    .body { font: 19px Arial, Helvetica, sans-serif; fill: #243b53; }
-    .small { font: 17px Arial, Helvetica, sans-serif; fill: #334e68; }
-    .branch { font: 700 18px Arial, Helvetica, sans-serif; fill: #0b3a67; }
-    .line { fill: none; stroke: #0b3a67; stroke-width: 4; }
-  </style>
+  <desc id="desc">Decision flow for an Enterprise Server Application TOE. A server-only TOE with one logical TOE Component may use Runtime Replicas. Separately deployed distinct TOE Components are assessed against the Agent Module control model. Arrows show the decision flow rather than communication direction.</desc>
+  <defs>
+    <marker id="decision-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0b3a67"/>
+    </marker>
+    <style>
+      .heading { font: 700 28px Arial, Helvetica, sans-serif; fill: #ffffff; }
+      .question { font: 700 26px Arial, Helvetica, sans-serif; fill: #0b3a67; }
+      .outcome { font: 700 24px Arial, Helvetica, sans-serif; fill: #0b3a67; }
+      .body { font: 21px Arial, Helvetica, sans-serif; fill: #243b53; }
+      .small { font: 18px Arial, Helvetica, sans-serif; fill: #475569; }
+      .small-strong { font: 700 19px Arial, Helvetica, sans-serif; fill: #475569; }
+      .branch { font: 700 20px Arial, Helvetica, sans-serif; fill: #0b3a67; }
+      .legend { font: 18px Arial, Helvetica, sans-serif; fill: #475569; }
+      .line { fill: none; stroke: #0b3a67; stroke-width: 4; marker-end: url(#decision-arrow); }
+    </style>
+  </defs>
 
   <rect width="1200" height="760" fill="#ffffff"/>
 
-  <rect x="330" y="24" width="540" height="72" rx="14" fill="#0b3a67"/>
-  <text x="600" y="54" class="heading" text-anchor="middle">
+  <rect x="260" y="24" width="680" height="90" rx="16" fill="#0b3a67"/>
+  <text x="600" y="60" class="heading" text-anchor="middle">
     <tspan x="600" dy="0">Enterprise Server Application TOE</tspan>
-    <tspan x="600" dy="28">TOE boundary already identified</tspan>
+    <tspan x="600" dy="30">TOE boundary already identified</tspan>
   </text>
 
-  <path d="M600 96 L600 128" class="line"/>
-  <polygon points="600,142 590,126 610,126" fill="#0b3a67"/>
+  <path d="M600 114 L600 142" class="line"/>
 
-  <rect x="215" y="142" width="770" height="116" rx="16" fill="#eaf4f8" stroke="#0b3a67" stroke-width="3"/>
-  <text x="600" y="178" class="question" text-anchor="middle">
+  <rect x="205" y="150" width="790" height="128" rx="18" fill="#eef8fa" stroke="#087e8b" stroke-width="3"/>
+  <text x="600" y="187" class="question" text-anchor="middle">
     <tspan x="600" dy="0">Does the TOE have separately deployed instances of</tspan>
     <tspan x="600" dy="31">more than one distinct TOE Component that collectively</tspan>
     <tspan x="600" dy="31">provide TOE security functionality?</tspan>
   </text>
 
-  <path d="M215 200 L112 200 L112 316" class="line"/>
-  <polygon points="112,330 102,314 122,314" fill="#0b3a67"/>
-  <text x="152" y="190" class="branch" text-anchor="middle">NO</text>
+  <path d="M205 214 L112 214 L112 330" class="line"/>
+  <text x="151" y="205" class="branch" text-anchor="middle">NO</text>
 
-  <rect x="28" y="330" width="350" height="170" rx="16" fill="#e9f7ef" stroke="#287d52" stroke-width="3"/>
-  <text x="203" y="367" class="outcome" text-anchor="middle">Server-only may apply</text>
-  <text x="203" y="403" class="body" text-anchor="middle">
-    <tspan x="203" dy="0">One TOE Component may have Runtime</tspan>
-    <tspan x="203" dy="25">Replicas. Instance count and horizontal</tspan>
-    <tspan x="203" dy="25">scaling alone do not trigger the</tspan>
-    <tspan x="203" dy="25">Agent Module.</tspan>
+  <rect x="28" y="330" width="360" height="190" rx="16" fill="#edf9f1" stroke="#287d52" stroke-width="3"/>
+  <text x="208" y="368" class="outcome" text-anchor="middle">Server-only may apply</text>
+  <text x="208" y="405" class="body" text-anchor="middle">
+    <tspan x="208" dy="0">One logical TOE Component</tspan>
+    <tspan x="208" dy="26">may have Runtime Replicas.</tspan>
+    <tspan x="208" dy="26">Instance count and horizontal</tspan>
+    <tspan x="208" dy="26">scaling alone do not trigger</tspan>
+    <tspan x="208" dy="26">the Agent Module.</tspan>
   </text>
 
-  <rect x="28" y="525" width="350" height="115" rx="12" fill="#f4f7fa" stroke="#829ab1" stroke-width="2"/>
-  <text x="203" y="556" class="small" text-anchor="middle">
-    <tspan x="203" dy="0">This topology decision does not, by</tspan>
-    <tspan x="203" dy="23">itself, establish full conformance.</tspan>
-    <tspan x="203" dy="23">All other applicability rules still apply.</tspan>
+  <rect x="28" y="540" width="360" height="145" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  <text x="208" y="572" class="small-strong" text-anchor="middle">Scope note</text>
+  <text x="208" y="607" class="small" text-anchor="middle">
+    <tspan x="208" dy="0">This topology decision does not, by itself,</tspan>
+    <tspan x="208" dy="24">establish full conformance. All other</tspan>
+    <tspan x="208" dy="24">applicability rules still apply.</tspan>
   </text>
 
-  <path d="M600 258 L600 304" class="line"/>
-  <polygon points="600,318 590,302 610,302" fill="#0b3a67"/>
-  <text x="625" y="289" class="branch">YES</text>
+  <path d="M600 278 L600 318" class="line"/>
+  <text x="626" y="303" class="branch">YES</text>
 
-  <rect x="430" y="318" width="730" height="190" rx="16" fill="#fff6dd" stroke="#a86600" stroke-width="3"/>
-  <text x="795" y="354" class="question" text-anchor="middle">
-    <tspan x="795" dy="0">Do the component relationships satisfy the</tspan>
-    <tspan x="795" dy="30">Agent Module control model?</tspan>
+  <rect x="415" y="318" width="755" height="202" rx="18" fill="#fff8e6" stroke="#a86600" stroke-width="3"/>
+  <text x="792" y="356" class="question" text-anchor="middle">
+    <tspan x="792" dy="0">Do the component relationships satisfy</tspan>
+    <tspan x="792" dy="31">the Agent Module control model?</tspan>
   </text>
-  <text x="470" y="420" class="body">
-    <tspan x="470" dy="0">- registration using the selected permitted method</tspan>
-    <tspan x="470" dy="27">- Security Administrator enablement and disablement</tspan>
-    <tspan x="470" dy="27">- applicable communication protection under FTP_DIT_EXT.1</tspan>
-  </text>
-
-  <path d="M665 508 L665 558" class="line"/>
-  <polygon points="665,572 655,556 675,556" fill="#0b3a67"/>
-  <text x="690" y="544" class="branch">YES</text>
-
-  <path d="M960 508 L960 558" class="line"/>
-  <polygon points="960,572 950,556 970,556" fill="#0b3a67"/>
-  <text x="985" y="544" class="branch">NO</text>
-
-  <rect x="430" y="572" width="470" height="125" rx="16" fill="#e9f7ef" stroke="#287d52" stroke-width="3"/>
-  <text x="665" y="610" class="outcome" text-anchor="middle">
-    <tspan x="665" dy="0">Use the Server + Agent</tspan>
-    <tspan x="665" dy="29">PP-Configuration</tspan>
-  </text>
-  <text x="665" y="678" class="small" text-anchor="middle">Map each TOE Component and relationship in the ST.</text>
-
-  <rect x="925" y="572" width="247" height="164" rx="16" fill="#fdecea" stroke="#b42318" stroke-width="3"/>
-  <text x="1048" y="604" class="outcome" text-anchor="middle">
-    <tspan x="1048" dy="0">Server-only is not an</tspan>
-    <tspan x="1048" dy="27">alternative allocation path</tspan>
-  </text>
-  <text x="1048" y="667" class="small" text-anchor="middle">
-    <tspan x="1048" dy="0">Use another approved</tspan>
-    <tspan x="1048" dy="22">PP-Configuration or request</tspan>
-    <tspan x="1048" dy="22">AppSW-iTC guidance.</tspan>
+  <text x="452" y="428" class="body">
+    <tspan x="452" dy="0">• registration using the selected permitted method</tspan>
+    <tspan x="452" dy="29">• Security Administrator enablement and disablement</tspan>
+    <tspan x="452" dy="29">• applicable communication protection under FTP_DIT_EXT.1</tspan>
   </text>
 
+  <path d="M665 520 L665 550" class="line"/>
+  <text x="692" y="557" class="branch">YES</text>
+
+  <path d="M1020 520 L1020 550" class="line"/>
+  <text x="1047" y="557" class="branch">NO</text>
+
+  <rect x="405" y="570" width="450" height="150" rx="16" fill="#edf9f1" stroke="#287d52" stroke-width="3"/>
+  <text x="630" y="610" class="outcome" text-anchor="middle">
+    <tspan x="652" dy="0">Use the Server + Agent</tspan>
+    <tspan x="652" dy="29">PP-Configuration</tspan>
+  </text>
+  <text x="630" y="679" class="small" text-anchor="middle">
+    <tspan x="630" dy="0">Map each TOE Component and</tspan>
+    <tspan x="630" dy="22">relationship in the ST.</tspan>
+  </text>
+
+  <rect x="875" y="570" width="297" height="180" rx="16" fill="#fff8e6" stroke="#a86600" stroke-width="3"/>
+  <text x="1023" y="609" class="outcome" text-anchor="middle">
+    <tspan x="1023" dy="0">Server-only is not</tspan>
+    <tspan x="1023" dy="27">an alternative</tspan>
+    <tspan x="1023" dy="27">allocation path</tspan>
+  </text>
+  <text x="1023" y="690" class="small" text-anchor="middle">
+    <tspan x="1023" dy="0">Use another approved</tspan>
+    <tspan x="1023" dy="22">PP-Configuration or request</tspan>
+    <tspan x="1023" dy="22">AppSW-iTC guidance.</tspan>
+  </text>
+
+  <g aria-label="Decision-flow legend">
+    <path d="M30 739 L78 739" class="line"/>
+    <text x="94" y="745" class="legend">Arrows show decision flow; labels identify the outcome.</text>
+  </g>
 </svg>

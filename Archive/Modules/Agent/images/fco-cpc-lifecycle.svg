@@ -1,123 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840" role="img" aria-labelledby="title desc">
   <title id="title">FCO CPC communication-pairing lifecycle</title>
-  <desc id="desc">A lifecycle that distinguishes the Security Administrator's communication-pairing control object from the realized communications between the represented TOE Component Instances. It shows enablement, a choice between a protected FTP_DIT registration channel and manual out-of-band registration, permitted communication while enabled, and blocking when a pairing or endpoint identity is disabled.</desc>
+  <desc id="desc">An explanatory lifecycle with three administrative steps: the Security Administrator enables a pairing and endpoint identity set; registration uses either a protected FTP_DIT_EXT.1 channel or out-of-band manual registration; and the enabled pairing permits communication. The administrative permission object is distinct from realized communication between the represented TOE Component Instances. Each endpoint can identify one managed instance or a set sharing a TOE Component identity, including Runtime Replicas. Later disabling the pairing or an endpoint identity blocks all communication authorized solely by that pairing; independently enabled pairings retain their own treatment.</desc>
   <defs>
-    <marker id="arrow-navy" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0,0 L11,5.5 L0,11 Z" fill="#0b3a67"/></marker>
-    <marker id="arrow-orange" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0,0 L11,5.5 L0,11 Z" fill="#a86600"/></marker>
+    <marker id="arrow-amber" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#a86600"/></marker>
+    <marker id="arrow-navy" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#0b3a67"/></marker>
   </defs>
   <style>
-    .title { font: 700 28px Arial, Helvetica, sans-serif; fill: #ffffff; }
-    .subtitle { font: 16px Arial, Helvetica, sans-serif; fill: #d9e2ec; }
-    .lane { font: 700 20px Arial, Helvetica, sans-serif; fill: #102a43; }
-    .card-title { font: 700 19px Arial, Helvetica, sans-serif; fill: #102a43; }
-    .body { font: 17px Arial, Helvetica, sans-serif; fill: #243b53; }
-    .small { font: 15px Arial, Helvetica, sans-serif; fill: #334e68; }
-    .tiny { font: 14px Arial, Helvetica, sans-serif; fill: #334e68; }
-    .white { font: 700 16px Arial, Helvetica, sans-serif; fill: #ffffff; }
-    .orange-line { fill: none; stroke: #a86600; stroke-width: 4; marker-end: url(#arrow-orange); }
-    .navy-line { fill: none; stroke: #0b3a67; stroke-width: 4; marker-end: url(#arrow-navy); }
-    .component-link { fill: none; stroke: #087e8b; stroke-width: 4; }
-    .blocked-line { fill: none; stroke: #0b3a67; stroke-width: 4; marker-end: url(#arrow-navy); }
+    text { font-family: Arial, Helvetica, sans-serif; fill: #243b53; }
+    .title { font-size: 28px; font-weight: 700; fill: #fff; }
+    .subtitle { font-size: 21px; fill: #e5edf5; }
+    .heading { font-size: 24px; font-weight: 700; fill: #102a43; }
+    .body { font-size: 21px; }
+    .small { font-size: 18px; }
+    .option { font-size: 21px; font-weight: 700; }
+    .step { fill: none; stroke: #a86600; stroke-width: 3; marker-end: url(#arrow-amber); }
   </style>
+  <rect width="1200" height="840" fill="#fff"/>
+  <rect x="30" y="24" width="1140" height="90" rx="14" fill="#0b3a67"/>
+  <text x="55" y="60" class="title">FCO_CPC_EXT.1 communication-pairing lifecycle</text>
+  <text x="55" y="91" class="subtitle">Administrative permission and realized instance communication are different objects.</text>
 
-  <rect width="1200" height="840" fill="#ffffff"/>
-  <rect x="30" y="24" width="1140" height="76" rx="14" fill="#0b3a67"/>
-  <text x="60" y="56" class="title">FCO_CPC_EXT.1 communication-pairing lifecycle</text>
-  <text x="60" y="81" class="subtitle">Administrative pairing controls permission; it is distinct from the realized communication between TOE Component Instances.</text>
+  <rect x="35" y="134" width="1130" height="264" rx="16" fill="#fff6dd" stroke="#a86600" stroke-width="3"/>
+  <text x="55" y="166" class="heading">Administrative control - FCO_CPC_EXT.1</text>
+  <rect x="55" y="186" width="300" height="200" rx="12" fill="#fff" stroke="#a86600" stroke-width="2"/>
+  <text x="75" y="217" class="heading">1  Enable pairing</text>
+  <text x="75" y="251" class="body"><tspan x="75">Security Administrator</tspan><tspan x="75" dy="27">authorizes the pairing</tspan><tspan x="75" dy="27">and endpoint identity set.</tspan></text>
+  <text x="75" y="342" class="small"><tspan x="75">Maps relationship type(s)</tspan><tspan x="75" dy="23">and endpoint identity model(s).</tspan></text>
+  <path d="M355 284 H390" class="step"/>
 
-  <!-- Administrative control lane -->
-  <rect x="35" y="125" width="1130" height="230" rx="16" fill="#fff6dd" stroke="#a86600" stroke-width="3"/>
-  <text x="65" y="158" class="lane">Administrative control layer — FCO_CPC_EXT.1</text>
+  <rect x="395" y="186" width="405" height="200" rx="12" fill="#fff" stroke="#a86600" stroke-width="2"/>
+  <text x="415" y="217" class="heading">2  Select registration</text>
+  <rect x="410" y="230" width="375" height="65" rx="8" fill="#e1f3f6" stroke="#087e8b" stroke-width="2"/>
+  <text x="597" y="255" class="option" text-anchor="middle">Protected FTP_DIT_EXT.1 channel</text>
+  <text x="597" y="280" class="small" text-anchor="middle">May cross an untrusted network</text>
+  <text x="597" y="318" class="option" text-anchor="middle">OR</text>
+  <rect x="410" y="326" width="375" height="52" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="597" y="348" class="option" text-anchor="middle">Out-of-band manual registration</text>
+  <text x="597" y="370" class="small" text-anchor="middle">No registration channel selected</text>
+  <path d="M800 284 H835" class="step"/>
 
-  <rect x="60" y="190" width="170" height="112" rx="12" fill="#ffffff" stroke="#a86600" stroke-width="3"/>
-  <text x="145" y="222" class="card-title" text-anchor="middle">Security Administrator</text>
-  <text x="145" y="251" class="small" text-anchor="middle">
-    <tspan x="145" dy="0">authorizes a permitted</tspan>
-    <tspan x="145" dy="20">communication pairing</tspan>
-  </text>
+  <rect x="840" y="186" width="305" height="200" rx="12" fill="#fff" stroke="#a86600" stroke-width="2"/>
+  <text x="860" y="217" class="heading">3  Pairing enabled</text>
+  <text x="860" y="251" class="body"><tspan x="860">Represented instances</tspan><tspan x="860" dy="27">may establish</tspan><tspan x="860" dy="27">permitted communication.</tspan></text>
+  <text x="860" y="351" class="small">Only while enabled.</text>
 
-  <path d="M230 246 L270 246" class="orange-line"/>
+  <path d="M992 398 V434" fill="none" stroke="#0b3a67" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#arrow-navy)"/>
+  <text x="972" y="424" class="small" text-anchor="end">governs permission</text>
+  <rect x="35" y="439" width="1130" height="202" rx="16" fill="#edf7f8" stroke="#087e8b" stroke-width="3"/>
+  <text x="55" y="471" class="heading">Realized communication - distinct from the administrative pairing</text>
+  <path d="M340 539 H380 M820 539 H860" fill="none" stroke="#087e8b" stroke-width="4"/>
+  <rect x="55" y="488" width="285" height="91" rx="10" fill="#fff" stroke="#087e8b" stroke-width="2"/>
+  <text x="197" y="516" class="heading" text-anchor="middle">Endpoint identity A</text>
+  <text x="197" y="543" class="body" text-anchor="middle"><tspan x="197">represented TOE</tspan><tspan x="197" dy="26">Component Instances</tspan></text>
+  <rect x="380" y="488" width="440" height="91" rx="10" fill="#e9f7ef" stroke="#287d52" stroke-width="2"/>
+  <text x="600" y="517" class="heading" text-anchor="middle">Permitted communication</text>
+  <text x="600" y="544" class="body" text-anchor="middle">between the represented instances</text>
+  <text x="600" y="569" class="small" text-anchor="middle">Not the pairing control object</text>
+  <rect x="860" y="488" width="285" height="91" rx="10" fill="#fff" stroke="#087e8b" stroke-width="2"/>
+  <text x="1002" y="516" class="heading" text-anchor="middle">Endpoint identity B</text>
+  <text x="1002" y="543" class="body" text-anchor="middle"><tspan x="1002">represented TOE</tspan><tspan x="1002" dy="26">Component Instances</tspan></text>
+  <text x="600" y="609" class="small" text-anchor="middle">Each endpoint identifies one managed instance, or a set sharing a TOE Component identity</text>
+  <text x="600" y="631" class="small" text-anchor="middle">(including Runtime Replicas).</text>
 
-  <rect x="270" y="174" width="275" height="144" rx="12" fill="#ffffff" stroke="#a86600" stroke-width="3"/>
-  <text x="407" y="207" class="card-title" text-anchor="middle">Enable pairing and identity set</text>
-  <text x="407" y="236" class="body" text-anchor="middle">
-    <tspan x="407" dy="0">Pairing maps to relationship type(s)</tspan>
-    <tspan x="407" dy="22">and endpoint identity model(s).</tspan>
-  </text>
-  <text x="407" y="286" class="tiny" text-anchor="middle">It is the administrative permission object.</text>
-
-  <path d="M545 246 L575 246" class="orange-line"/>
-
-  <rect x="575" y="155" width="310" height="182" rx="12" fill="#ffffff" stroke="#a86600" stroke-width="3"/>
-  <text x="730" y="187" class="card-title" text-anchor="middle">Registration selection</text>
-  <rect x="595" y="207" width="270" height="48" rx="8" fill="#e1f3f6" stroke="#087e8b" stroke-width="2"/>
-  <text x="730" y="229" class="small" text-anchor="middle">Protected registration channel: FTP_DIT_EXT.1</text>
-  <text x="730" y="247" class="tiny" text-anchor="middle">may be used over an untrusted network</text>
-  <rect x="595" y="268" width="270" height="48" rx="8" fill="#f0f4f8" stroke="#829ab1" stroke-width="2"/>
-  <text x="730" y="290" class="small" text-anchor="middle">Out-of-band manual registration</text>
-  <text x="730" y="308" class="tiny" text-anchor="middle">no registration channel is selected</text>
-
-  <path d="M885 246 L920 246" class="orange-line"/>
-
-  <rect x="920" y="190" width="215" height="112" rx="12" fill="#ffffff" stroke="#a86600" stroke-width="3"/>
-  <text x="1027" y="222" class="card-title" text-anchor="middle">Pairing enabled</text>
-  <text x="1027" y="251" class="small" text-anchor="middle">
-    <tspan x="1027" dy="0">The represented instances may</tspan>
-    <tspan x="1027" dy="20">establish permitted communication.</tspan>
-  </text>
-
-  <!-- Mapping from administrative pairing to realized communication -->
-  <path d="M1027 302 L1027 432" fill="none" stroke="#0b3a67" stroke-width="4" stroke-dasharray="9 7" marker-end="url(#arrow-navy)"/>
-  <text x="1044" y="375" class="tiny">governs permission</text>
-
-  <!-- Realized component-instance communications lane -->
-  <rect x="35" y="402" width="1130" height="210" rx="16" fill="#eaf4f8" stroke="#087e8b" stroke-width="3"/>
-  <text x="65" y="435" class="lane">Realized component-instance communication — only while the administrative pairing remains enabled</text>
-
-  <rect x="65" y="468" width="285" height="114" rx="12" fill="#ffffff" stroke="#087e8b" stroke-width="3"/>
-  <text x="207" y="499" class="card-title" text-anchor="middle">Endpoint identity A</text>
-  <text x="207" y="524" class="small" text-anchor="middle">
-    <tspan x="207" dy="0">one managed instance, or a set of</tspan>
-    <tspan x="207" dy="18">instances with a shared TOE</tspan>
-    <tspan x="207" dy="18">Component identity</tspan>
-    <tspan x="207" dy="18">(including Runtime Replicas)</tspan>
-  </text>
-
-  <path d="M350 525 L420 525" class="component-link"/>
-  <path d="M780 525 L850 525" class="component-link"/>
-
-  <rect x="420" y="457" width="360" height="136" rx="12" fill="#e1f3f6" stroke="#087e8b" stroke-width="3"/>
-  <text x="600" y="490" class="card-title" text-anchor="middle">Permitted communication is realized</text>
-  <text x="600" y="520" class="body" text-anchor="middle">
-    <tspan x="600" dy="0">between TOE Component Instances</tspan>
-    <tspan x="600" dy="22">represented by the endpoint identities.</tspan>
-  </text>
-  <text x="600" y="561" class="tiny" text-anchor="middle">This is not the same object as the administrative pairing.</text>
-
-  <rect x="850" y="468" width="285" height="114" rx="12" fill="#ffffff" stroke="#087e8b" stroke-width="3"/>
-  <text x="992" y="499" class="card-title" text-anchor="middle">Endpoint identity B</text>
-  <text x="992" y="524" class="small" text-anchor="middle">
-    <tspan x="992" dy="0">one managed instance, or a set of</tspan>
-    <tspan x="992" dy="18">instances with a shared TOE</tspan>
-    <tspan x="992" dy="18">Component identity</tspan>
-    <tspan x="992" dy="18">(including Runtime Replicas)</tspan>
-  </text>
-
-  <!-- Disable / blocked portion -->
-  <rect x="60" y="657" width="370" height="104" rx="12" fill="#fff6dd" stroke="#a86600" stroke-width="3"/>
-  <text x="245" y="690" class="card-title" text-anchor="middle">Later: Security Administrator disables</text>
-  <text x="245" y="718" class="small" text-anchor="middle">
-    <tspan x="245" dy="0">the pairing directly, or an endpoint identity</tspan>
-    <tspan x="245" dy="20">so that the pairing can no longer authorize it.</tspan>
-  </text>
-  <path d="M430 709 L500 709" class="blocked-line"/>
-  <rect x="500" y="657" width="635" height="104" rx="12" fill="#f0f4f8" stroke="#0b3a67" stroke-width="3"/>
-  <text x="817" y="690" class="card-title" text-anchor="middle">Blocked</text>
-  <text x="817" y="718" class="body" text-anchor="middle">
-    <tspan x="817" dy="0">All communication authorized solely by that pairing is prevented.</tspan>
-    <tspan x="817" dy="22">A distinct, independently enabled pairing is evaluated on its own terms.</tspan>
-  </text>
-
-  <text x="600" y="809" class="small" text-anchor="middle">Explanatory; normative text and Evaluation Activities control.</text>
+  <rect x="55" y="663" width="400" height="125" rx="12" fill="#fff6dd" stroke="#a86600" stroke-width="2"/>
+  <text x="75" y="694" class="heading">4  Later: disable</text>
+  <text x="75" y="720" class="small"><tspan x="75">Security Administrator disables the pairing</tspan><tspan x="75" dy="25">or an endpoint identity so the pairing can</tspan><tspan x="75" dy="25">no longer authorize communication.</tspan></text>
+  <path d="M455 724 H507" fill="none" stroke="#0b3a67" stroke-width="3"/>
+  <circle cx="481" cy="724" r="13" fill="#fff" stroke="#0b3a67" stroke-width="3"/>
+  <path d="M472 733 L490 715" stroke="#0b3a67" stroke-width="3"/>
+  <rect x="510" y="663" width="635" height="125" rx="12" fill="#f1f5f9" stroke="#0b3a67" stroke-width="2"/>
+  <text x="530" y="694" class="heading">Solely authorized communication is blocked</text>
+  <text x="530" y="721" class="body"><tspan x="530">Prevent all communication authorized solely by that pairing.</tspan><tspan x="530" dy="26">Independently enabled pairings are evaluated</tspan><tspan x="530" dy="26">on their own terms.</tspan></text>
+  <text x="600" y="822" class="small" text-anchor="middle">Explanatory; normative text and Evaluation Activities control.</text>
 </svg>
