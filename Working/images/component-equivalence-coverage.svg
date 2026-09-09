@@ -1,85 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
   <title id="title">Illustrative component implementation equivalence and retained coverage</title>
-  <desc id="desc">An explanatory diagram showing that substantiated implementation equivalence permits representative execution only for identified implementation-specific activity portions while artifacts, interfaces, channels, configurations, and end-to-end behavior remain separately covered.</desc>
+  <desc id="desc">Identify SFR Implementation Instances, substantiate equivalence prerequisites and evidence for every class member, and only then use representative execution for identified implementation-specific activity portions. Without the prerequisites, representative execution is unavailable. A separate coverage band retains artifacts, updates, interfaces, channels, configurations, deployment, and end-to-end behavior. Class membership does not transfer compliance or remove a Component from the TOE.</desc>
   <style>
     .title { font: 700 29px Arial, Helvetica, sans-serif; fill: #ffffff; }
-    .subtitle { font: 17px Arial, Helvetica, sans-serif; fill: #dbeafe; }
-    .section { font: 700 18px Arial, Helvetica, sans-serif; fill: #102a43; }
-    .label { font: 700 20px Arial, Helvetica, sans-serif; fill: #102a43; }
-    .body { font: 18px Arial, Helvetica, sans-serif; fill: #243b53; }
-    .small { font: 16px Arial, Helvetica, sans-serif; fill: #334e68; }
-    .instance { fill: #eaf4f8; stroke: #087e8b; stroke-width: 2; }
-    .class { fill: #eef4ff; stroke: #0b3a67; stroke-width: 3; stroke-dasharray: 9 6; }
+    .subtitle { font: 18px Arial, Helvetica, sans-serif; fill: #dbeafe; }
+    .section { font: 700 24px Arial, Helvetica, sans-serif; fill: #0b3a67; }
+    .label { font: 700 24px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .body { font: 21px Arial, Helvetica, sans-serif; fill: #243b53; }
+    .small { font: 18px Arial, Helvetica, sans-serif; fill: #334e68; }
+    .instance { fill: #f0fbfd; stroke: #087e8b; stroke-width: 2; }
+    .class { fill: #f7fbff; stroke: #0b3a67; stroke-width: 3; stroke-dasharray: 9 6; }
     .execution { fill: #e9f7ef; stroke: #287d52; stroke-width: 3; }
     .retained { fill: #fff8e7; stroke: #a86600; stroke-width: 2; }
-    .guard { fill: #fdecea; stroke: #b42318; stroke-width: 2; }
     .arrow { fill: none; stroke: #0b3a67; stroke-width: 3; }
   </style>
 
   <rect width="1400" height="760" fill="#ffffff"/>
-  <rect x="0" y="0" width="1400" height="80" fill="#0b3a67"/>
-  <text x="48" y="37" class="title">Illustrative evidence reuse with complete retained coverage</text>
-  <text x="48" y="64" class="subtitle">Explanatory only: representative execution is not sampling and does not reduce Evaluation Activity coverage.</text>
+  <rect width="1400" height="80" fill="#0b3a67"/>
+  <text x="36" y="37" class="title">Illustrative evidence reuse with complete retained coverage</text>
+  <text x="36" y="65" class="subtitle">Explanatory only: substantiate equivalence first; reuse only the permitted implementation-specific execution.</text>
 
-  <text x="46" y="119" class="section">1. Name implementation instances</text>
-  <rect x="46" y="153" width="275" height="86" rx="12" class="instance"/>
-  <text x="184" y="185" class="label" text-anchor="middle">Component A, configuration X</text>
-  <text x="184" y="214" class="small" text-anchor="middle">SFR Implementation Instance A</text>
-  <rect x="46" y="264" width="275" height="86" rx="12" class="instance"/>
-  <text x="184" y="296" class="label" text-anchor="middle">Component B, configuration X</text>
-  <text x="184" y="325" class="small" text-anchor="middle">SFR Implementation Instance B</text>
-  <rect x="46" y="375" width="275" height="86" rx="12" class="instance"/>
-  <text x="184" y="407" class="label" text-anchor="middle">Component A, replica A-n</text>
-  <text x="184" y="436" class="small" text-anchor="middle">additional deployed occurrence only</text>
-  <text x="46" y="493" class="small">Runtime Replicas are added occurrences,</text>
-  <text x="46" y="515" class="small">not separate class members.</text>
+  <text x="36" y="127" class="section">1. Identify instances</text>
+  <text x="366" y="127" class="section">2. Establish equivalence</text>
+  <text x="924" y="127" class="section">3. Limit execution reuse</text>
 
-  <path d="M321 245 L390 245" class="arrow"/>
-  <polygon points="390,245 372,234 372,256" fill="#0b3a67"/>
+  <rect x="36" y="162" width="292" height="110" rx="13" class="instance"/>
+  <text x="58" y="196" class="label">Component A</text>
+  <text x="58" y="225" class="body">Configuration X</text>
+  <text x="58" y="254" class="small">SFR Implementation Instance A</text>
+  <rect x="36" y="292" width="292" height="110" rx="13" class="instance"/>
+  <text x="58" y="326" class="label">Component B</text>
+  <text x="58" y="355" class="body">Configuration X</text>
+  <text x="58" y="384" class="small">SFR Implementation Instance B</text>
+  <rect x="36" y="422" width="292" height="85" rx="13" class="instance"/>
+  <text x="58" y="456" class="label">Runtime Replica A-n</text>
+  <text x="58" y="487" class="small">Additional deployed occurrence</text>
+  <text x="36" y="535" class="small"><tspan x="36">Runtime Replicas are not separate</tspan><tspan x="36" dy="23">equivalence-class members.</tspan></text>
 
-  <text x="390" y="119" class="section">2. Establish class membership</text>
-  <rect x="390" y="153" width="431" height="348" rx="15" class="class"/>
-  <text x="606" y="184" class="label" text-anchor="middle">Implementation-equivalence class</text>
-  <text x="420" y="218" class="small">Same security-relevant implementation and version</text>
-  <text x="420" y="244" class="small">Same wrapper, integration, role, and exercised path</text>
-  <text x="420" y="270" class="small">Same relevant build options and configuration</text>
-  <text x="420" y="296" class="small">Same provider, platform service, and interface</text>
-  <text x="420" y="322" class="small">Peripheral differences shown not to affect scope</text>
-  <line x1="420" y1="345" x2="791" y2="345" stroke="#829ab1" stroke-width="2"/>
-  <text x="420" y="376" class="small">Evidence for every member:</text>
-  <text x="420" y="399" class="small">artifact or hash; dependency manifest;</text>
-  <text x="420" y="422" class="small">build/configuration record; observed path.</text>
-  <text x="420" y="460" class="small">Without prerequisites, representative</text>
-  <text x="420" y="483" class="small">execution is not available.</text>
+  <path d="M328 217 H345 V347 H328 M345 282 H366" class="arrow"/>
+  <polygon points="366,282 353,274 353,290" fill="#0b3a67"/>
 
-  <path d="M821 245 L877 245" class="arrow"/>
-  <polygon points="877,245 859,234 859,256" fill="#0b3a67"/>
+  <rect x="366" y="162" width="520" height="396" rx="15" class="class"/>
+  <text x="390" y="198" class="label">Equivalence prerequisites</text>
+  <text x="390" y="232" class="body"><tspan x="390">Same security-relevant implementation</tspan><tspan x="390" dy="26">and version</tspan></text>
+  <text x="390" y="290" class="body">Same wrapper, integration, role, exercised path</text>
+  <text x="390" y="322" class="body">Same relevant build options and configuration</text>
+  <text x="390" y="354" class="body">Same provider, platform service, and interface</text>
+  <text x="390" y="386" class="body">Peripheral differences shown not to affect scope</text>
+  <line x1="390" y1="402" x2="862" y2="402" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="390" y="429" class="body" style="font-weight:700">Evidence for every member</text>
+  <text x="390" y="455" class="small"><tspan x="390">Artifact or hash; dependency manifest;</tspan><tspan x="390" dy="24">build/configuration record; observed path.</tspan></text>
+  <rect x="380" y="495" width="492" height="51" rx="8" fill="#0b3a67"/>
+  <text x="398" y="517" class="small" style="fill:#ffffff; font-weight:700">Prerequisites unmet?</text>
+  <text x="398" y="538" class="small" style="fill:#ffffff">Representative execution is not available.</text>
 
-  <text x="877" y="119" class="section">3. Reuse only scoped execution</text>
-  <rect x="877" y="153" width="477" height="172" rx="15" class="execution"/>
-  <text x="1115" y="184" class="label" text-anchor="middle">Representative execution</text>
-  <text x="1115" y="214" class="small" text-anchor="middle">Exercise one or more exact deployed instances</text>
-  <text x="1115" y="238" class="small" text-anchor="middle">for identified implementation-specific EA portions.</text>
-  <text x="1115" y="272" class="small" text-anchor="middle">Keep class mapping and membership evidence.</text>
-  <text x="1115" y="295" class="small" text-anchor="middle">Record a verdict for each applicable requirement.</text>
+  <path d="M886 307 H924" class="arrow"/>
+  <polygon points="924,307 911,299 911,315" fill="#0b3a67"/>
+  <rect x="924" y="162" width="440" height="260" rx="15" class="execution"/>
+  <text x="948" y="198" class="label">Representative execution</text>
+  <text x="948" y="231" class="body" style="font-weight:700; fill:#287d52">Only when prerequisites are met:</text>
+  <text x="948" y="262" class="body"><tspan x="948">Exercise one or more exact deployed</tspan><tspan x="948" dy="27">instances for identified implementation-</tspan><tspan x="948" dy="27">specific activity portions.</tspan></text>
+  <text x="948" y="350" class="small"><tspan x="948">Keep class mapping and membership evidence.</tspan><tspan x="948" dy="27">Record a verdict for every applicable</tspan><tspan x="948" dy="24">requirement.</tspan></text>
+  <rect x="924" y="444" width="440" height="114" rx="13" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="948" y="477" class="label">Not sampling</text>
+  <text x="948" y="508" class="body"><tspan x="948">Do not reduce Evaluation Activity</tspan><tspan x="948" dy="27">coverage.</tspan></text>
 
-  <text x="877" y="362" class="section">Retained coverage at the stated EA scope</text>
-  <rect x="877" y="397" width="225" height="94" rx="11" class="retained"/>
-  <rect x="1129" y="397" width="225" height="94" rx="11" class="retained"/>
-  <rect x="877" y="518" width="225" height="94" rx="11" class="retained"/>
-  <rect x="1129" y="518" width="225" height="94" rx="11" class="retained"/>
-  <text x="990" y="425" class="label" text-anchor="middle">Artifacts / updates</text>
-  <text x="990" y="453" class="small" text-anchor="middle">identity, delivery, verification</text>
-  <text x="1242" y="425" class="label" text-anchor="middle">Interfaces / channels</text>
-  <text x="1242" y="453" class="small" text-anchor="middle">trust, identity, traffic, recovery</text>
-  <text x="990" y="546" fill="#102a43" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle">Configuration / deployment</text>
-  <text x="990" y="574" class="small" text-anchor="middle">platform and topology differences</text>
-  <text x="1242" y="546" class="label" text-anchor="middle">End-to-end behavior</text>
-  <text x="1242" y="574" class="small" text-anchor="middle">integration and required testing</text>
+  <text x="36" y="594" class="section">Coverage retained in every case - at the stated Evaluation Activity scope</text>
+  <rect x="36" y="614" width="310" height="91" rx="12" class="retained"/>
+  <rect x="366" y="614" width="310" height="91" rx="12" class="retained"/>
+  <rect x="696" y="614" width="310" height="91" rx="12" class="retained"/>
+  <rect x="1026" y="614" width="338" height="91" rx="12" class="retained"/>
+  <text x="54" y="646" class="label">Artifacts / updates</text>
+  <text x="54" y="676" class="small">Identity, delivery, verification</text>
+  <text x="384" y="646" class="label">Interfaces / channels</text>
+  <text x="384" y="676" class="small">Trust, identity, traffic, recovery</text>
+  <text x="714" y="646" class="label">Configuration</text>
+  <text x="714" y="673" class="small"><tspan x="714">Deployment, platform,</tspan><tspan x="714" dy="22">and topology differences</tspan></text>
+  <text x="1044" y="646" class="label">End-to-end behavior</text>
+  <text x="1044" y="676" class="small">Integration and required testing</text>
 
-  <rect x="46" y="652" width="1308" height="72" rx="12" class="guard"/>
-  <text x="76" y="684" class="label">Guardrail:</text>
-  <text x="194" y="684" class="body">Class membership does not transfer compliance or remove a Component from the TOE boundary.</text>
-  <text x="76" y="710" class="small">Representative execution removes only duplicate implementation-specific activity; other stated coverage remains.</text>
+  <text x="36" y="731" class="body" style="font-weight:700">Class membership does not transfer compliance or remove a Component from the TOE boundary.</text>
+  <text x="36" y="753" class="small">Only duplicate implementation-specific execution is removed; all other stated coverage remains.</text>
 </svg>
