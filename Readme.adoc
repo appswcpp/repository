@@ -29,6 +29,11 @@ repository is used to facilitate collaboration and development on the
 draft document. See the link:#Release-Version[release] section if you
 are looking for the officially released version for evaluations.
 
+The v2 base cPP and its Supporting Document are both generated from
+`input/application.xml`. Evaluation Activities embedded in that XML are
+projected into `output/application-sd.html`; `Archive/cPP/SD_APP_SW.adoc`
+is the historical v1.0e SD and is not a v2 production source.
+
 === Draft Version
 
 * https://appswcpp.github.io/repository/Version-2/application-release.html[collaborative
@@ -85,8 +90,8 @@ working with Transforms Submodule]
 
 === Repository Content
 
-* input - Contains the `meat' of the project. It's the input content (in
-XML form) that gets transformed to readable html.
+* input - Contains the authoritative v2 XML source for both the base cPP
+and the generated base Supporting Document.
 * output - The output directory where the html is placed after
 transformation.
 * output/images - The directory where images are stored

@@ -1,5 +1,11 @@
 
 == Introduction
-This is the repository for the Appliciation Software iTC. 
+This is the repository for the Appliciation Software iTC.
+
+Content under `Archive/` is retained as historical material and is not an
+authoritative source for the v2 production build. In particular,
+`cPP/SD_APP_SW.adoc` is the archived v1.0e Supporting Document; the v2 base
+Supporting Document is generated from `../input/application.xml` and its
+embedded Evaluation Activities.
 
 Please use the Issues feature to provide any comments.

@@ -3,8 +3,9 @@
 :toc:
 :table-caption: Table
 :icons: font
-:revnumber: 1.0e
-:revdate: 2024-02-15
+:imagesdir: images
+:revnumber: 2.0
+:revdate: 2026-07-21
 
 :iTC-longname: iTC for Application Software
 :iTC-shortname: AppSW-iTC
@@ -34,6 +35,10 @@ This PP-Configuration was developed by the {iTC-longname} international Technica
 |2024-02-15
 |Incorporated feedback received following initial release.
 
+|2.0
+|2026-07-21
+|Draft-review updates.
+
 |===
 
 :sectnums:
@@ -44,12 +49,33 @@ The purpose of a PP-Configuration is to combine Protection Profiles (PPs) and PP
 
 This PP-Configuration is for enterprise server applications.
 
+A TOE with separately deployed instances of multiple distinct TOE Components that collectively provide the TOE security functionality shall use the PP-Configuration for Enterprise Server Applications and Agent/Application Component(s) when its component relationships satisfy the Agent Module's registration, enablement, disablement, and protected-communication model. Multiple deployed instances of the same TOE Component are Runtime Replicas when they meet the base cPP definition and do not, by themselves, trigger this requirement. This Server-only PP-Configuration does not define an alternative distributed-TOE allocation path; a distributed product that does not fit the Agent Module control model requires another approved PP-Configuration or iTC guidance.
+
+.Base cPP terminology used in Figures 1 and 2
+* A _TOE Component_ is a named, logical, separately deployable portion of the TOE that is identified in the ST and mapped to the base cPP, applicable PP-Modules, and relevant SFRs (Section 1.2.2, _Technical Terms_, and Section 1.5, _Distributed and Microservices TOE Architectures_).
+* _TOE Component Instance_, _Runtime Replica_, and _Communication Relationship Type_ are defined in Section 1.2.2, _Technical Terms_.
+* In Figure 2, each S-1 through S-n or A-1 through A-n box is a TOE Component Instance; its connected TOE Component box identifies the logical TOE Component; qualifying instances of the same TOE Component are Runtime Replicas; and R1 denotes a Communication Relationship Type.
+
+The following figures illustrate this applicability rule. They are explanatory; the conformance text and the requirements in the claimed PP-Configuration components control.
+
+[[fig-pp-configuration-selection]]
+.PP-Configuration selection for TOE Components and deployed instances
+image::pp-configuration-selection.svg[Decision flow for selecting the Server-only or Server and Agent PP-Configuration,pdfwidth=100%,align=center]
+
+[[fig-toe-components-runtime-replicas]]
+.TOE Components compared with their deployed instances
+image::toe-components-and-runtime-replicas.svg[Examples contrasting one TOE Component with multiple Runtime Replicas and distinct Server and Agent TOE Components,pdfwidth=100%,align=center]
+
+NOTE: Only TOE Components inside the TOE boundary count toward this applicability decision. Server and Agent are PP-Configuration roles; they do not imply communication direction, hosting relationship, or privilege. One relationship line in the topology figure represents a Communication Relationship Type rather than every runtime connection between replicas.
+
+A Server Application payload executing in a Linux container remains subject to the base cPP and Supporting Document guidance for Linux Running-Payload Activities, including separate artifact, update-lifecycle, runtime or orchestrator dependency, and external-interface or channel coverage at the layer stated by each EA.
+
 === PP-Configuration Reference
 
 This PP-Configuration is identified as follows:
 
 * PP-Configuration for Enterprise Server Applications, Version {revnumber}, {revdate}
-* As a shorthand reference, it can be identified as "CFG_APP-Server_V{revnumber}""
+* As a shorthand reference, it can be identified as "CFG_APP-Server_V{revnumber}"
 
 === PP-Configuration Components
 
@@ -59,10 +85,10 @@ This PP-Configuration includes the following components:
 [cols="1,3"]
 |===
 |[base PP] 
-|cPP_APP_SW_V1.0
+|cPP_APP_SW_V2.0
 
 |[PP-Module 1] 
-|MOD_Server_v1.0
+|MOD_Server_v2.0
 
 |===
 
@@ -70,11 +96,11 @@ This PP-Configuration includes the following components:
 
 === CC Statement
 
-To be conformant to this PP-Configuration, an ST must demonstrate Exact Conformance, as defined by the CC and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs.
+To be conformant to this PP-Configuration, an ST must demonstrate Exact Conformance as defined by CC:2022.
 
 === CC Conformance Claims
 
-This PP-Configuration, and its components specified in section 1.3, are conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version 3.1, Release 5 [CC].
+This PP-Configuration, and its components specified in section 1.3, are conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria CC:2022, Revision 1 [CC].
 
 == SAR Statement
 
@@ -89,17 +115,16 @@ The set of SARs specified for this PP-Configuration are taken from, and identica
 |===
 |[#CC1]#[CC1]# |Common Criteria for Information Technology Security Evaluation, +
 Part 1: Introduction and General Model, +
-CCMB-2017-04-001, Version 3.1 Revision 5, April 2017.
+CCMB-2022-11-001, CC:2022, Revision 1, November 2022.
 |[#CC2]#[CC2]# |Common Criteria for Information Technology Security Evaluation, +
 Part 2: Security Functional Components, +
-CCMB-2017-04-002, Version 3.1 Revision 5, April 2017.
+CCMB-2022-11-002, CC:2022, Revision 1, November 2022.
 |[#CC3]#[CC3]# |Common Criteria for Information Technology Security Evaluation, +
 Part 3: Security Assurance Components, +
-CCMB-2017-04-003, Version 3.1 Revision 5, April 2017.
+CCMB-2022-11-003, CC:2022, Revision 1, November 2022.
 |[#CEM]#[CEM]# |Common Methodology for Information Technology Security Evaluation, +
 Evaluation Methodology, +
-CCMB-2017-04-004, Version 3.1 Revision 5, April 2017.
-|[#addenda]#[addenda]# |CC and CEM addenda, +
-Exact Conformance, Selection-Based SFRs, Optional SFRs, +
-Version 0.5, May 2017.
+CCMB-2022-11-006, CC:2022, Revision 1, November 2022.
+|[#ERR]#[ERR]# |Errata and Interpretation for CC:2022 (Release 1) and CEM:2022 (Release 1), +
+CCMB-2024-02-001, Version 1.0, 1 February 2024.
 |===

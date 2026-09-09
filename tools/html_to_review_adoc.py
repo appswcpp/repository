@@ -11,6 +11,7 @@ from lxml import html
 
 
 SKIP_TAGS = {"script", "style", "noscript"}
+REVIEW_TITLE = ""
 
 
 def clean(text: str) -> str:
@@ -71,7 +72,7 @@ def emit_block(node) -> list[str]:
         title = text_content(node)
         if not title:
             return []
-        if title == getattr(node.getroottree(), "_review_title", None):
+        if title == REVIEW_TITLE:
             return []
         if title == "Contents":
             return []
@@ -99,13 +100,14 @@ def emit_block(node) -> list[str]:
 
 
 def convert(src: Path, dst: Path) -> None:
-    root = html.fromstring(src.read_bytes().decode("utf-8", errors="replace"))
+    global REVIEW_TITLE
+    root = html.fromstring(src.read_bytes())
     body = root.find("body")
     if body is None:
         raise RuntimeError("HTML body not found")
 
     title = root.findtext(".//title") or "Application Software cPP Review Draft"
-    root.getroottree()._review_title = clean(title)
+    REVIEW_TITLE = clean(title)
     lines = [
         f"= {clean(title)}",
         ":doctype: book",

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">PP-Configuration selection for TOE Components and deployed instances</title>
+  <desc id="desc">Decision flow distinguishing a server-only TOE with one TOE Component and Runtime Replicas, a distributed TOE governed by the Agent Module control model, and a distributed TOE that requires another approved PP-Configuration or iTC guidance.</desc>
+  <style>
+    .heading { font: 700 25px Arial, Helvetica, sans-serif; fill: #ffffff; }
+    .question { font: 700 23px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .outcome { font: 700 22px Arial, Helvetica, sans-serif; fill: #102a43; }
+    .body { font: 19px Arial, Helvetica, sans-serif; fill: #243b53; }
+    .small { font: 17px Arial, Helvetica, sans-serif; fill: #334e68; }
+    .branch { font: 700 18px Arial, Helvetica, sans-serif; fill: #0b3a67; }
+    .line { fill: none; stroke: #0b3a67; stroke-width: 4; }
+  </style>
+
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <rect x="330" y="24" width="540" height="72" rx="14" fill="#0b3a67"/>
+  <text x="600" y="54" class="heading" text-anchor="middle">
+    <tspan x="600" dy="0">Enterprise Server Application TOE</tspan>
+    <tspan x="600" dy="28">TOE boundary already identified</tspan>
+  </text>
+
+  <path d="M600 96 L600 128" class="line"/>
+  <polygon points="600,142 590,126 610,126" fill="#0b3a67"/>
+
+  <rect x="215" y="142" width="770" height="116" rx="16" fill="#eaf4f8" stroke="#0b3a67" stroke-width="3"/>
+  <text x="600" y="178" class="question" text-anchor="middle">
+    <tspan x="600" dy="0">Does the TOE have separately deployed instances of</tspan>
+    <tspan x="600" dy="31">more than one distinct TOE Component that collectively</tspan>
+    <tspan x="600" dy="31">provide TOE security functionality?</tspan>
+  </text>
+
+  <path d="M215 200 L112 200 L112 316" class="line"/>
+  <polygon points="112,330 102,314 122,314" fill="#0b3a67"/>
+  <text x="152" y="190" class="branch" text-anchor="middle">NO</text>
+
+  <rect x="28" y="330" width="350" height="170" rx="16" fill="#e9f7ef" stroke="#287d52" stroke-width="3"/>
+  <text x="203" y="367" class="outcome" text-anchor="middle">Server-only may apply</text>
+  <text x="203" y="403" class="body" text-anchor="middle">
+    <tspan x="203" dy="0">One TOE Component may have Runtime</tspan>
+    <tspan x="203" dy="25">Replicas. Instance count and horizontal</tspan>
+    <tspan x="203" dy="25">scaling alone do not trigger the</tspan>
+    <tspan x="203" dy="25">Agent Module.</tspan>
+  </text>
+
+  <rect x="28" y="525" width="350" height="115" rx="12" fill="#f4f7fa" stroke="#829ab1" stroke-width="2"/>
+  <text x="203" y="556" class="small" text-anchor="middle">
+    <tspan x="203" dy="0">This topology decision does not, by</tspan>
+    <tspan x="203" dy="23">itself, establish full conformance.</tspan>
+    <tspan x="203" dy="23">All other applicability rules still apply.</tspan>
+  </text>
+
+  <path d="M600 258 L600 304" class="line"/>
+  <polygon points="600,318 590,302 610,302" fill="#0b3a67"/>
+  <text x="625" y="289" class="branch">YES</text>
+
+  <rect x="430" y="318" width="730" height="190" rx="16" fill="#fff6dd" stroke="#a86600" stroke-width="3"/>
+  <text x="795" y="354" class="question" text-anchor="middle">
+    <tspan x="795" dy="0">Do the component relationships satisfy the</tspan>
+    <tspan x="795" dy="30">Agent Module control model?</tspan>
+  </text>
+  <text x="470" y="420" class="body">
+    <tspan x="470" dy="0">- registration using the selected permitted method</tspan>
+    <tspan x="470" dy="27">- Security Administrator enablement and disablement</tspan>
+    <tspan x="470" dy="27">- applicable communication protection under FTP_DIT_EXT.1</tspan>
+  </text>
+
+  <path d="M665 508 L665 558" class="line"/>
+  <polygon points="665,572 655,556 675,556" fill="#0b3a67"/>
+  <text x="690" y="544" class="branch">YES</text>
+
+  <path d="M960 508 L960 558" class="line"/>
+  <polygon points="960,572 950,556 970,556" fill="#0b3a67"/>
+  <text x="985" y="544" class="branch">NO</text>
+
+  <rect x="430" y="572" width="470" height="125" rx="16" fill="#e9f7ef" stroke="#287d52" stroke-width="3"/>
+  <text x="665" y="610" class="outcome" text-anchor="middle">
+    <tspan x="665" dy="0">Use the Server + Agent</tspan>
+    <tspan x="665" dy="29">PP-Configuration</tspan>
+  </text>
+  <text x="665" y="678" class="small" text-anchor="middle">Map each TOE Component and relationship in the ST.</text>
+
+  <rect x="925" y="572" width="247" height="164" rx="16" fill="#fdecea" stroke="#b42318" stroke-width="3"/>
+  <text x="1048" y="604" class="outcome" text-anchor="middle">
+    <tspan x="1048" dy="0">Server-only is not an</tspan>
+    <tspan x="1048" dy="27">alternative allocation path</tspan>
+  </text>
+  <text x="1048" y="667" class="small" text-anchor="middle">
+    <tspan x="1048" dy="0">Use another approved</tspan>
+    <tspan x="1048" dy="22">PP-Configuration or request</tspan>
+    <tspan x="1048" dy="22">AppSW-iTC guidance.</tspan>
+  </text>
+
+</svg>
